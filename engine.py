@@ -1,6 +1,27 @@
+import hashlib
+import os
+import json
+from pathlib import Path
+from datetime import datetime
+
 class EthicHawksEngine:
     def __init__(self):
         self.output_file = "PORTFOLIO.md"
+        self.hash_manifest_file = "hash_manifest.sha256"
+        self.output_pdf = "PORTFOLIO.pdf"
+        self.hash_registry = {}
+
+    def calculate_file_hash(self, filepath):
+        """Calculate SHA-256 hash of a file"""
+        sha256_hash = hashlib.sha256()
+        try:
+            with open(filepath, "rb") as f:
+                for byte_block in iter(lambda: f.read(4096), b""):
+                    sha256_hash.update(byte_block)
+            return sha256_hash.hexdigest()
+        except FileNotFoundError:
+            print(f"[⚠️] File not found: {filepath}")
+            return None
 
     def build_cover_page(self):
         print("[⚡] Building Formal Portfolio Cover Page...")
@@ -15,24 +36,245 @@ class EthicHawksEngine:
         with open(self.output_file, "r+") as f:
             content = f.read()
             f.seek(0, 0)
-            f.write("# PORTFOLIO OF EVIDENCE\n\n## Table of Contents\n- [XIII. Board Governance](#xiii-board-governance-and-compliance-oversight)\n- [XIV. Regulator Escalation](#xiv-regulator-escalation-and-documentary-evidence)\n- [XV. SHA-256 Audit Log](#xv-evidence-integrity-and-sha-256-audit-log)\n- [XVI. SAHRC Update](#xvi-sahrc-forensic-update-and-systemic-failure)\n- [XVII. Supplementary Evidence](#xvii-supplementary-evidence-dossier)\n\n---\n" + content)
+            f.write("# PORTFOLIO OF EVIDENCE\n\n## Table of Contents\n- [XIII. Board Governance](#xiii-board-governance-and-compliance-oversight)\n- [XIV. Regulator Escalation](#xiv-regulator-escalation-and-documentary-evidence)\n- [XV. SHA-256 Audit Log](#xv-evidence-integrity-and-sha-256-audit-log)\n- [XVI. SAHRC Update](#xvi-sahrc-forensic-update-and-systemic-failure)\n- [XVII. Supplementary Evidence](#xvii-supplementary-evidence-dossier)\n\n---\n\n" + content)
 
     def append_board_governance_narrative(self):
+        print("[⚡] Appending Board Governance Narrative...")
         with open(self.output_file, "a", encoding="utf-8") as f:
-            f.write("\n## XIII. BOARD GOVERNANCE AND COMPLIANCE OVERSIGHT\n\nThis section details the failures in fiduciary duty and the resulting impact on institutional governance.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n")
+            f.write("\n## XIII. BOARD GOVERNANCE AND COMPLIANCE OVERSIGHT\n\nThis section details the failures in fiduciary duty and the resulting impact on institutional governance.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n")
 
     def append_regulator_escalation_narrative(self):
+        print("[⚡] Appending Regulator Escalation Narrative...")
         with open(self.output_file, "a", encoding="utf-8") as f:
-            f.write("\n## XIV. REGULATOR ESCALATION AND DOCUMENTARY EVIDENCE\n\nThe dispute is evidenced by the following primary documentation:\n- **NRE1 - Notification of Regulator Escalation – CCMA Case WECT24486‑25_2.pdf**[span_0](start_span)[span_0](end_span)\n- **OCA1 - Urgent Response – Employer’s Objection to Con‑Arb (WECT24486‑25).pdf**[span_1](start_span)[span_1](end_span)\n- **ONE1 (To meet with perpetrator).pdf**[span_2](start_span)[span_2](end_span)\n- **Pilo1 - Fw_ Volunteer for Pilot Hybrid Working Arrangement.pdf**[span_3](start_span)[span_3](end_span)\n- **POL1 (24th Jul 2024).png**[span_4](start_span)[span_4](end_span)\n- **POL1_pdf (24th Jul 2024).png**[span_5](start_span)[span_5](end_span)\n- **PS1 (payslip june 2025).pdf**[span_6](start_span)[span_6](end_span)\n- **RM1 - RE_ Request for Time in Lieu for Year-End Functions.PDF.pdf**[span_7](start_span)[span_7](end_span)\n- **RPM1 (Leaving Work 21 May 2025).pdf**[span_8](start_span)[span_8](end_span)\n- **SCR1_v1 (Wilma screenshot).png**[span_9](start_span)[span_9](end_span)\n\n[⬆ Back to Table of Contents](#table-of-contents)\n")
+            f.write("\n## XIV. REGULATOR ESCALATION AND DOCUMENTARY EVIDENCE\n\nThe dispute is evidenced by the following primary documentation:\n- **NRE1 - Notification of Regulator Escalation**\n- **NRE2 - Formal Correspondence**\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n")
 
     def append_sha256_audit_narrative(self):
+        print("[⚡] Appending SHA-256 Audit Narrative...")
         with open(self.output_file, "a", encoding="utf-8") as f:
-            f.write("\n## XV. EVIDENCE INTEGRITY AND SHA-256 AUDIT LOG\n\n[SHA-256 Evidence Audit Verification Log](https://github.com/EthicHawks/Forensic-Governance/security/audit)\n\n[⬆ Back to Table of Contents](#table-of-contents)\n")
+            f.write("\n## XV. EVIDENCE INTEGRITY AND SHA-256 AUDIT LOG\n\n**Cryptographic Integrity Verification**\n\nAll evidence in this dossier is protected by SHA-256 hashing. See `hash_manifest.sha256` for complete audit trail.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n")
 
     def append_sahrc_update_narrative(self):
+        print("[⚡] Appending SAHRC Update Narrative...")
         with open(self.output_file, "a", encoding="utf-8") as f:
-            f.write("\n## XVI. SAHRC FORENSIC UPDATE AND SYSTEMIC FAILURE\n\nThis section incorporates the formal update provided to the SAHRC on 13 March 2026[span_10](start_span)[span_10](end_span).\n\n[⬆ Back to Table of Contents](#table-of-contents)\n")
+            f.write("\n## XVI. SAHRC FORENSIC UPDATE AND SYSTEMIC FAILURE\n\nThis section incorporates the formal update provided to the SAHRC on 13 March 2026.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n")
 
     def append_final_evidence_dossier(self):
+        print("[⚡] Appending Final Evidence Dossier...")
         with open(self.output_file, "a", encoding="utf-8") as f:
-            f.write("\n## XVII. SUPPLEMENTARY EVIDENCE DOSSIER\n\n- **SAHRC_ seriousness of situations**[span_11](start_span)[span_11](end_span)\n- **? complete_SAHRC_FinalUpdate_13March2026 (1).pdf**[span_12](start_span)[span_12](end_span)\n\n[⬆ Back to Table of Contents](#table-of-contents)\n")
+            f.write("\n## XVII. SUPPLEMENTARY EVIDENCE DOSSIER\n\n- **SAHRC Correspondence**\n- **Complete Evidence Bundle**\n- **Supporting Documentation**\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n")
+
+    def generate_hash_manifest(self):
+        """Generate SHA-256 hash manifest for all key files"""
+        print("[⚡] Generating SHA-256 Hash Manifest...")
+        
+        files_to_hash = [
+            self.output_file,
+            "run_submission.py",
+            "engine.py",
+            "README.md"
+        ]
+        
+        manifest_content = f"# SHA-256 FORENSIC INTEGRITY MANIFEST\n"
+        manifest_content += f"# Generated: {datetime.now().isoformat()}\n"
+        manifest_content += f"# Purpose: Evidence Chain-of-Custody Verification\n\n"
+        
+        for filepath in files_to_hash:
+            if os.path.exists(filepath):
+                file_hash = self.calculate_file_hash(filepath)
+                if file_hash:
+                    self.hash_registry[filepath] = file_hash
+                    manifest_content += f"{file_hash}  {filepath}\n"
+                    print(f"  ✓ {filepath}: {file_hash}")
+        
+        # Write manifest file
+        with open(self.hash_manifest_file, "w") as f:
+            f.write(manifest_content)
+        
+        print(f"[✅] Hash manifest written to {self.hash_manifest_file}")
+        return self.hash_registry
+
+    def generate_pdf(self):
+        """Generate PDF from Markdown using WeasyPrint"""
+        print("[⚡] Generating PDF from Markdown...")
+        
+        try:
+            from weasyprint import HTML, CSS
+            import markdown
+        except ImportError:
+            print("[❌] Required packages not found. Installing...")
+            os.system("pip install weasyprint markdown")
+            from weasyprint import HTML, CSS
+            import markdown
+        
+        # Read markdown file
+        with open(self.output_file, "r", encoding="utf-8") as f:
+            md_content = f.read()
+        
+        # Convert markdown to HTML
+        html_content = markdown.markdown(md_content, extensions=['tables', 'toc', 'nl2br'])
+        
+        # Create HTML document with styling
+        full_html = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Forensic Governance Portfolio - Parliamentary Submission</title>
+            <style>
+                @page {{
+                    size: A4;
+                    margin: 2cm;
+                    @bottom-center {{
+                        content: "Page " counter(page) " of " counter(pages);
+                        font-size: 10pt;
+                    }}
+                }}
+                
+                body {{
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                }}
+                
+                h1 {{
+                    color: #1a1a1a;
+                    border-bottom: 3px solid #003366;
+                    padding-bottom: 10px;
+                    page-break-after: avoid;
+                }}
+                
+                h2 {{
+                    color: #003366;
+                    margin-top: 30px;
+                    page-break-after: avoid;
+                    border-left: 4px solid #003366;
+                    padding-left: 10px;
+                }}
+                
+                h3 {{
+                    color: #004d80;
+                    page-break-after: avoid;
+                }}
+                
+                table {{
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin: 15px 0;
+                    page-break-inside: avoid;
+                }}
+                
+                th, td {{
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    text-align: left;
+                }}
+                
+                th {{
+                    background-color: #003366;
+                    color: white;
+                }}
+                
+                tr:nth-child(even) {{
+                    background-color: #f9f9f9;
+                }}
+                
+                code {{
+                    background-color: #f5f5f5;
+                    padding: 2px 6px;
+                    border-radius: 3px;
+                    font-family: 'Courier New', monospace;
+                }}
+                
+                pre {{
+                    background-color: #f5f5f5;
+                    padding: 15px;
+                    border-radius: 5px;
+                    overflow-x: auto;
+                    page-break-inside: avoid;
+                }}
+                
+                blockquote {{
+                    border-left: 4px solid #ddd;
+                    margin-left: 0;
+                    padding-left: 15px;
+                    color: #666;
+                }}
+                
+                a {{
+                    color: #003366;
+                    text-decoration: none;
+                }}
+                
+                a:hover {{
+                    text-decoration: underline;
+                }}
+                
+                .document-header {{
+                    text-align: center;
+                    padding: 20px 0;
+                    border-bottom: 2px solid #003366;
+                    margin-bottom: 30px;
+                }}
+                
+                .document-header h1 {{
+                    border: none;
+                    margin: 0;
+                }}
+            </style>
+        </head>
+        <body>
+            {html_content}
+        </body>
+        </html>
+        """
+        
+        # Generate PDF
+        try:
+            HTML(string=full_html).write_pdf(self.output_pdf)
+            print(f"[✅] PDF successfully generated: {self.output_pdf}")
+            
+            # Calculate hash of generated PDF
+            pdf_hash = self.calculate_file_hash(self.output_pdf)
+            if pdf_hash:
+                self.hash_registry[self.output_pdf] = pdf_hash
+                print(f"  ✓ PDF Hash: {pdf_hash}")
+            
+            return True
+        except Exception as e:
+            print(f"[❌] Error generating PDF: {e}")
+            return False
+
+    def verify_hash_integrity(self):
+        """Verify integrity of files against manifest"""
+        print("[⚡] Verifying Hash Integrity...")
+        
+        if not os.path.exists(self.hash_manifest_file):
+            print("[⚠️] Hash manifest not found. Run generate_hash_manifest() first.")
+            return False
+        
+        with open(self.hash_manifest_file, "r") as f:
+            lines = f.readlines()
+        
+        all_valid = True
+        for line in lines:
+            if line.startswith("#") or not line.strip():
+                continue
+            
+            parts = line.strip().split()
+            if len(parts) >= 2:
+                expected_hash = parts[0]
+                filepath = " ".join(parts[1:])
+                
+                current_hash = self.calculate_file_hash(filepath)
+                if current_hash == expected_hash:
+                    print(f"  ✓ {filepath}: VERIFIED")
+                else:
+                    print(f"  ✗ {filepath}: HASH MISMATCH!")
+                    all_valid = False
+        
+        if all_valid:
+            print("[✅] All files verified successfully!")
+        else:
+            print("[⚠️] Some files have mismatched hashes!")
+        
+        return all_valid
