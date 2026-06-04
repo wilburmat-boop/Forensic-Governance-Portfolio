@@ -98,7 +98,7 @@ class EthicHawksEngine:
         print(f"[✅] Hash manifest written to {self.hash_manifest_file}")
         return self.hash_registry
 
-         def generate_pdf(self, output_path):
+    def generate_pdf(self, output_path):
         """Generate PDF from HTML content."""
         print(f"[⚡] Generating PDF: {output_path}...")
         
