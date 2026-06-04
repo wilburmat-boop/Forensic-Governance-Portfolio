@@ -278,3 +278,30 @@ class EthicHawksEngine:
             print("[⚠️] Some files have mismatched hashes!")
         
         return all_valid
+from weasyprint import HTML
+import hashlib
+import os
+
+class EthicHawksEngine:
+    def __init__(self):
+        self.content = ""
+
+    def build_cover_page(self):
+        self.content += "<h1>EthicHawks Forensic Governance</h1><p>Date: 3 June 2026</p><hr>"
+
+    def append_executive_summary(self):
+        self.content += "<h2>Executive Summary</h2><p>This report details systemic regulatory failures affecting 1.9 million GEMS beneficiaries.</p>"
+
+    def append_board_governance_narrative(self):
+        self.content += "<h2>Board Governance Narrative</h2><p>Documenting the suppression of Priority 1 Material Risk Reports.</p>"
+
+    def generate_pdf(self, output_path):
+        HTML(string=self.content).write_pdf(output_path)
+        
+    def generate_sha256_manifest(self, file_path):
+        sha256_hash = hashlib.sha256()
+        with open(file_path, "rb") as f:
+            for byte_block in iter(lambda: f.read(4096), b""):
+                sha256_hash.update(byte_block)
+        with open(f"{file_path}.sha256", "w") as f:
+            f.write(sha256_hash.hexdigest())
