@@ -13,6 +13,10 @@ jobs:
           python-version: '3.10'
       - name: Install Dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y libpango1.0-dev libffi-dev libxml2-dev libxslt1-dev
+       - name: Install Python Dependencies
+        run: |
           pip install weasyprint
       - name: Run Build
         run: python src/run_submission.py
