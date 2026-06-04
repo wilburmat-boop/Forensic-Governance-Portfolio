@@ -98,12 +98,18 @@ class EthicHawksEngine:
         print(f"[✅] Hash manifest written to {self.hash_manifest_file}")
         return self.hash_registry
 
-     def generate_pdf(self, output_path):
-        self.content += "</body></html>"
-        HTML(string=self.content).write_pdf(output_path) HTML(string=self.content).write_pdf(output_path)
-        """Generate PDF from Markdown using WeasyPrint"""
-        print("[⚡] Generating PDF from Markdown...")
+         def generate_pdf(self, output_path):
+        """Generate PDF from HTML content."""
+        print(f"[⚡] Generating PDF: {output_path}...")
         
+        # Finalize the HTML content
+        full_html = f"<html><body>{self.content}</body></html>"
+        
+        # Ensure weasyprint is used correctly
+        from weasyprint import HTML
+        HTML(string=full_html).write_pdf(output_path)
+        print("[⚡] PDF generated successfully.")
+
         try:
             from weasyprint import HTML, CSS
             import markdown
