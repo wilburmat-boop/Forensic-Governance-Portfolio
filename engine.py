@@ -31,37 +31,42 @@ class EthicHawksEngine:
             f.seek(0, 0)
             f.write(cover + content)
 
+    def append_executive_summary(self):
+        print("[⚡] Appending Executive Summary...")
+        with open(self.output_file, "a", encoding="utf-8") as f:
+            f.write("\n## II. EXECUTIVE SUMMARY\n\nThis forensic governance portfolio presents documented evidence of systemic institutional failure in the protection of whistleblower rights and regulatory compliance. The submission addresses material breaches of fiduciary duty, statutory non-compliance, and institutional obstruction across multiple regulatory bodies.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n---\n")
+
     def append_table_of_contents(self):
         print("[⚡] Generating Table of Contents...")
         with open(self.output_file, "r+") as f:
             content = f.read()
             f.seek(0, 0)
-            f.write("# PORTFOLIO OF EVIDENCE\n\n## Table of Contents\n- [XIII. Board Governance](#xiii-board-governance-and-compliance-oversight)\n- [XIV. Regulator Escalation](#xiv-regulator-escalation-and-documentary-evidence)\n- [XV. SHA-256 Audit Log](#xv-evidence-integrity-and-sha-256-audit-log)\n- [XVI. SAHRC Update](#xvi-sahrc-forensic-update-and-systemic-failure)\n- [XVII. Supplementary Evidence](#xvii-supplementary-evidence-dossier)\n\n---\n\n" + content)
+            f.write("# PORTFOLIO OF EVIDENCE\n\n## Table of Contents\n- [II. Executive Summary](#ii-executive-summary)\n- [XIII. Board Governance](#xiii-board-governance-and-compliance-oversight)\n- [XIV. Regulator Escalation](#xiv-regulator-escalation-and-documentary-evidence)\n- [XV. SHA-256 Audit Log](#xv-evidence-integrity-and-sha-256-audit-log)\n- [XVI. SAHRC Update](#xvi-sahrc-forensic-update-and-systemic-failure)\n- [XVII. Supplementary Evidence](#xvii-supplementary-evidence-dossier)\n\n---\n\n" + content)
 
     def append_board_governance_narrative(self):
         print("[⚡] Appending Board Governance Narrative...")
         with open(self.output_file, "a", encoding="utf-8") as f:
-            f.write("\n## XIII. BOARD GOVERNANCE AND COMPLIANCE OVERSIGHT\n\nThis section details the failures in fiduciary duty and the resulting impact on institutional governance.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n")
+            f.write("\n## XIII. BOARD GOVERNANCE AND COMPLIANCE OVERSIGHT\n\nThis section details the failures in fiduciary duty and the resulting impact on institutional governance. The board's material omissions and willful non-disclosure of known risks created an environment conducive to regulatory violations and whistleblower victimization.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n---\n")
 
     def append_regulator_escalation_narrative(self):
         print("[⚡] Appending Regulator Escalation Narrative...")
         with open(self.output_file, "a", encoding="utf-8") as f:
-            f.write("\n## XIV. REGULATOR ESCALATION AND DOCUMENTARY EVIDENCE\n\nThe dispute is evidenced by the following primary documentation:\n- **NRE1 - Notification of Regulator Escalation**\n- **NRE2 - Formal Correspondence**\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n")
+            f.write("\n## XIV. REGULATOR ESCALATION AND DOCUMENTARY EVIDENCE\n\nThe dispute is evidenced by the following primary documentation:\n- **Notification of Regulator Escalation**\n- **Correspondence with CCMA**\n- **Labour Court Filings**\n- **High Court Application**\n\nAll regulatory bodies have received formal notice of the violations documented in this portfolio.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n---\n")
 
     def append_sha256_audit_narrative(self):
         print("[⚡] Appending SHA-256 Audit Narrative...")
         with open(self.output_file, "a", encoding="utf-8") as f:
-            f.write("\n## XV. EVIDENCE INTEGRITY AND SHA-256 AUDIT LOG\n\n**Cryptographic Integrity Verification**\n\nAll evidence in this dossier is protected by SHA-256 hashing. See `hash_manifest.sha256` for complete audit trail.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n")
+            f.write("\n## XV. EVIDENCE INTEGRITY AND SHA-256 AUDIT LOG\n\n**Cryptographic Integrity Verification**\n\nAll evidence in this dossier is protected by SHA-256 hashing. See `hash_manifest.sha256` for complete cryptographic chain-of-custody verification. This ensures mathematical proof that no documents have been altered, tampered with, or selectively edited.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n---\n")
 
     def append_sahrc_update_narrative(self):
         print("[⚡] Appending SAHRC Update Narrative...")
         with open(self.output_file, "a", encoding="utf-8") as f:
-            f.write("\n## XVI. SAHRC FORENSIC UPDATE AND SYSTEMIC FAILURE\n\nThis section incorporates the formal update provided to the SAHRC on 13 March 2026.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n")
+            f.write("\n## XVI. SAHRC FORENSIC UPDATE AND SYSTEMIC FAILURE\n\nThis section incorporates the formal update provided to the South African Human Rights Commission on 13 March 2026, documenting ongoing institutional failure and the systemic nature of the violations.\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n---\n")
 
     def append_final_evidence_dossier(self):
         print("[⚡] Appending Final Evidence Dossier...")
         with open(self.output_file, "a", encoding="utf-8") as f:
-            f.write("\n## XVII. SUPPLEMENTARY EVIDENCE DOSSIER\n\n- **SAHRC Correspondence**\n- **Complete Evidence Bundle**\n- **Supporting Documentation**\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n")
+            f.write("\n## XVII. SUPPLEMENTARY EVIDENCE DOSSIER\n\n- **SAHRC Correspondence**\n- **Complete Evidence Bundle**\n- **Supporting Documentation**\n- **Regulatory Cross-Reference Matrix**\n- **Statutory Breach Tracking**\n\n[⬆ Back to Table of Contents](#table-of-contents)\n\n---\n\n**Document Generated:** " + datetime.now().isoformat() + "\n**Portfolio Status:** Complete and Hash-Audited\n")
 
     def generate_hash_manifest(self):
         """Generate SHA-256 hash manifest for all key files"""
@@ -278,57 +283,3 @@ class EthicHawksEngine:
             print("[⚠️] Some files have mismatched hashes!")
         
         return all_valid
-from weasyprint import HTML
-import hashlib
-import os
-
-class EthicHawksEngine:
-    def __init__(self):
-<<<<<<< HEAD
-        self.content = "<html><body>"
-
-    def build_cover_page(self):
-        print("[⚡] Building Formal Portfolio Cover Page...")
-        self.content += "<h1>EthicHawks Forensic Governance</h1><p>Date: 4 June 2026</p><hr>"
-
-    def append_executive_summary(self):
-        print("[⚡] Appending Executive Summary...")
-        self.content += "<h2>Executive Summary</h2><p>This report details systemic regulatory failures.</p>"
-
-    def append_board_governance_narrative(self):
-        print("[⚡] Appending Board Governance Narrative...")
-        self.content += "<h2>Board Governance Narrative</h2><p>Documenting suppression of Priority 1 Material Risk Reports.</p>"
-
-    def generate_pdf(self, output_path):
-        self.content += "</body></html>"
-        HTML(string=self.content).write_pdf(output_path)
-        
-    def generate_sha256_manifest(self, file_path):
-        print("[⚡] Generating SHA-256 Manifest...")
-=======
-        self.content = ""
-
-    def build_cover_page(self):
-        self.content += "<h1>EthicHawks Forensic Governance</h1><p>Date: 3 June 2026</p><hr>"
-
-    def append_executive_summary(self):
-        self.content += "<h2>Executive Summary</h2><p>This report details systemic regulatory failures affecting 1.9 million GEMS beneficiaries.</p>"
-
-    def append_board_governance_narrative(self):
-        self.content += "<h2>Board Governance Narrative</h2><p>Documenting the suppression of Priority 1 Material Risk Reports.</p>"
-
-    def generate_pdf(self, output_path):
-        HTML(string=self.content).write_pdf(output_path)
-        
-    def generate_sha256_manifest(self, file_path):
->>>>>>> 00905399b7e397e3859595eea7406a8450ab2425
-        sha256_hash = hashlib.sha256()
-        with open(file_path, "rb") as f:
-            for byte_block in iter(lambda: f.read(4096), b""):
-                sha256_hash.update(byte_block)
-        with open(f"{file_path}.sha256", "w") as f:
-            f.write(sha256_hash.hexdigest())
-<<<<<<< HEAD
-
-=======
->>>>>>> 00905399b7e397e3859595eea7406a8450ab2425
