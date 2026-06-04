@@ -8,6 +8,16 @@
 **Status:** Verified, Hash-Audited Evidence Dossier
 ---
 
+---
+# ETHICHAWKS FORENSIC GOVERNANCE
+## Formal Parliamentary Submission: Case WECT24486-25
+
+**Prepared By:** Sr. Wilbur William Matthee
+**Designation:** Founder, EthicHawks Forensic Governance & Compliance
+**Date:** June 2026
+**Status:** Verified, Hash-Audited Evidence Dossier
+---
+
 # PORTFOLIO OF EVIDENCE
 
 ## Table of Contents
