@@ -1,0 +1,33 @@
+name: Cryptographic Integrity Enforcer
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify-evidence-integrity:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python Environment
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Execute Hashing Agent
+      run: python generate_hash_manifest.py
+
+    - name: Verify Chain of Custody
+      run: |
+        # Check if the newly generated manifest differs from the committed manifest
+        if [[ -n $(git status --porcelain hash_manifest.sha256) ]]; then
+          echo "::error::CRITICAL INTEGRITY FAILURE: The evidence files have been modified without updating the cryptographic manifest."
+          echo "To resolve: Run 'python generate_hash_manifest.py' locally, verify the changes, and commit the updated manifest."
+          exit 1
+        else
+          echo "Forensic integrity verified. All SHA-256 hashes match."
+        fi
