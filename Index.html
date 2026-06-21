@@ -1,1353 +1,907 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EthicHawks | Parliamentary Forensic Evidence Bundle — June 2026</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap');
-
-  :root {
-    --ink: #0a0c0f;
-    --paper: #f5f3ee;
-    --navy: #0d1f3c;
-    --gold: #c9933a;
-    --crimson: #8b1a1a;
-    --steel: #4a5568;
-    --rule: #d4cfc5;
-    --alert: #8b1a1a;
-    --verified: #1a5c3a;
-    --mono: 'IBM Plex Mono', monospace;
-    --sans: 'IBM Plex Sans', sans-serif;
-    --serif: 'IBM Plex Serif', serif;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 15px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── HEADER ── */
-  .site-header {
-    background: var(--navy);
-    color: white;
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 3px solid var(--gold);
-  }
-
-  .header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .logo-block { display: flex; align-items: center; gap: 12px; }
-
-  .logo-icon {
-    width: 38px; height: 38px;
-    background: var(--gold);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    font-size: 18px;
-  }
-
-  .logo-text { line-height: 1.15; }
-  .logo-text .org { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; }
-  .logo-text .tagline { font-size: 10px; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; }
-
-  .header-status {
-    display: flex; align-items: center; gap: 8px;
-    font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.6);
-  }
-
-  .pulse {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: #4ade80;
-    box-shadow: 0 0 0 0 rgba(74,222,128,0.4);
-    animation: pulse 2s infinite;
-    flex-shrink: 0;
-  }
-
-  @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
-    70% { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
-    100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); }
-  }
-
-  /* ── HERO ── */
-  .hero {
-    background: var(--navy);
-    color: white;
-    padding: 56px 24px 48px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 39px,
-      rgba(255,255,255,0.025) 39px,
-      rgba(255,255,255,0.025) 40px
-    );
-    pointer-events: none;
-  }
-
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .hero-eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--gold);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: flex; align-items: center; gap: 10px;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px; height: 1px;
-    background: var(--gold);
-  }
-
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(26px, 5vw, 44px);
-    font-weight: 600;
-    line-height: 1.15;
-    margin-bottom: 8px;
-    max-width: 780px;
-  }
-
-  .hero-sub {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    font-family: var(--mono);
-    margin-bottom: 32px;
-    letter-spacing: 0.04em;
-  }
-
-  .hero-meta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.08);
-    max-width: 740px;
-  }
-
-  .meta-cell {
-    background: rgba(13,31,60,0.8);
-    padding: 14px 18px;
-  }
-
-  .meta-cell .label {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--gold);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .meta-cell .value {
-    font-size: 13px;
-    font-weight: 600;
-    color: white;
-    line-height: 1.3;
-  }
-
-  /* ── INTEGRITY BANNER ── */
-  .integrity-bar {
-    background: var(--crimson);
-    padding: 10px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: white;
-    letter-spacing: 0.06em;
-  }
-
-  .integrity-bar .hash {
-    color: rgba(255,255,255,0.6);
-    word-break: break-all;
-    font-size: 10px;
-  }
-
-  /* ── NAV TABS ── */
-  .nav-tabs {
-    background: white;
-    border-bottom: 2px solid var(--rule);
-    position: sticky;
-    top: 73px;
-    z-index: 90;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .nav-tabs::-webkit-scrollbar { height: 0; }
-
-  .tabs-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    padding: 0 24px;
-    gap: 0;
-    white-space: nowrap;
-  }
-
-  .tab-btn {
-    padding: 14px 20px;
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--steel);
-    background: none;
-    border: none;
-    border-bottom: 3px solid transparent;
-    cursor: pointer;
-    transition: all 0.15s;
-    white-space: nowrap;
-    margin-bottom: -2px;
-  }
-
-  .tab-btn:hover { color: var(--navy); }
-  .tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); }
-
-  /* ── MAIN CONTENT ── */
-  .main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 24px 80px;
-  }
-
-  .panel { display: none; }
-  .panel.active { display: block; }
-
-  /* ── SECTION HEADING ── */
-  .section-head {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 28px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .section-head h2 {
-    font-family: var(--serif);
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--navy);
-  }
-
-  .section-head .count {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--steel);
-    letter-spacing: 0.06em;
-  }
-
-  /* ── CASE CARDS ── */
-  .case-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-
-  .case-card {
-    background: white;
-    border: 1px solid var(--rule);
-    border-left: 4px solid var(--navy);
-    padding: 20px;
-    transition: box-shadow 0.15s;
-  }
-
-  .case-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-  .case-card.crimson { border-left-color: var(--crimson); }
-  .case-card.gold { border-left-color: var(--gold); }
-  .case-card.verified { border-left-color: var(--verified); }
-
-  .card-forum {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--steel);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .card-ref {
-    font-family: var(--mono);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-
-  .card-title {
-    font-size: 13px;
-    color: var(--ink);
-    margin-bottom: 12px;
-    line-height: 1.5;
-  }
-
-  .card-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 2px;
-  }
-
-  .status-active { background: #fef3cd; color: #7a4f00; }
-  .status-filed { background: #e8f4e8; color: var(--verified); }
-  .status-extended { background: #fde8e8; color: var(--crimson); }
-  .status-criminal { background: #1a0a0a; color: #ff6b6b; }
-
-  /* ── EVIDENCE TABLE ── */
-  .evidence-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    margin-bottom: 40px;
-  }
-
-  .evidence-table thead tr {
-    background: var(--navy);
-    color: white;
-  }
-
-  .evidence-table thead th {
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 12px 16px;
-    text-align: left;
-  }
-
-  .evidence-table tbody tr {
-    border-bottom: 1px solid var(--rule);
-    transition: background 0.1s;
-  }
-
-  .evidence-table tbody tr:hover { background: rgba(13,31,60,0.03); }
-
-  .evidence-table td {
-    padding: 12px 16px;
-    vertical-align: top;
-  }
-
-  .evidence-table td:first-child {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--steel);
-    white-space: nowrap;
-  }
-
-  .doc-name {
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 2px;
-  }
-
-  .doc-desc { color: var(--steel); font-size: 12px; }
-
-  .tag {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 2px 7px;
-    border-radius: 2px;
-    margin-right: 4px;
-  }
-
-  .tag-primary { background: var(--navy); color: white; }
-  .tag-affidavit { background: #2d1b69; color: white; }
-  .tag-court { background: var(--crimson); color: white; }
-  .tag-regulator { background: #1a4a1a; color: white; }
-  .tag-email { background: #4a3800; color: #ffd700; }
-  .tag-clinical { background: #1a3a4a; color: #7dd3fc; }
-
-  /* ── REGULATORY GRID ── */
-  .reg-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-
-  .reg-card {
-    background: white;
-    border: 1px solid var(--rule);
-    padding: 18px;
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-  }
-
-  .reg-icon {
-    width: 36px; height: 36px;
-    background: var(--navy);
-    color: var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    flex-shrink: 0;
-  }
-
-  .reg-body .reg-name {
-    font-weight: 700;
-    font-size: 13px;
-    color: var(--navy);
-    margin-bottom: 3px;
-  }
-
-  .reg-body .reg-status {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--steel);
-    margin-bottom: 6px;
-  }
-
-  .reg-body .reg-desc { font-size: 12px; color: var(--steel); line-height: 1.5; }
-
-  .response-pill {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    padding: 2px 8px;
-    margin-top: 6px;
-  }
-
-  .resp-pending { background: #fef3cd; color: #7a4f00; }
-  .resp-active { background: #fde8e8; color: var(--crimson); }
-  .resp-filed { background: #e8f4e8; color: var(--verified); }
-  .resp-acknowledged { background: #e8eaf6; color: #3730a3; }
-
-  /* ── TIMELINE ── */
-  .timeline { position: relative; padding-left: 32px; margin-bottom: 40px; }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 10px; top: 8px; bottom: 8px;
-    width: 1px;
-    background: var(--rule);
-  }
-
-  .tl-item {
-    position: relative;
-    margin-bottom: 28px;
-  }
-
-  .tl-dot {
-    position: absolute;
-    left: -27px; top: 5px;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--navy);
-    border: 2px solid var(--paper);
-    box-shadow: 0 0 0 1px var(--navy);
-  }
-
-  .tl-dot.gold { background: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
-  .tl-dot.crimson { background: var(--crimson); box-shadow: 0 0 0 1px var(--crimson); }
-
-  .tl-date {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--steel);
-    letter-spacing: 0.06em;
-    margin-bottom: 4px;
-  }
-
-  .tl-title {
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--navy);
-    margin-bottom: 4px;
-  }
-
-  .tl-body { font-size: 13px; color: var(--steel); line-height: 1.6; }
-
-  /* ── WILBUR METHOD ── */
-  .method-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1px;
-    background: var(--rule);
-    border: 1px solid var(--rule);
-    margin-bottom: 40px;
-  }
-
-  .method-card {
-    background: white;
-    padding: 24px;
-  }
-
-  .method-num {
-    font-family: var(--mono);
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--rule);
-    line-height: 1;
-    margin-bottom: 10px;
-  }
-
-  .method-name {
-    font-family: var(--serif);
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-
-  .method-name sup {
-    font-size: 9px;
-    font-family: var(--mono);
-    color: var(--gold);
-    vertical-align: super;
-  }
-
-  .method-def { font-size: 12px; color: var(--steel); line-height: 1.6; margin-bottom: 10px; }
-
-  .method-evidence {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--crimson);
-    font-weight: 600;
-  }
-
-  /* ── QUANTUM BOX ── */
-  .quantum-box {
-    background: var(--navy);
-    color: white;
-    padding: 32px;
-    margin-bottom: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .quantum-box::after {
-    content: 'CONFIDENTIAL';
-    position: absolute;
-    right: -30px; top: 24px;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: rgba(255,255,255,0.06);
-    transform: rotate(90deg);
-    pointer-events: none;
-  }
-
-  .quantum-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--gold);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .quantum-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-
-  .quantum-item .q-label {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: rgba(255,255,255,0.45);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .quantum-item .q-value {
-    font-family: var(--mono);
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--gold);
-  }
-
-  .quantum-item .q-sub {
-    font-size: 11px;
-    color: rgba(255,255,255,0.45);
-    margin-top: 2px;
-  }
-
-  .quantum-note {
-    font-size: 11px;
-    color: rgba(255,255,255,0.4);
-    font-family: var(--mono);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 16px;
-  }
-
-  /* ── INTEGRITY PANEL ── */
-  .integrity-panel {
-    background: #0a0c0f;
-    color: #4ade80;
-    padding: 24px;
-    font-family: var(--mono);
-    font-size: 12px;
-    line-height: 2;
-    margin-bottom: 24px;
-    border-radius: 2px;
-  }
-
-  .integrity-panel .i-label { color: rgba(255,255,255,0.35); }
-  .integrity-panel .i-val { color: #4ade80; }
-  .integrity-panel .i-warn { color: #fbbf24; }
-
-  /* ── SEARCH ── */
-  .search-bar {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 28px;
-  }
-
-  .search-input {
-    flex: 1;
-    padding: 12px 16px;
-    font-family: var(--mono);
-    font-size: 13px;
-    border: 1px solid var(--rule);
-    background: white;
-    color: var(--ink);
-    outline: none;
-  }
-
-  .search-input:focus { border-color: var(--navy); }
-  .search-input::placeholder { color: #aaa; }
-
-  /* ── FOOTER ── */
-  .site-footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.4);
-    padding: 32px 24px;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.04em;
-  }
-
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-inner a { color: var(--gold); text-decoration: none; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .hero { padding: 36px 16px 32px; }
-    .main { padding: 28px 16px 60px; }
-    .header-inner { padding: 12px 16px; }
-    .tabs-inner { padding: 0 8px; }
-    .tab-btn { padding: 12px 12px; font-size: 10px; }
-    .case-grid { grid-template-columns: 1fr; }
-    .evidence-table { font-size: 12px; }
-    .evidence-table thead { display: none; }
-    .evidence-table td { display: block; padding: 8px 12px; }
-    .evidence-table td:first-child { padding-top: 14px; }
-    .integrity-panel { font-size: 10px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .pulse { animation: none; }
-    * { transition: none !important; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EthicHawks · Strengthened Consolidated Forensic Oversight Report · June 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap');
+
+        :root {
+            --ink: #0a0c0f;
+            --paper: #f5f3ee;
+            --navy: #0d1f3c;
+            --gold: #c9933a;
+            --crimson: #8b1a1a;
+            --steel: #4a5568;
+            --rule: #d4cfc5;
+            --verified: #1a5c3a;
+            --placeholder: #b8860b;
+            --mono: 'IBM Plex Mono', monospace;
+            --sans: 'IBM Plex Sans', sans-serif;
+            --serif: 'IBM Plex Serif', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+        /* ── HEADER ── */
+        .site-header {
+            background: var(--navy);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--gold);
+        }
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .logo-block { display: flex; align-items: center; gap: 12px; }
+        .logo-icon {
+            width: 38px; height: 38px;
+            background: var(--gold);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+        .logo-text { line-height: 1.15; }
+        .logo-text .org { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; }
+        .logo-text .tagline { font-size: 10px; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; text-transform: uppercase; }
+        .header-status {
+            display: flex; align-items: center; gap: 8px;
+            font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.6);
+        }
+        .pulse {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 0 0 rgba(74,222,128,0.4);
+            animation: pulse 2s infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+            100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+        }
+
+        /* ── NAV TABS ── */
+        .nav-tabs {
+            background: white;
+            border-bottom: 2px solid var(--rule);
+            position: sticky;
+            top: 73px;
+            z-index: 90;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .nav-tabs::-webkit-scrollbar { height: 0; }
+        .tabs-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 24px;
+            gap: 0;
+            white-space: nowrap;
+        }
+        .tab-btn {
+            padding: 14px 20px;
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--steel);
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+            margin-bottom: -2px;
+        }
+        .tab-btn:hover { color: var(--navy); }
+        .tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); }
+
+        /* ── MAIN ── */
+        .main { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+        .panel { display: none; }
+        .panel.active { display: block; }
+
+        .container { background: white; padding: 48px 56px; box-shadow: 0 4px 24px rgba(0,0,0,0.05); border: 1px solid var(--rule); }
+
+        h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; color: var(--navy); margin: 1.5em 0 0.5em; }
+        h1 { font-size: 2.2rem; margin-top: 0; border-bottom: 4px solid var(--gold); padding-bottom: 0.3em; }
+        h2 { font-size: 1.8rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.3em; }
+        h3 { font-size: 1.3rem; margin-top: 1.8em; }
+        h4 { font-size: 1.1rem; font-weight: 700; margin-top: 1.2em; color: var(--navy); }
+        p { margin: 0 0 1.2em; }
+
+        .block-quote {
+            font-family: var(--serif); font-size: 1.05rem; padding: 1.2em 2em;
+            background: var(--paper); border-left: 6px solid var(--gold);
+            margin: 1.5em 0; font-style: italic;
+        }
+        .block-quote strong { font-style: normal; color: var(--navy); }
+
+        .evidence-card {
+            background: var(--paper); padding: 20px 24px;
+            margin: 1.5em 0; border-left: 4px solid var(--navy);
+        }
+        .evidence-card.crimson { border-left-color: var(--crimson); background: #fde8e8; }
+        .evidence-card.gold { border-left-color: var(--gold); }
+        .evidence-card.nhi { border-left-color: #1a3a4a; background: #e8f0f5; }
+        .evidence-card.pda { border-left-color: #2d1b69; background: #f0e8f5; }
+        .evidence-card.attrition { border-left-color: #5a0a0a; background: #fff5f5; }
+        .evidence-card.navy { border-left-color: var(--navy); background: #e8eaf6; }
+
+        .verbatim-quote {
+            background: white; border-left: 4px solid var(--crimson);
+            padding: 16px 20px; margin: 1em 0;
+            font-family: var(--mono); font-size: 0.9rem;
+            color: var(--ink); white-space: pre-wrap;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .verbatim-quote .q-label {
+            display: block; font-family: var(--sans);
+            font-size: 0.75rem; font-weight: 700;
+            color: var(--crimson); text-transform: uppercase;
+            letter-spacing: 0.08em; margin-bottom: 8px;
+        }
+
+        .comparison-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 0; border: 1px solid var(--rule); margin: 1.5em 0;
+        }
+        .comparison-grid .col { padding: 20px 24px; }
+        .comparison-grid .col-left { background: #f0f8f0; border-right: 1px solid var(--rule); }
+        .comparison-grid .col-right { background: #fde8e8; }
+        .comparison-grid .col h4 { margin-top: 0; }
+        .comparison-grid .col-left h4 { color: var(--verified); }
+        .comparison-grid .col-right h4 { color: var(--crimson); }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1.5em 0; }
+        th { background: var(--navy); color: white; font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 10px 12px; text-align: left; }
+        td { padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+
+        .attrition-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 1.5em 0; }
+        .attrition-table th { background: #5a0a0a; color: white; font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 10px 12px; text-align: left; }
+        .attrition-table td { padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+        .attrition-table tr:last-child td { border-bottom: none; }
+        .attrition-table .tactic { font-weight: 700; color: #5a0a0a; font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; }
+
+        .scorecard-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px; margin: 1.5em 0 40px;
+        }
+        .scorecard-item {
+            background: white; padding: 16px 20px;
+            border: 1px solid var(--rule); border-left: 4px solid var(--crimson);
+        }
+        .scorecard-item strong { display: block; font-family: var(--serif); font-size: 1rem; color: var(--navy); margin-bottom: 4px; }
+        .scorecard-item .failure { font-size: 0.85rem; color: var(--steel); line-height: 1.5; }
+
+        .outcome-bar { display: flex; gap: 10px; flex-wrap: wrap; margin: 1.5em 0 40px; }
+        .outcome-pill { padding: 6px 14px; border-radius: 20px; font-family: var(--mono); font-size: 0.8rem; font-weight: 600; }
+        .pill-red { background: #fde8e8; color: var(--crimson); }
+        .pill-yellow { background: #fef3cd; color: #7a4f00; }
+        .pill-green { background: #e8f4e8; color: var(--verified); }
+
+        .tag {
+            display: inline-block; font-family: var(--mono);
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+            text-transform: uppercase; padding: 2px 8px;
+            border-radius: 2px; margin-right: 4px; margin-bottom: 2px;
+        }
+        .tag-failure { background: var(--crimson); color: white; }
+        .tag-legal { background: var(--navy); color: white; }
+        .tag-pda { background: #2d1b69; color: #c084fc; }
+        .tag-nhi { background: #1a3a4a; color: #7dd3fc; }
+        .tag-perjury { background: #5a0a0a; color: #ff6b6b; }
+        .tag-criminal { background: #1a0a0a; color: #ff4444; }
+        .tag-market { background: #4a3800; color: #ffd700; }
+        .tag-attrition { background: #5a0a0a; color: #ff8888; }
+        .tag-court { background: #2d1b69; color: #c084fc; }
+        .tag-coverup { background: #4a0000; color: #ff8888; }
+
+        .sig-block { margin-top: 2.5em; padding-top: 1.5em; border-top: 2px solid var(--rule); font-family: var(--mono); font-size: 0.9rem; }
+        .footer-note { margin-top: 3em; padding-top: 1.5em; border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--steel); text-align: center; }
+
+        .divider {
+            text-align: center; margin: 3em 0; padding: 2em 0;
+            border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule);
+            font-family: var(--serif); font-size: 1.2rem; color: var(--navy);
+            font-style: italic;
+        }
+
+        @media (max-width: 700px) {
+            .container { padding: 24px; }
+            h1 { font-size: 1.8rem; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .comparison-grid .col-left { border-right: none; border-bottom: 1px solid var(--rule); }
+            .header-inner { padding: 12px 16px; }
+            .tabs-inner { padding: 0 8px; }
+            .tab-btn { padding: 12px 12px; font-size: 10px; }
+            .scorecard-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pulse { animation: none; }
+            * { transition: none !important; }
+        }
+    </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="site-header">
-  <div class="header-inner">
-    <div class="logo-block">
-      <div class="logo-icon">🦅</div>
-      <div class="logo-text">
-        <div class="org">EthicHawks</div>
-        <div class="tagline">Forensic Governance &amp; Compliance Consultancy</div>
-      </div>
+    <div class="header-inner">
+        <div class="logo-block">
+            <div class="logo-icon">🦅</div>
+            <div class="logo-text">
+                <div class="org">EthicHawks</div>
+                <div class="tagline">Forensic Governance &amp; Compliance Consultancy</div>
+            </div>
+        </div>
+        <div class="header-status">
+            <div class="pulse"></div>
+            STRENGTHENED CONSOLIDATED REPORT · JUNE 2026
+        </div>
     </div>
-    <div class="header-status">
-      <div class="pulse"></div>
-      LIVE EVIDENCE BUNDLE · JUNE 2026
-    </div>
-  </div>
 </header>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Parliamentary Forensic Submission</div>
-    <h1>Systemic Governance Collapse:<br>A Verified Evidence Bundle</h1>
-    <div class="hero-sub">Matthee v AfroCentric Investment Corporation (JSE: ACT) &amp; Medscheme Holdings · Western Cape · 2026</div>
-    <div class="hero-meta">
-      <div class="meta-cell">
-        <div class="label">Compiled by</div>
-        <div class="value">W.W. Matthee</div>
-      </div>
-      <div class="meta-cell">
-        <div class="label">Active Forums</div>
-        <div class="value">6 Simultaneous</div>
-      </div>
-      <div class="meta-cell">
-        <div class="label">Regulatory Bodies</div>
-        <div class="value">10 Escalations</div>
-      </div>
-      <div class="meta-cell">
-        <div class="label">Integrity Protocol</div>
-        <div class="value">SHA-256 Verified</div>
-      </div>
-      <div class="meta-cell">
-        <div class="label">Submission Status</div>
-        <div class="value">Active · Pending</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INTEGRITY BANNER -->
-<div class="integrity-bar">
-  <span>🔒 SHA-256 CHAIN OF CUSTODY ACTIVE</span>
-  <span class="hash">hash_manifest.sha256 · All evidence cryptographically registered · Tampering instantly detectable</span>
-</div>
 
 <!-- NAV TABS -->
 <nav class="nav-tabs">
-  <div class="tabs-inner">
-    <button class="tab-btn active" onclick="showPanel('overview')">Overview</button>
-    <button class="tab-btn" onclick="showPanel('matters')">Active Matters</button>
-    <button class="tab-btn" onclick="showPanel('evidence')">Evidence Core</button>
-    <button class="tab-btn" onclick="showPanel('regulatory')">Regulatory Map</button>
-    <button class="tab-btn" onclick="showPanel('timeline')">Chronology</button>
-    <button class="tab-btn" onclick="showPanel('method')">Wilbur Method™</button>
-    <button class="tab-btn" onclick="showPanel('integrity')">Integrity Log</button>
-  </div>
+    <div class="tabs-inner">
+        <button class="tab-btn active" onclick="showPanel('part1')">Part 1 · Foundation</button>
+        <button class="tab-btn" onclick="showPanel('part2')">Part 2 · Regulators</button>
+        <button class="tab-btn" onclick="showPanel('part3')">Part 3 · Justice</button>
+    </div>
 </nav>
 
 <!-- MAIN -->
 <main class="main">
 
-  <!-- OVERVIEW -->
-  <div id="overview" class="panel active">
-    <div class="section-head">
-      <h2>Submission Overview</h2>
-      <span class="count">Parliamentary Brief · June 2026</span>
-    </div>
+    <!-- ============ PART 1 ============ -->
+    <div id="part1" class="panel active">
+        <div class="container">
 
-    <div class="quantum-box">
-      <div class="quantum-label">⚑ Settlement Quantum — Documented &amp; Structured</div>
-      <div class="quantum-grid">
-        <div class="quantum-item">
-          <div class="q-label">BCEA Unlawful Deduction</div>
-          <div class="q-value">R14,811.77</div>
-          <div class="q-sub">40.47% — exceeds statutory cap by 15.47pp</div>
+            <!-- TITLE -->
+            <div style="text-align:center; margin-bottom: 3em;">
+                <div style="font-family: var(--mono); font-size: 0.8rem; color: var(--steel); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5em;">Strengthened Consolidated Forensic Oversight Report · Part 1 of 3</div>
+                <h1 style="border-bottom: none; font-size: 2.8rem; margin-bottom: 0.2em;">EthicHawks</h1>
+                <div style="font-size: 1.4rem; font-weight: 300; margin-bottom: 1.5em;">FORENSIC GOVERNANCE &amp; COMPLIANCE CONSULTANCY</div>
+                <div style="font-size: 2rem; font-family: var(--serif); font-weight: 700; color: var(--crimson); line-height: 1.2; margin: 0.5em 0;">STRENGTHENED CONSOLIDATED<br>FORENSIC OVERSIGHT REPORT</div>
+                <div style="font-size: 1.2rem; font-weight: 300; max-width: 700px; margin: 0.5em auto; color: var(--steel);">Total Collapse of the South African Guardrails — Systemic Regulatory and Chapter 9 Governance Collapse</div>
+                <div style="margin-top: 2em; padding: 1em 2em; background: var(--paper); border: 1px solid var(--rule); font-size: 0.95rem; text-align: left;">
+                    <p><strong>Presented to:</strong> The Honourable Speaker of the National Assembly</p>
+                    <p><strong>For referral to:</strong> Portfolio Committee on Health; Portfolio Committee on Employment and Labour; Portfolio Committee on Trade, Industry and Competition; Portfolio Committee on Justice and Correctional Services; Standing Committee on Public Accounts (SCOPA); Portfolio Committee on Police</p>
+                    <p><strong>Subject:</strong> Systemic regulatory capture and institutional governance collapse affecting Sr. Wilbur William Matthee, a protected whistleblower who exposed a Priority 1 clinical risk at Medscheme Holdings / GEMS. This is not an employment dispute. This is the total collapse of South Africa's governance guardrails.</p>
+                    <p><strong>Prepared by:</strong> Wilbur William Matthee | EthicHawks Forensic Governance &amp; Compliance Consultancy</p>
+                    <p><strong>Date:</strong> June 2026</p>
+                    <p><strong>Classification:</strong> For Parliamentary Oversight Use — Protected Disclosure under PDA Section 8</p>
+                </div>
+            </div>
+
+            <!-- FOREWORD -->
+            <h2>Foreword: The NHI Will Be Built on the Bones of This Whistleblower</h2>
+            <div class="block-quote">
+                "The NHI will not fail because of a lack of money. It will fail because the institutional architecture supposed to protect it from capture, corruption, and collapse is already broken — and we have done nothing to fix it." — EthicHawks, Foreword
+            </div>
+            <p>This report is the complete forensic record of a single whistleblower's destruction — and the systemic governance collapse that allowed it.</p>
+            <p>I am Wilbur William Matthee. I was a Specialist Registered Nurse. I identified a clinical data integrity failure affecting 1.9 million GEMS beneficiaries. I made a protected disclosure under the Protected Disclosures Act 26 of 2000. I was retaliated against — methodically, systematically, and with institutional complicity — until I became homeless and destitute.</p>
+            <p>I then approached every institution created to protect whistleblowers. The Council for Medical Schemes. The Health Professions Council of South Africa. The South African Nursing Council. The South African Pharmacy Council. The Government Employees Medical Scheme. The Department of Employment and Labour. The B-BBEE Commission. The South African Human Rights Commission. The South African Police Service. The Commission for Conciliation, Mediation and Arbitration. The Whistleblower House. The Johannesburg Stock Exchange. The Financial Sector Conduct Authority. The Western Cape High Court. The Labour Court. And finally, the Minister of Justice and Correctional Services — the guardian of the Protected Disclosures Act herself.</p>
+            <p><strong>All sixteen failed.</strong> Seven declined jurisdiction or deflected. Five remained silent. Four actively obstructed. The Minister — the one person in South Africa with the statutory mandate to protect whistleblowers — was contacted directly. I called her office. I spoke to her assistant. I was told to send an email. I was promised a reply. I sent the email. No reply was ever received.</p>
+            <p>This is not a series of isolated failures. It is a systemic pattern of regulatory capture. It is the total collapse of South Africa's governance guardrails. And it is a forensic prediction of what will happen inside the National Health Insurance Fund — with its R200 billion annual budget — unless Parliament acts now.</p>
+
+            <!-- METHODOLOGY -->
+            <h2>1. Methodology and Scope</h2>
+            <p>All findings in this report are based on primary source documents generated by the employer, the regulators, the courts, or myself during the events described. No secondary sources — no media reports, no academic commentary, no hearsay — are relied upon for factual findings.</p>
+            <p>The complete evidentiary record of 526 documents is available to Parliament upon request. Each institution's failure is documented with specific dates, reference numbers, and cross-references.</p>
+            <p>I make this report in my own voice. I am the complainant, the protected whistleblower, and the self-represented litigant. I have personally lived every failure documented herein. The forensic analysis is my own, conducted under the EthicHawks Forensic Governance Framework. It is supported by primary-source documents that are available for independent verification.</p>
+
+            <!-- MASTER CHRONOLOGY -->
+            <h2>2. Master Chronology — From Disclosure to Parliament</h2>
+            <table>
+                <tr><th>Date</th><th>Event</th><th>Evidence Ref</th></tr>
+                <tr><td>18 Mar 2025</td><td>Admitted to Akeso Stepping Stones Clinic — severe depression and PTSD diagnosed</td><td>B1</td></tr>
+                <tr><td>23 Jul 2025</td><td>Unlawful 40.47% salary deduction — R14,811.77 deducted in a single pay cycle, exceeding the BCEA Section 34(2) 25% cap by 15.47 percentage points</td><td>Payslip; BCEA breach</td></tr>
+                <tr><td>23 Sep 2025</td><td>"Wilma" gender-identity harassment — Microsoft Teams message constituting EEA Section 6 violation</td><td>C1</td></tr>
+                <tr><td>23 Oct 2025</td><td>VICT1 — Protected disclosure: Gexus-DMS integration gap identified. Refused to contact a 75-year-old patient using demonstrably false data. Root Cause Analysis generated by Medscheme's own systems confirms structural design flaw.</td><td>V1; D1; D2</td></tr>
+                <tr><td>31 Oct 2025</td><td>Recorded admission of retaliatory intent: "You made a case of harassment against me, so I can make a case of harassment against you."</td><td>E1 (audio recording)</td></tr>
+                <tr><td>9 Dec 2025</td><td>GRC1 — Priority 1 Material Risk Report to Board of AfroCentric. 38 attachments. No Board response.</td><td>G1</td></tr>
+                <tr><td>10 Dec 2025</td><td>CCMA opposing affidavit filed — falsely states complainant is a "Care Coordinator," attacks character, dismisses clinical depression as a "cynical excuse." Potential perjury.</td><td>O1</td></tr>
+                <tr><td>11 Dec 2025</td><td>GRC2 — Urgent Board update: legal opposition confirms institutional bad faith</td><td>G2</td></tr>
+                <tr><td>12 Dec 2025</td><td>Constructive dismissal — resignation citing LRA Section 186(1)(e). Employer subsequently files false UI-19 (Code 6: Resigned instead of Code 7: Constructive Dismissal).</td><td>H2</td></tr>
+                <tr><td>16 Dec 2025</td><td>GRC3 — Maximum Severity GRC Escalation to Board Audit &amp; Risk Committee. Explicit warning: "Failure to act will be considered a miscarriage of ethical justice and an approval of director-level psychological harm."</td><td>G3</td></tr>
+                <tr><td>18 Dec 2025</td><td>CRO suppression email — Monwabisi Kula: "can I please ask you to stop sending these e-mails to our directors?" Active suppression of a material risk report by the Chief Risk Officer.</td><td>C1</td></tr>
+                <tr><td>23 Dec 2025</td><td>Initial CMS complaint lodged with full evidentiary bundle</td><td>U1</td></tr>
+                <tr><td>19 Jan 2026</td><td>Cheryl-Dawn Modern written admission confirming B-BBEE title suppression: "The naming convention changes were not applied to your department."</td><td>B-BBEE Commission Case 5/02/2026</td></tr>
+                <tr><td>4 Feb 2026</td><td>CMS first declination — deflects to HPCSA. Jurisdictional error.</td><td>U5</td></tr>
+                <tr><td>10 Feb 2026</td><td>SAHRC acknowledges "seriousness of the concerns" — then goes silent. No own-initiative investigation.</td><td>J2</td></tr>
+                <tr><td>10 Feb 2026</td><td>SANC formal complaint filed (SANC/MEDSCHEME/MATTHEE/20260105) — not acknowledged as at June 2026.</td><td>J3</td></tr>
+                <tr><td>19 Feb 2026</td><td>TWBH refers matter to Schroter Attorneys for initial assessment</td><td>T1</td></tr>
+                <tr><td>2 Mar 2026</td><td>TWBH abandons complainant — relies entirely on van der Walt's flawed legal opinion, issued after termination of engagement. No independent review conducted.</td><td>T9</td></tr>
+                <tr><td>2 Apr 2026</td><td>Formal CMS re-engagement (CMS-REQUEST-3) — cites Discovery Health precedent. CMS exercises jurisdiction over Discovery Health for financial processing error in January 2026 but declines Medscheme/GEMS for clinical data integrity error.</td><td>U8</td></tr>
+                <tr><td>2 Apr 2026</td><td>Homelessness begins — evicted from 15 Bellevue Street, Voorburg, Cape Town</td><td>—</td></tr>
+                <tr><td>8-9 Apr 2026</td><td>Minister of Justice publishes Protected Disclosures Bill, 2026 — promises financial awards, a Whistleblower Protection Authority, and criminal penalties for retaliation</td><td>B1 (PDA Bill)</td></tr>
+                <tr><td>14 Apr 2026</td><td>Joint ethical ruling request to CMS, HPCSA, SANC, and SAPC — 48-hour deadline. No response from any body.</td><td>U10</td></tr>
+                <tr><td>16 Apr 2026</td><td>Western Cape High Court grants ex parte interim interdict — answering affidavit concealed from court by Deneys Reitz. Gag order imposed. Fraud on the court.</td><td>M1</td></tr>
+                <tr><td>24 Apr 2026</td><td>Called the Office of the Minister of Justice. Spoke to Lebo Tshabalala (assistant). Told to send an email. Promised a reply. Email sent at 13:00 — detailing homelessness, starvation, and the failure of 15 institutions. No reply. No acknowledgement.</td><td>Minister email (verbatim)</td></tr>
+                <tr><td>Apr 2026</td><td>AfroCentric publishes Integrated Annual Report 2025 — claims "both platforms fully integrated" and "no material ESG-related incidents." Board-approved false statements. Market deception.</td><td>I1</td></tr>
+                <tr><td>7 May 2026</td><td>CMS second declination — demands new complaint form after High Court interim order, exposing complainant to contempt of court. Contempt trap.</td><td>U11</td></tr>
+                <tr><td>28 May 2026</td><td>Rule nisi extended to 1 March 2027 — 11-month silence imposed on whistleblower. SCCU &amp; DNPA criminal referral filed.</td><td>M2</td></tr>
+                <tr><td>4 Jun 2026</td><td>Deneys Reitz "without prejudice" letter threatens contempt for petitioning Parliament</td><td>P1</td></tr>
+                <tr><td>17-19 Jun 2026</td><td>Settlement overtures sent to Deneys Reitz with 19 June deadline. Deadline passes. No substantive response.</td><td>Annexures T1-T2</td></tr>
+                <tr><td>20 Jun 2026</td><td>Deneys Reitz proposes meeting after deadline — refuses to commit to binding resolution. Complainant terminates negotiations, withdraws Calderbank offer, files enforcement.</td><td>Annexures T1-T2</td></tr>
+                <tr><td>June 2026</td><td>This Strengthened Consolidated Forensic Oversight Report submitted to Parliament — the last institutional remedy. Every other door has been closed.</td><td>—</td></tr>
+            </table>
+
+            <!-- SCORECARD -->
+            <h2>3. Scorecard of Failed Institutions — All 16 Bodies</h2>
+            <div class="scorecard-grid">
+                <div class="scorecard-item"><strong>1. Council for Medical Schemes (CMS)</strong><div class="failure">Declined jurisdiction twice. Exercised jurisdiction over Discovery Health (financial error) but declined Medscheme/GEMS (clinical data integrity error). Set a contempt trap after the High Court gag order.</div></div>
+                <div class="scorecard-item"><strong>2. Health Professions Council of SA (HPCSA)</strong><div class="failure">Received joint ethical ruling request on 14 April 2026. No response. Jurisdictional ping-pong with SANC.</div></div>
+                <div class="scorecard-item"><strong>3. South African Nursing Council (SANC)</strong><div class="failure">Formal complaint SANC/MEDSCHEME/MATTHEE/20260105 filed 10 February 2026 — not acknowledged. Deregistered the complainant for non-payment of R870 caused by the employer's unlawful deduction.</div></div>
+                <div class="scorecard-item"><strong>4. South African Pharmacy Council (SAPC)</strong><div class="failure">Declined jurisdiction over formal complaint against Responsible Pharmacist Lisa Mari. No written ruling on core ethical question.</div></div>
+                <div class="scorecard-item"><strong>5. Government Employees Medical Scheme (GEMS)</strong><div class="failure">Received protected disclosures on 2 April and 13 April 2026. No substantive response. Failed to oversee its administrator. 1.9 million beneficiaries remain exposed to unaddressed clinical risk.</div></div>
+                <div class="scorecard-item"><strong>6. Department of Employment and Labour (DEL)</strong><div class="failure">BCEA Section 34(2) 25% deduction cap not enforced despite employer's own admission. False UI-19 not corrected. UIF investigation file closed with error of law. Response addressed to generic "Mr/Mrs/Ms."</div></div>
+                <div class="scorecard-item"><strong>7. B-BBEE Commission</strong><div class="failure">Reclassified fronting complaint as a labour dispute despite written admission from Cheryl-Dawn Modern (19 January 2026). Refused Section 13K subpoena powers.</div></div>
+                <div class="scorecard-item"><strong>8. SA Human Rights Commission (SAHRC)</strong><div class="failure">Acknowledged "seriousness of the concerns" on 10 February 2026. Went silent. No own-initiative investigation under Section 14 of the SAHRC Act. Ignored 13 March 2026 update confirming homelessness.</div></div>
+                <div class="scorecard-item"><strong>9. South African Police Service (SAPS)</strong><div class="failure">Delft Police Station officer refused to open criminal case. Falsely claimed to be station commander (audio-recorded). CAS 705/3/2026 registered after escalation — no detective assigned for 3+ months.</div></div>
+                <div class="scorecard-item"><strong>10. Commission for Conciliation, Mediation and Arbitration (CCMA)</strong><div class="failure">Commissioner Ntabiseng Ngwane declared PDA irrelevant before hearing evidence. Told destitute litigant to "Google it." PSC Vusumzi Landu internal investigation was a cover-up. Employer's affidavit described clinical depression as a "cynical excuse."</div></div>
+                <div class="scorecard-item"><strong>11. The Whistleblower House (TWBH)</strong><div class="failure">Appointed Schroter Attorneys for assessment. Attorney issued flawed legal opinion after termination of engagement — mischaracterised unlawful deduction as "no work no pay," dismissed systemic risk as "single isolated glitch," suggested regulatory disclosures were "bad faith." TWBH relied entirely on this opinion without independent review. Abandoned a destitute whistleblower to self-represent in nine concurrent proceedings.</div></div>
+                <div class="scorecard-item"><strong>12. Johannesburg Stock Exchange (JSE)</strong><div class="failure">Declined to enforce disclosure obligations. AfroCentric's false Integrated Report 2025 remains unchallenged. Ref: JvS/166792.</div></div>
+                <div class="scorecard-item"><strong>13. Financial Sector Conduct Authority (FSCA)</strong><div class="failure">Acknowledged complaint. Went silent. No investigation. Ref: 1-370127.</div></div>
+                <div class="scorecard-item"><strong>14. Western Cape High Court</strong><div class="failure">Granted ex parte interim interdict after Deneys Reitz concealed the complainant's answering affidavit. Fraud on the court. 11-month gag order imposed. Biowatch principle violated. Court audio withheld for 2+ months. Registrar transmitted third-party documents to complainant (POPIA breach).</div></div>
+                <div class="scorecard-item"><strong>15. Labour Court</strong><div class="failure">Portal rejected filing with reason "good day you put date." Default judgment application filed 30 April 2026 — unallocated for 6+ weeks. Defective employer pleadings permitted.</div></div>
+                <div class="scorecard-item"><strong>16. Minister of Justice and Correctional Services</strong><div class="failure">Published the Protected Disclosures Bill, 2026 — promising financial awards, a Whistleblower Protection Authority, and criminal penalties for retaliation. Two weeks later, the complainant called her office. He spoke to Lebo Tshabalala, the Minister's assistant. He was told to send an email. He was promised a reply. He sent the email. No reply was received. The guardian of the Protected Disclosures Act did not protect the whistleblower who called her for help.</div></div>
+            </div>
+
+            <div class="outcome-bar">
+                <span class="outcome-pill pill-red">Declined jurisdiction / deflected: 7 (44%)</span>
+                <span class="outcome-pill pill-yellow">Remained silent: 5 (31%)</span>
+                <span class="outcome-pill pill-red">Actively obstructed: 4 (25%)</span>
+                <span class="outcome-pill pill-green">Provided any remedy: 0 (0%)</span>
+            </div>
+
+            <div style="background:white; border:1px solid var(--rule); border-left:4px solid var(--crimson); padding:20px 24px; margin-bottom:32px; font-size:13px; color:var(--steel); line-height:1.8;">
+                <strong style="color:var(--navy); font-family:var(--serif); font-size:16px;">The Institutional Silence Pattern — Central Finding:</strong><br><br>
+                All sixteen bodies confirmed the "seriousness" of matters raised or received formal submissions. None provided any remedy. This is not coincidence — it constitutes the <strong>Institutional Silence</strong> construct documented in the Wilbur Method™: a coordinated pattern of acknowledgement without action that functions as passive complicity in the ongoing harm to the whistleblower.<br><br>
+                <strong>This is not an employment dispute. This is the total collapse of South Africa's governance guardrails.</strong>
+            </div>
+
+            <!-- HEALTH REGULATORS -->
+            <h2>4. The Regulatory Carousel — Part A: Health Regulators</h2>
+
+            <div class="evidence-card crimson">
+                <h4>4.1 Council for Medical Schemes (CMS)</h4>
+                <p><strong>Mandate:</strong> Protect the interests of medical scheme beneficiaries and ensure compliance with the Medical Schemes Act.</p>
+                <p><strong>What I Did:</strong> Submitted a formal complaint (23 Dec 2025), a completed complaint form (20 Jan 2026), a detailed jurisdictional re-engagement citing the Discovery Health precedent (2 Apr 2026), and a joint ethical ruling request (14 Apr 2026).</p>
+                <p><strong>How the CMS Failed:</strong></p>
+                <ul>
+                    <li><strong>4 Feb 2026:</strong> Declined jurisdiction, referring the matter to HPCSA — despite the complaint concerning systemic administrator infrastructure, not individual professional conduct.</li>
+                    <li><strong>2 Apr 2026:</strong> Ignored a detailed statutory analysis demonstrating that the CMS had exercised jurisdiction over a technical system error at Discovery Health in January 2026.</li>
+                    <li><strong>7 May 2026:</strong> Demanded a new complaint form — after the High Court interim order was granted — exposing the complainant to contempt proceedings. This is a <strong>contempt trap</strong>.</li>
+                </ul>
+                <p><strong>Evidence:</strong> Annexures U1–U12 (CMS Evidence Bundle).</p>
+                <span class="tag tag-failure">Declined Jurisdiction ×2</span> <span class="tag tag-legal">Contempt Trap</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>4.2 Health Professions Council of South Africa (HPCSA)</h4>
+                <p><strong>Mandate:</strong> Protect the public and guide the professions.</p>
+                <p><strong>How the HPCSA Failed:</strong> Received a joint ethical ruling request on 14 April 2026. No response. Participated in jurisdictional ping-pong, referring the complainant to SANC.</p>
+                <span class="tag tag-failure">Silent</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>4.3 South African Nursing Council (SANC)</h4>
+                <p><strong>Mandate:</strong> Protect the public by regulating the nursing profession.</p>
+                <p><strong>How the SANC Failed:</strong></p>
+                <ul>
+                    <li>Formal complaint <strong>SANC/MEDSCHEME/MATTHEE/20260105</strong> filed 10 February 2026 — not acknowledged as at June 2026.</li>
+                    <li>Deregistered the complainant for non-payment of <strong>R870</strong> in annual fees — a direct consequence of the employer's unlawful salary deduction.</li>
+                </ul>
+                <span class="tag tag-failure">Not Acknowledged</span> <span class="tag tag-failure">Deregistration</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>4.4 South African Pharmacy Council (SAPC)</h4>
+                <p><strong>Mandate:</strong> Regulate pharmacists and pharmacy practice.</p>
+                <p><strong>How the SAPC Failed:</strong> Declined jurisdiction over formal complaint against Responsible Pharmacist Lisa Mari. No written ruling on the core ethical question.</p>
+                <span class="tag tag-failure">Declined Jurisdiction</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>4.5 Government Employees Medical Scheme (GEMS)</h4>
+                <p><strong>Mandate:</strong> The principal scheme for 1.9 million public servants. Responsible for overseeing its administrator (Medscheme).</p>
+                <p><strong>How GEMS Failed:</strong> Received protected disclosures on 2 April 2026 and 13 April 2026. No substantive response. Did not commission an independent review. The Gexus-DMS integration gap — affecting its own beneficiaries — remains unaddressed.</p>
+                <span class="tag tag-failure">Silent</span>
+            </div>
+
+            <div class="sig-block">
+                <p>I, <strong>WILBUR WILLIAM MATTHEE</strong>, declare under oath that the contents of this Part are true and correct to the best of my knowledge and belief.</p>
+                <div style="margin: 1.5em 0;"><strong>SIGNATURE:</strong> <span style="font-family: var(--serif); font-size: 1.2rem;">Wilbur William Matthee</span></div>
+            </div>
+
         </div>
-        <div class="quantum-item">
-          <div class="q-label">Deduction as % of Earnings</div>
-          <div class="q-value">40.47%</div>
-          <div class="q-sub">BCEA s34(2) cap: 25% · Gap: 15.47pp</div>
+    </div>
+
+    <!-- ============ PART 2 ============ -->
+    <div id="part2" class="panel">
+        <div class="container">
+
+            <div style="text-align:center; margin-bottom: 2.5em;">
+                <div style="font-family: var(--mono); font-size: 0.8rem; color: var(--steel); letter-spacing: 0.2em; text-transform: uppercase;">Strengthened Consolidated Forensic Oversight Report · Part 2 of 3</div>
+                <h1 style="border-bottom: none; font-size: 2.6rem; margin-bottom: 0.2em;">EthicHawks</h1>
+                <div style="font-size: 1.2rem; font-weight: 300; margin-bottom: 0.5em;">Employment Regulators · Chapter 9 Institutions · Law Enforcement · CCMA · The Whistleblower House</div>
+            </div>
+
+            <h2>5. The Regulatory Carousel — Part B: Employment, Transformation &amp; Chapter 9</h2>
+
+            <div class="evidence-card crimson">
+                <h4>5.1 Department of Employment and Labour (DEL) — Administrative Abandonment</h4>
+                <p><strong>Mandate:</strong> Enforce the Basic Conditions of Employment Act (BCEA), including the Section 34(2) 25% cap on salary deductions. Investigate UIF non-compliance. Correct false statutory declarations.</p>
+                <p><strong>What I Did:</strong> I reported an unlawful 40.47% salary deduction — exceeding the BCEA cap by 15.47 percentage points. I reported that my employer submitted a false UI-19 form classifying my constructive dismissal as voluntary resignation (Code 6 instead of Code 7), blocking my access to unemployment benefits. I reported that my employer failed to remit UIF contributions for June 2025.</p>
+                <p><strong>How the DEL Failed:</strong></p>
+                <ul>
+                    <li>The BCEA Section 34(2) deduction cap was not enforced — despite the employer's own admission that "our policy doesn't permit for staggering."</li>
+                    <li>The false UI-19 was not corrected. The investigation file was closed with an error of law.</li>
+                    <li>UIF contributions for June 2025 were not enforced.</li>
+                    <li>The response was addressed to a generic "Mr/Mrs/Ms" — a failure to apply the mind to a specific complaint.</li>
+                    <li>I filed a 48-Hour Administrative Deadlock Notice. No substantive response was received.</li>
+                </ul>
+                <p><strong>Evidence:</strong> Payslip showing 40.47% deduction (23 July 2025). UI-19 form (Code 6 — false). DEL correspondence (Ticket C-20260120-014211). 48-Hour Administrative Deadlock Notice. Certificate of Service dispute.</p>
+                <span class="tag tag-failure">BCEA Cap Not Enforced</span> <span class="tag tag-failure">False UI-19 Not Corrected</span> <span class="tag tag-failure">Administrative Abandonment</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>5.2 B-BBEE Commission — Reclassification of Fronting</h4>
+                <p><strong>Mandate:</strong> Investigate complaints of fronting under the B-BBEE Act. Fronting includes the suppression of an employee's title or credentials to manipulate a company's B-BBEE scorecard.</p>
+                <p><strong>What I Did:</strong> I filed a formal fronting complaint (Case 5/02/2026) supported by three categories of primary-source evidence:</p>
+                <ul>
+                    <li>Interview invitations for "Specialist: Care Manager" (January 2024)</li>
+                    <li>Employment contract for "Care Coordinator" Grade B4M1 — a lower designation (9 April 2024)</li>
+                    <li>A written admission from Cheryl-Dawn Modern (Senior HR Business Partner, 19 January 2026): <em>"The naming convention changes were not applied to your department."</em></li>
+                </ul>
+                <p><strong>How the B-BBEE Commission Failed:</strong></p>
+                <ul>
+                    <li>The Commission reclassified the fronting complaint as a "labour dispute" — despite the complaint being about B-BBEE scorecard manipulation, not employment conditions.</li>
+                    <li>The Commission refused to exercise its Section 13K subpoena powers to investigate.</li>
+                    <li>The complaint was effectively closed — a fronting investigation supported by a written admission from the company's own HR official was abandoned.</li>
+                </ul>
+                <p><strong>Why This Matters:</strong> The B-BBEE Commission's refusal to investigate this complaint is regulatory capture. Under the NHI, this same fronting dynamic will infect accreditation. If the Commission cannot investigate fronting in the existing system, it will not investigate it under the NHI.</p>
+                <span class="tag tag-failure">Reclassified as Labour Dispute</span> <span class="tag tag-failure">Subpoena Powers Refused</span> <span class="tag tag-failure">Regulatory Capture</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>5.3 South African Human Rights Commission (SAHRC) — Chapter 9 Abdication</h4>
+                <p><strong>Mandate:</strong> As a Chapter 9 institution under the Constitution, the SAHRC is required to protect and promote human rights. It has the power to initiate its own investigations under Section 14 of the SAHRC Act.</p>
+                <p><strong>How the SAHRC Failed:</strong></p>
+                <ul>
+                    <li>On 10 February 2026, the SAHRC acknowledged <em>"the seriousness of the concerns."</em></li>
+                    <li>It redirected me to the CCMA and the Public Protector — neither of which has jurisdiction over the constitutional rights violations I identified.</li>
+                    <li>It then went silent. It ignored my 13 March 2026 update confirming that I had become homeless.</li>
+                    <li>It did not trigger its own-initiative investigation power under Section 14 of the SAHRC Act.</li>
+                </ul>
+                <p><strong>Evidence:</strong> SAHRC acknowledgment letter (10 February 2026). Follow-up correspondence (13 March 2026). No substantive response as at June 2026.</p>
+                <span class="tag tag-failure">Acknowledged — Then Silent</span> <span class="tag tag-failure">No Own-Initiative Investigation</span> <span class="tag tag-failure">Chapter 9 Abdication</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>5.4 South African Police Service (SAPS) — Refusal to Investigate</h4>
+                <p><strong>Mandate:</strong> Investigate criminal offences reported by members of the public.</p>
+                <p><strong>How SAPS Failed:</strong></p>
+                <ul>
+                    <li>A Delft Police Station officer refused to open a criminal case.</li>
+                    <li>The officer falsely claimed to be the station commander — a statement I recorded on audio.</li>
+                    <li>After escalation, CAS 705/3/2026 was registered — but no detective has been assigned for over three months.</li>
+                    <li>The case remains stagnant. No investigation has been conducted.</li>
+                </ul>
+                <p><strong>Evidence:</strong> Audio recording of Delft Police Station officer (23 February 2026). CAS 705/3/2026. SCCU &amp; DNPA referral (28 May 2026).</p>
+                <span class="tag tag-failure">Refused to Open Case</span> <span class="tag tag-failure">False Station Commander Claim</span> <span class="tag tag-criminal">Case Stagnant</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>5.5 Commission for Conciliation, Mediation and Arbitration (CCMA) — Biased Commissioner and PSC Cover-Up</h4>
+                <p><strong>Mandate:</strong> Provide an independent, impartial forum for the resolution of labour disputes.</p>
+                <p><strong>How the CCMA Failed:</strong></p>
+                <ul>
+                    <li><strong>Commissioner Ntabiseng Ngwane</strong> prejudged the case. Before hearing any evidence, she declared: <em>"There is nothing here that relates to a protected disclosure."</em> The PDA was declared irrelevant before the hearing began.</li>
+                    <li>When I — a destitute, self-represented litigant — asked for procedural guidance, the Commissioner told me to <em>"Google it."</em></li>
+                    <li>The BCEA Section 34 analysis was entirely absent from the Commissioner's determination.</li>
+                    <li>The employer's opposing affidavit described my clinically diagnosed severe depression and PTSD as a <em>"cynical excuse."</em> This sworn attack on my disability was not sanctioned by the Commissioner.</li>
+                    <li><strong>Provincial Senior Commissioner Vusumzi Landu</strong> conducted an internal investigation into my complaint against Commissioner Ngwane. His report was a cover-up — it exonerated the Commissioner without addressing the evidence of bias.</li>
+                </ul>
+                <p><strong>Evidence:</strong> CCMA case files WECT23564-25 and WECT24486-25. Employer's opposing affidavit (10 December 2025). Complaint against Commissioner Ngwane. PSC Landu's internal investigation report.</p>
+                <span class="tag tag-failure">Biased Commissioner</span> <span class="tag tag-coverup">PSC Cover-Up</span> <span class="tag tag-pda">PDA Declared Irrelevant</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>5.6 The Whistleblower House (TWBH) — Flawed Assessment and Abandonment</h4>
+                <p><strong>Mandate:</strong> Provide legal support, advocacy, and protection to whistleblowers in South Africa.</p>
+                <p><strong>How TWBH Failed:</strong></p>
+                <ul>
+                    <li>TWBH referred my matter to <strong>Marco van der Walt of Schroter Attorneys</strong> for an initial legal assessment.</li>
+                    <li>On 20 February 2026, I raised a security alert with van der Walt: emails were disappearing from my inbox. He acknowledged receipt but did not address the security alert.</li>
+                    <li>On 2 March 2026, believing van der Walt had gone silent, I terminated the engagement.</li>
+                    <li><strong>After I terminated the engagement</strong>, van der Walt issued a flawed legal opinion:
+                        <ul>
+                            <li>Characterised my unlawful 40.47% salary deduction as <em>"no-work no-pay"</em> — ignoring the BCEA Section 34(2) 25% cap.</li>
+                            <li>Dismissed the systemic Gexus-DMS integration failure as a <em>"single isolated incident of a system glitch."</em></li>
+                            <li>Suggested my regulatory disclosures were made in <em>"bad faith"</em> — contradicting the PDA's protections.</li>
+                        </ul>
+                    </li>
+                    <li>TWBH relied entirely on this opinion — issued after termination — without any independent review. It abandoned me based on a retaliatory legal opinion from an attorney I had already fired.</li>
+                </ul>
+                <p><strong>Evidence:</strong> Annexures T1–T10 (TWBH Evidence Bundle).</p>
+                <span class="tag tag-failure">Flawed Legal Assessment</span> <span class="tag tag-failure">Retaliatory Opinion</span> <span class="tag tag-failure">Abandonment</span>
+            </div>
+
+            <div class="sig-block">
+                <p>I, <strong>WILBUR WILLIAM MATTHEE</strong>, declare under oath that the contents of this Part are true and correct to the best of my knowledge and belief.</p>
+                <div style="margin: 1.5em 0;"><strong>SIGNATURE:</strong> <span style="font-family: var(--serif); font-size: 1.2rem;">Wilbur William Matthee</span></div>
+            </div>
+
         </div>
-        <div class="quantum-item">
-          <div class="q-label">Active Legal Forums</div>
-          <div class="q-value">6</div>
-          <div class="q-sub">High Court · Labour Court · CCMA · SAPS · B-BBEE · Regulatory</div>
+    </div>
+
+    <!-- ============ PART 3 ============ -->
+    <div id="part3" class="panel">
+        <div class="container">
+
+            <div style="text-align:center; margin-bottom: 2.5em;">
+                <div style="font-family: var(--mono); font-size: 0.8rem; color: var(--steel); letter-spacing: 0.2em; text-transform: uppercase;">Strengthened Consolidated Forensic Oversight Report · Part 3 of 3 · Final</div>
+                <h1 style="border-bottom: none; font-size: 2.6rem; margin-bottom: 0.2em;">EthicHawks</h1>
+                <div style="font-size: 1.2rem; font-weight: 300; margin-bottom: 0.5em;">Market Regulators · The Judiciary · The Attrition Strategy · The Minister · Market Fraud · NHI Risk · The Final Prayer</div>
+            </div>
+
+            <!-- MARKET REGULATORS -->
+            <h2>6. The Regulatory Carousel — Part C: Market Regulators</h2>
+
+            <div class="evidence-card crimson">
+                <h4>6.1 Johannesburg Stock Exchange (JSE) — Declined Enforcement</h4>
+                <p><strong>Mandate:</strong> Regulate listed companies and enforce disclosure obligations under the JSE Listings Requirements.</p>
+                <p><strong>How the JSE Failed:</strong> Declined to enforce disclosure obligations (Ref: JvS/166792). AfroCentric's Integrated Annual Report 2025 — claiming <em>"both platforms fully integrated"</em> and <em>"no material ESG-related incidents"</em> — was allowed to stand unchallenged. No SENS announcement was required.</p>
+                <span class="tag tag-failure">No Enforcement</span> <span class="tag tag-market">False Report Unchallenged</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>6.2 Financial Sector Conduct Authority (FSCA) — Acknowledged, Then Silent</h4>
+                <p><strong>Mandate:</strong> Regulate market conduct and protect financial customers.</p>
+                <p><strong>How the FSCA Failed:</strong> Acknowledged receipt of my complaint (Ref: 1-370127). Went silent. No substantive response. No investigation opened.</p>
+                <span class="tag tag-failure">Silent</span>
+            </div>
+
+            <!-- THE JUDICIARY -->
+            <h2>7. The Judiciary — Active Obstruction and Abuse of Process</h2>
+
+            <div class="evidence-card crimson">
+                <h4>7.1 Western Cape High Court — Gag Order by Concealment</h4>
+                <p><strong>Case:</strong> 2026-086906 — AfroCentric Investment Corporation v Matthee</p>
+                <ul>
+                    <li>On 16 April 2026, Deneys Reitz Inc. approached the Western Cape High Court on an ex parte basis, seeking an interim interdict to silence me.</li>
+                    <li><strong>They concealed my answering affidavit from the court.</strong> The court was not informed that the matter was opposed. This is a fraud on the court.</li>
+                    <li>The interdict was granted. I am restrained from disclosing the systemic clinical risk — overriding the protections of Section 9 of the PDA.</li>
+                    <li>The rule nisi has been extended to 1 March 2027 — <strong>11 months of silence</strong> imposed on a protected whistleblower while the clinical risk continues.</li>
+                    <li>Scale C costs are threatened against me — a destitute, self-represented litigant raising constitutional issues — in apparent violation of the Biowatch principle.</li>
+                    <li><strong>Court audio withheld:</strong> The audio recording of the Section 162 hearing (25 March 2026, before Judge Anderson) has been withheld for over two months.</li>
+                    <li><strong>POPIA breach by Registrar:</strong> The High Court Registrar transmitted third-party case documents to me — a breach of the Protection of Personal Information Act.</li>
+                </ul>
+                <p><strong>Evidence:</strong> Annexures M1, M2. Case 2026-066952 (Section 162). Case 2026-086906 (interdict).</p>
+                <span class="tag tag-court">Fraud on the Court</span> <span class="tag tag-failure">Gag Order</span> <span class="tag tag-failure">Biowatch Violation</span>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>7.2 Labour Court — Portal Obstruction and Default Judgment Delay</h4>
+                <p><strong>Cases:</strong> 2026-083299 (Constructive Dismissal / PDA Retaliation) and 2026-077546 (BCEA Unlawful Deduction)</p>
+                <ul>
+                    <li><strong>Portal obstruction:</strong> My filing was rejected with the reason: <em>"good day you put date."</em></li>
+                    <li><strong>Default judgment unallocated:</strong> Filed on 30 April 2026 — unallocated for over six weeks.</li>
+                    <li><strong>Defective pleadings permitted:</strong> The employer's Statement of Response was signed on behalf of a non-cited entity — a procedural nullity.</li>
+                    <li><strong>Unilateral pre-trial minute:</strong> Filed on 11 June 2026 after employer non-participation.</li>
+                </ul>
+                <p><strong>Evidence:</strong> Annexure K2 (portal rejection). Case 2026-077546. Unilateral Pre-Trial Minute (Q1).</p>
+                <span class="tag tag-failure">Portal Obstruction</span> <span class="tag tag-failure">Default Judgment Delayed</span>
+            </div>
+
+            <!-- ATTRITION STRATEGY -->
+            <h2>8. The Attrition Strategy — Forensic Litigation Conduct Assessment</h2>
+            <p>I, Wilbur William Matthee, submit this forensic litigation conduct assessment based on my direct correspondence with Deneys Reitz Inc. between 13 June 2026 and 20 June 2026. The analysis is based on primary-source emails preserved in their original format and available for independent verification.</p>
+
+            <table class="attrition-table">
+                <thead>
+                    <tr><th>Date</th><th>Tactic Deployed</th><th>Evidence</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tactic">13 Jun 2026</td>
+                        <td><strong>My opening offer:</strong> I set a firm boundary — amicable resolution cannot indefinitely suspend statutory obligations. I requested a draft framework by 16 June 2026.</td>
+                        <td>Email: Final Notice Regarding Amicable Resolution</td>
+                    </tr>
+                    <tr>
+                        <td class="tactic">15 Jun 2026</td>
+                        <td><strong>Dilatory Delay:</strong> Despite initiating settlement on 4 June, counsel claimed to still be "taking instructions" 11 days later. A public holiday was cited as an additional buffer.</td>
+                        <td>Frances Barker email: "we are still in the process of taking instructions"</td>
+                    </tr>
+                    <tr>
+                        <td class="tactic">17 Jun 2026</td>
+                        <td><strong>Unrecorded Meeting Proposed:</strong> An in-person round table was proposed. I agreed subject to three preconditions: a written agenda, a support person present, and binding written agreements. No agenda was provided.</td>
+                        <td>Email exchange: 17 June 2026, 09:34 and 10:05</td>
+                    </tr>
+                    <tr>
+                        <td class="tactic">18 Jun 2026</td>
+                        <td><strong>Asymmetrical Evidentiary Demand:</strong> Instead of engaging with my agenda input, counsel demanded my entire evidentiary portfolio across multiple statutory bodies (SAPS, CCMA, JSE, SAHRC, LPC, SANC) with a 24-hour deadline. They offered no reciprocal disclosure.</td>
+                        <td>Jason Whyte email: "we would be grateful if you would urgently provide us with the following documentation"</td>
+                    </tr>
+                    <tr>
+                        <td class="tactic">18 Jun 2026</td>
+                        <td><strong>My rebuttal:</strong> I identified that offering to pay for transport while simultaneously demanding unilateral evidence, stalling, and failing to provide an agenda is an attempt to create a "facade of reasonableness." I reverted to written correspondence exclusively. I reminded counsel of his own experience as an Acting Judge.</td>
+                        <td>Email: 18 June 2026, 21:34</td>
+                    </tr>
+                    <tr>
+                        <td class="tactic">19 Jun 2026</td>
+                        <td><strong>Deadline imposed:</strong> I corrected the deadline to close of business, 19 June 2026. The deadline passed. No substantive framework for resolution was received.</td>
+                        <td>Email: 19 June 2026, 08:26</td>
+                    </tr>
+                    <tr>
+                        <td class="tactic">20 Jun 2026</td>
+                        <td><strong>Post-Deadline Proposal:</strong> At 16:29 — after the deadline had expired — counsel proposed a meeting for 25 June 2026. The proposal explicitly refused to commit to any binding resolution: <em>"Given the open-ended nature of any negotiation, the parties cannot commit in advance to signing an agreement on the day of the meeting."</em></td>
+                        <td>Frances Barker email: 20 June 2026, 16:29</td>
+                    </tr>
+                    <tr>
+                        <td class="tactic">20 Jun 2026</td>
+                        <td><strong>My termination of negotiations:</strong> At 16:31 — two minutes later — I terminated all negotiations, documented the material breach, withdrew the Calderbank offer, and filed the Notice of Motion in Case 2026-066952.</td>
+                        <td>My email: 20 June 2026, 16:31</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="evidence-card attrition">
+                <h4>Conclusion on the Attrition Strategy</h4>
+                <p>Based on the foregoing analysis, I submit that Deneys Reitz Inc. has engaged in a calculated litigation attrition strategy. This strategy — characterised by dilatory delay, asymmetrical evidentiary demands, the exploitation of my destitution, and the refusal to commit to binding resolution — constitutes procedural bad faith. It is documented. It is verifiable.</p>
+                <p>I did not refuse to negotiate. I exhausted every avenue for amicable resolution. I was met with tactical delay designed to exploit my homelessness and starvation. When the deadline expired and they proposed open-ended talks with no binding outcome, I acted with forensic precision — terminating negotiations, documenting the breach, and filing enforcement.</p>
+                <span class="tag tag-attrition">Attrition Strategy Documented</span> <span class="tag tag-legal">Procedural Bad Faith</span>
+            </div>
+
+            <!-- THE MINISTER -->
+            <h2>9. The Minister of Justice — The Guardian Who Did Not Guard</h2>
+
+            <div class="evidence-card pda">
+                <h4>9.1 The Protected Disclosures Bill, 2026</h4>
+                <p>On 8–9 April 2026, the Minister of Justice published the Protected Disclosures Bill, 2026. The Bill proposes financial awards of up to 25% of recovered funds, a Whistleblower Protection Authority, and criminal penalties for retaliation. It repeals the very Act under which I made my protected disclosure.</p>
+                <p><strong>The Bill's own financial award provision defeats the employer's extortion allegation.</strong> My claim of R7,307,642.72 represents 0.24% of the R3.016 billion annual Governance Tax I exposed. If Parliament considers a 25% award legitimate, a claim of 0.24% cannot rationally be characterised as extortion.</p>
+            </div>
+
+            <div class="evidence-card crimson">
+                <h4>9.2 The Minister's Silence</h4>
+                <p>Two weeks after the Bill was gazetted, I called the Office of the Minister of Justice. I spoke to Lebo Tshabalala, the Minister's assistant. I was told to send an email. I was told they would reply.</p>
+                <p>On 24 April 2026 at 13:00, I sent the email to LeboTshabalala@justice.gov.za. The subject line read: <strong>"Total Destitution, Professional erasure."</strong></p>
+
+                <div class="verbatim-quote">
+                    <span class="q-label">Verbatim Extract — Email to Minister of Justice, 24 April 2026</span>
+                    "My name is Wilbur William Matthee. I was a registered specialist nurse up until 2025... Early 2025, I reported clinical discrepancies as a Specialist Nurse is expected to. The retaliation and victimisation started... I am finally on the streets with absolutely nothing. From a nurse specialist care manager to homeless for bringing up patient safety concerns... Everywhere I turn, it is CCMA flawed, Labour Court obstructions, High Court punitive costs, SANC silence, Department of Employment can't help, CMS not their jurisdiction, SAPC can't help, HPCSA no help, Probono legal too complex, law clinics don't qualify, Legal Aid too complex. Every institution I turn to, they close the door on me... I thought I should inform the Honourable Minister, and hopefully something might happen. With the last of the strength I have, happy Freedom Day."
+                </div>
+
+                <p><strong>No reply was received. No acknowledgement was sent.</strong></p>
+                <p>The Minister who gazetted a Bill to "incentivise our whistleblowers" did not respond to a whistleblower who called her office for help. The guardian of the Protected Disclosures Act left a protected whistleblower on read while he slept on the streets.</p>
+                <span class="tag tag-failure">Ministerial Silence</span> <span class="tag tag-pda">PDA Guardian Failed</span>
+            </div>
+
+            <!-- INTEGRATED REPORT FRAUD -->
+            <h2>10. The Integrated Report Fraud — Market Deception by the Board</h2>
+
+            <div class="evidence-card crimson">
+                <p>In April 2026, the Board of AfroCentric approved its Integrated Annual Report 2025. The Board had been formally served with the Priority 1 Material Risk Report (9 December 2025), the Root Cause Analysis (23 October 2025), and the Section 162 delinquency application (19 March 2026). It was aware of the active B-BBEE Commission investigation and the active criminal case.</p>
+                <p>Despite this, the Board approved a report containing materially false statements:</p>
+
+                <div class="comparison-grid">
+                    <div class="col col-left">
+                        <h4>WHAT THE BOARD APPROVED</h4>
+                        <p><strong>Claim 1:</strong> "Both platforms fully integrated with internal systems"</p>
+                        <p><strong>Claim 2:</strong> "No material ESG-related incidents, regulatory breaches, fines or penalties"</p>
+                        <p><strong>Claim 3:</strong> "Level 1 B-BBEE rating"</p>
+                        <p style="font-family:var(--mono);font-size:0.8rem;color:var(--steel);margin-top:16px;">Approved by: Dr Anna Mokgokong, Joe Madungandaba, Gerald van Wyk, Thato Moloele, Bruno Fernandes, and additional directors · ~1 April 2026</p>
+                    </div>
+                    <div class="col col-right">
+                        <h4>THE DOCUMENTED TRUTH</h4>
+                        <p><strong>Truth 1:</strong> Root Cause Analysis (23 Oct 2025): <em>"miscommunication between Gexus and DMS systems … system integration gaps"</em></p>
+                        <p><strong>Truth 2:</strong> Active B-BBEE investigation (R580m potential fine); active criminal case; active High Court delinquency application</p>
+                        <p><strong>Truth 3:</strong> Title suppression admitted by Cheryl-Dawn Modern (19 Jan 2026)</p>
+                    </div>
+                </div>
+
+                <p><strong>This is not an oversight. This is a deliberate fraud on the market committed at the highest level of a JSE-listed entity, with full knowledge of the documented truth.</strong></p>
+
+                <h4>Perjury Under Oath</h4>
+                <p><strong>Gerald van Wyk — Group CEO:</strong> Swore I was a "Care Coordinator." Truth: I was recruited as "Specialist: Care Manager."</p>
+                <p><strong>LSM Mpumlwana — Group Company Secretary:</strong> Swore no IT incident had been reported. Truth: The RCA confirmed system integration gaps.</p>
+                <p>These false statements were made under oath. They were repeated in a public filing to the JSE. They were approved by the full Board.</p>
+                <span class="tag tag-perjury">PERJURY</span> <span class="tag tag-criminal">CRIMINAL</span> <span class="tag tag-market">Market Deception</span>
+            </div>
+
+            <!-- NHI GOVERNANCE GAPS -->
+            <h2>11. The NHI Governance Gaps — A Forensic Prediction</h2>
+
+            <div class="evidence-card nhi">
+                <h4>11.1 The Accreditation Bottleneck (NHI Act Section 39)</h4>
+                <p>The B-BBEE fronting complaint reveals a corporate strategy of title suppression. The B-BBEE Commission declined to investigate. This dynamic will recur at NHI scale.</p>
+                <span class="tag tag-nhi">NHI RISK</span> <span class="tag tag-failure">Accreditation Bottleneck</span>
+            </div>
+
+            <div class="evidence-card nhi">
+                <h4>11.2 The One-Sentence Fraud Architecture (NHI Act Section 40)</h4>
+                <p>The Gexus-DMS gap was reported to the CMS. The CMS declined jurisdiction twice. The employer's Integrated Report claimed "both platforms fully integrated" while the RCA confirmed "system integration gaps." The JSE and FSCA allowed that false report to stand. Without a mandatory AI Audit Protocol, the NHI's information platform will be vulnerable to this kind of manipulation — on a scale of R200 billion.</p>
+                <span class="tag tag-nhi">NHI RISK</span> <span class="tag tag-failure">Fraud Architecture</span>
+            </div>
+
+            <div class="evidence-card nhi">
+                <h4>11.3 The Undefined Investigation Unit (NHI Act Section 20(2)(g))</h4>
+                <p>The Chief Risk Officer of AfroCentric suppressed the Priority 1 Material Risk Report — exactly the failure pattern documented by the Zondo Commission. A unit with a broad mandate, no professional standards, and no independence safeguards is not an oversight instrument. It is an oversight symbol.</p>
+                <span class="tag tag-nhi">NHI RISK</span> <span class="tag tag-failure">Undefined Investigation Unit</span>
+            </div>
+
+            <div class="block-quote" style="border-left-color: #1a3a4a; background: #e8f0f5;">
+                <strong>The PPE procurement crisis cost South Africa R14.3 billion in a single emergency. The NHI Fund will manage R200 billion annually in perpetuity. The same institutional failures that enabled the PPE crisis are already present and already causing harm. Parliament must implement reforms before the NHI becomes operational. Building the watchdog after the house burns down is not governance. It is an autopsy.</strong>
+            </div>
+
+            <!-- EVIDENCE CHAIN -->
+            <h2>12. The Complete Evidence Chain — From VICT1 to Parliament</h2>
+            <table>
+                <tr><th>Stage</th><th>Event</th><th>Evidence</th></tr>
+                <tr><td><strong>1. Protected Disclosure</strong></td><td>Gexus-DMS integration gap identified. Refusal to use false data against a 75-year-old patient.</td><td>V1, D1, D2 (23 Oct 2025)</td></tr>
+                <tr><td><strong>2. Retaliation</strong></td><td>Insubordination label, recorded admission, unlawful salary deduction, gender-based harassment.</td><td>C1, E1, payslip (Oct–Dec 2025)</td></tr>
+                <tr><td><strong>3. Board Escalation</strong></td><td>GRC1–GRC4. Board formally served. 38 attachments. No response.</td><td>G1–G4 (9–16 Dec 2025)</td></tr>
+                <tr><td><strong>4. Active Suppression</strong></td><td>Chief Risk Officer instructs whistleblower to stop emailing the Board.</td><td>C1 (18 Dec 2025)</td></tr>
+                <tr><td><strong>5. Perjury</strong></td><td>CCMA opposing affidavit falsely states job title, attacks character, dismisses clinical depression.</td><td>O1 (10 Dec 2025)</td></tr>
+                <tr><td><strong>6. Constructive Dismissal</strong></td><td>Resignation under LRA Section 186(1)(e). Employer files false UI-19.</td><td>H2, UI-19 (12 Dec 2025)</td></tr>
+                <tr><td><strong>7. Regulatory Carousel</strong></td><td>Sixteen institutions approached. Zero remedies provided.</td><td>U1–U12, J2, J3, T1–T10, and others</td></tr>
+                <tr><td><strong>8. Judicial Obstruction</strong></td><td>High Court gag order by concealment. Labour Court portal obstruction.</td><td>M1, M2, K2 (Apr–Jun 2026)</td></tr>
+                <tr><td><strong>9. Market Fraud</strong></td><td>Board-approved Integrated Report contains materially false statements.</td><td>I1 vs. I2 (Apr 2026)</td></tr>
+                <tr><td><strong>10. Ministerial Silence</strong></td><td>Minister of Justice contacted directly. Email sent. No reply.</td><td>Minister email (24 Apr 2026)</td></tr>
+                <tr><td><strong>11. Parliamentary Submission</strong></td><td>This report — the last institutional remedy.</td><td>June 2026</td></tr>
+            </table>
+
+            <!-- CONSOLIDATED PRAYER FOR RELIEF -->
+            <h2>13. Consolidated Prayer for Relief</h2>
+            <p>Honourable Speaker, Members of Parliament, I do not come before you asking for charity. I come before you asking for accountability. I am a Specialist Registered Nurse who identified a systemic clinical risk, made a protected disclosure, and was destroyed by the system that was supposed to protect me. Sixteen institutions failed. Not one provided a remedy. Parliament is the last door.</p>
+
+            <h3>Category 1: Summons and Accountability Hearings</h3>
+            <ol>
+                <li>Summon the Registrar of the CMS to explain the disparate treatment and the contempt trap.</li>
+                <li>Summon the Registrar of SANC to explain the non-acknowledgment and deregistration.</li>
+                <li>Summon the Chairpersons of HPCSA and SAPC to answer the core ethical question.</li>
+                <li>Summon the Director-General of DEL to explain the failure to enforce the BCEA cap.</li>
+                <li>Summon the B-BBEE Commissioner to explain the reclassification of fronting.</li>
+                <li>Summon the Chairperson of SAHRC to explain the failure to investigate.</li>
+                <li>Summon the National Commissioner of SAPS to explain the stagnation of CAS 705/3/2026.</li>
+                <li>Summon the Head of Issuer Regulation of the JSE and the Commissioner of the FSCA.</li>
+                <li>Summon the directors of AfroCentric to account for the false Integrated Report.</li>
+                <li>Summon the management of The Whistleblower House.</li>
+            </ol>
+
+            <h3>Category 2: Investigations and Referrals</h3>
+            <ol start="11">
+                <li>Request the NPA to investigate apparent perjury by Gerald van Wyk and LSM Mpumlwana.</li>
+                <li>Request the JSE and FSCA to investigate AfroCentric's Integrated Report 2025.</li>
+                <li>Refer Deneys Reitz Inc. to the Legal Practice Council.</li>
+                <li>Refer Vijay Makenjee to the LPC and NPA.</li>
+                <li>Refer the Delft Police Station officer to IPID.</li>
+                <li>Refer CCMA Commissioner Ngwane and PSC Landu to the Public Protector.</li>
+                <li>Request the Judge President of the Western Cape High Court to investigate the concealment of the answering affidavit.</li>
+                <li>Request the Judge President of the Labour Court to investigate the portal obstruction.</li>
+                <li>Request SCOPA to direct the Auditor-General to conduct a forensic audit of Medscheme's administration of GEMS.</li>
+            </ol>
+
+            <h3>Category 3: NHI Legislative Reforms</h3>
+            <ol start="20">
+                <li>Mandate Forensic Governance Impact Assessments before NHI accreditation rollout.</li>
+                <li>Enact a mandatory AI Audit Protocol as a Schedule to the NHI Act.</li>
+                <li>Enact a Statutory Forensic Governance Protocol for the NHI Fraud Investigation Unit.</li>
+            </ol>
+
+            <h3>Category 4: Whistleblower Protection Reforms</h3>
+            <ol start="23">
+                <li>Amend the PDA to require interim restoration of deducted salary upon a prima facie finding of retaliation.</li>
+                <li>Establish a dedicated Whistleblower Protection Authority.</li>
+                <li>Amend the PDA to impose criminal penalties on regulatory officials who decline jurisdiction without legal basis.</li>
+            </ol>
+
+            <h3>Category 5: Urgent Humanitarian Intervention</h3>
+            <ol start="26">
+                <li>Parliament should urgently intervene to ensure I receive basic necessities — food, shelter, and transport to court — as an interim measure. A whistleblower who is starving cannot attend court. A whistleblower who is homeless cannot compile evidence. The system must ensure my survival while it investigates my destruction.</li>
+            </ol>
+
+            <!-- FINAL PRAYER -->
+            <h2>14. Final Prayer — The Last Door</h2>
+            <div class="block-quote">
+                "The house is not yet burning. But the fire alarm has been ringing for over a year. This report is the evidence of the smoke. Parliament must act before the NHI becomes the fire."
+            </div>
+
+            <p>Honourable Speaker, Members of Parliament,</p>
+            <p>I am a Specialist Registered Nurse. I identified a systemic clinical risk. I refused to lie to a 75-year-old patient. I made a protected disclosure. I approached every regulator, every law enforcement body, every Chapter 9 institution, every court, and the Minister of Justice herself.</p>
+            <p>I am now homeless. I have no running water. I have been deregistered by SANC because I could not pay R870. I am self-represented in nine concurrent proceedings. I have been silenced by a court order obtained by concealment. I have been threatened with contempt for petitioning Parliament.</p>
+            <p>Sixteen institutions failed me. Not one provided a remedy.</p>
+            <p>Parliament is the last door.</p>
+            <p>I have done everything the law asked of me. I have filed every form. I have knocked on every door. I have been to every institution that is supposed to exist to protect people like me.</p>
+            <p>The prayer for relief is this: exercise the constitutional oversight power that every one of the sixteen institutions abdicated. Summon those who failed. Demand accountability. Close the governance gaps. Protect future whistleblowers. And acknowledge that what happened to me was wrong, that it was documented, and that Parliament saw it and acted.</p>
+            <p>Behind every page of this report is a 75-year-old widow who deserved to be told the truth about her medication. And behind every signature on this report is a nurse who refused to lie to her.</p>
+            <p>I place my trust in Parliament.</p>
+
+            <div style="margin-top: 2em; font-family: var(--serif); font-size: 1.2rem;">Wilbur William Matthee</div>
+            <div style="font-family: var(--mono); font-size: 0.9rem;">RN | BTech General Nursing | PGDip Health Services Management (NQF 8) | Founder — EthicHawks Forensic Governance &amp; Compliance Consultancy</div>
+            <div style="margin-top: 0.5em; font-style: italic;">Cape Town, South Africa | June 2026</div>
+
+            <!-- SIGNATURE BLOCK -->
+            <div class="sig-block">
+                <p>I, the undersigned, <strong>WILBUR WILLIAM MATTHEE</strong>, declare under oath that the contents of this Strengthened Consolidated Forensic Oversight Report are, to the best of my knowledge and belief, true and correct. I have personal knowledge of the facts set out herein, except where indicated to the contrary, and the documentary evidence referenced throughout is genuine and has not been materially altered or fabricated.</p>
+                <p>I am aware that making false statements in a submission to Parliament may constitute a criminal offence. I have not made any false statements.</p>
+                <p>I make this report in good faith, under the protections of the Protected Disclosures Act 26 of 2000 (as a disclosure to Parliament as an appropriate authority under Section 8), and in the exercise of my constitutional right to petition Parliament under Section 56 of the Constitution of the Republic of South Africa, 1996.</p>
+                <p>I invite Parliament to appoint an independent forensic investigator to verify the authenticity of the evidence bundle and to report to the relevant Portfolio Committees.</p>
+                <div style="margin: 1.5em 0;"><strong>SIGNATURE:</strong> <span style="font-family: var(--serif); font-size: 1.2rem;">Wilbur William Matthee</span></div>
+                <table>
+                    <tr><td><strong>FULL NAME:</strong></td><td>Wilbur William Matthee</td></tr>
+                    <tr><td><strong>SANC REGISTRATION NO.:</strong></td><td>15831886 (currently lapsed — non-payment caused by employer's unlawful deduction)</td></tr>
+                    <tr><td><strong>ID NUMBER:</strong></td><td>890903 5151 087</td></tr>
+                    <tr><td><strong>CAPACITY:</strong></td><td>Complainant / Protected Whistleblower / Self-Represented Litigant</td></tr>
+                    <tr><td><strong>CONTACT:</strong></td><td>info@ethichawks.co.za | 069 635 1435</td></tr>
+                    <tr><td><strong>ADDRESS:</strong></td><td>15 Bellevue Street, Voorburg, Cape Town, 7001 (currently homeless — service by email only)</td></tr>
+                    <tr><td><strong>DATE:</strong></td><td>June 2026</td></tr>
+                    <tr><td><strong>PLACE:</strong></td><td>Cape Town, South Africa</td></tr>
+                </table>
+                <div style="margin-top: 2em;"><strong>COMMISSIONER OF OATHS</strong></div>
+                <p>I certify that the deponent has acknowledged that he knows and understands the contents of this Strengthened Consolidated Forensic Oversight Report, that he has no objection to taking the prescribed oath, that he considers the oath to be binding on his conscience, and that he signed this report in my presence on the date and at the place set out below.</p>
+                <div style="margin: 1.5em 0;">
+                    <div>SIGNATURE OF COMMISSIONER OF OATHS: ___________________________</div>
+                    <div style="margin-top: 0.5em; font-family: var(--mono); font-size: 0.9rem;">(Affix Commissioner of Oaths stamp here)</div>
+                </div>
+            </div>
+
+            <!-- EPILOGUE -->
+            <div style="text-align:center; margin-top: 3em; padding-top: 2em; border-top: 1px solid var(--rule);">
+                <p style="font-family: var(--serif); font-size: 1.1rem; color: var(--steel); font-style: italic;">The loop is closed. The evidence is complete. The prayer is made.</p>
+                <p style="font-family: var(--mono); font-size: 0.8rem; color: var(--steel); letter-spacing: 0.1em; text-transform: uppercase;">Parliament is the last door.</p>
+            </div>
+
+            <div class="footer-note">EthicHawks Forensic Governance &amp; Compliance Consultancy · Cape Town · June 2026 · Parliamentary Submission — Final</div>
+
         </div>
-        <div class="quantum-item">
-          <div class="q-label">Protected Disclosure Filed</div>
-          <div class="q-value">9 Dec 2025</div>
-          <div class="q-sub">Priority 1 Material Risk Report · GEXUS/DMS</div>
-        </div>
-      </div>
-      <div class="quantum-note">Full quantum documented across: constructive dismissal · PDA retaliation · BCEA deductions · IP misappropriation · Humanitarian impact. Floor and ceiling positions established. This panel is for parliamentary reference only.</div>
     </div>
-
-    <div class="section-head">
-      <h2>Three Forensic Pillars</h2>
-    </div>
-
-    <div class="method-grid">
-      <div class="method-card">
-        <div class="method-num">01</div>
-        <div class="method-name">The Flow</div>
-        <div class="method-def">Chronological and hierarchical escalation — from floor-level clinical risk through executive suppression to board-level omissions and regulatory blindness. Every document in this bundle is positioned on this chain.</div>
-      </div>
-      <div class="method-card">
-        <div class="method-num">02</div>
-        <div class="method-name">Cryptographic Matrix</div>
-        <div class="method-def">Every factual assertion in the Parliamentary Brief links programmatically to a primary source file with its exact SHA-256 hash. If an assertion has no verified cross-reference, the build fails.</div>
-      </div>
-      <div class="method-card">
-        <div class="method-num">03</div>
-        <div class="method-name">The Narrative Arc</div>
-        <div class="method-def">Evidence is not presented passively. It is structured to demonstrate intentional risk concealment, victimisation of a whistleblower, statutory violations, and the coordinated failure of nine oversight institutions.</div>
-      </div>
-    </div>
-
-    <div class="section-head">
-      <h2>Repository Structure</h2>
-    </div>
-
-    <div class="integrity-panel">
-      <span class="i-label">REPO  </span><span class="i-val">github.com/wilburmat-boop/Forensic-Governance-Portfolio</span><br>
-      <span class="i-label">BRANCH</span><span class="i-val"> main · HEAD 83a75bf · "final compilation"</span><br>
-      <span class="i-label">STATUS</span><span class="i-val"> clean · synced with origin/main</span><br>
-      <br>
-      <span class="i-label">DIR   </span><span class="i-val"> 01_Executive_Briefs/</span><br>
-      <span class="i-label">      </span><span class="i-val"> ├─ PARL_SUBMISSION_MAIN_JUNE2026.md</span><br>
-      <span class="i-label">      </span><span class="i-val"> ├─ PARL_SUBMISSION_MASTER_FINAL.md</span><br>
-      <span class="i-label">      </span><span class="i-val"> ├─ PARL_SUBMISSION_ANALYTICAL_JUNE2026.md</span><br>
-      <span class="i-label">      </span><span class="i-val"> ├─ FINAL_PARLIAMENTARY_INDEX_JUNE2026.md</span><br>
-      <span class="i-label">      </span><span class="i-val"> └─ SPEAKER_SUMMARY_ANALYTICS.md</span><br>
-      <br>
-      <span class="i-label">DIR   </span><span class="i-val"> 02_Evidence_Core/</span><br>
-      <span class="i-label">      </span><span class="i-val"> ├─ CCMA/ · DEL/ · SAPC/ · JSE_FSCA_Questco/</span><br>
-      <span class="i-label">      </span><span class="i-val"> ├─ Round table/ · SCCU &amp; DNPA referral/</span><br>
-      <span class="i-label">      </span><span class="i-val"> ├─ Full Interim order AFROCENTRIC High court/</span><br>
-      <span class="i-label">      </span><span class="i-val"> ├─ Forensic Report Oversight/ · Clinical Reports/</span><br>
-      <span class="i-label">      </span><span class="i-val"> └─ Parliament V_1/ · Parliament V_2/</span><br>
-      <br>
-      <span class="i-label">DIR   </span><span class="i-val"> 03_Regulatory_Cross_Maps/</span><br>
-      <span class="i-label">      </span><span class="i-val"> ├─ KING_V_ALIGNMENT_GAP_ANALYSIS.md</span><br>
-      <span class="i-label">      </span><span class="i-val"> └─ STATUTORY_BREACH_MATRIX.md</span><br>
-      <br>
-      <span class="i-label">FILE  </span><span class="i-val"> hash_manifest.sha256</span><br>
-      <span class="i-warn">WARN  </span><span class="i-warn"> 3 critical .md files currently 0 bytes — require population</span>
-    </div>
-  </div>
-
-  <!-- ACTIVE MATTERS -->
-  <div id="matters" class="panel">
-    <div class="section-head">
-      <h2>Active Legal Matters</h2>
-      <span class="count">6 forums · simultaneous</span>
-    </div>
-
-    <div class="case-grid">
-      <div class="case-card crimson">
-        <div class="card-forum">Western Cape High Court</div>
-        <div class="card-ref">2026-066952</div>
-        <div class="card-title">Section 162 Director Delinquency Application — Bruno Fernandes, Dr. N. Munisi, A. Le Roux, G. Van Wyk, LSM Mpumlwana</div>
-        <div><span class="card-status status-active">⬤ Active</span></div>
-        <div style="margin-top:10px; font-family:var(--mono); font-size:10px; color:var(--steel);">Heard 25 Mar 2026 before Judge Anderson · Rule 42 rescission pending · Scale C costs order disputed · Biowatch constitutional principle engaged · Opposing: Deneys Reitz (Whyte &amp; Barker)</div>
-      </div>
-
-      <div class="case-card navy">
-        <div class="card-forum">Western Cape High Court</div>
-        <div class="card-ref">2026-086906</div>
-        <div class="card-title">Interdict Application — AfroCentric Investment Corporation</div>
-        <div><span class="card-status status-extended">⬤ Extended to March 2027</span></div>
-        <div style="margin-top:10px; font-family:var(--mono); font-size:10px; color:var(--steel);">Supplementary Answering Affidavit filed · Practice Note filed · Full interim order bundle compiled · Deneys Reitz opposing</div>
-      </div>
-
-      <div class="case-card gold">
-        <div class="card-forum">Labour Court</div>
-        <div class="card-ref">2026-083299</div>
-        <div class="card-title">BCEA Section 34 — Unlawful Deduction of R14,811.77 (40.47% of normal earnings)</div>
-        <div><span class="card-status status-active">⬤ Active</span></div>
-        <div style="margin-top:10px; font-family:var(--mono); font-size:10px; color:var(--steel);">Unilateral Pre-Trial Minute filed 11 June 2026 · Exceeds s34(2) statutory cap by 15.47pp · uFiling salary gap documented</div>
-      </div>
-
-      <div class="case-card gold">
-        <div class="card-forum">Labour Court</div>
-        <div class="card-ref">2026-077546</div>
-        <div class="card-title">Constructive Dismissal / Protected Disclosure Act Retaliation</div>
-        <div><span class="card-status status-active">⬤ Active</span></div>
-        <div style="margin-top:10px; font-family:var(--mono); font-size:10px; color:var(--steel);">Concurrent with 2026-083299 · Automatically unfair constructive dismissal · PDA s3 retaliation ground</div>
-      </div>
-
-      <div class="case-card crimson">
-        <div class="card-forum">SAPS — Criminal</div>
-        <div class="card-ref">CAS 1954/3/2026</div>
-        <div class="card-title">Criminal Complaint — Fraud, Perjury, Defeating Ends of Justice</div>
-        <div><span class="card-status status-criminal">⬤ Criminal · Active</span></div>
-        <div style="margin-top:10px; font-family:var(--mono); font-size:10px; color:var(--steel);">SCCU &amp; DNPA referral 28 May 2026 · Urgent criminal escalation filed · Evidence of perjury by corporate litigants</div>
-      </div>
-
-      <div class="case-card verified">
-        <div class="card-forum">B-BBEE Commission</div>
-        <div class="card-ref">Case 5/02/2026</div>
-        <div class="card-title">B-BBEE Fronting Investigation — Medscheme Holdings / AfroCentric</div>
-        <div><span class="card-status status-active">⬤ Active</span></div>
-        <div style="margin-top:10px; font-family:var(--mono); font-size:10px; color:var(--steel);">Cheryl-Dawn Modern written admission 19 Jan 2026 — central forensic artifact · Form 8 response submitted · Naming convention / window dressing finding</div>
-      </div>
-    </div>
-
-    <div class="section-head">
-      <h2>Opposing Counsel on Record</h2>
-    </div>
-    <table class="evidence-table">
-      <thead>
-        <tr>
-          <th>Firm</th>
-          <th>Attorneys</th>
-          <th>Matters</th>
-          <th>Ref</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Deneys Reitz Inc.</td>
-          <td><div class="doc-name">Jason Whyte</div><div class="doc-desc">Frances Barker</div></td>
-          <td>2026-066952 · 2026-086906 · 2026-083299</td>
-          <td><span class="tag tag-court">AFR1282</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- EVIDENCE CORE -->
-  <div id="evidence" class="panel">
-    <div class="section-head">
-      <h2>Evidence Core</h2>
-      <span class="count">02_Evidence_Core/ · Categorised</span>
-    </div>
-
-    <div class="search-bar">
-      <input class="search-input" type="text" id="evidenceSearch" placeholder="Filter evidence by keyword..." oninput="filterEvidence()">
-    </div>
-
-    <table class="evidence-table" id="evidenceTable">
-      <thead>
-        <tr>
-          <th>Category</th>
-          <th>Document / Description</th>
-          <th>Type</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>High Court</td><td><div class="doc-name">AfrocentricInvestmentCorporation...CompleteBundle.pdf</div><div class="doc-desc">Full interim order bundle — Case 2026-086906 · AfroCentric v Matthee</div></td><td><span class="tag tag-court">Court Bundle</span></td></tr>
-        <tr><td>High Court</td><td><div class="doc-name">Matthee_SupplAnsweringAffidavit_Final.PDF</div><div class="doc-desc">Supplementary Answering Affidavit — Case 2026-086906</div></td><td><span class="tag tag-affidavit">Affidavit</span></td></tr>
-        <tr><td>High Court</td><td><div class="doc-name">WilburWilliamMatthee...162WC2026...CompleteBundle.pdf</div><div class="doc-desc">Full bundle — Section 162 Delinquency Application 2026-066952</div></td><td><span class="tag tag-court">Court Bundle</span></td></tr>
-        <tr><td>CCMA</td><td><div class="doc-name">CCMA 1ST CASE.pdf / CCMA CASE 2.pdf</div><div class="doc-desc">WECT23564-25 &amp; WECT24486-25 · Conciliation referrals</div></td><td><span class="tag tag-regulator">CCMA</span></td></tr>
-        <tr><td>CCMA</td><td><div class="doc-name">Gmail — Respondents Opposing Affidavit WECT23564-25</div><div class="doc-desc">Medscheme opposing affidavit — Xolile Manyati</div></td><td><span class="tag tag-email">Email</span></td></tr>
-        <tr><td>CCMA</td><td><div class="doc-name">Gmail — Employer Objection to Con-Arb WECT24486-25</div><div class="doc-desc">Urgent response to employer objection</div></td><td><span class="tag tag-email">Email</span></td></tr>
-        <tr><td>DEL</td><td><div class="doc-name">Gmail — FORMAL OBJECTION: Misdirection of Statutory Fraud (UI19)</div><div class="doc-desc">Refusal to exercise mandated duty · UIF non-declaration</div></td><td><span class="tag tag-email">Email</span></td></tr>
-        <tr><td>DEL</td><td><div class="doc-name">Gmail — 48-Hour Administrative Deadlock Notice</div><div class="doc-desc">Integrated Inspection Medscheme/AfroCentric · UIF gap</div></td><td><span class="tag tag-email">Email</span></td></tr>
-        <tr><td>DEL</td><td><div class="doc-name">Certificate of Service / Dispute of Certificate Accuracy</div><div class="doc-desc">Matthew Holmes (CPT) correspondence · DEL Cape Town</div></td><td><span class="tag tag-regulator">DEL</span></td></tr>
-        <tr><td>JSE / FSCA</td><td><div class="doc-name">Gmail — Board Governance Failure &amp; Retaliation — Request for Oversight</div><div class="doc-desc">JSE Issuer Regulation escalation · AfroCentric (ACT)</div></td><td><span class="tag tag-email">Email</span><span class="tag tag-regulator">JSE</span></td></tr>
-        <tr><td>JSE / FSCA</td><td><div class="doc-name">FSCA Ref 1-370127 — Section 162 &amp; Governance Failures Update</div><div class="doc-desc">Factual update to FSCA · AfroCentric Investment Corporation</div></td><td><span class="tag tag-regulator">FSCA</span></td></tr>
-        <tr><td>JSE / FSCA</td><td><div class="doc-name">Gmail — URGENT SUPPLEMENTARY FILING: Fraud, Governance Collapse &amp; Bad Faith Litigation</div><div class="doc-desc">Institutional validation filing to JSE/FSCA</div></td><td><span class="tag tag-email">Email</span></td></tr>
-        <tr><td>SAPC</td><td><div class="doc-name">FORMAL COMPLAINT — Lisa Mari, Responsible Pharmacist</div><div class="doc-desc">Medscheme Holdings / AfroCentric · Unprofessional conduct</div></td><td><span class="tag tag-regulator">SAPC</span></td></tr>
-        <tr><td>SAPC</td><td><div class="doc-name">CLARIFICATION — HPCSA Referral &amp; SAPC Complaint · GEXUS</div><div class="doc-desc">Follow-up to complaint of 23 Dec 2025</div></td><td><span class="tag tag-regulator">SAPC</span></td></tr>
-        <tr><td>Clinical</td><td><div class="doc-name">Mrs_Kamaldiem_Health_Report.pdf</div><div class="doc-desc">EthicHawks Patient Health Feedback Report — PathCare</div></td><td><span class="tag tag-clinical">Clinical</span></td></tr>
-        <tr><td>SCCU / DNPA</td><td><div class="doc-name">URGENT CRIMINAL ESCALATION: Perjury &amp; Defeating Ends of Justice</div><div class="doc-desc">Evidence of perjury by corporate litigants · 28 May 2026</div></td><td><span class="tag tag-court">Criminal</span></td></tr>
-        <tr><td>Round Table</td><td><div class="doc-name">v_0_2_Roundtable_Brief_Dossier.pdf</div><div class="doc-desc">Round Table Meeting Brief for Representation · Matthee v AfroCentric</div></td><td><span class="tag tag-primary">Brief</span></td></tr>
-        <tr><td>Round Table</td><td><div class="doc-name">Matthee_RoundTable_PositionPaper_June2026</div><div class="doc-desc">Position paper · Quantum &amp; settlement parameters</div></td><td><span class="tag tag-primary">Position</span></td></tr>
-        <tr><td>Round Table</td><td><div class="doc-name">Matthee_SupportPerson_CheatSheet_June2026</div><div class="doc-desc">Support person briefing document</div></td><td><span class="tag tag-primary">Brief</span></td></tr>
-        <tr><td>Parliament</td><td><div class="doc-name">EthicHawks_Consolidated_Forensic_Oversight_Report_FULL_June2026.pdf</div><div class="doc-desc">Full consolidated forensic oversight report · Parliament V_1</div></td><td><span class="tag tag-primary">Primary</span></td></tr>
-        <tr><td>Parliament</td><td><div class="doc-name">EthicHawks_Consolidated_Parliamentary_Submission_June2026-3.pdf</div><div class="doc-desc">Final parliamentary submission · Parliament V_2</div></td><td><span class="tag tag-primary">Primary</span></td></tr>
-        <tr><td>Parliament</td><td><div class="doc-name">EthicHawks_Letter_to_Speaker_03June2026_Reply_to_Deneys.pdf</div><div class="doc-desc">Letter to Honourable Speaker · Reply to Deneys Reitz · 3 June 2026</div></td><td><span class="tag tag-primary">Speaker</span></td></tr>
-        <tr><td>Judge President</td><td><div class="doc-name">Escalation_Letter_Judge_President_20260610.pdf</div><div class="doc-desc">BCEA escalation · Labour Court portal access failures · Systemic access to justice</div></td><td><span class="tag tag-court">Escalation</span></td></tr>
-        <tr><td>Forensic Reports</td><td><div class="doc-name">EthicHawks_Dossier_Era_Regulatory_Capture.pdf</div><div class="doc-desc">Foreword to Consolidated Forensic Oversight Report · NHI governance architecture</div></td><td><span class="tag tag-primary">Dossier</span></td></tr>
-        <tr><td>Forensic Reports</td><td><div class="doc-name">Portfolio_Commitee_Oversight_The_Chilling_Effect.pdf</div><div class="doc-desc">Consolidated Forensic Oversight Report — Portfolio Committee · Chilling Effect</div></td><td><span class="tag tag-primary">Report</span></td></tr>
-        <tr><td>Forensic Reports</td><td><div class="doc-name">Conflict_of_Interest.pdf</div><div class="doc-desc">Conflict of Interest Declaration &amp; Ethical Statement — Speaker &amp; Portfolio Committees</div></td><td><span class="tag tag-primary">Declaration</span></td></tr>
-        <tr><td>TWBH</td><td><div class="doc-name">Gmail — CCMA Certificates &amp; Full Narrative Evidence Bundle</div><div class="doc-desc">Whistleblower House referral · Narrative evidence bundle</div></td><td><span class="tag tag-email">Email</span></td></tr>
-        <tr><td>TWBH</td><td><div class="doc-name">Gmail — Updated Statutory Affidavit · Whistleblower House Referral</div><div class="doc-desc">Statutory affidavit update submitted to TWBH</div></td><td><span class="tag tag-affidavit">Affidavit</span></td></tr>
-        <tr><td>Master Bundle</td><td><div class="doc-name">WM_Regulatory_Evidence_Bundle_HighCourt_Format.PDF</div><div class="doc-desc">Full Regulatory Evidence Bundle · Western Cape High Court format · 2025</div></td><td><span class="tag tag-court">Master Bundle</span></td></tr>
-        <tr><td>Master Bundle</td><td><div class="doc-name">WM_Annexure_Index_and_Tabs.PDF</div><div class="doc-desc">Annexure index and tabs · High Court format</div></td><td><span class="tag tag-court">Index</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- REGULATORY MAP -->
-  <div id="regulatory" class="panel">
-    <div class="section-head">
-      <h2>Regulatory Escalation Map</h2>
-      <span class="count">10 bodies · all escalated</span>
-    </div>
-
-    <div class="reg-grid">
-      <div class="reg-card">
-        <div class="reg-icon">SAHRC</div>
-        <div class="reg-body">
-          <div class="reg-name">SA Human Rights Commission</div>
-          <div class="reg-status">Human Rights Violation · Section 9 &amp; 34</div>
-          <div class="reg-desc">Whistleblower protection · Access to justice · Constitutional rights deprivation</div>
-          <div class="response-pill resp-acknowledged">Acknowledged · Pending substantive response</div>
-        </div>
-      </div>
-      <div class="reg-card">
-        <div class="reg-icon">JSE</div>
-        <div class="reg-body">
-          <div class="reg-name">Johannesburg Stock Exchange</div>
-          <div class="reg-status">Material Omission · Listed Entity · ACT</div>
-          <div class="reg-desc">AfroCentric governance failures · Board-level material omissions · King IV/V non-compliance</div>
-          <div class="response-pill resp-filed">Filed · Ref JvS/166792</div>
-        </div>
-      </div>
-      <div class="reg-card">
-        <div class="reg-icon">FSCA</div>
-        <div class="reg-body">
-          <div class="reg-name">Financial Sector Conduct Authority</div>
-          <div class="reg-status">Financial Disclosure Irregularities</div>
-          <div class="reg-desc">AfroCentric listed entity · Section 162 application notification · Governance collapse</div>
-          <div class="response-pill resp-filed">Ref: 1-370127</div>
-        </div>
-      </div>
-      <div class="reg-card">
-        <div class="reg-icon">CIPC</div>
-        <div class="reg-body">
-          <div class="reg-name">Companies &amp; Intellectual Property Commission</div>
-          <div class="reg-status">Companies Act Non-Compliance</div>
-          <div class="reg-desc">Director delinquency · Section 162 application grounds · Named directors</div>
-          <div class="response-pill resp-filed">Filed</div>
-        </div>
-      </div>
-      <div class="reg-card">
-        <div class="reg-icon">IRBA</div>
-        <div class="reg-body">
-          <div class="reg-name">Independent Regulatory Board for Auditors</div>
-          <div class="reg-status">Auditor Independence · Material Misstatement</div>
-          <div class="reg-desc">AfroCentric financial statements · Governance omissions not qualified by auditors</div>
-          <div class="response-pill resp-filed">Filed</div>
-        </div>
-      </div>
-      <div class="reg-card">
-        <div class="reg-icon">BBBEE</div>
-        <div class="reg-body">
-          <div class="reg-name">B-BBEE Commission</div>
-          <div class="reg-status">Fronting Investigation · Case 5/02/2026</div>
-          <div class="reg-desc">Cheryl-Dawn Modern written admission 19 Jan 2026 · Naming convention / window dressing · Form 8 response submitted</div>
-          <div class="response-pill resp-active">Active Investigation</div>
-        </div>
-      </div>
-      <div class="reg-card">
-        <div class="reg-icon">CMS</div>
-        <div class="reg-body">
-          <div class="reg-name">Council for Medical Schemes</div>
-          <div class="reg-status">Clinical Risk · GEMS Beneficiary Impact</div>
-          <div class="reg-desc">GEXUS/DMS integration failure · Incorrect non-adherence letters to GEMS chronic beneficiaries · Patient safety risk</div>
-          <div class="response-pill resp-acknowledged">Acknowledged · CMS-REQUEST-3</div>
-        </div>
-      </div>
-      <div class="reg-card">
-        <div class="reg-icon">DEL</div>
-        <div class="reg-body">
-          <div class="reg-name">Department of Employment &amp; Labour</div>
-          <div class="reg-status">BCEA Non-Compliance · UIF Fraud</div>
-          <div class="reg-desc">UI19 misdirection · UIF non-declaration · Certificate of service dispute · Integrated inspection requested</div>
-          <div class="response-pill resp-filed">Ticket C-20260120-014211</div>
-        </div>
-      </div>
-      <div class="reg-card">
-        <div class="reg-icon">SANC</div>
-        <div class="reg-body">
-          <div class="reg-name">South African Nursing Council</div>
-          <div class="reg-status">Nursing Act Implications</div>
-          <div class="reg-desc">Clinical governance obligations · Protected disclosure by registered nurse · Professional standing</div>
-          <div class="response-pill resp-filed">Filed</div>
-        </div>
-      </div>
-      <div class="reg-card">
-        <div class="reg-icon">PARL</div>
-        <div class="reg-body">
-          <div class="reg-name">Parliamentary Speaker · Portfolio Committees</div>
-          <div class="reg-status">Systemic Access-to-Justice Failure</div>
-          <div class="reg-desc">Labour Court portal obstruction · 9 regulatory bodies failing · Health · Labour · Trade &amp; Industry · Justice · SCOPA · Police</div>
-          <div class="response-pill resp-active">Active Submission</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-head">
-      <h2>The Institutional Silence Pattern</h2>
-    </div>
-    <div style="background:white; border:1px solid var(--rule); padding:24px; font-size:13px; color:var(--steel); line-height:1.8; border-left:4px solid var(--crimson);">
-      <strong style="color:var(--navy); font-family:var(--serif); font-size:16px;">Finding:</strong> All ten regulatory bodies confirmed the "seriousness" of matters raised. None took substantive protective action within the statutory timeframes. This is not coincidence — it constitutes the <strong>Institutional Silence</strong> construct documented in the Wilbur Method™: a coordinated pattern of acknowledgement without action that functions as passive complicity in the ongoing harm to the whistleblower.<br><br>
-      <span style="font-family:var(--mono); font-size:11px; color:var(--crimson);">This finding is the central thesis of the Parliamentary submission and the grounds for Portfolio Committee oversight.</span>
-    </div>
-  </div>
-
-  <!-- TIMELINE -->
-  <div id="timeline" class="panel">
-    <div class="section-head">
-      <h2>Chronological Evidence Chain</h2>
-      <span class="count">Sep 2025 → Jun 2026</span>
-    </div>
-
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-dot gold"></div>
-        <div class="tl-date">SEPTEMBER 2025</div>
-        <div class="tl-title">EthicHawks Established</div>
-        <div class="tl-body">Forensic Governance &amp; Compliance Consultancy founded. Wilbur Matthee identifies GEXUS/DMS integration failure in the GEMS Active Disease Risk Management Unit at Medscheme.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot crimson"></div>
-        <div class="tl-date">9 DECEMBER 2025</div>
-        <div class="tl-title">Priority 1 Material Risk Report Filed</div>
-        <div class="tl-body">Protected disclosure filed under the Protected Disclosures Act 26 of 2000. GEXUS/DMS integration failure generating incorrect non-adherence letters to GEMS chronic beneficiaries — direct patient safety risk.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot crimson"></div>
-        <div class="tl-date">DECEMBER 2025 — JANUARY 2026</div>
-        <div class="tl-title">Retaliatory Conduct Begins</div>
-        <div class="tl-body">Constructive dismissal process initiated. 40.47% salary deduction imposed without consultation — R14,811.77. Exit documents withheld. UIF non-declaration to SARS. CCMA referrals WECT23564-25 and WECT24486-25 filed.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">19 JANUARY 2026</div>
-        <div class="tl-title">B-BBEE Central Forensic Artifact</div>
-        <div class="tl-body">Cheryl-Dawn Modern's written admission confirming the naming convention / window dressing finding. This document anchors the B-BBEE Commission Case 5/02/2026.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">FEBRUARY — MARCH 2026</div>
-        <div class="tl-title">Multi-Forum Escalation</div>
-        <div class="tl-body">Simultaneous filings to SAHRC, JSE, CIPC, IRBA, CMS, FSCA, DEL, SANC. BCEA Section 77A urgent Labour Court application filed after portal obstruction. Form 8 B-BBEE Commission response submitted.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot crimson"></div>
-        <div class="tl-date">25 MARCH 2026</div>
-        <div class="tl-title">Section 162 Hearing — Judge Anderson</div>
-        <div class="tl-body">Serious procedural irregularities: unauthorized advocate appearance. Scale C costs order issued — challenged via Rule 42 rescission. Biowatch constitutional principle engaged against costs.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">16 APRIL 2026</div>
-        <div class="tl-title">Interim Order — Case 2026-086906</div>
-        <div class="tl-body">Interim order granted. AfroCentric interim order bundle compiled. Matter extended to March 2027.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">28 MAY 2026</div>
-        <div class="tl-title">SCCU &amp; DNPA Criminal Referral</div>
-        <div class="tl-body">Urgent criminal escalation filed: evidence of perjury and defeating the ends of justice by corporate litigants. Referred to Serious Commercial Crimes Unit.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot gold"></div>
-        <div class="tl-date">3 JUNE 2026</div>
-        <div class="tl-title">Letter to Parliamentary Speaker</div>
-        <div class="tl-body">Formal letter to Honourable Speaker — reply to Deneys Reitz correspondence. Parliamentary seizure of evidence formally noticed.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">10 JUNE 2026</div>
-        <div class="tl-title">Escalation to Judge President</div>
-        <div class="tl-body">Formal escalation letter to Judge President regarding BCEA unlawful deduction and Labour Court portal access failures as a systemic access-to-justice failure.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">11 JUNE 2026</div>
-        <div class="tl-title">Unilateral Pre-Trial Minute Filed</div>
-        <div class="tl-body">Labour Court Cases 2026-083299 &amp; 2026-077546. Pre-trial minute filed unilaterally after AfroCentric non-participation.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot gold"></div>
-        <div class="tl-date">JUNE 2026</div>
-        <div class="tl-title">Parliamentary Forensic Bundle Compiled</div>
-        <div class="tl-body">This repository: SHA-256 verified, cryptographically auditable, submitted to Parliamentary Portfolio Committees on Health, Labour, Trade &amp; Industry, Justice, SCOPA, and Police.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WILBUR METHOD -->
-  <div id="method" class="panel">
-    <div class="section-head">
-      <h2>The Wilbur Method™</h2>
-      <span class="count">Proprietary Forensic Governance Framework · EthicHawks 2026</span>
-    </div>
-
-    <div style="background:white; border:1px solid var(--rule); border-left:4px solid var(--gold); padding:20px 24px; margin-bottom:32px; font-family:var(--serif); font-size:14px; color:var(--steel); line-height:1.7;">
-      The Wilbur Method™ is a proprietary analytical framework developed through 18 years of specialist clinical governance experience and formalised through the Matthee v AfroCentric matter. It comprises four interlocking constructs that, together, constitute a complete forensic account of institutional governance failure and its human cost.
-    </div>
-
-    <div class="method-grid">
-      <div class="method-card">
-        <div class="method-num">I</div>
-        <div class="method-name">Governance Tax<sup>™</sup></div>
-        <div class="method-def">The quantifiable, documented cost imposed on a whistleblower as a direct result of institutional non-compliance. Not a metaphor — a calculable financial and humanitarian impact that can be presented to a court or committee with precision.</div>
-        <div class="method-evidence">R14,811.77 unlawful deduction · Forced retirement withdrawal · Confirmed imminent homelessness · Professional erasure</div>
-      </div>
-      <div class="method-card">
-        <div class="method-num">II</div>
-        <div class="method-name">Governance Paradox<sup>™</sup></div>
-        <div class="method-def">The structural condition in which oversight institutions fail precisely at the moment they are constitutionally mandated to function. The paradox is that the more serious the complaint, the more likely the institution is to deflect rather than act.</div>
-        <div class="method-evidence">CCMA commissioner irregularities · Labour Court portal obstruction · Rule 42 procedural violations · Scale C costs against unrepresented whistleblower</div>
-      </div>
-      <div class="method-card">
-        <div class="method-num">III</div>
-        <div class="method-name">Intellectual Extraction<sup>™</sup></div>
-        <div class="method-def">The systematic appropriation of a whistleblower's governance knowledge, clinical expertise, and intellectual property without attribution, compensation, or acknowledgement — often continuing after dismissal.</div>
-        <div class="method-evidence">Undocumented system recommendations post-disclosure · Post-dismissal knowledge extraction · IP misappropriation ground in quantum</div>
-      </div>
-      <div class="method-card">
-        <div class="method-num">IV</div>
-        <div class="method-name">Institutional Silence<sup>™</sup></div>
-        <div class="method-def">The coordinated pattern across multiple oversight bodies of formally acknowledging the seriousness of a complaint while taking no substantive protective action. Silence is not neutrality — it is the mechanism by which institutional complicity operates.</div>
-        <div class="method-evidence">10 regulatory bodies · All acknowledged seriousness · None acted within statutory timeframes · Pattern constitutes regulatory capture</div>
-      </div>
-    </div>
-
-    <div class="section-head">
-      <h2>Framework Context</h2>
-    </div>
-    <div style="background:var(--navy); color:white; padding:28px; font-size:13px; line-height:1.8;">
-      <p style="margin-bottom:16px;">The Wilbur Method™ sits within the broader EthicHawks Forensic Governance Architecture, which proposes that forensic clinical governance — the intersection of clinical expertise, legal compliance, and institutional accountability — represents a distinct professional discipline not currently recognised in South African regulatory frameworks.</p>
-      <p style="margin-bottom:16px;">The Matthee v AfroCentric matter is the live application of this framework. It demonstrates in real time how a Priority 1 clinical risk disclosure, when suppressed by a corporate entity and unprotected by regulatory institutions, produces a cascading humanitarian crisis that the existing legislative architecture — PDA, BCEA, Companies Act, King IV, NHI — was specifically designed to prevent.</p>
-      <p style="font-family:var(--mono); font-size:11px; color:rgba(255,255,255,0.45);">EthicHawks Forensic Governance & Compliance Consultancy · Cape Town · 2026 · CPrac(SA) accreditation in progress with CISA</p>
-    </div>
-  </div>
-
-  <!-- INTEGRITY LOG -->
-  <div id="integrity" class="panel">
-    <div class="section-head">
-      <h2>Cryptographic Integrity Log</h2>
-      <span class="count">SHA-256 · hash_manifest.sha256</span>
-    </div>
-
-    <div class="integrity-panel">
-      <span class="i-label">PROTOCOL    </span><span class="i-val"> SHA-256 (Secure Hash Algorithm — 256-bit)</span><br>
-      <span class="i-label">MANIFEST    </span><span class="i-val"> hash_manifest.sha256 · Root of repository</span><br>
-      <span class="i-label">BUILD CHECK </span><span class="i-val"> .github/workflows/integrity_check.yml</span><br>
-      <span class="i-label">CI PIPELINE </span><span class="i-val"> .github/workflows/main.yml</span><br>
-      <span class="i-label">GENERATED   </span><span class="i-val"> generate_hash_manifest.py</span><br>
-      <span class="i-label">HEAD COMMIT </span><span class="i-val"> 83a75bf — "final compilation"</span><br>
-      <span class="i-label">BRANCH      </span><span class="i-val"> main · synced · origin/main</span><br>
-      <br>
-      <span class="i-warn">STATUS      </span><span class="i-warn"> 3 critical documents are 0 bytes — integrity hashes will be empty until populated</span><br>
-      <span class="i-warn">ACTION REQ  </span><span class="i-warn"> SPEAKER_SUMMARY_ANALYTICS.md · KING_V_ALIGNMENT_GAP_ANALYSIS.md · STATUTORY_BREACH_MATRIX.md</span>
-    </div>
-
-    <div class="section-head">
-      <h2>Why SHA-256 Matters for Parliament</h2>
-    </div>
-
-    <table class="evidence-table">
-      <thead>
-        <tr>
-          <th>Property</th>
-          <th>What It Means for This Submission</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Mathematical Incorruptibility</td>
-          <td><div class="doc-name">Each file produces a unique 64-character fingerprint</div><div class="doc-desc">An email export, database log, or PDF affidavit — each generates a hash that is mathematically unique to that exact file. No two different files can produce the same SHA-256 hash.</div></td>
-        </tr>
-        <tr>
-          <td>The Avalanche Effect</td>
-          <td><div class="doc-name">A single altered character changes everything</div><div class="doc-desc">If AfroCentric's legal team alters one character, one space, or one metadata timestamp in any document, the resulting hash changes completely. Tampering is instantly and mathematically detectable.</div></td>
-        </tr>
-        <tr>
-          <td>Chain of Custody</td>
-          <td><div class="doc-name">Evidence state locked at submission date</div><div class="doc-desc">Publishing hash_manifest.sha256 alongside the Parliamentary Brief locks the evidential state at a specific point in time. Any independent forensic auditor or court can verify with 100% mathematical certainty.</div></td>
-        </tr>
-        <tr>
-          <td>Non-Repudiation</td>
-          <td><div class="doc-name">Neither party can deny the document's state</div><div class="doc-desc">Once hashed and published, no party — including the author — can alter a document and claim it is the same document. This protects the integrity of the submission from both directions.</div></td>
-        </tr>
-        <tr>
-          <td>Independent Verifiability</td>
-          <td><div class="doc-name">Any auditor can verify without trusting the author</div><div class="doc-desc">A Portfolio Committee researcher, parliamentary legal advisor, or independent forensic auditor can download any file, run sha256sum, and compare to the manifest. No reliance on the author's word required.</div></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div style="background:white; border:1px solid var(--rule); padding:20px; font-family:var(--mono); font-size:12px; color:var(--steel); margin-top:24px;">
-      <div style="color:var(--navy); font-weight:600; margin-bottom:12px;">To verify any document in this bundle:</div>
-      <div style="background:#f5f3ee; padding:12px; color:var(--ink);">
-        # On any Linux/Mac terminal or Termux:<br>
-        sha256sum [filename]<br><br>
-        # Compare output to hash_manifest.sha256<br>
-        # If hashes match: document is unaltered<br>
-        # If hashes differ: document has been modified
-      </div>
-    </div>
-  </div>
 
 </main>
 
 <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
+<footer class="site-footer" style="background: var(--ink); color: rgba(255,255,255,0.4); padding: 32px 24px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-align: center;">
     <div>
-      <strong style="color:white;">EthicHawks</strong> Forensic Governance &amp; Compliance Consultancy<br>
-      W.W. Matthee · RN, BTech General Nursing, PGDip Health Services Management (NQF 8) · Cape Town
+        <strong style="color:white;">EthicHawks</strong> Forensic Governance &amp; Compliance Consultancy · Cape Town · June 2026
     </div>
-    <div style="text-align:right;">
-      <a href="https://github.com/wilburmat-boop/Forensic-Governance-Portfolio">github.com/wilburmat-boop/Forensic-Governance-Portfolio</a><br>
-      Parliamentary Submission · June 2026 · All evidence SHA-256 verified
+    <div style="margin-top: 8px;">
+        <a href="https://github.com/wilburmat-boop/Forensic-Governance-Portfolio" style="color: var(--gold); text-decoration: none;">github.com/wilburmat-boop/Forensic-Governance-Portfolio</a>
     </div>
-  </div>
 </footer>
 
 <script>
-  function showPanel(id) {
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function filterEvidence() {
-    const q = document.getElementById('evidenceSearch').value.toLowerCase();
-    const rows = document.querySelectorAll('#evidenceTable tbody tr');
-    rows.forEach(row => {
-      row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
-    });
-  }
+    function showPanel(id) {
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        event.target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 </script>
 </body>
 </html>
