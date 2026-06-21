@@ -29,3 +29,4 @@
 - [XVII. Supplementary Evidence](#xvii-supplementary-evidence-dossier)
 
 ---
+<audio controls><source src="02_Evidence_Core/harassment_admission.mp3" type="audio/mpeg"></audio>
