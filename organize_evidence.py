@@ -1,0 +1,1 @@
+I have a folder called termux containing many files. For each file, read its content, determine its nature (Executive Brief, Evidence, or Regulatory Mapping), and its date. Rename the file to include the date (e.g., 2026-06-21_Description.md) and move it into the appropriate folder (e.g., 02_Evidence_Core/) based on the architectural schema.

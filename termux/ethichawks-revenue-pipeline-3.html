@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EthicHawks — Autonomous Revenue Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   DESIGN SYSTEM — FORENSIC GOLD EDITORIAL
+   ═══════════════════════════════════════ */
+:root {
+  --ink:       #0b0b09;
+  --paper:     #f5f0e8;
+  --cream:     #ede8da;
+  --gold:      #b8860b;
+  --gold-lt:   #d4a017;
+  --gold-pale: #f0e6c8;
+  --rust:      #8b2500;
+  --sage:      #2d5a3d;
+  --slate:     #2c3e50;
+  --muted:     #7a7060;
+  --border:    #d0c8b0;
+  --shadow:    rgba(11,11,9,0.12);
+  --green:     #1a6b3a;
+  --red:       #8b1a00;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8860b' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── HEADER ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--gold-lt);
+}
+.brand em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--paper);
+  font-size: 1rem;
+}
+
+.masthead-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.live-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #2ecc71;
+  display: inline-block;
+  animation: livepulse 2s ease infinite;
+}
+@keyframes livepulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(46,204,113,0.6); }
+  50% { box-shadow: 0 0 0 5px rgba(46,204,113,0); }
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 3rem 2.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--ink) 0%, #1a1a14 100%);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,134,11,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem;
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 0.6rem;
+  letter-spacing: -1px;
+}
+.hero h1 strong {
+  font-weight: 700;
+  color: var(--gold-lt);
+  display: block;
+}
+.hero-sub {
+  color: #aaa;
+  font-size: 0.72rem;
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* ── CONFIG PANEL ── */
+.config-panel {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  padding: 2rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.field-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.field-label {
+  font-size: 0.58rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+input[type="text"], select, input[type="url"] {
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+input:focus, select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184,134,11,0.1);
+}
+
+.btn-launch {
+  background: var(--gold);
+  color: var(--ink);
+  border: 2px solid var(--gold);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 0.65rem 2rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-launch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background 0.2s;
+}
+.btn-launch:hover { background: var(--gold-lt); border-color: var(--gold-lt); }
+.btn-launch:active { transform: translateY(1px); }
+.btn-launch:disabled { background: var(--border); border-color: var(--border); color: var(--muted); cursor: not-allowed; }
+
+/* ── PROGRESS ── */
+.progress-wrap {
+  padding: 0 2.5rem;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0 0.3rem;
+  font-size: 0.58rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.progress-track {
+  height: 3px;
+  background: var(--border);
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--sage));
+  width: 0%;
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.progress-markers {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: -4px;
+  left: 0; right: 0;
+}
+.progress-marker {
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: var(--border);
+  border: 2px solid var(--cream);
+  transition: background 0.3s;
+}
+.progress-marker.active { background: var(--gold); }
+.progress-marker.done { background: var(--sage); }
+
+/* ── PIPELINE GRID ── */
+.pipeline-section {
+  padding: 2rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr 40px 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+.pipeline-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5rem;
+  color: var(--gold);
+  font-size: 1.3rem;
+}
+
+/* ── AGENT CARD ── */
+.agent-card {
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: box-shadow 0.3s, border-color 0.3s;
+  position: relative;
+}
+.agent-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--border);
+  transition: background 0.3s;
+}
+.agent-card.is-running::before { background: var(--gold); }
+.agent-card.is-done::before { background: var(--sage); }
+.agent-card.is-error::before { background: var(--rust); }
+.agent-card.is-running { box-shadow: 0 4px 20px rgba(184,134,11,0.2); }
+.agent-card.is-done { box-shadow: 0 4px 20px rgba(45,90,61,0.15); }
+
+.agent-cap {
+  padding: 0.9rem 1.1rem 0.7rem;
+  border-bottom: 1px solid var(--cream);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.agent-num {
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.agent-pill {
+  font-size: 0.55rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  font-weight: 600;
+}
+.pill-idle { background: var(--cream); color: var(--muted); }
+.pill-running { background: rgba(184,134,11,0.12); color: var(--gold); }
+.pill-done { background: rgba(45,90,61,0.1); color: var(--sage); }
+.pill-error { background: rgba(139,37,0,0.1); color: var(--rust); }
+
+.agent-body { padding: 1.1rem; }
+
+.agent-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+  color: var(--ink);
+}
+.agent-subtitle {
+  font-size: 0.58rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+
+.agent-mandate {
+  font-size: 0.65rem;
+  color: var(--muted);
+  line-height: 1.7;
+  padding: 0.6rem 0.8rem;
+  background: var(--cream);
+  border-left: 2px solid var(--gold-pale);
+  margin-bottom: 0.9rem;
+  font-style: italic;
+}
+
+.agent-output {
+  background: var(--ink);
+  color: #c8c0a8;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  line-height: 1.75;
+  padding: 0.9rem;
+  min-height: 140px;
+  max-height: 220px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: none;
+  position: relative;
+}
+.agent-output::-webkit-scrollbar { width: 4px; }
+.agent-output::-webkit-scrollbar-thumb { background: var(--gold); }
+.agent-output::-webkit-scrollbar-track { background: transparent; }
+
+.cursor-blink::after {
+  content: '█';
+  color: var(--gold);
+  animation: cblink 0.8s step-end infinite;
+}
+@keyframes cblink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.agent-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1.1rem;
+  border-top: 1px solid var(--cream);
+  font-size: 0.58rem;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+/* ── REVENUE DASHBOARD ── */
+.revenue-section {
+  margin: 0 2.5rem 2rem;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--sage);
+  background: white;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.revenue-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--cream);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.revenue-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--sage);
+}
+.revenue-stamp {
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.revenue-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--cream);
+}
+.rev-cell {
+  padding: 1.2rem 1.5rem;
+  border-right: 1px solid var(--cream);
+}
+.rev-cell:last-child { border-right: none; }
+.rev-label {
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.rev-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+}
+.rev-sub {
+  font-size: 0.6rem;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+/* ── STRIPE PAYMENT PANEL ── */
+.payment-section {
+  margin: 0 2.5rem 2rem;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  background: white;
+  box-shadow: 0 2px 8px var(--shadow);
+  display: none;
+}
+.payment-section.visible { display: block; }
+.payment-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--cream);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+.payment-body { padding: 1.5rem; }
+.payment-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.product-card {
+  border: 1px solid var(--border);
+  padding: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+.product-card:hover { border-color: var(--gold); background: var(--gold-pale); }
+.product-card.selected { border-color: var(--gold); background: var(--gold-pale); }
+.product-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 0.5rem; right: 0.6rem;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.prod-name { font-weight: 600; font-size: 0.75rem; margin-bottom: 0.3rem; }
+.prod-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+.prod-desc { font-size: 0.6rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.5; }
+
+.stripe-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn-stripe {
+  background: var(--ink);
+  color: var(--gold-lt);
+  border: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+.btn-stripe:hover { background: #1a1a14; color: var(--gold); }
+.btn-stripe:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.stripe-note {
+  font-size: 0.6rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 0.5rem;
+  border-top: 1px solid var(--cream);
+}
+
+/* ── YOKO PUSH PANEL ── */
+.yoko-section {
+  margin: 0 2.5rem 2rem;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--rust);
+  background: white;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.yoko-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--cream);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--ink);
+}
+.yoko-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold-lt);
+}
+.yoko-status {
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #666;
+}
+.yoko-body { padding: 1.5rem; }
+.yoko-config {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.yoko-log {
+  background: var(--ink);
+  color: #7a9a7a;
+  font-size: 0.62rem;
+  padding: 0.8rem 1rem;
+  min-height: 80px;
+  max-height: 120px;
+  overflow-y: auto;
+  line-height: 1.9;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.yoko-log::-webkit-scrollbar { width: 3px; }
+.yoko-log::-webkit-scrollbar-thumb { background: var(--sage); }
+.log-ok { color: #5dbb7a; }
+.log-warn { color: var(--gold); }
+.log-err { color: #e07060; }
+.log-time { color: #444; margin-right: 0.5rem; }
+
+/* ── ACTION PLAN ── */
+.action-section {
+  margin: 0 2.5rem 2rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  background: white;
+  box-shadow: 0 2px 8px var(--shadow);
+  display: none;
+}
+.action-section.visible { display: block; }
+.action-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--cream);
+}
+.action-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.action-body { padding: 1rem 1.5rem; }
+.action-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--cream);
+  align-items: flex-start;
+}
+.action-item:last-child { border-bottom: none; }
+.action-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  min-width: 24px;
+  flex-shrink: 0;
+}
+.action-text {
+  font-size: 0.72rem;
+  color: var(--ink);
+  line-height: 1.7;
+  padding-top: 0.2rem;
+}
+
+/* ── PRESET TOPICS ── */
+.presets {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.6rem;
+}
+.preset-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.5px;
+}
+.preset-btn:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-pale); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.6rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+
+/* ── UTILITIES ── */
+.hidden { display: none; }
+.mt1 { margin-top: 0.5rem; }
+
+@keyframes fadeSlideIn {
+  from { opacity:0; transform:translateY(8px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.fade-in { animation: fadeSlideIn 0.4s ease forwards; }
+
+@media (max-width: 1000px) {
+  .pipeline-section { grid-template-columns: 1fr; }
+  .pipeline-arrow { transform: rotate(90deg); padding: 0.3rem; }
+  .config-panel { grid-template-columns: 1fr 1fr; }
+  .revenue-grid { grid-template-columns: 1fr 1fr; }
+  .payment-products { grid-template-columns: 1fr; }
+  .yoko-config { grid-template-columns: 1fr; }
+  .stripe-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="brand">EthicHawks <em>/ Autonomous Revenue Engine</em></div>
+  <div class="masthead-right">
+    <span class="live-dot"></span>
+    <span>System Online</span>
+    <span id="clockDisplay">—</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Forensic Governance Intelligence Platform</div>
+  <h1>
+    Research. Analyse. Execute.
+    <strong>Convert to Revenue.</strong>
+  </h1>
+  <p class="hero-sub">
+    Three autonomous agents working in sequence — Market Research → Compliance Officer → Business Executive — 
+    producing sellable deliverables and pushing confirmed revenue directly to your YOKO monetisation layer via Stripe webhook.
+  </p>
+</div>
+
+<!-- CONFIG PANEL -->
+<div class="config-panel">
+  <div class="field-group">
+    <label class="field-label">Market Topic</label>
+    <input type="text" id="topicInput" placeholder="e.g. POPIA health data compliance for SA SMEs 2026..." />
+    <div class="presets">
+      <button class="preset-btn" onclick="setTopic('POPIA health data compliance gaps South African SMEs healthcare facilities 2026')">POPIA Health</button>
+      <button class="preset-btn" onclick="setTopic('NHI readiness OHSC accreditation private healthcare providers South Africa 2026')">NHI Readiness</button>
+      <button class="preset-btn" onclick="setTopic('Forensic governance whistleblower protection services South Africa 2026')">Whistleblower</button>
+      <button class="preset-btn" onclick="setTopic('Palliative care clinical governance compliance South Africa NHI ecosystem')">PalCare</button>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label class="field-label">Stripe Secret Key</label>
+    <input type="text" id="stripeKey" placeholder="sk_live_... or sk_test_..." />
+  </div>
+
+  <div class="field-group">
+    <label class="field-label">YOKO Webhook URL</label>
+    <input type="url" id="yokoUrl" placeholder="https://your-yoko-endpoint.com/webhook" />
+  </div>
+
+  <div>
+    <button class="btn-launch" id="runBtn" onclick="runPipeline()">▶ Launch Pipeline</button>
+  </div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-wrap">
+  <div class="progress-labels">
+    <span>Research</span><span>Compliance</span><span>Execution</span><span>Revenue</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill"></div>
+    <div class="progress-markers">
+      <div class="progress-marker" id="pm1"></div>
+      <div class="progress-marker" id="pm2"></div>
+      <div class="progress-marker" id="pm3"></div>
+      <div class="progress-marker" id="pm4"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 3-AGENT PIPELINE -->
+<div class="pipeline-section">
+
+  <!-- AGENT 1 -->
+  <div class="agent-card" id="card1">
+    <div class="agent-cap">
+      <span class="agent-num">Agent 01 / Research Analyst</span>
+      <span class="agent-pill pill-idle" id="pill1">Idle</span>
+    </div>
+    <div class="agent-body">
+      <div class="agent-title">Senior Research Analyst</div>
+      <div class="agent-subtitle">Market Intelligence & Trend Discovery</div>
+      <div class="agent-mandate">
+        Scans South African market landscape for trending pain points, regulatory drivers, 
+        and commercial opportunity signals. Identifies who is paying money to solve what problem right now.
+      </div>
+      <div class="agent-output" id="out1">Awaiting topic input to begin market scan...</div>
+    </div>
+    <div class="agent-footer">
+      <span id="meta1a">Runtime: —</span>
+      <span id="meta1b">Words: —</span>
+    </div>
+  </div>
+
+  <div class="pipeline-arrow">→</div>
+
+  <!-- AGENT 2 -->
+  <div class="agent-card" id="card2">
+    <div class="agent-cap">
+      <span class="agent-num">Agent 02 / Compliance Officer</span>
+      <span class="agent-pill pill-idle" id="pill2">Idle</span>
+    </div>
+    <div class="agent-body">
+      <div class="agent-title">Chief Compliance Officer</div>
+      <div class="agent-subtitle">Regulatory Risk & Revenue Mapping</div>
+      <div class="agent-mandate">
+        Receives research intelligence and maps compliance gaps to applicable legislation — 
+        POPIA, NHI Act, BCEA, PDA, Companies Act. Identifies which gaps businesses must pay to fix.
+      </div>
+      <div class="agent-output" id="out2">Awaiting research intelligence from Agent 01...</div>
+    </div>
+    <div class="agent-footer">
+      <span id="meta2a">Runtime: —</span>
+      <span id="meta2b">Words: —</span>
+    </div>
+  </div>
+
+  <div class="pipeline-arrow">→</div>
+
+  <!-- AGENT 3 -->
+  <div class="agent-card" id="card3">
+    <div class="agent-cap">
+      <span class="agent-num">Agent 03 / Business Executive</span>
+      <span class="agent-pill pill-idle" id="pill3">Idle</span>
+    </div>
+    <div class="agent-body">
+      <div class="agent-title">Chief Executive Officer</div>
+      <div class="agent-subtitle">Revenue Strategy & 7-Day Action Plan</div>
+      <div class="agent-mandate">
+        Converts research + compliance intelligence into a named product, specific ZAR price, 
+        target customer profile, revenue projections, and a numbered 7-day launch plan.
+      </div>
+      <div class="agent-output" id="out3">Awaiting compliance brief from Agent 02...</div>
+    </div>
+    <div class="agent-footer">
+      <span id="meta3a">Runtime: —</span>
+      <span id="meta3b">Words: —</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- REVENUE DASHBOARD -->
+<div class="revenue-section">
+  <div class="revenue-header">
+    <div class="revenue-h">💰 Revenue Intelligence Dashboard</div>
+    <div class="revenue-stamp">Auto-extracted by Executive Agent</div>
+  </div>
+  <div class="revenue-grid">
+    <div class="rev-cell">
+      <div class="rev-label">Immediate Opportunity</div>
+      <div class="rev-value" id="revImmediate">R —</div>
+      <div class="rev-sub" id="revImmSub">Run pipeline to calculate</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Monthly Recurring</div>
+      <div class="rev-value" id="revMonthly">R —</div>
+      <div class="rev-sub" id="revMonSub">Run pipeline to calculate</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Recommended Price</div>
+      <div class="rev-value" id="revPrice">—</div>
+      <div class="rev-sub" id="revPriceSub">Per deliverable</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Target Client</div>
+      <div class="rev-value" style="font-size:0.85rem;padding-top:0.4rem" id="revTarget">—</div>
+      <div class="rev-sub" id="revTargetSub">Identified by Executive Agent</div>
+    </div>
+  </div>
+</div>
+
+<!-- STRIPE PAYMENT PANEL -->
+<div class="payment-section" id="paymentPanel">
+  <div class="payment-header">
+    <div class="payment-h">⚡ Stripe Payment Integration</div>
+    <div class="revenue-stamp">Connect Stripe → Revenue flows to YOKO</div>
+  </div>
+  <div class="payment-body">
+    <p style="font-size:0.65rem;color:var(--muted);margin-bottom:1rem;line-height:1.7;">
+      Select the product generated by the Executive Agent, set your Stripe Payment Link below, 
+      and activate the YOKO push. Every confirmed payment will be logged to Supabase and pushed 
+      to your YOKO monetisation endpoint automatically.
+    </p>
+    <div class="payment-products" id="productCards">
+      <!-- Populated by JS after pipeline run -->
+    </div>
+    <div class="stripe-row">
+      <div class="field-group">
+        <label class="field-label">Stripe Payment Link URL</label>
+        <input type="url" id="stripePaymentLink" placeholder="https://buy.stripe.com/..." />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Supabase Table Name</label>
+        <input type="text" id="supabaseTable" value="revenue_transactions" />
+      </div>
+    </div>
+    <div class="stripe-row">
+      <button class="btn-stripe" id="openStripeBtn" onclick="openStripeLink()">
+        🔗 Open Stripe Payment Link
+      </button>
+      <button class="btn-stripe" id="simulatePaymentBtn" onclick="simulatePaymentConfirmed()">
+        ✓ Simulate Payment Confirmed → Push to YOKO
+      </button>
+    </div>
+    <div class="stripe-note">
+      Production: Set up Stripe webhook endpoint → POST to your Supabase Edge Function → push to YOKO URL.
+      In live mode your Stripe secret key above is used to verify webhook signatures.
+    </div>
+  </div>
+</div>
+
+<!-- YOKO PUSH PANEL -->
+<div class="yoko-section">
+  <div class="yoko-header">
+    <div class="yoko-h">YOKO Monetisation Layer — Revenue Push Log</div>
+    <div class="yoko-status" id="yokoStatusLabel">Waiting for payment confirmation</div>
+  </div>
+  <div class="yoko-body">
+    <div class="yoko-config">
+      <div class="field-group">
+        <label class="field-label">YOKO Endpoint</label>
+        <input type="url" id="yokoEndpoint" placeholder="https://yoko.app/api/revenue" />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Supabase Project URL</label>
+        <input type="url" id="supabaseUrl" placeholder="https://xxxx.supabase.co" />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Supabase Anon Key</label>
+        <input type="text" id="supabaseKey" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp..." />
+      </div>
+    </div>
+    <div class="yoko-log" id="yokoLog">
+<span style="color:#444">// YOKO Revenue Push Log initialised</span>
+<span style="color:#444">// Complete pipeline run → payment → push sequence to activate</span>
+    </div>
+  </div>
+</div>
+
+<!-- ACTION PLAN -->
+<div class="action-section" id="actionSection">
+  <div class="action-header">
+    <div class="action-h">⚡ Executive 7-Day Action Plan</div>
+  </div>
+  <div class="action-body" id="actionBody"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  EthicHawks Forensic Governance & Compliance Consultancy · Cape Town, South Africa · 
+  Autonomous Revenue Engine v2.0 · Built on Claude Sonnet
+</footer>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT — FULL PIPELINE LOGIC
+     ═══════════════════════════════════════ -->
+<script>
+'use strict';
+
+// ── State ──────────────────────────────────────────
+let pipelineRunning = false;
+let pipelineData = { research: '', compliance: '', executive: '' };
+let selectedProduct = null;
+let totalRevenuePushed = 0;
+
+// ── Clock ──────────────────────────────────────────
+function tick() {
+  document.getElementById('clockDisplay').textContent =
+    new Date().toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+}
+setInterval(tick, 1000); tick();
+
+// ── Preset topics ──────────────────────────────────
+function setTopic(t) { document.getElementById('topicInput').value = t; }
+
+// ── Progress ──────────────────────────────────────
+function setProgress(pct) {
+  document.getElementById('progressFill').style.width = pct + '%';
+  const markers = ['pm1','pm2','pm3','pm4'];
+  const thresholds = [0, 35, 65, 100];
+  markers.forEach((id, i) => {
+    const el = document.getElementById(id);
+    el.className = 'progress-marker';
+    if (pct >= thresholds[i] + 1) el.classList.add('done');
+    else if (pct >= thresholds[i] - 5) el.classList.add('active');
+  });
+}
+
+// ── Agent state ────────────────────────────────────
+function setAgent(n, state) {
+  const card = document.getElementById('card' + n);
+  const pill = document.getElementById('pill' + n);
+  card.className = 'agent-card';
+  pill.className = 'agent-pill';
+  const map = {
+    idle:    { card: '',          pill: 'pill-idle',    label: 'Idle' },
+    running: { card: 'is-running', pill: 'pill-running', label: 'Running' },
+    done:    { card: 'is-done',   pill: 'pill-done',    label: 'Complete' },
+    error:   { card: 'is-error',  pill: 'pill-error',   label: 'Error' },
+  };
+  const s = map[state] || map.idle;
+  if (s.card) card.classList.add(s.card);
+  pill.classList.add(s.pill);
+  pill.textContent = s.label;
+}
+
+// ── Typewriter output ──────────────────────────────
+async function typeOut(elId, text, speed = 12) {
+  const el = document.getElementById(elId);
+  el.textContent = '';
+  el.classList.add('cursor-blink');
+  const chunks = text.match(/.{1,4}/g) || [];
+  for (const chunk of chunks) {
+    el.textContent += chunk;
+    el.scrollTop = el.scrollHeight;
+    await delay(speed);
+  }
+  el.classList.remove('cursor-blink');
+}
+
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// ── YOKO log ──────────────────────────────────────
+function yokoLog(msg, type = '') {
+  const panel = document.getElementById('yokoLog');
+  const time = new Date().toLocaleTimeString('en-ZA', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+  const cls = type === 'ok' ? 'log-ok' : type === 'warn' ? 'log-warn' : type === 'err' ? 'log-err' : '';
+  panel.innerHTML += `\n<span class="log-time">[${time}]</span><span class="${cls}">${msg}</span>`;
+  panel.scrollTop = panel.scrollHeight;
+}
+
+// ── Call Claude API ────────────────────────────────
+async function callAgent(system, user) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      system,
+      messages: [{ role: 'user', content: user }]
+    })
+  });
+  const data = await res.json();
+  if (data.error) throw new Error(data.error.message);
+  return data.content[0].text;
+}
+
+// ── Extract ZAR amounts ────────────────────────────
+function extractAmounts(text) {
+  return (text.match(/R\s?[\d,\s]+(?:,\d{3})*(?:\s?(?:per|\/)\s?\w+)?/gi) || [])
+    .map(s => s.trim()).filter(s => s.length < 30);
+}
+
+// ── Extract numbered action items ──────────────────
+function extractActions(text) {
+  return (text.match(/\d[\.\)]\s+[^\n]+/g) || []);
+}
+
+// ── Build product cards ────────────────────────────
+function buildProductCards(executiveText) {
+  const amounts = extractAmounts(executiveText);
+  const panel = document.getElementById('productCards');
+
+  const products = [
+    {
+      name: 'POPIA Compliance Report',
+      price: amounts[2] || 'R 999',
+      desc: 'Instant AI-generated audit report delivered to client email. Fully automated.'
+    },
+    {
+      name: 'Governance Gap Analysis',
+      price: amounts[0] || 'R 3,500',
+      desc: 'Full forensic governance gap brief with legislative citations. Same-day delivery.'
+    },
+    {
+      name: 'Executive Strategy Brief',
+      price: amounts[1] || 'R 6,500',
+      desc: 'Comprehensive compliance + revenue strategy package. 24-hour delivery.'
+    }
+  ];
+
+  panel.innerHTML = products.map((p, i) => `
+    <div class="product-card" onclick="selectProduct(${i}, '${p.name}', '${p.price}')" id="pcard${i}">
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-price">${p.price}</div>
+      <div class="prod-desc">${p.desc}</div>
+    </div>
+  `).join('');
+}
+
+function selectProduct(i, name, price) {
+  document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('pcard' + i).classList.add('selected');
+  selectedProduct = { name, price };
+}
+
+// ── Open Stripe link ───────────────────────────────
+function openStripeLink() {
+  const link = document.getElementById('stripePaymentLink').value.trim();
+  if (!link) { alert('Please enter your Stripe Payment Link URL first.'); return; }
+  if (!link.startsWith('http')) { alert('Invalid URL — must start with https://'); return; }
+  window.open(link, '_blank');
+  yokoLog('Stripe Payment Link opened for client → awaiting confirmation...', 'warn');
+}
+
+// ── Push to YOKO ───────────────────────────────────
+async function pushToYoko(payload) {
+  const yokoUrl = document.getElementById('yokoUrl').value.trim()
+    || document.getElementById('yokoEndpoint').value.trim();
+
+  if (!yokoUrl) {
+    yokoLog('No YOKO endpoint configured — logging locally only.', 'warn');
+    return { ok: false, local: true };
+  }
+
+  yokoLog(`Pushing payload to YOKO: ${yokoUrl}`, '');
+
+  try {
+    const res = await fetch(yokoUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      yokoLog(`YOKO push successful — HTTP ${res.status}`, 'ok');
+      return { ok: true };
+    } else {
+      yokoLog(`YOKO returned HTTP ${res.status} — check endpoint.`, 'err');
+      return { ok: false };
+    }
+  } catch (e) {
+    yokoLog(`YOKO push failed: ${e.message}`, 'err');
+    yokoLog('Revenue logged locally. Configure YOKO endpoint to enable live push.', 'warn');
+    return { ok: false };
+  }
+}
+
+// ── Push to Supabase ──────────────────────────────
+async function pushToSupabase(payload) {
+  const url = document.getElementById('supabaseUrl').value.trim();
+  const key = document.getElementById('supabaseKey').value.trim();
+  const table = document.getElementById('supabaseTable').value.trim() || 'revenue_transactions';
+
+  if (!url || !key) {
+    yokoLog('Supabase not configured — skipping DB log.', 'warn');
+    return;
+  }
+
+  try {
+    yokoLog(`Writing to Supabase table: ${table}`, '');
+    const res = await fetch(`${url}/rest/v1/${table}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': key,
+        'Authorization': `Bearer ${key}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok || res.status === 201) {
+      yokoLog('Supabase transaction logged successfully.', 'ok');
+    } else {
+      const err = await res.text();
+      yokoLog(`Supabase error ${res.status}: ${err.slice(0,80)}`, 'err');
+    }
+  } catch (e) {
+    yokoLog(`Supabase push error: ${e.message}`, 'err');
+  }
+}
+
+// ── Simulate payment confirmed ─────────────────────
+async function simulatePaymentConfirmed() {
+  if (!selectedProduct) {
+    alert('Please select a product first.');
+    return;
+  }
+
+  const product = selectedProduct;
+  const amountRaw = product.price.replace(/[^0-9]/g, '');
+  const amount = parseInt(amountRaw) || 999;
+
+  yokoLog('─────────────────────────────────────────', '');
+  yokoLog(`Payment CONFIRMED: ${product.name} @ ${product.price}`, 'ok');
+
+  const payload = {
+    event: 'payment.confirmed',
+    source: 'stripe_webhook',
+    timestamp: new Date().toISOString(),
+    product: product.name,
+    amount_zar: amount,
+    currency: 'ZAR',
+    pipeline_topic: document.getElementById('topicInput').value,
+    research_summary: pipelineData.research.slice(0, 200),
+    executive_summary: pipelineData.executive.slice(0, 200),
+    metadata: {
+      platform: 'EthicHawks Revenue Engine',
+      agent_version: '2.0',
+      location: 'Cape Town, ZA'
+    }
+  };
+
+  totalRevenuePushed += amount;
+  document.getElementById('yokoStatusLabel').textContent =
+    `R ${totalRevenuePushed.toLocaleString('en-ZA')} pushed to YOKO`;
+
+  // Push to Supabase
+  await pushToSupabase(payload);
+
+  // Push to YOKO
+  await pushToYoko(payload);
+
+  yokoLog(`Total revenue pushed this session: R ${totalRevenuePushed.toLocaleString('en-ZA')}`, 'ok');
+  yokoLog('─────────────────────────────────────────', '');
+
+  // Update revenue display
+  document.getElementById('revImmediate').textContent = `R ${amount.toLocaleString('en-ZA')}`;
+  document.getElementById('revImmSub').textContent = `Confirmed — ${new Date().toLocaleTimeString('en-ZA')}`;
+}
+
+// ── MAIN PIPELINE ─────────────────────────────────
+async function runPipeline() {
+  if (pipelineRunning) return;
+  const topic = document.getElementById('topicInput').value.trim();
+  if (!topic) { alert('Please enter a market topic first.'); return; }
+
+  pipelineRunning = true;
+  document.getElementById('runBtn').disabled = true;
+  document.getElementById('runBtn').textContent = '⏳ Pipeline Running...';
+  document.getElementById('actionSection').classList.remove('visible');
+  document.getElementById('paymentPanel').classList.remove('visible');
+  document.getElementById('yokoLog').innerHTML =
+    '<span style="color:#444">// Pipeline initiated — ' + new Date().toLocaleString('en-ZA') + '</span>';
+  setProgress(0);
+  [1,2,3].forEach(n => {
+    setAgent(n, 'idle');
+    document.getElementById(`meta${n}a`).textContent = 'Runtime: —';
+    document.getElementById(`meta${n}b`).textContent = 'Words: —';
+  });
+
+  try {
+    /* ─── AGENT 1: Research Analyst ─── */
+    yokoLog('Agent 01 initialised — Market Research scan starting...', 'warn');
+    setAgent(1, 'running');
+    document.getElementById('out1').textContent = 'Scanning South African market landscape...';
+    setProgress(8);
+
+    const t1 = Date.now();
+    const research = await callAgent(
+      `You are a Senior Market Research Analyst specialising in South Africa. 
+Your expertise: healthcare governance, compliance services, professional advisory, NHI ecosystem, POPIA, and SME markets in Cape Town and nationally.
+TASK: Produce a precise, commercial market intelligence report on the given topic.
+STRUCTURE:
+- Opening: Who is the primary sufferer of this problem and why they need to pay to fix it (2-3 sentences)
+- 4 trending pain points with specificity (regulatory triggers, costs, risks, urgency)
+- Who is currently spending money on this and how much (ballpark ZAR figures where possible)
+- The single biggest unmet need in this space right now
+- One sentence on why timing is urgent in 2026 specifically
+Maximum 260 words. Forensic precision. No generic filler.`,
+      `Conduct South African market intelligence on: ${topic}`
+    );
+    const elapsed1 = ((Date.now() - t1) / 1000).toFixed(1);
+
+    pipelineData.research = research;
+    await typeOut('out1', research, 10);
+    setAgent(1, 'done');
+    document.getElementById('meta1a').textContent = `Runtime: ${elapsed1}s`;
+    document.getElementById('meta1b').textContent = `Words: ${research.split(' ').length}`;
+    yokoLog('Agent 01 complete — research intelligence ready.', 'ok');
+    setProgress(33);
+
+    /* ─── AGENT 2: Compliance Officer ─── */
+    yokoLog('Agent 02 initialised — Compliance mapping starting...', 'warn');
+    setAgent(2, 'running');
+    document.getElementById('out2').textContent = 'Mapping regulatory landscape and compliance gaps...';
+    setProgress(40);
+
+    const t2 = Date.now();
+    const compliance = await callAgent(
+      `You are the Chief Compliance Officer at a South African forensic governance consultancy.
+Your legislative expertise: POPIA, NHI Act 20/2023, PDA (Protected Disclosures Act), BCEA s34, Companies Act s162, Medical Schemes Act, CMS Regulations, OHSC standards, B-BBEE Act, and EEA.
+TASK: Receive market research and produce a structured compliance brief.
+STRUCTURE:
+- Top 3 compliance gaps (each: gap description, applicable legislation, who is liable, enforcement risk in 2026)
+- Revenue opportunity per gap: what type of service addresses it, who pays, urgency level (HIGH/MEDIUM)
+- One priority recommendation — the single gap that is most monetisable right now and why
+Maximum 260 words. Be legally precise and commercially focused.`,
+      `Based on this market intelligence, produce a compliance brief:\n\n${research}`
+    );
+    const elapsed2 = ((Date.now() - t2) / 1000).toFixed(1);
+
+    pipelineData.compliance = compliance;
+    await typeOut('out2', compliance, 10);
+    setAgent(2, 'done');
+    document.getElementById('meta2a').textContent = `Runtime: ${elapsed2}s`;
+    document.getElementById('meta2b').textContent = `Words: ${compliance.split(' ').length}`;
+    yokoLog('Agent 02 complete — compliance brief ready.', 'ok');
+    setProgress(66);
+
+    /* ─── AGENT 3: Business Executive ─── */
+    yokoLog('Agent 03 initialised — Revenue strategy formulation starting...', 'warn');
+    setAgent(3, 'running');
+    document.getElementById('out3').textContent = 'Formulating monetisation strategy and action plan...';
+    setProgress(72);
+
+    const t3 = Date.now();
+    const executive = await callAgent(
+      `You are the CEO and Chief Revenue Officer of EthicHawks, a forensic governance consultancy in Cape Town, South Africa.
+You have received market intelligence and a compliance brief. Your job: produce a monetisation strategy that generates cash within 7 days.
+REQUIRED OUTPUT FORMAT:
+PRODUCT NAME: [exact name of service to sell]
+TARGET CLIENT: [specific job title + organisation type]
+PRICE POINT: [specific ZAR amount per deliverable — e.g. R2,500 per audit report]
+IMMEDIATE REVENUE (30 days): [ZAR figure based on realistic 3-5 clients]
+MONTHLY RECURRING: [ZAR figure for subscription or retainer model]
+FIRST CLIENT CHANNEL: [exactly where to find first paying client — LinkedIn/WhatsApp/cold email/specific community]
+7-DAY ACTION PLAN:
+1. [Day 1 action]
+2. [Day 2 action]
+3. [Day 3 action]
+4. [Day 4 action]
+5. [Day 5 action]
+6. [Day 6 action]
+7. [Day 7 action — close first sale]
+Be ruthlessly specific. ZAR amounts mandatory. No vague advice. Maximum 300 words.`,
+      `Market Intelligence:\n${research}\n\nCompliance Brief:\n${compliance}\n\nProduce the monetisation strategy.`
+    );
+    const elapsed3 = ((Date.now() - t3) / 1000).toFixed(1);
+
+    pipelineData.executive = executive;
+    await typeOut('out3', executive, 10);
+    setAgent(3, 'done');
+    document.getElementById('meta3a').textContent = `Runtime: ${elapsed3}s`;
+    document.getElementById('meta3b').textContent = `Words: ${executive.split(' ').length}`;
+    yokoLog('Agent 03 complete — revenue strategy ready.', 'ok');
+    setProgress(100);
+
+    /* ─── POST-PIPELINE: Parse & Display ─── */
+    // Revenue metrics
+    const amounts = extractAmounts(executive);
+    if (amounts[0]) document.getElementById('revPrice').textContent = amounts[0];
+    if (amounts[1]) document.getElementById('revImmediate').textContent = amounts[1];
+    if (amounts[2]) document.getElementById('revMonthly').textContent = amounts[2];
+    document.getElementById('revImmSub').textContent = 'First 30 days (3-5 clients)';
+    document.getElementById('revMonSub').textContent = 'Recurring retainer model';
+    document.getElementById('revPriceSub').textContent = 'Per deliverable';
+
+    // Target client
+    const targetMatch = executive.match(/TARGET CLIENT:\s*(.+)/i);
+    if (targetMatch) {
+      document.getElementById('revTarget').textContent = targetMatch[1].trim().slice(0, 60);
+      document.getElementById('revTargetSub').textContent = 'Primary buyer persona';
+    }
+
+    // Action plan
+    const actions = extractActions(executive);
+    if (actions.length > 0) {
+      const body = document.getElementById('actionBody');
+      body.innerHTML = actions.map((a, i) => {
+        const text = a.replace(/^\d[\.\)]\s+/, '');
+        return `<div class="action-item fade-in" style="animation-delay:${i*0.08}s">
+          <div class="action-n">${i+1}</div>
+          <div class="action-text">${text}</div>
+        </div>`;
+      }).join('');
+      document.getElementById('actionSection').classList.add('visible');
+    }
+
+    // Build product cards & show payment panel
+    buildProductCards(executive);
+    document.getElementById('paymentPanel').classList.add('visible');
+
+    const totalRuntime = ((Date.now() - t1) / 1000).toFixed(1);
+    yokoLog(`Pipeline complete. Total runtime: ${totalRuntime}s`, 'ok');
+    yokoLog('Payment panel activated. Select product → Open Stripe link → Confirm payment → Push to YOKO.', 'warn');
+
+  } catch (err) {
+    yokoLog(`Pipeline error: ${err.message}`, 'err');
+    console.error('Pipeline error:', err);
+    [1,2,3].forEach(n => {
+      if (document.getElementById('card'+n).classList.contains('is-running')) {
+        setAgent(n, 'error');
+      }
+    });
+  }
+
+  pipelineRunning = false;
+  document.getElementById('runBtn').disabled = false;
+  document.getElementById('runBtn').textContent = '▶ Launch Pipeline';
+}
+</script>
+</body>
+</html>

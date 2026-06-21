@@ -1,0 +1,124 @@
+
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Occupational Health Study Plan//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+SUMMARY:Overview of Occupational Health Nursing
+DTSTART;TZID=Africa/Johannesburg:20251019T183000
+DTEND;TZID=Africa/Johannesburg:20251019T193000
+DESCRIPTION:- Roles & responsibilities\n- History & evolution\n- Ethical & legal frameworks
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Core Anatomy & Physiology
+DTSTART;TZID=Africa/Johannesburg:20251022T183000
+
+DTEND;TZID=Africa/Johannesburg:20251022T193000
+DESCRIPTION:- Musculoskeletal system\n- Respiratory system\n- Nervous system
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Physical Workplace Hazards
+DTSTART;TZID=Africa/Johannesburg:20251026T183000
+DTEND;TZID=Africa/Johannesburg:20251026T193000
+DESCRIPTION:- Noise, vibration, temperature extremes, radiation\n- Effects & prevention
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Chemical & Biological Hazards
+DTSTART;TZID=Africa/Johannesburg:20251029T183000
+DTEND;TZID=Africa/Johannesburg:20251029T193000
+
+DESCRIPTION:- Hazardous substances & toxicology basics\n- Workplace infections & control measures
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ergonomics in the Workplace
+DTSTART;TZID=Africa/Johannesburg:20251102T183000
+DTEND;TZID=Africa/Johannesburg:20251102T193000
+DESCRIPTION:- Posture & workstation assessment\n- Manual handling & repetitive strain
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychosocial Hazards & Mental Health
+DTSTART;TZID=Africa/Johannesburg:20251105T183000
+DTEND;TZID=Africa/Johannesburg:20251105T193000
+
+DESCRIPTION:- Stress & burnout\n- Workplace violence\n- Employee Assistance Programs
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Occupational Health Legislation
+DTSTART;TZID=Africa/Johannesburg:20251109T183000
+DTEND;TZID=Africa/Johannesburg:20251109T193000
+DESCRIPTION:- OHSA, COIDA, Labour Acts\n- Employer vs employee responsibilities
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Workplace Policies & Risk Management
+DTSTART;TZID=Africa/Johannesburg:20251112T183000
+DTEND;TZID=Africa/Johannesburg:20251112T193000
+
+DESCRIPTION:- Health & safety committees\n- Risk assessments & reporting
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Pre-employment & Periodic Screening
+DTSTART;TZID=Africa/Johannesburg:20251116T183000
+DTEND;TZID=Africa/Johannesburg:20251116T193000
+DESCRIPTION:- Fitness-to-work criteria\n- Biological monitoring
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Disease Surveillance & Reporting
+DTSTART;TZID=Africa/Johannesburg:20251119T183000
+DTEND;TZID=Africa/Johannesburg:20251119T193000
+DESCRIPTION:- Early detection & 
+
+monitoring\n- Confidentiality & documentation
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Occupational Diseases
+DTSTART;TZID=Africa/Johannesburg:20251123T183000
+DTEND;TZID=Africa/Johannesburg:20251123T193000
+DESCRIPTION:- Silicosis, asbestosis, dermatitis\n- Noise-induced hearing loss
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Workplace Injuries & First Aid
+DTSTART;TZID=Africa/Johannesburg:20251126T183000
+DTEND;TZID=Africa/Johannesburg:20251126T193000
+DESCRIPTION:- Acute trauma management\n- Return-to-work planning
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Health Education & Wellness Promotion
+DTSTART;TZID=Africa/Johannesburg:20251130T183000
+DTEND;TZID=Africa/Johannesburg:20251130T193000
+DESCRIPTION:- Chronic disease prevention\n- Smoking cessation, nutrition, fitness programs
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Immunisations & Infection Control
+DTSTART;TZID=Africa/Johannesburg:20251203T183000
+DTEND;TZID=Africa/Johannesburg:20251203T193000
+DESCRIPTION:- Vaccination protocols\n- TB/HIV workplace considerations
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Waste Management & Environmental Health
+DTSTART;TZID=Africa/Johannesburg:20251207T183000
+DTEND;TZID=Africa/Johannesburg:20251207T193000
+DESCRIPTION:- Hazardous waste handling\n- Ventilation & sanitation
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Emergency Preparedness & Disaster Planning
+DTSTART;TZID=Africa/Johannesburg:20251210T183000
+DTEND;TZID=Africa/Johannesburg:20251210T193000
+DESCRIPTION:- Fire safety\n- Chemical spills & mass casualty response
+END:VEVENT
+BEGIN:VEVENT
+
+SUMMARY:Ethics & Professional Conduct
+DTSTART;TZID=Africa/Johannesburg:20251214T183000
+DTEND;TZID=Africa/Johannesburg:20251214T193000
+DESCRIPTION:- Confidentiality & informed consent\n- Scope of practice
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Research & Evidence-Based Practice
+DTSTART;TZID=Africa/Johannesburg:20251217T183000
+DTEND;TZID=Africa/Johannesburg:20251217T193000
+DESCRIPTION:- Research basics & data collection\n- Critical appraisal & workplace application
+END:VEVENT
+END:VCALENDAR
