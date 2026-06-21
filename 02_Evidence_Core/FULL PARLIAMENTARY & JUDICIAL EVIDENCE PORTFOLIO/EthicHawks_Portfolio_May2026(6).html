@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EthicHawks — Consolidated Protected Disclosure Portfolio | May 2026</title>
+<style>
+/* ─── RESET & BASE ─── */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+  text-align-last: left;
+  string-set: doctitle "";
+}
+
+/* ─── PAGE SETUP ─── */
+@page {
+  size: A4;
+  margin: 2.2cm 2cm 2.5cm 2cm;
+  @top-center {
+    content: string(doctitle);
+    font-family: Arial, sans-serif;
+    font-size: 9pt;
+    color: #1F3864;
+    border-bottom: 0.5pt solid #C9A84C;
+    padding-bottom: 4pt;
+  }
+  @bottom-center {
+    content: "Page " counter(page);
+    font-family: Arial, sans-serif;
+    font-size: 9pt;
+    color: #1F3864;
+  }
+}
+@page :first { margin: 0; @top-center { content: none; } @bottom-center { content: none; } }
+@page cover { @top-center { content: none; } @bottom-center { content: none; } }
+@page toc-page { @top-center { content: none; } @bottom-center { content: none; } }
+
+.cover { page: cover; }
+.toc-page { page: toc-page; }
+
+/* ─── COVER PAGE ─── */
+.cover {
+  width: 210mm;
+  height: 297mm;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  background: #1F3864;
+  page-break-after: always;
+}
+.cover::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 45%;
+  height: 100%;
+  background: rgba(201,168,76,0.08);
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 8mm;
+  background: #C9A84C;
+}
+.cover-accent-top {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 4mm;
+  background: #C9A84C;
+}
+.cover-line-left {
+  position: absolute;
+  left: 18mm; top: 25mm;
+  width: 1.5pt;
+  height: 85%;
+  background: rgba(201,168,76,0.35);
+}
+.cover-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 82%;
+  text-align: center;
+  z-index: 2;
+}
+.cover-org {
+  font-family: Arial, sans-serif;
+  font-size: 32pt;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: 6pt;
+  margin-bottom: 6pt;
+}
+.cover-org-sub {
+  font-family: Arial, sans-serif;
+  font-size: 14pt;
+  color: #C9A84C;
+  font-weight: 400;
+  margin-bottom: 30pt;
+}
+.cover-banner {
+  border: 1.5pt solid #C9A84C;
+  padding: 16pt 24pt;
+  margin: 20pt auto;
+  max-width: 90%;
+}
+.cover-banner-line1 {
+  font-family: Arial, sans-serif;
+  font-size: 16pt;
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: 1.5pt;
+}
+.cover-banner-line2 {
+  font-family: Arial, sans-serif;
+  font-size: 13pt;
+  color: #C9A84C;
+  font-weight: 600;
+  margin-top: 6pt;
+}
+.cover-in-re {
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+  color: #C9A84C;
+  font-weight: 600;
+  margin-top: 28pt;
+  letter-spacing: 2pt;
+}
+.cover-parties {
+  margin-top: 16pt;
+}
+.cover-party-name {
+  font-family: Arial, sans-serif;
+  font-size: 14pt;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+.cover-v {
+  font-family: Georgia, serif;
+  font-size: 13pt;
+  color: #C9A84C;
+  font-style: italic;
+  margin: 8pt 0;
+}
+.cover-meta-table {
+  margin: 30pt auto 0;
+  width: 85%;
+  border-collapse: collapse;
+}
+.cover-meta-table td {
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+  color: rgba(255,255,255,0.85);
+  padding: 5pt 8pt;
+  border-bottom: 0.5pt solid rgba(201,168,76,0.25);
+}
+.cover-meta-table td:first-child {
+  color: #C9A84C;
+  font-weight: 600;
+  width: 35%;
+  text-align: right;
+  padding-right: 12pt;
+}
+.cover-confidential {
+  position: absolute;
+  bottom: 22mm;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+  color: #C00000;
+  font-weight: 700;
+  text-align: center;
+  z-index: 2;
+}
+.cover-confidential-line2 {
+  font-size: 8.5pt;
+  color: rgba(255,255,255,0.7);
+  margin-top: 3pt;
+}
+
+/* ─── HEADINGS ─── */
+h1 {
+  font-family: Arial, sans-serif;
+  font-size: 18pt;
+  font-weight: 700;
+  color: #1F3864;
+  margin-top: 28pt;
+  margin-bottom: 14pt;
+  padding-bottom: 6pt;
+  border-bottom: 2pt solid #C9A84C;
+  page-break-after: avoid;
+  string-set: doctitle content();
+}
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: 14pt;
+  font-weight: 700;
+  color: #1F3864;
+  margin-top: 20pt;
+  margin-bottom: 10pt;
+  page-break-after: avoid;
+}
+h3 {
+  font-family: Arial, sans-serif;
+  font-size: 12pt;
+  font-weight: 700;
+  color: #1F3864;
+  margin-top: 16pt;
+  margin-bottom: 8pt;
+}
+
+/* ─── PARAGRAPHS ─── */
+p {
+  margin: 8pt 0;
+  orphans: 2;
+  widows: 2;
+}
+
+/* ─── ALERT BOXES ─── */
+.alert-box {
+  background: #FFF8E7;
+  border-left: 4pt solid #C9A84C;
+  padding: 12pt 16pt;
+  margin: 14pt 0;
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  font-weight: 600;
+  color: #5C4A1F;
+  page-break-inside: avoid;
+}
+
+.red-box {
+  background: #FFF0F0;
+  border-left: 4pt solid #8B0000;
+  padding: 12pt 16pt;
+  margin: 14pt 0;
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  font-weight: 700;
+  color: #8B0000;
+  page-break-inside: avoid;
+}
+
+/* ─── TABLES ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14pt 0;
+  font-size: 9.5pt;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+thead {
+  display: table-header-group;
+}
+th {
+  background: #1F3864;
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  font-size: 9pt;
+  padding: 8pt 10pt;
+  text-align: left;
+  border: 0.5pt solid #1F3864;
+}
+td {
+  padding: 7pt 10pt;
+  border: 0.5pt solid #CCCCCC;
+  vertical-align: top;
+}
+tr:nth-child(even) td {
+  background: #F2F2F2;
+}
+tr {
+  page-break-inside: avoid;
+}
+
+/* ─── LISTS ─── */
+ul {
+  margin: 8pt 0;
+  padding-left: 24pt;
+}
+li {
+  margin-bottom: 5pt;
+}
+ol {
+  margin: 8pt 0;
+  padding-left: 24pt;
+}
+
+/* ─── TOC ─── */
+.toc-page h1 {
+  text-align: center;
+  border-bottom: none;
+  font-size: 20pt;
+  margin-bottom: 24pt;
+}
+.toc-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.toc-table td {
+  border: none;
+  border-bottom: 0.5pt dotted #999;
+  padding: 7pt 4pt;
+  font-size: 10pt;
+}
+.toc-table td:first-child {
+  font-weight: 700;
+  color: #1F3864;
+  width: 18%;
+  font-family: Arial, sans-serif;
+  white-space: nowrap;
+}
+.toc-table td:nth-child(2) {
+  width: 72%;
+}
+.toc-table td:last-child {
+  text-align: right;
+  font-weight: 700;
+  color: #1F3864;
+  width: 10%;
+  font-family: Arial, sans-serif;
+}
+.toc-table tr:nth-child(even) td {
+  background: transparent;
+}
+.toc-divider td {
+  border-bottom: 1pt solid #C9A84C;
+  font-weight: 700;
+  color: #C9A84C;
+  text-align: center;
+  padding: 10pt 4pt;
+}
+
+/* ─── SUPPLEMENT DIVIDER ─── */
+.supplement-divider {
+  page-break-before: always;
+  text-align: center;
+  padding-top: 40%;
+}
+.supplement-box {
+  border: 2pt solid #1F3864;
+  background: #1F3864;
+  color: #FFFFFF;
+  padding: 30pt 20pt;
+  margin: 0 auto;
+  width: 85%;
+}
+.supplement-box .line1 {
+  font-family: Arial, sans-serif;
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: 3pt;
+}
+.supplement-box .line2 {
+  font-family: Arial, sans-serif;
+  font-size: 13pt;
+  color: #C9A84C;
+  margin-top: 10pt;
+}
+.supplement-box .line3 {
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  color: #999999;
+  margin-top: 8pt;
+}
+
+/* ─── CLOSING DECLARATION BOX ─── */
+.declaration-box {
+  background: #F2F2F2;
+  border: 1pt solid #1F3864;
+  border-left: 4pt solid #1F3864;
+  padding: 16pt 20pt;
+  margin: 16pt 0;
+  font-style: italic;
+}
+
+/* ─── SIGNATURE BLOCK ─── */
+.sig-table {
+  width: 70%;
+  margin: 20pt 0;
+}
+.sig-table td {
+  border: none;
+  padding: 6pt 0;
+  font-size: 10pt;
+}
+.sig-table td:first-child {
+  font-weight: 700;
+  color: #1F3864;
+  width: 35%;
+  font-family: Arial, sans-serif;
+}
+
+/* ─── FOOTER NAVY BOX ─── */
+.footer-navy {
+  background: #1F3864;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 14pt 20pt;
+  margin-top: 24pt;
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+}
+.footer-navy .line1 { font-size: 10pt; font-weight: 600; }
+.footer-navy .line2 { color: #C9A84C; margin-top: 4pt; }
+.footer-navy .line3 { color: #999999; margin-top: 4pt; font-size: 8pt; }
+
+/* ─── ITALIC PARA ─── */
+.italic-para {
+  font-style: italic;
+  margin: 10pt 0;
+}
+
+/* ─── PAGE BREAK ─── */
+.page-break {
+  page-break-after: always;
+}
+
+/* ─── OVERFLOW PREVENTION ─── */
+pre, table, figure, img, svg, blockquote {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+a { word-break: break-all; }
+
+/* ─── NUMBERED LISTS ─── */
+.numbered-list {
+  list-style-type: decimal;
+  padding-left: 28pt;
+}
+.numbered-list li {
+  margin-bottom: 8pt;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- COVER PAGE                                                  -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-accent-top"></div>
+  <div class="cover-line-left"></div>
+  <div class="cover-content">
+    <div class="cover-org">ETHICHAWKS</div>
+    <div class="cover-org-sub">Forensic Governance &amp; Compliance Consultancy</div>
+    <div class="cover-banner">
+      <div class="cover-banner-line1">CONSOLIDATED PROTECTED DISCLOSURE</div>
+      <div class="cover-banner-line2">FULL PARLIAMENTARY &amp; JUDICIAL EVIDENCE PORTFOLIO</div>
+    </div>
+    <div class="cover-in-re">IN THE MATTER OF</div>
+    <div class="cover-parties">
+      <div class="cover-party-name">WILBUR WILLIAM MATTHEE</div>
+      <div class="cover-v">v</div>
+      <div class="cover-party-name">AFROCENTRIC INVESTMENT CORPORATION /<br>MEDSCHEME HOLDINGS (PTY) LTD</div>
+      <div style="font-family:Arial,sans-serif;font-size:12pt;color:#FFFFFF;margin-top:6pt;">&amp; OTHERS</div>
+    </div>
+    <table class="cover-meta-table">
+      <tr><td>Complainant / Applicant</td><td>Wilbur William Matthee</td></tr>
+      <tr><td>Qualification</td><td>Specialist Nurse &amp; Case Manager | PGDip Health Services Management (NQF 8)</td></tr>
+      <tr><td>Portfolio Prepared By</td><td>EthicHawks Forensic Governance &amp; Compliance Consultancy</td></tr>
+      <tr><td>Portfolio Updated</td><td>April 2026 | Parliamentary Supplement: May 2026</td></tr>
+      <tr><td>Active Case References</td><td>2026-066952 | 2026-077546 | WECT23564-25 | WECT24486-25 | B-BBEE 5/02/2026 | CAS 705/3/2026</td></tr>
+    </table>
+  </div>
+  <div class="cover-confidential">
+    <div>CONFIDENTIAL &mdash; PROTECTED BY LEGAL PRIVILEGE</div>
+    <div class="cover-confidential-line2">PROTECTED DISCLOSURES ACT 26 OF 2000</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- TABLE OF CONTENTS                                           -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="toc-page">
+<h1 style="text-align:center;border-bottom:none;">TABLE OF CONTENTS</h1>
+<table class="toc-table">
+  <tr><td>PART A</td><td>Executive Summary &amp; Key Findings</td><td>3</td></tr>
+  <tr><td>PART B</td><td>Legal Framework</td><td>9</td></tr>
+  <tr><td>PART C</td><td>Master Chronological Record</td><td>11</td></tr>
+  <tr><td>PART D</td><td>Protected Disclosure Chain &amp; Master Register</td><td>14</td></tr>
+  <tr><td>PART E</td><td>Gexus-DMS Integration Gap &amp; APN 303 Breach</td><td>16</td></tr>
+  <tr><td>PART F</td><td>B-BBEE Fronting Forensic Architecture</td><td>18</td></tr>
+  <tr><td>PART G</td><td>SANC Credential Suppression &amp; Professional Misconduct</td><td>20</td></tr>
+  <tr><td>PART H</td><td>CMS Dereliction of Duty &amp; The Discovery Health Precedent</td><td>22</td></tr>
+  <tr><td>PART I</td><td>Active Litigation Matrix &amp; The P1&ndash;P13 Perjury Database</td><td>24</td></tr>
+  <tr><td>PART J</td><td>Master Evidence Annexure Index</td><td>25</td></tr>
+  <tr><td>PART K</td><td>Legislative Interlock &amp; The Public Policy Mandate</td><td>27</td></tr>
+  <tr><td>PART L</td><td>Holistic Relief Demanded</td><td>29</td></tr>
+  <tr class="toc-divider"><td colspan="3">&mdash;&mdash;&mdash; PARLIAMENTARY SUPPLEMENT (MAY 2026) &mdash;&mdash;&mdash;</td></tr>
+  <tr><td>SECTION A</td><td>Covering Letters to Parliament</td><td>31</td></tr>
+  <tr><td>SECTION B</td><td>Executive Summary for Parliamentary Staff</td><td>36</td></tr>
+  <tr><td>SECTION C</td><td>Indexed Exhibit Bundle for Parliament</td><td>40</td></tr>
+  <tr><td>SECTION D</td><td>Draft Parliamentary Questions</td><td>43</td></tr>
+  <tr><td>SECTION E</td><td>Proposed Terms of Reference &mdash; Parliamentary Inquiry</td><td>47</td></tr>
+  <tr><td>SECTION F</td><td>Schedule of Persons &amp; Bodies to be Summoned</td><td>50</td></tr>
+  <tr><td>SECTION G</td><td>Affidavit of Service (Parliamentary Submission)</td><td>53</td></tr>
+  <tr><td>SECTION H</td><td>Legal Privilege Log</td><td>54</td></tr>
+  <tr><td>SECTION I</td><td>Table of Case Law References</td><td>55</td></tr>
+  <tr><td>SECTION J</td><td>Parliamentary Oversight &mdash; Outcomes &amp; Expectations</td><td>57</td></tr>
+  <tr><td>SECTION K</td><td>Closing Declaration</td><td>59</td></tr>
+</table>
+</div>
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PART A — EXECUTIVE SUMMARY & KEY FINDINGS                  -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="part-a">PART A &mdash; EXECUTIVE SUMMARY &amp; KEY FINDINGS</h1>
+
+<div class="alert-box">
+This portfolio details a profound intersection of corporate system failures, critical public health data vulnerabilities, black economic empowerment non-compliance, and severe institutional obstruction by multiple state and statutory regulatory bodies.
+</div>
+
+<p>1. This submission introduces an extensive evidentiary framework demonstrating structural non-compliance, financial governance anomalies, and active whistleblower suppression by AfroCentric Investment Corporation and Medscheme Holdings (Pty) Ltd. The documentation layout verifies that the systemic risk exposed by the complainant has broad public policy implications extending far beyond an isolated employment conflict.</p>
+
+<p>2. Crucially, the evidence identifies a material technical defect within the corporate entity's Gexus-DMS integration layout. This operational mismatch systematically generates erroneous treatment non-adherence documentation targeting Government Employees Medical Scheme (GEMS) beneficiaries, corrupting actuarial risk evaluations and potentially contaminating data utilized for premium rate updates.</p>
+
+<p>3. Following formal, internal structural disclosures, the employer initiated retaliatory actions, including an unauthorized 40.47% compensation reduction, targeted structural isolation, and administrative adjustments designed to limit professional standing. Subsequent attempts to leverage statutory remedial frameworks resulted in an institutional loop, where eleven separate entities &mdash; including the CCMA, CMS, SANC, and SAHRC &mdash; failed to provide appropriate structural remedies due to siloed jurisdictional operations.</p>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PART B — LEGAL FRAMEWORK                                   -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="part-b">PART B &mdash; LEGAL FRAMEWORK</h1>
+
+<p>The evidentiary presentation relies on a comprehensive matrix of South African legislative, constitutional, and statutory protections designed to shield authentic disclosures and mandate corporate governance transparency:</p>
+
+<h2>B.1 Statutory Protections &amp; Governing Compliance Requirements</h2>
+
+<ul>
+<li><strong>Protected Disclosures Act 26 of 2000 (PDA):</strong> Protecting authentic structural disclosures against corporate occupational detriments and retaliatory administrative adjustments.</li>
+<li><strong>Labour Relations Act 66 of 1995 (LRA):</strong> Section 187(1)(h) provisions establishing automatically unfair dismissal and unfair labor practice protection relative to occupational disclosures.</li>
+<li><strong>Basic Conditions of Employment Act 75 of 1997 (BCEA):</strong> Direct statutory limitation under Section 34 governing unauthorized salary deductions and payroll manipulations.</li>
+<li><strong>Companies Act 71 of 2008:</strong> Section 76 board accountability requirements and Section 162 parameters concerning director delinquency applications.</li>
+<li><strong>Broad-Based Black Economic Empowerment Act 53 of 2003:</strong> Statutory provisions regulating operational fronting practices and forensic misrepresentations to state registries.</li>
+<li><strong>Medical Schemes Act 131 of 1998:</strong> Statutory regulatory framework governing administrative system compliance, data handling, and technical systems integrity.</li>
+<li><strong>Constitution of the Republic of South Africa, 1996:</strong> Relying on Section 23 (Fair Labour Practices), Section 34 (Access to Courts), and Sections 55&ndash;56 empowering Legislative Oversight.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PART C — MASTER CHRONOLOGICAL RECORD                       -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="part-c">PART C &mdash; MASTER CHRONOLOGICAL RECORD</h1>
+
+<p>The table below structures the sequence of events, tracking disclosures, corporate retributions, and institutional deflections chronologically:</p>
+
+<table>
+<thead>
+<tr><th>Date</th><th>Event Category</th><th>Detailed Description of Event</th><th>Evidentiary Reference</th></tr>
+</thead>
+<tbody>
+<tr><td>July 2025</td><td>Occupational Detriment</td><td>Unlawful payroll adjustment executed by corporate entity, resulting in a 40.47% reduction without statutory consultation.</td><td>Annexure C-1: Pay Slip Log</td></tr>
+<tr><td>09 Dec 2025</td><td>Protected Disclosure</td><td>Formal transmission of Priority 1 Material Governance and System Defect Technical Report directly to executive leadership.</td><td>Annexure C-2: Technical Memo</td></tr>
+<tr><td>09 Jan 2026</td><td>Administrative Loop</td><td>CCMA conciliation framework under case reference WECT23564-25 fails to manage structural conflict due to jurisdictional objections.</td><td>Annexure C-3: CCMA Outcome Certificate</td></tr>
+<tr><td>05 Feb 2026</td><td>Regulatory Disclosure</td><td>Formal forensic fronting complaint filed with the B-BBEE Commission detailing operational architecture misrepresentations.</td><td>Annexure C-4: B-BBEE Filing Rec</td></tr>
+<tr><td>13 Mar 2026</td><td>Chapter 9 Filing</td><td>Formal application to South African Human Rights Commission detailing systemic silence and administrative barriers to court access.</td><td>Annexure C-5: SAHRC Log</td></tr>
+<tr><td>19 Mar 2026</td><td>Judicial Filing</td><td>Filing of Section 162 Director Delinquency application in the Western Cape Division of the High Court (Case 2026-086906).</td><td>Annexure C-6: High Court Index</td></tr>
+<tr><td>May 2026</td><td>Oversight Escalation</td><td>Consolidation of Evidence Portfolio and construction of Parliamentary Supplement for formal legislative assembly distribution.</td><td>Annexure C-7: Assembly Packet</td></tr>
+</tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PARTS D TO L — FORENSIC EVIDENCE AND LIABILITY ANALYSIS   -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="part-d-to-l">PARTS D TO L &mdash; FORENSIC EVIDENCE AND LIABILITY ANALYSIS</h1>
+
+<h2 id="part-d">PART D &mdash; The Protected Disclosure Chain &amp; &lsquo;Pre-Notes&rsquo; Register</h2>
+
+<p>This section integrates the complete 148-entry Master Forensic Governance &amp; Regulatory Register, colloquially compiled as &ldquo;The Pre-Notes.&rdquo; These entries provide a continuous, unassailable chain of custody for every alert raised. Crucially, this section houses the verbatim transcripts of authenticated audio logs &mdash; specifically capturing statements by supervisor Mary-Ann Jones &mdash; admitting that operational parameters and administrative shifts were being deployed layout-wide as direct retaliatory mechanisms to silence structural disclosures.</p>
+
+<h2 id="part-e">PART E &mdash; Gexus-DMS Integration Gap &amp; Actuarial Practice Note (APN 303) Breach</h2>
+
+<div class="red-box">
+CRITICAL ACTUARIAL NON-COMPLIANCE: The programmatic integration gap between the Gexus claims architecture and the Disease Management System (DMS) constitutes a direct breach of Actuarial Practice Note 303 (APN 303) guidelines.
+</div>
+
+<p>1. Part E establishes the absolute technical and mathematical mechanics of the software defect existing between the Gexus billing engine and the clinical Disease Management System (DMS). This architectural mismatch automatically generates false clinical parameters by flagging fully compliant public servants as treatment-defaulting numbers. By systematically corrupting chronic disease adherence profiles, the system alters the foundational data matrix that reflects the true morbidity profile of the beneficiary pool.</p>
+
+<p>2. This systemic data contamination triggers a severe regulatory breach under Actuarial Practice Note 303 (APN 303), which mandates absolute data integrity, exhaustive data verification, and rigorous risk-adjustment auditing for medical scheme valuations. Under APN 303, actuaries are legally and professionally bound to utilize untainted, historically accurate empirical data to calculate pricing models, determine scheme contribution rates, and project future demographic healthcare liabilities.</p>
+
+<p>3. Because this defect structurally compromises the profiles of all 1.9 million Government Employees Medical Scheme (GEMS) beneficiaries, the respondent has effectively fed corrupted data into the scheme&rsquo;s statutory actuarial models. This artificial distortion of patient compliance parameters alters the calculated risk-adjustment factors and chronic disease loading margins. Consequently, this data gap subverts the pricing models submitted to regulators, risks artificially inflating beneficiary premiums, and fundamentally undermines the public health statistical baseline required for National Health Insurance (NHI) infrastructure and data-readiness modeling.</p>
+
+<h2 id="part-f">PART F &mdash; B-BBEE Fronting Forensic Architecture</h2>
+
+<p>This section presents a comprehensive operational data mapping of the corporate respondent&rsquo;s governance structure. The forensic analysis exposes a calculated divergence between the executive profiles submitted to state registries for procurement point allocation and the actual internal human resource reporting lines. This structural mismatch constitutes a clear fronting practice under the B-BBEE Act, designed to preserve high-value state contracts while actively suppressing specialized local professionals.</p>
+
+<h2 id="part-g">PART G &mdash; SANC Credential Suppression &amp; Professional Misconduct</h2>
+
+<p>Documents the deliberate manipulation of clinical professional profiles within the corporate environment. The evidence details how the complainant&rsquo;s qualified credentials as a Specialist Nurse and Case Manager (validated at PGDip NQF Level 8) were administratively suppressed and contractually downgraded to lower-tier classifications. This practice was executed to arbitrarily adjust corporate liability margins and suppress professional standing, in direct violation of the Nursing Act.</p>
+
+<h2 id="part-h">PART H &mdash; CMS Dereliction of Duty &amp; The Discovery Health Precedent</h2>
+
+<div class="alert-box">
+EVIDENTIARY CONTRADICTION: CMS actively intervened to protect 16,507 corporate medical scheme members in January 2026, yet completely abandoned 1.9 million state beneficiaries under GEMS.
+</div>
+
+<p>This section provides a scathing exposure of the Council for Medical Schemes (CMS) and its absolute dereliction of statutory duties under Sections 7 and 44 of the Medical Schemes Act. When presented with comprehensive telemetry of the Gexus-DMS defect, CMS repeatedly deflected and refused to exercise its investigative jurisdiction. This structural failure is contrasted sharply with the &ldquo;Discovery Health Precedent&rdquo; of January 2026, where CMS proactively intervened to resolve a pharmacy claims calculation error affecting 16,507 members. CMS&rsquo;s refusal to act when 1.9 million state members are at risk demonstrates an unconstitutional double standard and a total abandonment of its public regulatory mandate.</p>
+
+<h2 id="part-i">PART I &mdash; Active Litigation Matrix &amp; The P1&ndash;P13 Perjury Database</h2>
+
+<p>Rather than an isolated workplace grievance, this section outlines the nine concurrent active litigious proceedings across the High Court, Labour Court, CCMA, and statutory registries. To aid committee content analysts, this section introduces the &ldquo;Perjury Schedule&rdquo; (Annexures P1 through P13). This database logs every false statement made under oath by corporate executives, mapping out shifting corporate defenses, fabricated disciplinary premises, and active procedural fraud designed to mislead judicial officers.</p>
+
+<h2 id="part-j">PART J &mdash; Master Evidence Annexure Index</h2>
+
+<p>A comprehensive directory organizing the 2,200 pages of supporting evidence. It indexes physical letters, electronic mail strings, algorithmic system logs, and the corporate Teams recordings that the respondent has actively attempted to suppress from formal discovery.</p>
+
+<h2 id="part-k">PART K &mdash; Legislative Interlock &amp; The Public Policy Mandate</h2>
+
+<p>A formal brief linking private corporate misconduct directly to a systemic failure of national state departments to monitor third-party contractors who administer public service functions for state employees under GEMS.</p>
+
+<h2 id="part-l">PART L &mdash; Holistic Relief Demanded</h2>
+
+<p>A itemized specification of requirements: immediate financial correction of the 40.47% payroll deduction, direct accountability for the eleven deflecting regulatory bodies, and structural legislative reviews to reform the Protected Disclosures Act into an active enforcement weapon.</p>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PARLIAMENTARY SUPPLEMENT DIVIDER                          -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="supplement-divider">
+  <div class="supplement-box">
+    <div class="line1">PARLIAMENTARY SUPPLEMENT</div>
+    <div class="line2">LEGISLATIVE OVERSIGHT IMPLEMENTATION ARCHITECTURE</div>
+    <div class="line3">MAY 2026 SUBMISSION FRAMEWORK</div>
+  </div>
+</div>
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION A — COVERING LETTERS TO PARLIAMENT                -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-a">SECTION A &mdash; COVERING LETTERS TO PARLIAMENT</h1>
+
+<h2>A.1 Template Architecture for Executive Parliamentary Transmittal</h2>
+
+<p>The formal covering letters included in this section are directed explicitly to the Office of the Speaker of the National Assembly and the respective Chairpersons of the Portfolio Committees on Health; Employment &amp; Labour; Trade, Industry &amp; Competition; and Justice &amp; Constitutional Development.</p>
+
+<div class="alert-box">
+CRITICAL NOTICE FOR DISPATCH: Every covering letter is mathematically mapped to include the relevant case metadata, highlighting why the specific committee holds a joint constitutional mandate to accept and act upon the contents of this portfolio.
+</div>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION B — EXECUTIVE SUMMARY FOR PARLIAMENTARY STAFF     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-b">SECTION B &mdash; EXECUTIVE SUMMARY FOR PARLIAMENTARY STAFF</h1>
+
+<p>This document serves as an operational briefing brief designed specifically for Parliamentary Committee Content Analysts and Researchers. It distills the 2,200-page core portfolio into primary legislative focus points:</p>
+
+<ul>
+<li><strong>Technical Core:</strong> The Gexus-DMS data calculation mismatch impacting state beneficiary data frameworks.</li>
+<li><strong>Economic Core:</strong> Structural fronting trends designed to preserve high-value procurement access artificially.</li>
+<li><strong>Oversight Core:</strong> Explaining how the eleven statutory regulators entered an endless administrative cycle, creating an effective denial of regulatory remedy.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION C — INDEXED EXHIBIT BUNDLE FOR PARLIAMENT         -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-c">SECTION C &mdash; INDEXED EXHIBIT BUNDLE FOR PARLIAMENT</h1>
+
+<p>A highly structured reference index mapping key digital and physical exhibits to the legislative focus domains of each target committee:</p>
+
+<table>
+<thead>
+<tr><th>Exhibit Ref</th><th>Primary Subject Matter</th><th>Target Portfolio Committee</th><th>Strategic Relevance</th></tr>
+</thead>
+<tbody>
+<tr><td>EXH-HEALTH-01</td><td>Gexus-DMS Technical Interlock Logs</td><td>Health</td><td>Proof of systemic patient profile data contamination.</td></tr>
+<tr><td>EXH-LABOUR-04</td><td>July 2025 Retaliatory Salary Action Ledger</td><td>Employment &amp; Labour</td><td>Evidence of occupational detriment via direct economic suppression.</td></tr>
+<tr><td>EXH-TRADE-02</td><td>Forensic Corporate Governance Structure Discrepancy</td><td>Trade, Industry &amp; Competition</td><td>Documents clear operational misalignments under fronting indicators.</td></tr>
+<tr><td>EXH-JUST-09</td><td>Regulator Correspondence Loops and Deflection Letters</td><td>Justice &amp; Constitutional Dev</td><td>Demonstrates the administrative breakdown across the institutional watchdogs.</td></tr>
+</tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION D — DRAFT PARLIAMENTARY QUESTIONS                 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-d">SECTION D &mdash; DRAFT PARLIAMENTARY QUESTIONS</h1>
+
+<p>The following draft questions are formulated for Member of Parliament submission to Executive Cabinet Ministers to compel formal, on-the-record accountability:</p>
+
+<h2>D.1 To the Minister of Health:</h2>
+<p class="italic-para">1. Whether the National Department of Health has been informed of a programmatic integration mismatch within the Gexus-DMS systems layout managed by Medscheme Holdings that incorrectly handles compliance data for GEMS members? If so, what monitoring frameworks have been deployed to verify the statistical safety of beneficiary profiles?</p>
+
+<h2>D.2 To the Minister of Employment &amp; Labour:</h2>
+<p class="italic-para">2. What active inspection protocols are currently maintained by the Department of Employment and Labour to ensure that large corporate enterprises do not weaponize internal payroll adjustment systems to enact unauthorized compensation deductions against authentic whistleblowers under the Protected Disclosures Act?</p>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION E — PROPOSED TERMS OF REFERENCE                   -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-e">SECTION E &mdash; PROPOSED TERMS OF REFERENCE &mdash; PARLIAMENTARY INQUIRY</h1>
+
+<p>Should a joint committee session resolve to institute a formal Parliamentary Inquiry under Section 56 of the Constitution, the following explicit Terms of Reference are proposed:</p>
+
+<ol class="numbered-list">
+<li>To cross-examine and forensically investigate the operational integration timeline of the Gexus-DMS interface to establish if data anomalies compromised GEMS beneficiary access to care parameters.</li>
+<li>To audit the operational compliance of AfroCentric Investment Corporation&rsquo;s historical B-BBEE verification submissions against active internal human resource structural reporting lines.</li>
+<li>To probe the performance models of the eleven statutory bodies cited herein, determining if legislative revisions to the Protected Disclosures Act are required to create a centralized Whistleblower Protection Authority.</li>
+</ol>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION F — SCHEDULE OF PERSONS & BODIES TO BE SUMMONED   -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-f">SECTION F &mdash; SCHEDULE OF PERSONS &amp; BODIES TO BE SUMMONED</h1>
+
+<p>The following individuals and regulatory representatives are formally listed to be subpoenaed to provide verbal evidence and reveal internal records during legislative hearings:</p>
+
+<ul>
+<li>The Chief Executive Officer &amp; Compliance Officers &mdash; AfroCentric Investment Corporation Limited.</li>
+<li>The Registrar &amp; Chief Systems Analyst &mdash; Council for Medical Schemes (CMS).</li>
+<li>The Chairperson &amp; Lead Forensic Investigators &mdash; Broad-Based Black Economic Empowerment Commission.</li>
+<li>The Chief Director of Court Operations &mdash; Western Cape Division of the High Court.</li>
+<li>The Executive Commissioner &mdash; Commission for Conciliation, Mediation and Arbitration (CCMA).</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION G — AFFIDAVIT OF SERVICE                          -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-g">SECTION G &mdash; AFFIDAVIT OF SERVICE (PARLIAMENTARY SUBMISSION)</h1>
+
+<table>
+<tbody>
+<tr><td style="width:25%;font-weight:700;color:#1F3864;">Document:</td><td>Affidavit of Service</td></tr>
+<tr><td style="font-weight:700;color:#1F3864;">Purpose:</td><td>Proof of delivery of the Consolidated Protected Disclosure Evidence Portfolio to Parliament</td></tr>
+</tbody>
+</table>
+
+<p>I, the undersigned, <strong>WILBUR WILLIAM MATTHEE</strong>, do hereby make oath and state:</p>
+
+<ol class="numbered-list">
+<li>On [date], I caused the following documents to be delivered to the Parliament of the Republic of South Africa: (a) One (1) hard copy of the Consolidated Protected Disclosure Evidence Portfolio (April / May 2026) &mdash; approximately 2,200 pages; (b) One (1) USB drive containing the full portfolio in PDF format and all audio recordings; (c) The covering letters addressed to the Speaker and each Portfolio Committee Chairperson; (d) The Executive Summary, Exhibit Index, Draft Parliamentary Questions, Proposed Terms of Reference for an Inquiry, and Parliamentary Oversight Expectations Statement.</li>
+<li>Service was effected by: (a) Hand delivery to the Parliamentary Reception, 90 Plein Street, Cape Town, at [time] on [date], as evidenced by the attached stamped receipt (Annexure &lsquo;PS-1&rsquo;); (b) Electronic mail to: speaker@parliament.gov.za; Health Portfolio Committee; Employment &amp; Labour Portfolio Committee; Trade, Industry &amp; Competition Portfolio Committee; Justice &amp; Constitutional Development Portfolio Committee. (c) A copy of the email transmission and delivery confirmations is attached as Annexure &lsquo;PS-2&rsquo;.</li>
+<li>I confirm that the documents served are true and complete copies of the portfolio as filed with this affidavit.</li>
+</ol>
+
+<p>Signed and sworn before me at Cape Town on this ______ day of ____________ 2026.</p>
+
+<table class="sig-table">
+<tbody>
+<tr><td>___________________________</td><td><strong>DEPONENT: WILBUR WILLIAM MATTHEE</strong></td></tr>
+<tr><td>___________________________</td><td><strong>COMMISSIONER OF OATHS</strong></td></tr>
+</tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION H — LEGAL PRIVILEGE LOG                           -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-h">SECTION H &mdash; LEGAL PRIVILEGE LOG</h1>
+
+<table>
+<thead>
+<tr><th>Document Description</th><th>Date</th><th>Author / Recipient</th><th>Privilege Claimed</th><th>Justification</th></tr>
+</thead>
+<tbody>
+<tr><td>(None &ndash; no documents withheld)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>The whistleblower has not withheld any document on grounds of privilege. All documents in the portfolio are either in the public domain (court filings) or are disclosed voluntarily.</td></tr>
+</tbody>
+</table>
+
+<div class="alert-box">
+NOTE: The respondent (employer) has refused to produce the Naming Convention Teams recording, claiming confidentiality. That recording is not in the whistleblower&rsquo;s possession. Its absence from this portfolio is due to employer suppression, not privilege. The parliamentary inquiry is requested to exercise its summons power to obtain this recording.
+</div>
+
+<p>I confirm that no document has been intentionally withheld from Parliament on grounds of legal professional privilege or confidentiality.</p>
+
+<p><strong>Wilbur William Matthee</strong><br>
+Founder &mdash; EthicHawks Forensic Governance &amp; Compliance Consultancy</p>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION I — TABLE OF CASE LAW REFERENCES                  -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-i">SECTION I &mdash; TABLE OF CASE LAW REFERENCES</h1>
+
+<table>
+<thead>
+<tr><th>Case Name</th><th>Citation</th><th>Relevance</th></tr>
+</thead>
+<tbody>
+<tr><td><em>Setlogelo v Setlogelo</em></td><td>1914 AD 221</td><td>Requirements for interdict; clean hands doctrine.</td></tr>
+<tr><td><em>Luna Meubels Vervaardigers (Edms) Bpk v Makin</em></td><td>1977 (4) SA 135 (W)</td><td>Self-created urgency cannot found urgent relief.</td></tr>
+<tr><td><em>Minister of Health v New Clicks SA (Pty) Ltd</em></td><td>2006 (2) SA 311 (CC)</td><td>Respondent may bring counter-application within answering affidavit.</td></tr>
+<tr><td><em>Biowatch Trust v Registrar, Genetic Resources</em></td><td>2009 (6) SA 232 (CC)</td><td>Constitutional principle that private litigants enforcing constitutional rights should not be penalised with costs.</td></tr>
+<tr><td><em>Gauteng Department of Health v Tsomakae</em></td><td>GAJB 5554-16 [2017]</td><td>Continuous harm doctrine resets 90-day referral clock for unfair labour practices.</td></tr>
+<tr><td><em>Shoprite Checkers (Pty) Ltd v CCMA &amp; Others</em></td><td>(1998) 19 ILJ 892 (LC)</td><td>Factors for condonation: degree of lateness, explanation, prospects of success, prejudice.</td></tr>
+<tr><td><em>Molla v Shal &amp; NO others</em></td><td>(2007) 28 ILJ 1028 (LAC)</td><td>Excessive delay without explanation may justify dismissal of condonation.</td></tr>
+<tr><td><em>Olympic Passenger Services (Pty) Ltd v Ramlagan</em></td><td>1957 (2) SA 382 (D)</td><td>Requirement that applicant for interdict must demonstrate absence of alternative remedy.</td></tr>
+<tr><td><em>Mkhatshwa v Mkhatshwa</em></td><td>2021 (5) SA 447 (CC)</td><td>Vexatious litigation warrants punitive costs.</td></tr>
+<tr><td><em>Nortje en &rsquo;n Ander v Prokureur-Generaal, Kaap</em></td><td>1978 (2) SA 659 (C)</td><td>Distinction between threats of harm and assertion of legal rights (extortion).</td></tr>
+</tbody>
+</table>
+
+<h2>Additional Statutes and Regulations</h2>
+
+<ul>
+<li>Protected Disclosures Act 26 of 2000 (ss 1, 3, 6, 7, 8, 9, 9B, 9(2)(a))</li>
+<li>Labour Relations Act 66 of 1995 (ss 185, 186(1)(e), 187(1)(f)(h), 194(3))</li>
+<li>Employment Equity Act 55 of 1998 (ss 6, 60)</li>
+<li>Basic Conditions of Employment Act 75 of 1997 (ss 34, 42, 77A)</li>
+<li>Companies Act 71 of 2008 (ss 76, 162)</li>
+<li>B-BBEE Act 53 of 2003 (ss 1(c), 13J, 13K)</li>
+<li>Medical Schemes Act 131 of 1998 (ss 1, 7, 44, 47, 58)</li>
+<li>Unemployment Insurance Contributions Act 4 of 2002 (s 56)</li>
+<li>Protection of Personal Information Act 4 of 2013 (POPIA) (ss 19, 20&ndash;22, 26)</li>
+<li>South African Human Rights Commission Act 40 of 2013 (ss 13, 15, 16)</li>
+<li>Nursing Act 33 of 2005 (s 56)</li>
+<li>Pharmacy Act 53 of 1974 (s 49)</li>
+<li>Constitution of the Republic of South Africa, 1996 (ss 9, 10, 23, 34, 56, 181, 184)</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION J — PARLIAMENTARY OVERSIGHT OUTCOMES              -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-j">SECTION J &mdash; PARLIAMENTARY OVERSIGHT: OUTCOMES AND EXPECTATIONS</h1>
+
+<div class="alert-box">
+This section sets out what the Complainant specifically seeks to achieve through parliamentary oversight &mdash; beyond individual relief. These are systemic outcomes in the public interest, directed at preventing recurrence and restoring constitutional accountability.
+</div>
+
+<h2>J.1 Why Parliamentary Oversight Is Necessary</h2>
+
+<p>The eleven regulatory and statutory bodies approached in this matter were not collectively incompetent. Their failure to act was structural: each institution operated within a silo, each had a plausible reason to deflect, and none had the systemic mandate or political accountability to break the cycle. This constitutes a systemic failure in the post-Zondo implementation era. Only Parliament &mdash; exercising its oversight function under Sections 55(2) and 56 of the Constitution &mdash; has the authority and the political accountability to compel action across multiple institutions simultaneously.</p>
+
+<p>Parliamentary oversight is sought not merely to address this Complainant&rsquo;s circumstances &mdash; though those circumstances are urgent and the harm is real and quantifiable (R321,211.77 and growing at R43,000.00 per month). It is sought because the pattern documented in this portfolio will be replicated against every future whistleblower who exposes systemic risk in a large corporate if the regulatory architecture is not reformed.</p>
+
+<h2>J.2 Specific Outcomes Sought from Parliamentary Oversight</h2>
+
+<h3>J.2.1 Immediate Humanitarian Relief (Within 30 Days)</h3>
+
+<ol class="numbered-list">
+<li>Parliament to direct the Department of Employment and Labour to issue an emergency compliance order requiring Medscheme Holdings to: (a) repay the unlawful deduction of R14,811.77 with interest; (b) pay six months of constructive dismissal compensation (R258,000.00); (c) correct the Certificate of Service to reflect the NQF Level 8 Specialist Nurse title.</li>
+<li>Parliament to direct SANC to reinstate the Complainant&rsquo;s nursing registration pending resolution of the matter, given that the deregistration was caused directly by the employer&rsquo;s unlawful conduct.</li>
+<li>Parliament to provide, or direct the provision of, legal assistance funding to the Complainant for the nine concurrent proceedings in which he is self-represented.</li>
+</ol>
+
+<h3>J.2.2 Accountability for Regulatory Failure (Within 90 Days)</h3>
+
+<ol class="numbered-list">
+<li>Parliament to direct each of the eleven regulatory bodies to submit a written report explaining: (a) the basis for its decision to decline jurisdiction or refer the matter; (b) what investigation, if any, was conducted before that decision; (c) what contact, if any, was made with other regulatory bodies to ensure that a competent forum would address the complaint.</li>
+<li>Parliament to direct the SAHRC specifically to account for: (a) why a Chapter 9 constitutional institution referred a formal complaint of constitutional rights violations to a forum that demonstrably lacked institutional impartiality; (b) what criteria it applies before declining to exercise its Section 184(2) investigative powers; (c) what it intends to do to remedy the harm its inaction has allowed to continue.</li>
+<li>Parliament to direct the CCMA to provide a transcript and audio recording of the conciliation proceedings of 9 January 2026, and to open a formal investigation into Commissioner Nthabiseng&rsquo;s conduct.</li>
+</ol>
+
+<h3>J.2.3 Corporate Accountability (Within 90 Days)</h3>
+
+<ol class="numbered-list">
+<li>Parliament to direct AfroCentric Investment Corporation Limited to: (a) provide a full actuarial disclosure of the impact of the Gexus-DMS integration gap on GEMS premium calculations; (b) disclose what remediation has been undertaken since the Priority 1 Material Risk Report of 9 December 2025; (c) account for the material non-disclosure of the Section 162 Director Delinquency Application in its Integrated Report of 8 April 2026.</li>
+<li>Parliament to direct the JSE to investigate whether the Listings Requirements require amendment to capture material litigation at subsidiary level, and to report on whether AfroCentric Investment Corporation Limited&rsquo;s Integrated Report constitutes a breach of existing disclosure obligations.</li>
+</ol>
+
+<h3>J.2.4 Systemic and Legislative Reform (Within 12 Months)</h3>
+
+<ol class="numbered-list">
+<li>Parliament to consider amendments to the Protected Disclosures Act 26 of 2000 to: (a) establish a single, funded Whistleblower Protection Authority with enforcement powers across all sectors; (b) create a statutory right to interim financial relief (minimum equivalent to six months&rsquo; salary) for whistleblowers who are rendered destitute pending resolution of their claims; (c) impose criminal liability on institutional officials who engage in bad-faith deflection or institutional misdirection; (d) establish a &lsquo;last resort&rsquo; jurisdiction so that no protected disclosure can be left without a competent forum.</li>
+<li>Parliament to direct the SAHRC to develop and publish a protocol governing its handling of whistleblower complaints involving multiple constitutional rights violations, including a specific procedure for cases where the recommended referral forum has a documented conflict of interest.</li>
+<li>Parliament to consider whether the Medical Schemes Act 131 of 1998 requires amendment to mandate CMS to investigate systemic technical failures at medical scheme administrators, irrespective of the mechanism by which the failure comes to the CMS&rsquo;s attention.</li>
+<li>Parliament to consider whether a dedicated parliamentary Standing Committee on Whistleblower Protection should be established, with the power to receive protected disclosures directly and compel regulatory bodies to report on their handling of such disclosures.</li>
+</ol>
+
+<h2>J.3 What This Portfolio Is Not</h2>
+
+<p>This portfolio is not a demand for exceptional treatment. It is a demand that the law be applied. Every statutory provision cited in this portfolio is already in force. Every regulatory power invoked was already available to the institutions that declined to exercise it. The relief sought does not require Parliament to create new law: it requires Parliament to hold accountable those who failed to apply existing law.</p>
+
+<p>The Complainant has exhausted every internal remedy, every regulatory forum, and every institutional mechanism available to him. He has done so while homeless, unregistered, psychologically devastated, and self-represented in nine concurrent proceedings. He approaches Parliament not as a last resort of desperation but as the constitutionally designated last resort of principle &mdash; the institution that exists precisely for the moment when every other mechanism has failed.</p>
+
+<div class="red-box">
+FINAL NOTE TO COMMITTEE STAFF: The Complainant is available at short notice to present oral evidence to any committee. He requests only that any hearing be scheduled with sufficient notice for him to arrange transport from Cape Town, and that Parliament provide a support person given his documented medical condition. He will present with full documentation, audio recordings, and forensic evidence. He asks for nothing more than the opportunity to be heard.
+</div>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION K — CLOSING DECLARATION                           -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h1 id="sec-k">SECTION K &mdash; CLOSING DECLARATION</h1>
+
+<div class="declaration-box">
+<p>I, Wilbur William Matthee, declare that this Consolidated Protected Disclosure Evidence Portfolio is a true and accurate record of the events, disclosures, institutional responses, and harm documented herein. All documents referenced exist and will be produced on request. All statements are based on my personal knowledge, contemporaneous documentation, and authentic records.</p>
+
+<p>I did not seek conflict. I sought dignity, safety, and the opportunity to discharge my professional obligations as a specialist nurse and case manager with clinical governance experience. Every escalation documented in this portfolio was preceded by an attempt to resolve the matter internally. Every regulatory complaint followed the exhaustion of internal remedies. Every court filing followed the failure of regulatory intervention.</p>
+
+<p>I place this portfolio before Parliament, the courts, and the regulatory authorities as the final institutional mechanism available to me &mdash; with the last of the strength I have &mdash; trusting that the principles of fairness, dignity, and justice that every person in this country deserves will be honoured.</p>
+</div>
+
+<table class="sig-table">
+<tbody>
+<tr><td>Deponent:</td><td><strong>WILBUR WILLIAM MATTHEE</strong></td></tr>
+<tr><td>Qualification:</td><td>Specialist Nurse &amp; Case Manager | PGDip Health Services Management (NQF 8)</td></tr>
+<tr><td>Role:</td><td>Founder &mdash; EthicHawks Forensic Governance &amp; Compliance Consultancy</td></tr>
+<tr><td>Contact:</td><td>info@ethichawks.co.za | 069 635 1435</td></tr>
+<tr><td>Address:</td><td>15 Bellevue Street, Voorbrug, Cape Town, 7100</td></tr>
+<tr><td>Date:</td><td>May 2026</td></tr>
+<tr><td>Signature:</td><td>_________________________________</td></tr>
+</tbody>
+</table>
+
+<div class="footer-navy">
+  <div class="line1">ETHICHAWKS FORENSIC GOVERNANCE &amp; COMPLIANCE CONSULTANCY</div>
+  <div class="line2">info@ethichawks.co.za | www.ethichawks.co.za | Cape Town, South Africa</div>
+  <div class="line3">CONFIDENTIAL &mdash; PROTECTED DISCLOSURE &mdash; PROTECTED DISCLOSURES ACT 26 OF 2000</div>
+  <div class="line3">END OF DOCUMENT &mdash; APRIL 2026 | PARLIAMENTARY SUPPLEMENT: MAY 2026</div>
+</div>
+
+</body>
+</html>
