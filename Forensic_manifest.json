@@ -1,0 +1,78 @@
+{
+  "repository_metadata": {
+    "document_name": "Parliamentary Forensic Evidence Bundle: Systematic Governance Collapse (June 2026)",
+    "architectural_purpose": "Definitive cryptographically auditable structural blueprint for the parliamentary forensic evidence bundle, demonstrating systemic governance collapse across major South African health, financial, commercial, and Chapter 9 institutions.",
+    "compilation_agent_rules": {
+      "enforce_structural_integrity": true,
+      "enforce_cross_reference_metrics": true,
+      "strict_narrative_flow": true,
+      "fail_build_on_validation_error": true
+    }
+  },
+  "core_philosophical_architecture": {
+    "philosophy": "Structure is evidence. A perfectly structured architectural hierarchy is evidence of intent, pattern, and systemic failure.",
+    "structural_pillars": {
+      "flow_and_chronological": "Seamless tracking of timelines to establish systemic progression.",
+      "hierarchical_escalation": [
+        "Level_1: Internal Operational Floor-Level Failures",
+        "Level_2: Executive Suppression",
+        "Level_3: Board-Level Material Omissions",
+        "Level_4: Regulatory State Oversight Blindness"
+      ]
+    },
+    "narrative_arc": {
+      "focus_areas": [
+        "Intentional Risk Concealment",
+        "Victimization",
+        "Statutory Breaches of the Protected Disclosures Act",
+        "Violations of King IV Frameworks"
+      ]
+    }
+  },
+  "cryptographic_foundation": {
+    "algorithm": "SHA-256",
+    "rationale": "Prevent tampering, alterations, or selective editing by adversarial legal teams through mathematical incorruptibility and the avalanche effect.",
+    "enforcement": "Every asset, document, email log, and affidavit must possess an immutable SHA-256 checksum validated during compilation."
+  },
+  "cross_reference_matrix": {
+    "validation_rules": {
+      "require_source_verification": true,
+      "link_primary_brief_to_source": true,
+      "strict_matching": "If an assertion lacks an exact cross-reference hash or relative file path, the build MUST fail immediately."
+    }
+  },
+  "directory_structure_schema": {
+    "root": {
+      "briefs": {
+        "primary_parliamentary_brief.md": {
+          "required": true,
+          "validation": "must_contain_valid_cross_references"
+        }
+      },
+      "evidence_vault": {
+        "level_1_operational_floor": {
+          "system_logs": [],
+          "operational_emails": []
+        },
+        "level_2_executive_suppression": {
+          "internal_memos": [],
+          "grievance_records": []
+        },
+        "level_3_board_omissions": {
+          "minutes": [],
+          "risk_registers": []
+        },
+        "level_4_regulatory_blindness": {
+          "chapter_9_submissions": [],
+          "statutory_reports": []
+        }
+      },
+      "metadata": {
+        "file_manifest.json": {
+          "description": "Generated tracking file listing all files with their corresponding SHA-256 hashes."
+        }
+      }
+    }
+  }
+}
+
