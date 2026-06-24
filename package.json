@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Cryptographically auditable structural blueprint for forensic evidence compilation.",
   "main": "index.js",
+"scripts": {
+  "build": "vite build"
+}
   "scripts": {
     "build": "echo 'Validating forensic integrity... Build successful.' && exit 0",
     "test": "echo 'Error: no test specified' && exit 1"
