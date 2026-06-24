@@ -1,13 +1,16 @@
 {
-  "name": "forensic-bundle",
+  "name": "ethichawks-forensic-bundle",
   "version": "1.0.0",
-  "description": "Cryptographic the audible structure blueprint of forensic compilation",
+  "description": "Cryptographically auditable structural blueprint for forensic evidence compilation.",
   "main": "index.js",
   "scripts": {
     "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'Error: no test specified' && exit 1"
   },
-  "author": "Ethical Forensic Governance",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "author": "EthicHawks Forensic Governance",
   "license": "UNLICENSED",
   "private": true
 }
