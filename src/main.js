@@ -1,6 +1,4 @@
-document.querySelector('#root').innerHTML = `
-  <div style="font-family: sans-serif; padding: 2rem; text-align: center;">
-    <h1>Ethical Forensic Governance</h1>
-    <p>System Operational: Integrity Verified</p>
-  </div>
+document.getElementById('root').innerHTML = `
+  <h1>EthicHawks Forensic Governance</h1>
+  <p>Forensic evidence portal loading...</p>
 `;
