@@ -19,3 +19,11 @@
     "API_KEY": "1234567asdf"
   }
 }
+{
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "<NAMESPACE_ID>"
+    }
+  ]
+}
