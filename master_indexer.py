@@ -1,25 +1,29 @@
 import os, json
 
-def scan_everything():
+def index_everything():
+    root_folder = '02_Evidence_Core'
     manifest = {"entities": {}}
-    # Scan from the current directory downwards
-    for root, dirs, files in os.walk("."):
-        # Skip system and build folders
-        if any(bad in root for bad in [".git", "node_modules", "dist", "public", ".vite", "__pycache__"]):
-            continue
-        
-        # Look for documents
-        valid_files = [f for f in files if f.endswith(('.pdf', '.docx', '.doc', '.xlsx', '.csv', '.txt'))]
-        
-        if valid_files:
-            # Use the folder path as the category
-            category = root.replace("./", "").replace("/", "_") or "Root"
-            manifest["entities"][category] = valid_files
-            print(f"Indexing {len(valid_files)} files in: {category}")
+    total_files = 0
+    
+    if not os.path.exists(root_folder):
+        print(f"Error: {root_folder} does not exist.")
+        return
+
+    for root, dirs, files in os.walk(root_folder):
+        # We take all files, no filtering
+        if files:
+            # Create a clean path for the manifest key
+            relative_path = os.path.relpath(root, root_folder)
+            category = f"{root_folder}_{relative_path.replace(os.sep, '_')}"
+            
+            manifest["entities"][category] = files
+            total_files += len(files)
             
     with open("public/Forensic_manifest.json", "w") as f:
         json.dump(manifest, f, indent=4)
-    print("Full index complete. Check public/Forensic_manifest.json")
+        
+    print(f"✅ Indexed {total_files} files.")
+    print("Check public/Forensic_manifest.json to verify contents.")
 
 if __name__ == "__main__":
-    scan_everything()
+    index_everything()
