@@ -1,0 +1,109 @@
+BEGIN:VCALENDAR
+METHOD:REQUEST
+PRODID:Microsoft Exchange Server 2010
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:South Africa Standard Time
+BEGIN:STANDARD
+DTSTART:16010101T000000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0200
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010101T000000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ORGANIZER;CN=Neo Sekgoka:mailto:Neo.Sekgoka@afrocentrichealth.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=wilburmat@
+ gmail.com:mailto:wilburmat@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Nthabiseng
+  Nkatane:mailto:nthabisengn@medscheme.co.za
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Gretchen V
+ eldtman:mailto:Gretchen.Veldtman@afrocentrichealth.com
+ATTENDEE;CUTYPE=ROOM;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=* Kiwi (VC):mailto:
+ kiwi_vc@afrocentrichealth.com
+ATTACH:CID:9667C6A363006F45BB5010FCF51B8147@ZAFP275.PROD.OUTLOOK.COM
+ATTACH:CID:image001.png@01DA452E.5F72C460
+ATTACH:CID:image001.png@01DA452E.5F753560
+ATTACH:CID:image001.png@01DA452E.5F777F50
+DESCRIPTION;LANGUAGE=en-US:Good day Wilbur\n\nWe look forward to meeting wi
+ th you for a face-to-face interview for the Specialist: Care Manager Role 
+ at Medscheme. ☺\n\no  Date: 15 January 2024\no  Time: 12:00\n\n[*]    Ve
+ nue: Searle street\, The Boulevard\, 4th Floor\, Cape Town.\n\nYou are to 
+ please enter 4th Floor\, you will be meeting with Nthabiseng Nkatane.\n\nI
+ f you have any questions\, please do not hesitate to contact me. Moreover\
+ , kindly please accept or decline this invitation.\n\nKind Regards\n\n\n\n
+ __________________________________________________________________________
+ ______\nMicrosoft Teams meeting\nJoin on your computer\, mobile app or roo
+ m device\nClick here to join the meeting<https://teams.microsoft.com/l/mee
+ tup-join/19%3ameeting_ZTJiODgxMDEtZmQ0OS00Y2RhLThkYTktNTI0ZTJiNDA1YjE0%40t
+ hread.v2/0?context=%7b%22Tid%22%3a%227617c159-9e9a-4fa2-8a42-fecf9f614d6c%
+ 22%2c%22Oid%22%3a%22ce7a66cb-7e51-4c04-8c56-8ee2d709cf5d%22%7d>\nMeeting I
+ D: 392 978 788 382\nPasscode: SAiaqa\nDownload Teams<https://www.microsoft
+ .com/en-us/microsoft-teams/download-app> | Join on the web<https://www.mic
+ rosoft.com/microsoft-teams/join-a-meeting>\nJoin with a video conferencing
+  device\n889941933@t.plcm.vc<mailto:889941933@t.plcm.vc>\nVideo Conference
+  ID: 127 029 428 0\nAlternate VTC instructions<https://dialin.plcm.vc/team
+ s/?key=889941933&conf=1270294280>\nOr call in (audio only)\n+27 21 836 060
+ 8\,\,755542986#<tel:+27218360608\,\,755542986#>   South Africa\, Cape Town
+ \nPhone Conference ID: 755 542 986#\nFind a local number<https://dialin.te
+ ams.microsoft.com/993ae539-a762-427c-aca0-6a821e676d20?id=755542986> | Res
+ et PIN<https://dialin.teams.microsoft.com/usp/pstnconferencing>\nLearn Mor
+ e<https://aka.ms/JoinTeamsMeeting> | Meeting options<https://teams.microso
+ ft.com/meetingOptions/?organizerId=ce7a66cb-7e51-4c04-8c56-8ee2d709cf5d&te
+ nantId=7617c159-9e9a-4fa2-8a42-fecf9f614d6c&threadId=19_meeting_ZTJiODgxMD
+ EtZmQ0OS00Y2RhLThkYTktNTI0ZTJiNDA1YjE0@thread.v2&messageId=0&language=en-U
+ S>\n______________________________________________________________________
+ __________\n\n
+UID:040000008200E00074C5B7101A82E0080000000060A5C735A544DA01000000000000000
+ 010000000D631AF779F706E45A4C2A42B5A5CE12C
+SUMMARY;LANGUAGE=en-US:Interview: Specialist Care Manager (Wilbur William M
+ atthee)
+DTSTART;TZID=South Africa Standard Time:20240115T120000
+DTEND;TZID=South Africa Standard Time:20240115T130000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20240112T060723Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:3
+LOCATION;LANGUAGE=en-US:Microsoft Teams Meeting\; * Kiwi (VC)
+X-MICROSOFT-CDO-APPT-SEQUENCE:3
+X-MICROSOFT-CDO-OWNERAPPTID:845879272
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-ONLINEMEETINGINFORMATION:{"OnlineMeetingChannelId":null\,"Onlin
+ eMeetingProvider":3}
+X-MICROSOFT-SKYPETEAMSMEETINGURL:https://teams.microsoft.com/l/meetup-join/
+ 19%3ameeting_ZTJiODgxMDEtZmQ0OS00Y2RhLThkYTktNTI0ZTJiNDA1YjE0%40thread.v2/
+ 0?context=%7b%22Tid%22%3a%227617c159-9e9a-4fa2-8a42-fecf9f614d6c%22%2c%22O
+ id%22%3a%22ce7a66cb-7e51-4c04-8c56-8ee2d709cf5d%22%7d
+X-MICROSOFT-SCHEDULINGSERVICEUPDATEURL:https://api.scheduler.teams.microsof
+ t.com/teams/7617c159-9e9a-4fa2-8a42-fecf9f614d6c/ce7a66cb-7e51-4c04-8c56-8
+ ee2d709cf5d/19_meeting_ZTJiODgxMDEtZmQ0OS00Y2RhLThkYTktNTI0ZTJiNDA1YjE0@th
+ read.v2/0
+X-MICROSOFT-SKYPETEAMSPROPERTIES:{"cid":"19:meeting_ZTJiODgxMDEtZmQ0OS00Y2R
+ hLThkYTktNTI0ZTJiNDA1YjE0@thread.v2"\,"private":true\,"type":0\,"mid":0\,"
+ rid":0\,"uid":null}
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MICROSOFT-REQUESTEDATTENDANCEMODE:DEFAULT
+X-MICROSOFT-ISRESPONSEREQUESTED:TRUE
+X-MICROSOFT-LOCATIONS:[ { "DisplayName" : "Microsoft Teams Meeting"\, "Loca
+ tionAnnotation" : ""\, "LocationSource" : 0\, "Unresolved" : false\, "Loca
+ tionUri" : "" }\, { "DisplayName" : "* Kiwi (VC)"\, "LocationAnnotation" :
+  ""\, "LocationSource" : 5\, "Unresolved" : false\, "LocationUri" : "kiwi_
+ vc@afrocentrichealth.com" } ]
+BEGIN:VALARM
+DESCRIPTION:REMINDER
+TRIGGER;RELATED=START:-PT15M
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+END:VCALENDAR
