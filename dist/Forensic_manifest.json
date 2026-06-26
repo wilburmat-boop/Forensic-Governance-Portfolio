@@ -1,51 +1,52 @@
 {
     "entities": {
-        "build": [
-            "submission.pdf"
-        ],
-        "2nd_Parliament_draft": [
-            "EthicHawks_Consolidated_Forensic_Portfolio_June2026.pdf"
-        ],
-        "CCMA": [
-            "EthicHawks_Consolidated_Evidence_Portfolio_April2026.pdf"
-        ],
-        "Clinical Reports": [
-            "Mrs_Kamaldiem_Health_Report.pdf"
-        ],
-        "Employment Recods": [
-            "EthicHawks_Employment_Contract_Latifa_Essop.pdf"
-        ],
-        "FULL PARLIAMENTARY & JUDICIAL EVIDENCE PORTFOLIO": [
-            "EthicHawks_Consolidated_Evidence_Portfolio_April2026.pdf"
-        ],
-        "Forensic Report Oversight": [
-            "Conflict_of_Interest.pdf",
-            "Critical_missing links.pdf",
-            "EthicHawks_Dossier_Era_Regulatory_Capture.pdf",
-            "Portfolio_Commitee_Oversight_The _Chilling_Effect.pdf"
-        ],
-        "Full Interim order AFROCENTRIC High court": [
-            "AfrocentricInvestmentCorporationLimitedvWilburWilliamMatthee2026086906AFR1282v020FCompleteBundle.pdf"
-        ],
-        "Judge President BCEA": [
-            "Escalation_Letter_Judge_President_20260610'l.pdf"
-        ],
-        "Master Regulatory Evidence bundle 2025": [
-            "WM_Annexure_Index_and_Tabs.docx",
-            "WM_Regulatory_Evidence_Bundle_HighCourt_Format.docx"
-        ],
-        "Parliament V_1": [
-            "EthicHawks_Consolidated_Forensic_Oversight_Report_FULL_June2026.pdf"
-        ],
-        "Parliament V_2": [
-            "EthicHawks_Consolidated_Parliamentary_Submission_June2026-3.pdf"
-        ],
-        "Parliamentary follow up": [
-            "EthicHawks_Letter_to_Speaker_03June2026_Reply_to_Deneys-2_V_0_1.pdf"
-        ],
-        "Round table": [
-            "Roundtable_Brief_Dossier.docx",
-            "v_0_2_Roundtable_Brief_Dossier.pdf"
-        ]
+        "01_Executive_Briefs": {},
+        "02_Evidence_Core": {
+            "2nd_Parliament_draft": [
+                "EthicHawks_Consolidated_Forensic_Portfolio_June2026.pdf"
+            ],
+            "CCMA": [
+                "EthicHawks_Consolidated_Evidence_Portfolio_April2026.pdf"
+            ],
+            "Clinical Reports": [
+                "Mrs_Kamaldiem_Health_Report.pdf"
+            ],
+            "Employment Recods": [
+                "EthicHawks_Employment_Contract_Latifa_Essop.pdf"
+            ],
+            "FULL PARLIAMENTARY & JUDICIAL EVIDENCE PORTFOLIO": [
+                "EthicHawks_Consolidated_Evidence_Portfolio_April2026.pdf"
+            ],
+            "Forensic Report Oversight": [
+                "Conflict_of_Interest.pdf",
+                "Critical_missing links.pdf",
+                "EthicHawks_Dossier_Era_Regulatory_Capture.pdf",
+                "Portfolio_Commitee_Oversight_The _Chilling_Effect.pdf"
+            ],
+            "Full Interim order AFROCENTRIC High court": [
+                "AfrocentricInvestmentCorporationLimitedvWilburWilliamMatthee2026086906AFR1282v020FCompleteBundle.pdf"
+            ],
+            "Judge President BCEA": [
+                "Escalation_Letter_Judge_President_20260610'l.pdf"
+            ],
+            "Master Regulatory Evidence bundle 2025": [
+                "WM_Annexure_Index_and_Tabs.docx",
+                "WM_Regulatory_Evidence_Bundle_HighCourt_Format.docx"
+            ],
+            "Parliament V_1": [
+                "EthicHawks_Consolidated_Forensic_Oversight_Report_FULL_June2026.pdf"
+            ],
+            "Parliament V_2": [
+                "EthicHawks_Consolidated_Parliamentary_Submission_June2026-3.pdf"
+            ],
+            "Parliamentary follow up": [
+                "EthicHawks_Letter_to_Speaker_03June2026_Reply_to_Deneys-2_V_0_1.pdf"
+            ],
+            "Round table": [
+                "Roundtable_Brief_Dossier.docx",
+                "v_0_2_Roundtable_Brief_Dossier.pdf"
+            ]
+        },
+        "03_Regulatory_Cross_Maps": {}
     }
 }
