@@ -1,0 +1,35 @@
+{
+  "level_3": [
+    "FINAL_PARLIAMENTARY_INDEX_JUNE2026.md",
+    "PARL_SUBMISSION_ANALYTICAL_JUNE2026.md",
+    "PARL_SUBMISSION_MAIN_JUNE2026",
+    "PARL_SUBMISSION_MAIN_JUNE2026.md",
+    "PARL_SUBMISSION_MASTER_FINAL.md",
+    "SPEAKER_SUMMARY_ANALYTICS.md",
+    "SUMMARY_HEALTH.md"
+  ],
+  "level_4": [
+    "EthicHawks_Consolidated_Evidence_Portfolio_April2026'",
+    "EthicHawks_Portfolio_May2026(6).html"
+  ],
+  "narrative_arc": {
+    "focus_areas": [
+      "Intentional Risk Concealment",
+      "Victimization & Structural Suppression",
+      "Statutory Breaches of the Protected Disclosures Act",
+      "Violations of King IV Governance Frameworks"
+    ]
+  },
+  "cryptographic_foundation": {
+    "algorithm": "SHA-256",
+    "rationale": "Prevent tampering, alterations, or selective editing by adversarial legal teams through mathematical incorruptibility and the avalanche effect.",
+    "enforcement": "Every asset, document, email log, and affidavit must possess an immutable SHA-256 checksum validated during compilation."
+  },
+  "cross_reference_matrix": {
+    "validation_rules": {
+      "require_source_verification": true,
+      "link_primary_brief_to_source": true,
+      "strict_matching": "If an assertion lacks an exact cross-referenced cryptographic pointer, internal structural validation immediately fails."
+    }
+  }
+}
