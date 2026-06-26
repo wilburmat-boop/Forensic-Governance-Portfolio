@@ -1,55 +1,27 @@
 {
   "level_3": [
-    "FINAL_PARLIAMENTARY_INDEX_JUNE2026.md",
-    "PARL_SUBMISSION_ANALYTICAL_JUNE2026.md",
-    "PARL_SUBMISSION_MAIN_JUNE2026",
-    "PARL_SUBMISSION_MAIN_JUNE2026.md",
-    "PARL_SUBMISSION_MASTER_FINAL.md",
-    "SPEAKER_SUMMARY_ANALYTICS.md",
-    "SUMMARY_HEALTH.md"
+    "PARL_SUBMISSION_01.pdf",
+    "SPEAKER_BRIEF_02.pdf",
+    "SUMMARY_INDEX.pdf"
   ],
   "level_4": [
-    "11 Willow way",
-    "2nd_Parliament_draft",
-    "CCMA",
-    "Clinical Reports",
-    "DEL",
-    "Employment Recods",
-    "EthicHawks_Consolidated_Evidence_Portfolio_April2026'",
-    "EthicHawks_Portfolio_May2026(6).html",
-    "FULL PARLIAMENTARY & JUDICIAL EVIDENCE PORTFOLIO",
-    "Forensic Report Oversight",
-    "Full Interim order AFROCENTRIC High court",
-    "JSE_FSCA_Questco",
-    "Judge President BCEA",
-    "Master Regulatory Evidence bundle 2025",
-    "Parliament V_1",
-    "Parliament V_2",
-    "Parliamentary follow up",
-    "Round table",
-    "SAPC",
-    "SCCU & DNPA referral 28 May 2026",
-    "TWBH",
-    "Portfolio Oversight 4 june 2026"
+    "PDA_STATUTORY_LOG.pdf",
+    "REGULATORY_GAPS.pdf"
   ],
-  "narrative_arc": {
-    "focus_areas": [
-      "Intentional Risk Concealment",
-      "Victimization & Structural Suppression",
-      "Statutory Breaches of the Protected Disclosures Act (PDA)",
-      "Violations of King IV Governance Frameworks"
+  "institutional_entities": [
+    "CCMA_Arbitration_Records",
+    "Bargaining_Council_Files",
+    "SAPS_Police_Station_Affidavits",
+    "Council_For_Medical_Schemes_Correspondence"
+  ],
+  "narrative_framework": {
+    "core_narratives": [
+      "Systemic Risk Concealment",
+      "Victimization & Suppression",
+      "Statutory Non-Compliance"
     ]
   },
   "cryptographic_foundation": {
-    "algorithm": "SHA-256",
-    "rationale": "Prevent tampering, alterations, or selective editing by adversarial entities through mathematical incorruptibility.",
-    "enforcement": "Every individual disclosure asset and statutory report carries an immutable checksum verified upon deployment."
-  },
-  "cross_reference_matrix": {
-    "validation_rules": {
-      "require_source_verification": true,
-      "link_primary_brief_to_source": true,
-      "strict_matching": "If an assertion lacks an exact cross-referenced cryptographic pointer, structural verification fails."
-    }
+    "algorithm": "SHA-256"
   }
 }
