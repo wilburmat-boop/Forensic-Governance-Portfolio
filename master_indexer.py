@@ -1,29 +1,28 @@
 import os, json
 
-def index_everything():
-    root_folder = '02_Evidence_Core'
+def wide_net_index():
+    # We define all main folders to scan
+    folders_to_scan = ['01_Executive_Briefs', '02_Evidence_Core', '03_Regulatory_Cross_Maps']
     manifest = {"entities": {}}
-    total_files = 0
+    total_count = 0
     
-    if not os.path.exists(root_folder):
-        print(f"Error: {root_folder} does not exist.")
-        return
+    for folder in folders_to_scan:
+        if os.path.exists(folder):
+            manifest["entities"][folder] = {}
+            for root, dirs, files in os.walk(folder):
+                if files:
+                    # Create a category name based on subfolder path
+                    rel_path = os.path.relpath(root, folder)
+                    category = rel_path if rel_path != "." else "General"
+                    # Capture ALL files
+                    manifest["entities"][folder][category] = files
+                    total_count += len(files)
+        else:
+            print(f"WARNING: Folder {folder} not found.")
 
-    for root, dirs, files in os.walk(root_folder):
-        # We take all files, no filtering
-        if files:
-            # Create a clean path for the manifest key
-            relative_path = os.path.relpath(root, root_folder)
-            category = f"{root_folder}_{relative_path.replace(os.sep, '_')}"
-            
-            manifest["entities"][category] = files
-            total_files += len(files)
-            
     with open("public/Forensic_manifest.json", "w") as f:
         json.dump(manifest, f, indent=4)
-        
-    print(f"✅ Indexed {total_files} files.")
-    print("Check public/Forensic_manifest.json to verify contents.")
+    print(f"--- Scan Complete. Total files found and indexed: {total_count} ---")
 
 if __name__ == "__main__":
-    index_everything()
+    wide_net_index()
