@@ -151,6 +151,9 @@ function renderVault(filter = '') {
         </button>
       `;
       body.appendChild(node);
+      node.querySelector('.view-evidence-btn').addEventListener('click', function() {
+        showEvidenceModal(this.getAttribute('data-path'));
+      });
     });
 
     header.addEventListener('click', () => {
