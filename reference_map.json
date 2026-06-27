@@ -105,5 +105,33 @@
   "Q1": {
     "file": "02_Evidence_Core/02_Evidence_Core/02_PreTrial_Minute_Unilateral_11June2026.docx",
     "description": "Unilateral Pre-Trial Minute \u2014 Filed 11 June 2026 after employer non-participation"
+  },
+  "OCJ1": {
+    "file": "02_Evidence_Core/EthicHawks_Final_Closure_Report_OCJ_23June2026.pdf",
+    "description": "Final Closure Report \u2014 Office of the Chief Justice \u2014 23 June 2026 \u2014 Consolidating all four active court matters"
+  },
+  "SPK1": {
+    "file": "02_Evidence_Core/EH_FormalDeclaration_NationalSpeaker_22June2026.pdf",
+    "description": "Formal Declaration to National Speaker \u2014 22 June 2026 \u2014 Parliamentary submission under Constitution Section 56"
+  },
+  "GEMS1": {
+    "file": "02_Evidence_Core/GEMS_Protected_Disclosure_11April2026-1.docx",
+    "description": "GEMS Protected Disclosure \u2014 11 April 2026 \u2014 Second protected disclosure to Government Employees Medical Scheme"
+  },
+  "WM1": {
+    "file": "02_Evidence_Core/TheWilburMethod_WhitePaper.docx",
+    "description": "The Wilbur Method\u2122 White Paper \u2014 Proprietary forensic governance diagnostic framework"
+  },
+  "CMS2": {
+    "file": "02_Evidence_Core/EthicHawks_CMS_GEMS_Medscheme_Parliamentary_Address_June2026.pdf",
+    "description": "Parliamentary Address \u2014 CMS, GEMS, Medscheme \u2014 June 2026"
+  },
+  "FR1": {
+    "file": "02_Evidence_Core/Forensic_Evidence_Portfolio_Parliamentary_Submission.PDF.pdf",
+    "description": "Forensic Evidence Portfolio \u2014 Full Parliamentary Submission"
+  },
+  "POPIA1": {
+    "file": "02_Evidence_Core/EthicHawks_POPIA_Technical_Clause.docx",
+    "description": "POPIA Technical Clause \u2014 Data governance and processing compliance documentation"
   }
 }

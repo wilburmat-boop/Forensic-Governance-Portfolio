@@ -4351,6 +4351,61 @@
       "sha256": "c0875b169b82fb6335be39f88bc846eda0300f74724e12e6edb88c38e39b6618",
       "size": 52506,
       "filename": "Confirmation of Discussion \u2013 VPN Issue, Hybrid Recall and Sick Leave Status.eml"
+    },
+    "02_Evidence_Core/EthicHawks_Final_Closure_Report_OCJ_23June2026.pdf": {
+      "sha256": "2b063ea728ef495c8fb7a90c253ff2ceda35cb26512bffd8a20cc52541e23a79",
+      "size": 241049,
+      "filename": "EthicHawks_Final_Closure_Report_OCJ_23June2026.pdf"
+    },
+    "02_Evidence_Core/EH_FormalDeclaration_NationalSpeaker_22June2026.pdf": {
+      "sha256": "a5ed387afe72d2f56f00de3abeb250f858d55067e994c2db14d81d018f04cc51",
+      "size": 2049073,
+      "filename": "EH_FormalDeclaration_NationalSpeaker_22June2026.pdf"
+    },
+    "02_Evidence_Core/GEMS_Protected_Disclosure_11April2026-1.docx": {
+      "sha256": "303cb0fcb0a490f729dec49df59f3b1b710f81530a6e701b4bcceb91ef3fa103",
+      "size": 43740,
+      "filename": "GEMS_Protected_Disclosure_11April2026-1.docx"
+    },
+    "02_Evidence_Core/TheWilburMethod_WhitePaper.docx": {
+      "sha256": "72f7be507ccfc95d6f4efc540644c34af85bea23fc29c96e7d6a90fb35284960",
+      "size": 13619,
+      "filename": "TheWilburMethod_WhitePaper.docx"
+    },
+    "02_Evidence_Core/EthicHawks_CMS_GEMS_Medscheme_Parliamentary_Address_June2026.pdf": {
+      "sha256": "35e2c6097466979a68dfa85428ffd5b2d7c7e6c25f58c49a448684f7a326f183",
+      "size": 170805,
+      "filename": "EthicHawks_CMS_GEMS_Medscheme_Parliamentary_Address_June2026.pdf"
+    },
+    "02_Evidence_Core/Forensic_Evidence_Portfolio_Parliamentary_Submission.PDF.pdf": {
+      "sha256": "afb14b0aa867f542167548fa32460961b16638dbf8f7884ae7a412b2cffa614d",
+      "size": 229881,
+      "filename": "Forensic_Evidence_Portfolio_Parliamentary_Submission.PDF.pdf"
+    },
+    "02_Evidence_Core/OCJ_Declare_22June2026.PDF.pdf": {
+      "sha256": "78eca3eebe0868d6697d540215c6006abf3139ebedc612cf5608d5628668bc97",
+      "size": 167481,
+      "filename": "OCJ_Declare_22June2026.PDF.pdf"
+    },
+    "02_Evidence_Core/EthicHawks_Consolidated_Forensic_Oversight_Report_FULL_June2026.pdf": {
+      "sha256": "8e9ee1f9af3f001edb4e72c393e00e91f2c246599d33074ba5427b6c383f6113",
+      "size": 752537,
+      "filename": "EthicHawks_Consolidated_Forensic_Oversight_Report_FULL_June2026.pdf"
+    },
+    "02_Evidence_Core/EH_Final_Closure_Report_22Jun2026.docx": {
+      "sha256": "0a450db1342129ec7af30cc51c82f4e78a2641126eb1d57853736cc23f56234e",
+      "size": 29457,
+      "filename": "EH_Final_Closure_Report_22Jun2026.docx"
+    },
+    "02_Evidence_Core/EthicHawks_POPIA_Technical_Clause.docx": {
+      "sha256": "68b7e89a4e242f1b36a91217aea3b5543e8dc02a119fced15338f005c025c823",
+      "size": 10961,
+      "filename": "EthicHawks_POPIA_Technical_Clause.docx"
+    },
+    "02_Evidence_Core/chrome_screenshot_25 Jun 2026 20_39_26 SAST.png": {
+      "sha256": "a3a2af6b70155598842de180d0de3ed99e74626c5695acb419782c8c3ff56651",
+      "size": 484755,
+      "filename": "chrome_screenshot_25 Jun 2026 20_39_26 SAST.png"
     }
   }
 }
