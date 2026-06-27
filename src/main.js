@@ -1,216 +1,147 @@
-async function initPortal() {
-  const root = document.getElementById('root');
-  
-  // Render an unyielding, high-precision institutional framework
-  root.innerHTML = `
-    <div style="background-color: #030712; color: #f3f4f6; min-height: 100vh; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; padding: 32px 24px; max-width: 1400px; margin: 0 auto;">
-      
-      <!-- Sovereign Legal Supremacy Banner -->
-      <div style="background-color: #7f1d1d; border: 1px solid #b91c1c; border-radius: 6px; padding: 12px 16px; margin-bottom: 32px; display: flex; align-items: center; gap: 12px;">
-        <span style="font-size: 1.25rem;">⚖️</span>
-        <span style="font-family: monospace; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.05em; color: #fca5a5;">
-          STATUTORY SOVEREIGNTY DECLARATION: SUBMISSION TO PARLIAMENTARY OVERSIGHT — NO ENTITY OUTWEIGHS THE LAW
-        </span>
-      </div>
+const EVIDENCE = {
+  "Level 1 · Executive Briefs": [
+    "01_Executive_Briefs/FINAL_PARLIAMENTARY_INDEX_JUNE2026.md",
+    "01_Executive_Briefs/PARL_SUBMISSION_ANALYTICAL_JUNE2026.md",
+    "01_Executive_Briefs/PARL_SUBMISSION_MAIN_JUNE2026",
+    "01_Executive_Briefs/PARL_SUBMISSION_MAIN_JUNE2026.md",
+    "01_Executive_Briefs/PARL_SUBMISSION_MASTER_FINAL.md",
+    "01_Executive_Briefs/SPEAKER_SUMMARY_ANALYTICS.md",
+    "01_Executive_Briefs/SUMMARY_HEALTH.md"
+  ],
+  "Level 2 · Evidence Core": [
+    "02_Evidence_Core/02_Evidence_Core/ V10_Notice_of_Motion_BCEA_s77A_FINAL.docx",
+    "02_Evidence_Core/02_Evidence_Core/ V_3_complete_full_bundle.pdf",
+    "02_Evidence_Core/02_Evidence_Core/FA_Final.docx",
+    "02_Evidence_Core/02_Evidence_Core/Matthee_Forensic_Evidence_Report_FR1(1).PDF",
+    "02_Evidence_Core/02_Evidence_Core/NOM_Final.docx",
+    "02_Evidence_Core/02_Evidence_Core/01_Covering_Letter_to_Registrar_11June2026.docx",
+    "02_Evidence_Core/02_Evidence_Core/02_PreTrial_Minute_Unilateral_11June2026.docx",
+    "02_Evidence_Core/02_Evidence_Core/03_Parliamentary_Evidence_Note_11June2026.docx",
+    "02_Evidence_Core/02_Evidence_Core/05_POPIA_Information_Officer_Declaration.docx",
+    "02_Evidence_Core/02_Evidence_Core/06_POPIA_Processing_Agreement.docx",
+    "02_Evidence_Core/02_Evidence_Core/08_Data_Governance_Policy.docx",
+    "02_Evidence_Core/02_Evidence_Core/10_NHI_Alignment_Statement.docx",
+    "02_Evidence_Core/02_Evidence_Core/10 Feb 26 UIF non.pdf",
+    "02_Evidence_Core/02_Evidence_Core/10 Feb 26 UIF no declaration.pdf",
+    "02_Evidence_Core/02_Evidence_Core/14 Jan 26 Uif non.pdf",
+    "02_Evidence_Core/AfrocentricInvestmentCorporationLimitedvWilburWilliamMatthee2026086906AFR1282v020FCompleteBundle.pdf"
+  ],
+  "Level 3 · Regulatory Cross-Maps": [
+    "03_Regulatory_Cross_Maps/KING_V_ALIGNMENT_GAP_ANALYSIS.md",
+    "03_Regulatory_Cross_Maps/STATUTORY_BREACH_MATRIX.md"
+  ]
+};
 
-      <!-- Main Master Header -->
-      <header style="border-bottom: 1px solid #1f2937; padding-bottom: 24px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
-        <div>
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
-            <span style="color: #3b82f6; font-weight: 800; font-size: 0.875rem; letter-spacing: 0.1em; font-family: monospace;">ETHICHAWKS FORENSIC GOVERNANCE</span>
-          </div>
-          <h1 style="color: #f9fafb; font-size: 2.25rem; font-weight: 800; margin: 0; letter-spacing: -0.03em;">Institutional Oversight Dossier</h1>
-          <p style="color: #6b7280; font-size: 0.9375rem; margin: 8px 0 0 0; max-width: 600px; line-height: 1.5;">
-            An independent, cryptographically verified registry analyzing systemic institutional failures, compliance variances, and protected disclosures.
-          </p>
-        </div>
-        
-        <!-- Immutable Telemetry Status Badge -->
-        <div style="background-color: #022c22; border: 1px solid #065f46; border-radius: 6px; padding: 16px; min-width: 240px; font-family: monospace;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.75rem; color: #6b7280;">
-            <span>INTEGRITY ENGINE</span>
-            <span style="color: #34d399; font-weight: bold;">ACTIVE</span>
-          </div>
-          <div id="crypto-badge" style="color: #34d399; font-size: 0.8125rem; font-weight: bold; word-break: break-all;">
-            SHA-256 SECURED
-          </div>
-        </div>
-      </header>
-      
-      <!-- Informational Matrix Architecture Layout -->
-      <div style="display: grid; grid-template-columns: 1fr; gap: 32px; display: flex; flex-direction: column; lg:flex-direction: row; align-items: flex-start;">
-        
-        <!-- Primary Structural Column: Interactive Evidence Tree -->
-        <main style="flex: 2; width: 100%;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #1f2937; padding-bottom: 8px;">
-            <h2 style="font-size: 1.25rem; color: #f3f4f6; margin: 0; font-weight: 700; letter-spacing: -0.01em;">📁 Cryptographic Evidence Vault</h2>
-            <span style="font-size: 0.8125rem; color: #9ca3af; font-family: monospace;">Select layers to unpack matching nodes</span>
-          </div>
-          
-          <div id="tree-accordion-root" style="display: flex; flex-direction: column; gap: 16px;">
-            <div style="color: #6b7280; font-size: 0.875rem; font-family: monospace; padding: 20px;">Assembling secure data manifests...</div>
-          </div>
-        </main>
-        
-        <!-- Auxiliary Column: Oversight Authorities Alignment Matrix -->
-        <aside id="matrix-panel" style="flex: 1; width: 100%; background-color: #0b0f19; border: 1px solid #1f2937; border-radius: 8px; padding: 24px; box-sizing: border-box;">
-          <div style="color: #6b7280; font-size: 0.875rem; font-family: monospace;">Aligning compliance criteria...</div>
-        </aside>
-        
-      </div>
-    </div>
-  `;
-
-  try {
-    const response = await fetch('/Forensic_manifest.json');
-    const data = await response.json();
-    
-    renderCryptoFoundation(data.cryptographic_foundation);
-    renderMatrixPanel(data.cross_reference_matrix, data.narrative_arc);
-    renderAccordionTree(data);
-
-  } catch (error) {
-    document.getElementById('tree-accordion-root').innerHTML = `
-      <div style="background-color: #451a03; color: #fcd34d; padding: 20px; border-radius: 6px; font-size: 0.875rem; border: 1px solid #78350f; font-family: monospace; line-height: 1.6;">
-        <strong>[CRITICAL FAULT] SECURITY CONTEXT DETACHED:</strong><br>
-        The static asset server was unable to stream 'Forensic_manifest.json'. Ensure the compiled Python index manifest file sits inside the local public directory.
-      </div>
-    `;
-  }
+function getFileIcon(filename) {
+  const ext = filename.split('.').pop().toLowerCase();
+  if (['pdf', 'PDF'].includes(ext)) return '📄';
+  if (['docx', 'doc'].includes(ext)) return '📝';
+  if (['md'].includes(ext)) return '📋';
+  if (['xlsx', 'csv'].includes(ext)) return '📊';
+  if (['jpg', 'jpeg', 'png'].includes(ext)) return '🖼️';
+  return '📁';
 }
 
-function renderCryptoFoundation(crypto) {
-  if (!crypto) return;
-  const badge = document.getElementById('crypto-badge');
-  badge.innerHTML = `🛡️ ${crypto.algorithm || 'SHA-256'}: ENFORCED`;
-  badge.title = crypto.enforcement || '';
+function getFileUrl(path) {
+  return '/' + encodeURIComponent(path).replace(/%2F/g, '/');
 }
 
-function renderMatrixPanel(matrix, arc) {
-  const panel = document.getElementById('matrix-panel');
-  const rules = matrix?.validation_rules || {};
-  const focusAreas = arc?.focus_areas || [];
-
-  panel.innerHTML = `
-    <h3 style="color: #f9fafb; margin: 0 0 16px 0; font-size: 1.125rem; font-weight: 700; border-bottom: 1px solid #1f2937; padding-bottom: 12px; letter-spacing: -0.01em;">⚖️ Oversight Framework</h3>
-    
-    <div style="font-size: 0.8125rem; color: #9ca3af; display: flex; flex-direction: column; gap: 12px; font-family: monospace; margin-bottom: 24px; background-color: #030712; padding: 16px; border-radius: 6px; border: 1px solid #1f2937;">
-      <div><strong style="color: #f3f4f6;">Strict Incorruptibility:</strong> <span style="color: #34d399;">ACTIVE</span></div>
-      <div><strong style="color: #f3f4f6;">Source Cross-Matching:</strong> <span style="color: #34d399;">ENFORCED</span></div>
-      <div style="color: #6b7280; font-size: 0.75rem; margin-top: 4px; line-height: 1.4;">
-        ${rules.strict_matching || 'If an assertion lacks an exact cryptographic cross-reference, validation fails.'}
-      </div>
-    </div>
-    
-    <h4 style="color: #9ca3af; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin: 0 0 12px 0; font-family: monospace;">Target Statutory Focal Points</h4>
-    <ul style="margin: 0; padding-left: 20px; font-size: 0.875rem; color: #d1d5db; line-height: 1.6;">
-      ${focusAreas.map(area => `<li style="margin-bottom: 8px; padding-left: 4px;"><span style="color: #ef4444; font-weight: bold;">▪</span> ${area}</li>`).join('')}
-    </ul>
-
-    <div style="margin-top: 24px; border-top: 1px solid #1f2937; padding-top: 20px; font-size: 0.75rem; color: #4b5563; font-family: monospace; line-height: 1.5;">
-      Dossier Compiled under Accountability Frameworks for Submission to National Speaker, Information Regulator & Associated Portfolios.
-    </div>
-  `;
-}
-
-function renderAccordionTree(data) {
+function renderVault(filter = '') {
   const container = document.getElementById('tree-accordion-root');
   container.innerHTML = '';
+  const query = filter.toLowerCase();
 
-  const rawLevel3 = data.level_3 || data["Level_3: Board-Level Material Omissions"] || ["Fiduciary_Variance_Logs.csv", "Omission_Brief_SubC.pdf", "Board_Material_Omissions_Index.xlsm"];
-  const rawLevel4 = data.level_4 || data["Level_4: Regulatory State Oversight Blindness"] || ["Oversight_Blindness_Analysis.pdf", "Information_Regulator_Statutory_Gaps.pdf", "Protected_Disclosures_Receipt_Logs.pdf"];
+  Object.entries(EVIDENCE).forEach(([level, files]) => {
+    const filtered = files.filter(f => f.toLowerCase().includes(query));
+    if (filtered.length === 0) return;
 
-  const layers = [
-    { id: 'level_3', title: 'Level 3: Board-Level Material Omissions', items: rawLevel3, targetPair: 'level_4', desc: 'Identified gaps in executive institutional reporting structures.' },
-    { id: 'level_4', title: 'Level 4: Regulatory State Oversight Blindness', items: rawLevel4, targetPair: 'level_3', desc: 'Documented systemic regulatory failures and transparency gaps.' }
-  ];
+    const card = document.createElement('div');
+    card.style.cssText = "background:#0b0f19;border:1px solid #1f2937;border-radius:8px;overflow:hidden;margin-bottom:16px;";
 
-  layers.forEach(layer => {
-    const folderCard = document.createElement('div');
-    folderCard.style.cssText = "background-color: #0b0f19; border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);";
-    
-    folderCard.innerHTML = `
-      <div id="trigger-${layer.id}" style="padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; background-color: #111827; border-bottom: 1px solid transparent; transition: all 0.2s;">
-        <div>
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <span id="icon-${layer.id}" style="color: #6b7280; display: inline-block; transition: transform 0.2s; font-size: 0.75rem;">▶</span>
-            <span style="font-weight: 700; font-size: 1.0625rem; color: #f9fafb; letter-spacing: -0.01em;">${layer.title}</span>
-          </div>
-          <div style="font-size: 0.8125rem; color: #6b7280; margin: 4px 0 0 20px;">${layer.desc}</div>
-        </div>
-        <span style="background-color: #1f2937; border: 1px solid #374151; color: #e5e7eb; font-size: 0.75rem; font-family: monospace; padding: 4px 10px; border-radius: 4px; font-weight: 600;">
-          ${layer.items.length} Secure Nodes
-        </span>
+    const header = document.createElement('div');
+    header.style.cssText = "padding:16px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:#111827;";
+    header.innerHTML = `
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="fold-icon" style="color:#6b7280;font-size:0.75rem;transition:transform 0.2s;">▶</span>
+        <span style="font-weight:700;font-size:1rem;color:#f9fafb;">${level}</span>
       </div>
-      
-      <div id="content-${layer.id}" style="display: none; padding: 16px; background-color: #030712; border-top: 1px solid #1f2937; flex-direction: column; gap: 10px;">
-        ${layer.items.map((item, idx) => {
-          const cleanId = `${layer.id}-node-${idx}`;
-          const counterpartIdx = idx % layer.items.length;
-          return `
-            <div id="${cleanId}" style="padding: 14px 16px; background-color: #0b0f19; border: 1px solid #1f2937; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-              <div style="display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1; padding-right: 16px;">
-                <span style="color: #10b981; font-size: 1rem; flex-shrink: 0;">📄</span>
-                <span style="color: #e5e7eb; font-family: monospace; font-size: 0.8125rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item}</span>
-              </div>
-              <button onclick="window.traceMatrixLink(event, '${layer.targetPair}', ${counterpartIdx})" style="background-color: #111827; border: 1px solid #374151; color: #9ca3af; padding: 6px 12px; font-size: 0.75rem; font-family: monospace; border-radius: 4px; cursor: pointer; font-weight: 600; transition: all 0.2s; flex-shrink: 0;">
-                Trace Counterpart 🔗
-              </button>
-            </div>
-          `;
-        }).join('')}
-      </div>
+      <span style="background:#1f2937;border:1px solid #374151;color:#e5e7eb;font-size:0.75rem;font-family:monospace;padding:4px 10px;border-radius:4px;">${filtered.length} files</span>
     `;
 
-    container.appendChild(folderCard);
-    folderCard.querySelector(`#trigger-${layer.id}`).addEventListener('click', () => toggleFolder(layer.id));
+    const body = document.createElement('div');
+    body.style.cssText = "display:none;padding:12px;background:#030712;border-top:1px solid #1f2937;";
+
+    filtered.forEach(filePath => {
+      const fileName = filePath.split('/').pop();
+      const url = getFileUrl(filePath);
+      const icon = getFileIcon(fileName);
+
+      const node = document.createElement('div');
+      node.style.cssText = "padding:10px 14px;background:#0b0f19;border:1px solid #1f2937;border-radius:6px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;";
+      node.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px;min-width:0;flex:1;">
+          <span style="flex-shrink:0;">${icon}</span>
+          <span style="color:#e5e7eb;font-family:monospace;font-size:0.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${fileName}</span>
+        </div>
+        <a href="${url}" target="_blank" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:5px 12px;font-size:0.75rem;font-family:monospace;border-radius:4px;text-decoration:none;flex-shrink:0;margin-left:12px;">
+          Open ↗
+        </a>
+      `;
+      body.appendChild(node);
+    });
+
+    header.addEventListener('click', () => {
+      const isOpen = body.style.display === 'flex';
+      body.style.display = isOpen ? 'none' : 'flex';
+      body.style.flexDirection = 'column';
+      header.querySelector('.fold-icon').style.transform = isOpen ? 'rotate(0deg)' : 'rotate(90deg)';
+      header.querySelector('.fold-icon').style.color = isOpen ? '#6b7280' : '#3b82f6';
+    });
+
+    card.appendChild(header);
+    card.appendChild(body);
+    container.appendChild(card);
+  });
+
+  if (container.innerHTML === '') {
+    container.innerHTML = `<div style="color:#6b7280;font-family:monospace;padding:20px;">No evidence files match "${filter}"</div>`;
+  }
+}
+
+async function initPortal() {
+  const root = document.getElementById('root');
+
+  root.innerHTML = `
+    <div style="background:#030712;color:#f3f4f6;min-height:100vh;font-family:ui-sans-serif,system-ui,sans-serif;padding:32px 24px;max-width:1200px;margin:0 auto;">
+
+      <div style="background:#7f1d1d;border:1px solid #b91c1c;border-radius:6px;padding:12px 16px;margin-bottom:28px;display:flex;align-items:center;gap:12px;">
+        <span>⚖️</span>
+        <span style="font-family:monospace;font-size:0.8rem;font-weight:700;color:#fca5a5;letter-spacing:0.05em;">
+          STATUTORY SOVEREIGNTY DECLARATION · PARLIAMENTARY OVERSIGHT SUBMISSION · PROTECTED DISCLOSURE PDA s8
+        </span>
+      </div>
+
+      <header style="border-bottom:1px solid #1f2937;padding-bottom:20px;margin-bottom:28px;">
+        <div style="font-family:monospace;font-size:0.75rem;color:#3b82f6;font-weight:800;letter-spacing:0.1em;margin-bottom:4px;">ETHICHAWKS FORENSIC GOVERNANCE</div>
+        <h1 style="color:#f9fafb;font-size:2rem;font-weight:800;margin:0 0 8px 0;">Institutional Oversight · Evidence Vault</h1>
+        <p style="color:#6b7280;font-size:0.9rem;margin:0;">Cryptographically indexed evidence registry · SHA-256 secured · Parliamentary submission June 2026</p>
+      </header>
+
+      <div style="margin-bottom:24px;">
+        <input id="evidence-search" type="text" placeholder="Search evidence files..." style="width:100%;padding:12px 16px;background:#0b0f19;border:1px solid #374151;border-radius:6px;color:#f3f4f6;font-family:monospace;font-size:0.9rem;outline:none;box-sizing:border-box;" />
+      </div>
+
+      <div id="tree-accordion-root"></div>
+
+    </div>
+  `;
+
+  renderVault();
+
+  document.getElementById('evidence-search').addEventListener('input', e => {
+    renderVault(e.target.value);
   });
 }
-
-function toggleFolder(layerId, forceOpen = false) {
-  const content = document.getElementById(`content-${layerId}`);
-  const trigger = document.getElementById(`trigger-${layerId}`);
-  const icon = document.getElementById(`icon-${layerId}`);
-  
-  if (forceOpen || content.style.display === 'none') {
-    content.style.display = 'flex';
-    trigger.style.backgroundColor = '#1f2937';
-    icon.style.transform = 'rotate(90deg)';
-    icon.style.color = '#3b82f6';
-  } else {
-    content.style.display = 'none';
-    trigger.style.backgroundColor = '#111827';
-    icon.style.transform = 'rotate(0deg)';
-    icon.style.color = '#6b7280';
-  }
-}
-
-window.traceMatrixLink = function(event, targetLayerId, targetIdx) {
-  event.stopPropagation();
-  
-  // Automate entry transition into targeted layer
-  toggleFolder(targetLayerId, true);
-  
-  const targetElement = document.getElementById(`${targetLayerId}-node-${targetIdx}`);
-  if (targetElement) {
-    const originalBg = targetElement.style.backgroundColor;
-    const originalBorder = targetElement.style.borderColor;
-    
-    // Smooth scroll target item directly into view inside viewport
-    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    
-    // Trace flashing visual loop confirming structural alignment
-    targetElement.style.backgroundColor = '#022c22';
-    targetElement.style.borderColor = '#10b981';
-    targetElement.style.transform = 'translateX(8px)';
-    
-    setTimeout(() => {
-      targetElement.style.backgroundColor = originalBg;
-      targetElement.style.borderColor = originalBorder;
-      targetElement.style.transform = 'translateX(0)';
-    }, 1500);
-  }
-};
 
 document.addEventListener('DOMContentLoaded', initPortal);
 initPortal();
