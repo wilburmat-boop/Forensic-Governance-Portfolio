@@ -4341,6 +4341,16 @@
       "sha256": "f147388e9d12d3d5c23f444bab32a7b5a9689ab7b67d18094871bfb975c3fdc4",
       "size": 438073,
       "filename": "Recording 2025-10-23 120956.mp4"
+    },
+    "02_Evidence_Core/02_Evidence_Core/RE_ Sick note .eml": {
+      "sha256": "7290c865f51f0d344ef57ad4ea7646e1b538690ab3ababb9b988102a5192763f",
+      "size": 69248,
+      "filename": "RE_ Sick note .eml"
+    },
+    "02_Evidence_Core/02_Evidence_Core/Confirmation of Discussion \u2013 VPN Issue, Hybrid Recall and Sick Leave Status.eml": {
+      "sha256": "c0875b169b82fb6335be39f88bc846eda0300f74724e12e6edb88c38e39b6618",
+      "size": 52506,
+      "filename": "Confirmation of Discussion \u2013 VPN Issue, Hybrid Recall and Sick Leave Status.eml"
     }
   }
 }
