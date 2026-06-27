@@ -60,8 +60,10 @@
     "description": "CMS Final Evidence Bundle \u2014 Annexures U1-U12 complete"
   },
   "J2": {
-    "file": "02_Evidence_Core/02_Evidence_Core/- complete_SAHRC_FinalUpdate_13March2026 (1) (1).pdf",
-    "description": "SAHRC \u2014 Acknowledges seriousness then goes silent \u2014 No own-initiative investigation \u2014 10 February 2026"
+    "file": "02_Evidence_Core/GOOGLE_WORKSPACE_ACCESS_DENIAL_27June2026.md",
+    "description": "SAHRC Acknowledgement 10 Feb 2026 \u2014 PRIMARY DOCUMENT PENDING: Google Workspace suspended due to destitution. Closest available: SAHRC Final Update 13 March 2026",
+    "pending": true,
+    "closest_available": "02_Evidence_Core/02_Evidence_Core/- complete_SAHRC_FinalUpdate_13March2026 (1) (1).pdf"
   },
   "J3": {
     "file": "02_Evidence_Core/02_Evidence_Core/A3 SANC Registration.png",
