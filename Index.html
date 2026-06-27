@@ -266,9 +266,9 @@
 <!-- NAV TABS -->
 <nav class="nav-tabs">
     <div class="tabs-inner">
-        <button class="tab-btn active" onclick="showPanel('part1')">Part 1 · Foundation</button>
-        <button class="tab-btn" onclick="showPanel('part2')">Part 2 · Regulators</button>
-        <button class="tab-btn" onclick="showPanel('part3')">Part 3 · Justice</button>
+        <button class="tab-btn active" onclick="showPanel('part1', event)">Part 1 · Foundation</button>
+        <button class="tab-btn" onclick="showPanel('part2', event)">Part 2 · Regulators</button>
+        <button class="tab-btn" onclick="showPanel('part3', event)">Part 3 · Justice</button>
     </div>
 </nav>
 
@@ -895,14 +895,15 @@
 </footer>
 
 <script>
-    function showPanel(id) {
+    function showPanel(id, evt) {
         document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(id).classList.add('active');
-        event.target.classList.add('active');
+        evt.target.classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-<script type="module" src="/src/main.js"></script>
+
 </script>
+<script type="module" src="/src/main.js"></script>
 </body>
 </html>
