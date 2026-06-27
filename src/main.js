@@ -146,7 +146,7 @@ function renderVault(filter = '') {
             <div style="color:#4b5563;font-family:monospace;font-size:0.65rem;margin-top:2px;">🛡️ ${file.sha256.substring(0, 16)}...</div>
           </div>
         </div>
-        <button onclick="showEvidenceModal('${file.path.replace(/'/g, "\\'")}')" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:6px 14px;font-size:0.75rem;font-family:monospace;border-radius:4px;cursor:pointer;flex-shrink:0;">
+        <button class="view-evidence-btn" data-path="${file.path}" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:6px 14px;font-size:0.75rem;font-family:monospace;border-radius:4px;cursor:pointer;flex-shrink:0;">
           View Evidence ↗
         </button>
       `;
