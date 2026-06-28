@@ -1,28 +1,28 @@
-import os, json
+import os
+import json
 
-def wide_net_index():
-    # We define all main folders to scan
-    folders_to_scan = ['01_Executive_Briefs', '02_Evidence_Core', '03_Regulatory_Cross_Maps']
-    manifest = {"entities": {}}
-    total_count = 0
+def run_indexer():
+    # Explicitly set the search root to the home directory
+    home_dir = os.path.expanduser("~")
+    all_files = []
     
-    for folder in folders_to_scan:
-        if os.path.exists(folder):
-            manifest["entities"][folder] = {}
-            for root, dirs, files in os.walk(folder):
-                if files:
-                    # Create a category name based on subfolder path
-                    rel_path = os.path.relpath(root, folder)
-                    category = rel_path if rel_path != "." else "General"
-                    # Capture ALL files
-                    manifest["entities"][folder][category] = files
-                    total_count += len(files)
-        else:
-            print(f"WARNING: Folder {folder} not found.")
-
-    with open("public/Forensic_manifest.json", "w") as f:
-        json.dump(manifest, f, indent=4)
-    print(f"--- Scan Complete. Total files found and indexed: {total_count} ---")
+    # Recursively walk the entire home directory
+    for root, dirs, files in os.walk(home_dir):
+        # Optional: Exclude 'node_modules' to speed it up and clean the results
+        if 'node_modules' in dirs:
+            dirs.remove('node_modules')
+            
+        for file in files:
+            if file.endswith('.md'):
+                all_files.append(os.path.join(root, file))
+    
+    # Save the manifest to your current portfolio folder
+    manifest_path = os.path.join(os.getcwd(), 'Forensic_manifest.json')
+    with open(manifest_path, 'w') as f:
+        json.dump({"documents": list(set(all_files)), "status": "indexed"}, f, indent=2)
+        
+    print(f"--- Scan Complete ---")
+    print(f"Total files found and indexed: {len(set(all_files))}")
 
 if __name__ == "__main__":
-    wide_net_index()
+    run_indexer()
