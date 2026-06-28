@@ -1,169 +1,217 @@
 {
+  "A1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/A1 Employment Contract.pdf",
+    "description": "Employment Contract — AfroCentric Health (RF) (Pty) Ltd — Care Coordinator Grade B4M1 — CTC R490,032 p.a. — signed 9 April 2024 — evidence of bait-and-switch from recruited 'Specialist: Care Manager'",
+    "date": "9 Apr 2024"
+  },
+  "A2": {
+    "file": "02_Evidence_Core/02_Evidence_Core/A2 Payslip June 2025.pdf",
+    "description": "Payslip June 2025 — Medscheme Holdings — baseline remuneration before unlawful deduction",
+    "date": "Jun 2025"
+  },
+  "A3": {
+    "file": "02_Evidence_Core/02_Evidence_Core/A3 SANC Registration.png",
+    "description": "SANC Registration Certificate — Specialist Registered Nurse — professional standing at time of employment",
+    "date": "2025"
+  },
+  "B_BCEA": {
+    "file": "02_Evidence_Core/02_Evidence_Core/July payslip 2025.pdf",
+    "description": "Payslip July 2025 — Net pay R15,679.29 — Unlawful deduction R14,811.77 (40.47% of gross R36,588.81) — Unpaid Leave Recovery R13,824.32 + Unpaid Leave R987.45 — processed 23 July 2025 without written consent — BCEA s34(1) and s34(2) breach",
+    "date": "23 Jul 2025"
+  },
+  "E2": {
+    "file": "02_Evidence_Core/02_Evidence_Core/40.47 percent deductuion without consultation at one go.pdf",
+    "description": "Unlawful 40.47% Salary Deduction Evidence — R14,811.77 deducted in single pay cycle 23 July 2025 — exceeds BCEA s34(2) 25% cap by 15.47 percentage points — no written consent obtained",
+    "date": "23 Jul 2025"
+  },
+  "E3": {
+    "file": "02_Evidence_Core/02_Evidence_Core/Attachement E (1)- Fw_ July 2025 Salary dispute, No staggering,  over 40%.pdf",
+    "description": "July 2025 Salary Dispute — No staggering — over 40% deduction — email chain confirming dispute raised with employer before deduction was finalised",
+    "date": "Jul 2025"
+  },
   "B1": {
     "file": "02_Evidence_Core/02_Evidence_Core/Matthee_Psychological_Impact_Statement.docx",
-    "description": "Psychological Impact Statement \u2014 Dr Jacques Milan \u2014 Clinical documentation of severe depression and PTSD caused by employer retaliation \u2014 anchor for Akeso Stepping Stones admission 18 March 2025",
-    "supporting": "02_Evidence_Core/02_Evidence_Core/RE_ Sick note .eml"
+    "description": "Psychological Impact Statement — Dr Jacques Malan FCPsych(SA) — Akeso Stepping Stones Clinic — admission 18 March 2025 — severe depression and PTSD — 6-week inpatient treatment — direct causal link to employer retaliation",
+    "date": "18 Mar 2025"
   },
-  "C1": {
-    "file": "02_Evidence_Core/02_Evidence_Core/CRO1 (Board Level Asking to stop sending emails i appear inpatient) .pdf",
-    "description": "CRO Suppression Email \u2014 Monwabisi Kula instructs complainant to stop emailing directors \u2014 18 December 2025"
+  "B1_sick": {
+    "file": "02_Evidence_Core/02_Evidence_Core/RE_ Sick note .eml",
+    "description": "Sick Note — Dr Jacques Malan — Applicant unfit for work from 18 March 2025 — admitted for inpatient psychiatric treatment",
+    "date": "1 Apr 2025"
+  },
+  "B1_malan": {
+    "file": "02_Evidence_Core/02_Evidence_Core/ADDITIONAL ATTACHMENT No True Accommodation post mental helth admission Fw_ Meeting Feedback 16 April 2025.pdf",
+    "description": "Dr Malan Prior Notice to Employer — FCPsych(SA) — places Respondents on formal written notice of psychiatric condition and vulnerability — received before deduction of 23 July 2025 — Annexure H in BCEA proceedings",
+    "date": "15 May 2025"
+  },
+  "B2": {
+    "file": "02_Evidence_Core/02_Evidence_Core/BBBEE_Commission_Response_Case_5_02_2026_Matthee.docx",
+    "description": "B-BBEE Commission Response — Case 5/02/2026 — Cheryl-Dawn Modern written admission: 'The naming convention changes were not applied to your department' — 19 January 2026 — primary fronting evidence — title suppression from Specialist Care Manager to Care Coordinator",
+    "date": "19 Jan 2026"
   },
   "V1": {
     "file": "02_Evidence_Core/SAPC/Gmail - CLARIFICATION AND FOLLOW-UP _ Re_ Complaint 23 Dec 2025 _ HPCSA Referral Noted _ SAPC Complaint Now Filed _ Gexus(4).PDF",
-    "description": "VICT1 \u2014 Protected Disclosure: Gexus-DMS Integration Gap \u2014 23 October 2025"
+    "description": "VICT1 — Protected Disclosure: Gexus-DMS Integration Gap — 23 October 2025 — refused to contact 75-year-old GEMS beneficiary using demonstrably false clinical data",
+    "date": "23 Oct 2025"
   },
   "D1": {
     "file": "02_Evidence_Core/02_Evidence_Core/Gmail - CLARIFICATION AND FOLLOW-UP _ Re_ Complaint 23 Dec 2025 _ HPCSA Referral Noted _ SAPC Complaint Now Filed _ Gexus(4).PDF",
-    "description": "Root Cause Analysis \u2014 Gexus-DMS Structural Design Flaw confirmed by Medscheme's own systems"
+    "description": "Root Cause Analysis — Gexus-DMS Structural Design Flaw confirmed by Medscheme's own systems — false non-adherence letters to GEMS chronic beneficiaries — seven-year unresolved integration gap",
+    "date": "23 Oct 2025"
   },
   "D2": {
     "file": "02_Evidence_Core/SAPC/Gmail - CLARIFICATION AND FOLLOW-UP _ Re_ Complaint 23 Dec 2025 _ HPCSA Referral Noted _ SAPC Complaint Now Filed _ Gexus(4).PDF",
-    "description": "DMS Integration Evidence \u2014 Secondary disclosure documentation"
+    "description": "DMS Integration Evidence — Secondary disclosure documentation — Gexus-DMS gap",
+    "date": "23 Oct 2025"
   },
   "E1": {
     "file": "02_Evidence_Core/02_Evidence_Core/Recording 2025-10-23 120956.mp4",
-    "description": "Audio Recording \u2014 Admission of Retaliatory Intent \u2014 31 October 2025: 'You made a case of harassment against me, so I can make a case of harassment against you.'"
+    "description": "Audio Recording — 31 October 2025 — Jones retaliatory admission: 'You made a case of harassment against me, so I can make a case of harassment against you' — primary evidence of causation under PDA s3",
+    "date": "31 Oct 2025"
   },
   "G1": {
-    "file": "02_Evidence_Core/02_Evidence_Core/URGENT _ PRIORITY 1_ Imminent Danger to Life and Safety \u2013 Request for Immediate Intervention (Wilbur Matthee _ Medscheme (1).PDF",
-    "description": "GRC1 \u2014 Priority 1 Material Risk Report to AfroCentric Board \u2014 9 December 2025 \u2014 38 attachments \u2014 No Board response"
-  },
-  "O1": {
-    "file": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
-    "description": "CCMA Opposing Affidavit \u2014 False job title, dismisses clinical depression as 'cynical excuse' \u2014 Potential perjury \u2014 10 December 2025"
-  },
-  "H2": {
-    "file": "02_Evidence_Core/DEL/Gmail - FORMAL OBJECTION_ Misdirection of Statutory Fraud (UI19) & Refusal to Exercise Mandated Duty.PDF",
-    "description": "False UI-19 \u2014 Employer classified constructive dismissal as voluntary resignation \u2014 Code 6 instead of Code 7 \u2014 12 December 2025"
-  },
-  "U1": {
-    "file": "02_Evidence_Core/02_Evidence_Core/CMS_ decline.pdf",
-    "description": "CMS Initial Complaint \u2014 Full evidentiary bundle \u2014 23 December 2025"
-  },
-  "U5": {
-    "file": "02_Evidence_Core/02_Evidence_Core/CMS_ decline.pdf",
-    "description": "CMS First Declination \u2014 Deflects to HPCSA \u2014 Jurisdictional error \u2014 4 February 2026"
-  },
-  "U8": {
-    "file": "02_Evidence_Core/02_Evidence_Core/Copy of CMS_FollowUp_EthicHawks_2April2026.pdf",
-    "description": "CMS Re-engagement citing Discovery Health precedent \u2014 2 April 2026"
-  },
-  "U10": {
-    "file": "02_Evidence_Core/02_Evidence_Core/Copy of CMS_FollowUp_EthicHawks_2April2026.pdf",
-    "description": "Joint Ethical Ruling Request \u2014 CMS, HPCSA, SANC, SAPC \u2014 48-hour deadline \u2014 No response \u2014 14 April 2026"
-  },
-  "U11": {
-    "file": "02_Evidence_Core/02_Evidence_Core/CMS_ decline.pdf",
-    "description": "CMS Second Declination \u2014 Demands new complaint form after High Court order \u2014 Contempt trap \u2014 7 May 2026"
-  },
-  "U12": {
-    "file": "02_Evidence_Core/02_Evidence_Core/CMS_ decline.pdf",
-    "description": "CMS Final Evidence Bundle \u2014 Annexures U1-U12 complete"
-  },
-  "J2": {
-    "file": "02_Evidence_Core/GOOGLE_WORKSPACE_ACCESS_DENIAL_27June2026.md",
-    "description": "SAHRC Acknowledgement 10 Feb 2026 \u2014 PRIMARY DOCUMENT PENDING: Google Workspace suspended due to destitution. Closest available: SAHRC Final Update 13 March 2026",
-    "pending": true,
-    "closest_available": "02_Evidence_Core/02_Evidence_Core/- complete_SAHRC_FinalUpdate_13March2026 (1) (1).pdf"
-  },
-  "J3": {
-    "file": "02_Evidence_Core/02_Evidence_Core/A3 SANC Registration.png",
-    "description": "SANC Formal Complaint \u2014 SANC/MEDSCHEME/MATTHEE/20260105 \u2014 Filed 10 February 2026 \u2014 Not acknowledged"
-  },
-  "T1": {
-    "file": "02_Evidence_Core/TWBH/Gmail - ENDING OUR ENGAGEMENT & URGENT REQUEST FOR LOGISTICAL ASSISTANCE \u2013 Wilbur Matthee(4).PDF",
-    "description": "TWBH \u2014 Whistleblower House refers matter to Schroter Attorneys \u2014 19 February 2026"
-  },
-  "T2": {
-    "file": "02_Evidence_Core/TWBH/Gmail - CCMA Certificates & Full Narrative Evidence Bundle \u2013 Wilbur Matthee(2).PDF",
-    "description": "TWBH \u2014 Settlement Correspondence Annexure T2"
-  },
-  "T9": {
-    "file": "02_Evidence_Core/TWBH/Gmail - ENDING OUR ENGAGEMENT & URGENT REQUEST FOR LOGISTICAL ASSISTANCE \u2013 Wilbur Matthee(4).PDF",
-    "description": "TWBH Abandonment \u2014 Relies on van der Walt flawed opinion \u2014 2 March 2026"
-  },
-  "T10": {
-    "file": "02_Evidence_Core/TWBH/Gmail - ENDING OUR ENGAGEMENT & URGENT REQUEST FOR LOGISTICAL ASSISTANCE \u2013 Wilbur Matthee(4).PDF",
-    "description": "TWBH Evidence Bundle \u2014 Annexures T1-T10 complete"
-  },
-  "M1": {
-    "file": "02_Evidence_Core/Full Interim order AFROCENTRIC High court/AfrocentricInvestmentCorporationLimitedvWilburWilliamMatthee2026086906AFR1282v020FCompleteBundle.pdf",
-    "description": "High Court Interim Interdict \u2014 Ex parte gag order obtained by concealing answering affidavit \u2014 Fraud on the court \u2014 16 April 2026"
-  },
-  "M2": {
-    "file": "02_Evidence_Core/SCCU & DNPA referral 28 May 2026/Gmail - URGENT CRIMINAL ESCALATION_ EVIDENCE OF PERJURY AND DEFEATING THE ENDS OF JUSTICE BY CORPORATE LITIGANTS.PDF",
-    "description": "Rule Nisi Extended to 1 March 2027 \u2014 11-month silence \u2014 SCCU & DNPA Criminal Referral \u2014 28 May 2026"
-  },
-  "K2": {
-    "file": "02_Evidence_Core/02_Evidence_Core/LABOUR COURT CASE NO_ 2026-083299 & CONCURRENT 2026-077546 \u2013 FILING OF UNILATERAL PRE-TRIAL MINUTE AND REQUEST TO PLACE BEFO.PDF",
-    "description": "Labour Court Portal Rejection \u2014 'good day you put date' \u2014 Judicial obstruction"
-  },
-  "I1": {
-    "file": "02_Evidence_Core/AfrocentricInvestmentCorporationLimitedvWilburWilliamMatthee2026086906AFR1282v020FCompleteBundle.pdf",
-    "description": "AfroCentric Integrated Annual Report 2025 \u2014 False statements: 'both platforms fully integrated' and 'no material ESG-related incidents' \u2014 Board-approved market deception"
-  },
-  "Q1": {
-    "file": "02_Evidence_Core/02_Evidence_Core/02_PreTrial_Minute_Unilateral_11June2026.docx",
-    "description": "Unilateral Pre-Trial Minute \u2014 Filed 11 June 2026 after employer non-participation"
-  },
-  "OCJ1": {
-    "file": "02_Evidence_Core/EthicHawks_Final_Closure_Report_OCJ_23June2026.pdf",
-    "description": "Final Closure Report \u2014 Office of the Chief Justice \u2014 23 June 2026 \u2014 Consolidating all four active court matters"
-  },
-  "SPK1": {
-    "file": "02_Evidence_Core/EH_FormalDeclaration_NationalSpeaker_22June2026.pdf",
-    "description": "Formal Declaration to National Speaker \u2014 22 June 2026 \u2014 Parliamentary submission under Constitution Section 56"
-  },
-  "GEMS1": {
-    "file": "02_Evidence_Core/GEMS_Protected_Disclosure_11April2026-1.docx",
-    "description": "GEMS Protected Disclosure \u2014 11 April 2026 \u2014 Second protected disclosure to Government Employees Medical Scheme"
-  },
-  "WM1": {
-    "file": "02_Evidence_Core/TheWilburMethod_WhitePaper.docx",
-    "description": "The Wilbur Method\u2122 White Paper \u2014 Proprietary forensic governance diagnostic framework"
-  },
-  "CMS2": {
-    "file": "02_Evidence_Core/EthicHawks_CMS_GEMS_Medscheme_Parliamentary_Address_June2026.pdf",
-    "description": "Parliamentary Address \u2014 CMS, GEMS, Medscheme \u2014 June 2026"
-  },
-  "FR1": {
-    "file": "02_Evidence_Core/Forensic_Evidence_Portfolio_Parliamentary_Submission.PDF.pdf",
-    "description": "Forensic Evidence Portfolio \u2014 Full Parliamentary Submission"
-  },
-  "POPIA1": {
-    "file": "02_Evidence_Core/EthicHawks_POPIA_Technical_Clause.docx",
-    "description": "POPIA Technical Clause \u2014 Data governance and processing compliance documentation"
-  },
-  "C2": {
-    "file": "02_Evidence_Core/02_Evidence_Core/ATTACHMENT C_RETALIATION EVIDENCE-2(1).pdf",
-    "description": "Retaliation Evidence C2 \u2014 Insubordination label following protected disclosure"
-  },
-  "C3": {
-    "file": "02_Evidence_Core/02_Evidence_Core/ATTACHMENT C (3)- Fw_ Follow-Up on Unpaid Half-Day Leave \u2013 25 September 2025.pdf",
-    "description": "Retaliation Evidence C3 \u2014 Unpaid leave dispute following protected disclosure"
-  },
-  "C4": {
-    "file": "02_Evidence_Core/02_Evidence_Core/ATTACHMENT C (4) - Fw_ Request to leave office.pdf",
-    "description": "Retaliation Evidence C4 \u2014 Request to leave office \u2014 pattern of workplace harassment"
+    "file": "02_Evidence_Core/02_Evidence_Core/URGENT _ PRIORITY 1_ Imminent Danger to Life and Safety – Request for Immediate Intervention (Wilbur Matthee _ Medscheme (1).PDF",
+    "description": "GRC1 — Priority 1 Material Risk Report — AfroCentric Board — 9 December 2025 — 38 attachments — places all Respondents on express notice — no Board response received",
+    "date": "9 Dec 2025"
   },
   "G2": {
-    "file": "02_Evidence_Core/JSE_FSCA_Questco/Gmail - Board Governance Failure & Retaliation \u2013 Request for Oversight(5).PDF",
-    "description": "GRC2 \u2014 Board update 11 December 2025 \u2014 legal opposition confirms institutional bad faith"
+    "file": "02_Evidence_Core/JSE_FSCA_Questco/Gmail - Board Governance Failure & Retaliation – Request for Oversight(4).PDF",
+    "description": "GRC2 — Board Update — CCMA Opposing Affidavit filed by Respondents the day after receipt of GRC1 — 11 December 2025 — confirms bad faith litigation strategy",
+    "date": "11 Dec 2025"
   },
   "G3": {
     "file": "02_Evidence_Core/02_Evidence_Core/CRO1 (Board Level Asking to stop sending emails i appear inpatient) .pdf",
-    "description": "GRC3 \u2014 Maximum Severity GRC Escalation to Board Audit & Risk Committee \u2014 16 December 2025"
+    "description": "GRC3 — Maximum Severity GRC Escalation — 16 December 2025 — audio recording: manager states ethical refusal is 'insubordination'",
+    "date": "16 Dec 2025"
   },
-  "G4": {
-    "file": "02_Evidence_Core/02_Evidence_Core/URGENT _ PRIORITY 1_ Imminent Danger to Life and Safety \u2013 Request for Immediate Intervention (Wilbur Matthee _ Medscheme (1).PDF",
-    "description": "GRC4 \u2014 Final Board escalation \u2014 explicit warning of director-level psychological harm"
+  "C1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/CRO1 (Board Level Asking to stop sending emails i appear inpatient) .pdf",
+    "description": "CRO Suppression Email — Monwabisi Kula (Chief Risk Officer) — 18 December 2025 — instructs Applicant to cease emailing directors — active suppression of P1 Material Risk Report",
+    "date": "18 Dec 2025"
   },
-  "I2": {
-    "file": "02_Evidence_Core/02_Evidence_Core/Matthee_Forensic_Evidence_Report_FR1(1).PDF",
-    "description": "I2 \u2014 Forensic Evidence Report FR1 \u2014 documented truth versus AfroCentric false Integrated Report claims"
+  "O1": {
+    "file": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
+    "description": "CCMA Opposing Affidavit — WECT23564-25 — 10 December 2025 — false job title 'Care Coordinator' — dismisses specialist-diagnosed depression as 'cynical excuse' — potential perjury — Xolile Vincent Manyathi",
+    "date": "10 Dec 2025"
+  },
+  "Y1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/EWECT0125184368_LRA711.pdf",
+    "description": "CCMA Certificate of Non-Resolution — WECT23564-25 — 9 January 2026 — jurisdictional basis for Labour Court Statement of Claim",
+    "date": "9 Jan 2026"
+  },
+  "Y2": {
+    "file": "02_Evidence_Core/02_Evidence_Core/EWECT0125188054_EWECT0125188054_LRA711.pdf",
+    "description": "CCMA Certificate of Non-Resolution — WECT24486-25 — 9 January 2026 — jurisdictional basis for Labour Court Statement of Claim",
+    "date": "9 Jan 2026"
+  },
+  "H2": {
+    "file": "02_Evidence_Core/DEL/Gmail - FORMAL OBJECTION_ Misdirection of Statutory Fraud (UI19) & Refusal to Exercise Mandated Duty.PDF",
+    "description": "False UI-19 — Employer classified constructive dismissal as voluntary resignation — Code 6 instead of Code 7 — 12 December 2025 — blocks UIF access — DEL failed to correct",
+    "date": "12 Dec 2025"
+  },
+  "UI19": {
+    "file": "02_Evidence_Core/02_Evidence_Core/UI 19- Medscheme -Matthee W.pdf",
+    "description": "UI-19 Form — Medscheme Holdings — fraudulent classification: Code 6 Voluntary Resignation instead of Code 7 Constructive Dismissal — primary evidence of statutory fraud",
+    "date": "Dec 2025"
+  },
+  "U1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/CMS INITIAL DISCLOSURE.PDF",
+    "description": "CMS Initial Complaint — full evidentiary bundle — 23 December 2025 — formal complaint lodged with Council for Medical Schemes",
+    "date": "23 Dec 2025"
+  },
+  "U5": {
+    "file": "02_Evidence_Core/02_Evidence_Core/CMS_ decline.pdf",
+    "description": "CMS First Declination — 4 February 2026 — deflects to HPCSA — jurisdictional error — despite MSA mandate over administrator conduct",
+    "date": "4 Feb 2026"
+  },
+  "U8": {
+    "file": "02_Evidence_Core/02_Evidence_Core/Copy of CMS_FollowUp_EthicHawks_2April2026.pdf",
+    "description": "CMS Re-engagement — 2 April 2026 — citing Discovery Health precedent — CMS exercised jurisdiction over Discovery Health for financial processing error but declined Medscheme/GEMS for clinical data integrity error",
+    "date": "2 Apr 2026"
+  },
+  "U11": {
+    "file": "02_Evidence_Core/02_Evidence_Core/CMS_ decline.pdf",
+    "description": "CMS Second Declination — 7 May 2026 — demands new complaint form after High Court interim order — creates contempt trap for protected whistleblower",
+    "date": "7 May 2026"
+  },
+  "J2": {
+    "file": "02_Evidence_Core/02_Evidence_Core/- complete_SAHRC_FinalUpdate_13March2026 (1) (1).pdf",
+    "description": "SAHRC Acknowledgment and Final Update — acknowledges seriousness of concerns — 10 February 2026 — then silent — no own-initiative investigation under SAHRC Act s14 — ignored homelessness update of 13 March 2026",
+    "date": "10 Feb 2026"
+  },
+  "J3": {
+    "file": "02_Evidence_Core/02_Evidence_Core/A3 SANC Registration.png",
+    "description": "SANC Formal Complaint — SANC/MEDSCHEME/MATTHEE/20260105 — filed 10 February 2026 — not acknowledged as at June 2026 — SANC also deregistered Applicant for non-payment of R870 caused by employer's unlawful deduction",
+    "date": "10 Feb 2026"
+  },
+  "M1": {
+    "file": "02_Evidence_Core/Full Interim order AFROCENTRIC High court/AfrocentricInvestmentCorporationLimitedvWilburWilliamMatthee2026086906AFR1282v020FCompleteBundle.pdf",
+    "description": "AFR1282 — High Court Ex Parte Interim Interdict — 16 April 2026 — Deneys Reitz concealed Applicant's answering affidavit — court not informed matter was opposed — 11-month gag order imposed — Biowatch principle violated",
+    "date": "16 Apr 2026"
+  },
+  "M2": {
+    "file": "02_Evidence_Core/02_Evidence_Core/Gmail - URGENT CRIMINAL ESCALATION_ EVIDENCE OF PERJURY AND DEFEATING THE ENDS OF JUSTICE BY CORPORATE LITIGANTS(2).PDF",
+    "description": "Rule Nisi Extended to 1 March 2027 — 28 May 2026 — 11-month silence imposed on whistleblower — concurrent SCCU and DNPA criminal referral filed for perjury and defeating ends of justice",
+    "date": "28 May 2026"
   },
   "P1": {
     "file": "02_Evidence_Core/02_Evidence_Core/AFR1282 Letter to Matthee 04.06.2026.pdf",
-    "description": "P1 \u2014 Deneys Reitz letter 4 June 2026 threatening contempt for petitioning Parliament"
+    "description": "Deneys Reitz Letter — 4 June 2026 — threatens contempt of court for petitioning Parliament — characterises parliamentary submission as breach of gag order — litigation attrition documented",
+    "date": "4 Jun 2026"
+  },
+  "P2": {
+    "file": "02_Evidence_Core/02_Evidence_Core/AFR1282 Letter to Parliament 03.06.2026.PDF",
+    "description": "Deneys Reitz Letter to Parliament — 3 June 2026 — opposing counsel writes directly to Parliament attempting to suppress whistleblower's parliamentary submission",
+    "date": "3 Jun 2026"
+  },
+  "WP1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/EthicHawks_Settlement_Agreement_WP_27June2026(1).PDF",
+    "description": "Without Prejudice Settlement Agreement — 27 June 2026 — Matthee v AfroCentric Investment Corporation and Medscheme Holdings — settlement floor R4,676,891.34 — full quantum R7,307,642.72",
+    "date": "27 Jun 2026"
+  },
+  "C2": {
+    "file": "02_Evidence_Core/02_Evidence_Core/do not apply staggering 16 apr25.png",
+    "description": "Staggering Misrepresentation — Mary-Ann Jones — 16 April 2025 — written statement 'we do not apply staggering of money owed' — contradicts employer's own HCBP Policy — Annexure C in BCEA proceedings",
+    "date": "16 Apr 2025"
+  },
+  "K1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/DER1 (Reported the derogaratory comments).png",
+    "description": "'Wilma' Microsoft Teams Harassment — Mary-Ann Jones — 23 September 2025 — gender-identity harassment in team-wide channel immediately after Applicant proposed clinical filtering strategy — EEA s6 violation",
+    "date": "23 Sep 2025"
+  },
+  "S1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/SAPS_Criminal_Complaint_WW_Matthee_23Feb2026.docx",
+    "description": "SAPS Criminal Complaint — CAS 1954/3/2026 — 23 February 2026 — Delft Police Station officer refused to open case — falsely claimed to be station commander — audio recorded — escalated after refusal",
+    "date": "23 Feb 2026"
+  },
+  "I1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/AfroCentric_Integrated_Annual_Report_December_2025.pdf",
+    "description": "AfroCentric Integrated Annual Report 2025 — Board-approved false statements: 'both platforms fully integrated' and 'no material ESG-related incidents' — approved after Board received P1 Material Risk Report — market deception — JSE Listings Requirements breach",
+    "date": "Apr 2026"
+  },
+  "FR1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/EH-FR-2025-001-R1_Forensic_Payroll_Audit_Report_REVISED-2.docx",
+    "description": "EthicHawks Forensic Payroll Audit Report — EH-FR-2025-001-R1 — IRP5 code 3607 overtime discrepancy confirmed — actuarial damage schedule supporting full quantum of R7,307,642.72",
+    "date": "2026"
+  },
+  "AA1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/Answering_Affidavit_2026-086906_Matthee.docx",
+    "description": "Answering Affidavit — Case 2026-086906 — Matthee v AfroCentric — High Court — concealed from court by Deneys Reitz at ex parte hearing of 16 April 2026 — Biowatch principle violation",
+    "date": "Apr 2026"
+  },
+  "PT1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/PreTrial_Minute_Matthee_v_AfroCentric_11June2026_V_0_5 .pdf",
+    "description": "Unilateral Pre-Trial Minute — Matthee v AfroCentric — Cases 2026-083299 and 2026-077546 — Labour Court — 11 June 2026 — filed after Respondents refused to participate",
+    "date": "11 Jun 2026"
+  },
+  "PARL1": {
+    "file": "02_Evidence_Core/02_Evidence_Core/EthicHawks_Consolidated_Parliamentary_Submission_June2026-3.pdf",
+    "description": "EthicHawks Consolidated Parliamentary Submission — June 2026 — addressed to Speaker of National Assembly — Sections 55(2) and 58 of Constitution — Portfolio Committee on Health and Employment and Labour",
+    "date": "Jun 2026"
+  },
+  "PARL2": {
+    "file": "02_Evidence_Core/02_Evidence_Core/EthicHawks_FormalDeclaration_NationalSpeaker_22June2026.PDF",
+    "description": "Formal Declaration to National Speaker — 22 June 2026 — final parliamentary remedy after all 16 institutions failed",
+    "date": "22 Jun 2026"
   }
 }
