@@ -433,5 +433,12 @@ async function initPortal() {
   });
 }
 
+// Expose functions globally for onclick handlers
+window.toggleKeywordDropdown = toggleKeywordDropdown;
+window.applyKeyword = applyKeyword;
+window.clearKeyword = clearKeyword;
+window.verifyHash = verifyHash;
+window.showEvidenceModal = showEvidenceModal;
+
 document.addEventListener('DOMContentLoaded', initPortal);
 initPortal();
