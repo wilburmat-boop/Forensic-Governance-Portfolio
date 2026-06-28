@@ -345,8 +345,8 @@
   align-items: center;
   justify-content: center;
   background: rgba(10,17,40,0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-top: 1px solid #c9933a;
   border-bottom: 1px solid #c9933a;
   transition: opacity 0.3s, transform 0.3s;
@@ -1733,87 +1733,70 @@ function activateGlossaryTags() {
 
 <script>
 (function() {
-  const STRIP_POSITION = 0.4; // 40% from top
-  const MAG_SCALE = 1.5;
-  
+  const STRIP_POSITION = 0.4;
   const strip = document.getElementById('magnifier-strip');
   const content = document.getElementById('magnifier-content');
   const toggle = document.getElementById('magnifier-toggle');
   const stickyHeader = document.getElementById('sticky-dossier-header');
-  const main = document.querySelector('.main');
   
   let magnifierOn = localStorage.getItem('magnifier') === 'on';
+  let lastUpdate = 0;
+  let rafId = null;
   
   function setMagnifierState(on) {
     magnifierOn = on;
     localStorage.setItem('magnifier', on ? 'on' : 'off');
     strip.className = on ? 'magnifier-on' : 'magnifier-off';
     toggle.classList.toggle('active', on);
+    if (!on) {
+      content.textContent = '';
+      cancelAnimationFrame(rafId);
+    }
   }
   
   toggle.addEventListener('click', () => setMagnifierState(!magnifierOn));
-  
-  // Initialize
   setMagnifierState(magnifierOn);
   
-  // Get all text elements in main
-  function getTextElements() {
-    return main ? main.querySelectorAll('p, li, td, th, h1, h2, h3, h4, span, div') : [];
+  // Fast element lookup using document.elementFromPoint
+  function getTextAtStrip() {
+    const x = window.innerWidth / 2;
+    const y = window.innerHeight * STRIP_POSITION + 40;
+    const el = document.elementFromPoint(x, y);
+    if (!el) return '';
+    // Get the nearest text-containing ancestor
+    const textEl = el.closest('p, li, td, th, h1, h2, h3, h4');
+    if (textEl) return textEl.textContent.trim();
+    return el.textContent.trim();
   }
   
-  function getElementAtStrip() {
-    const stripTop = window.innerHeight * STRIP_POSITION;
-    const stripCenter = stripTop + 40; // half of strip height
-    let closest = null;
-    let closestDist = Infinity;
-    
-    getTextElements().forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.height === 0) return;
-      const center = rect.top + rect.height / 2;
-      const dist = Math.abs(center - stripCenter);
-      if (dist < closestDist && dist < rect.height * 2) {
-        closestDist = dist;
-        closest = el;
-      }
-    });
-    return closest;
-  }
-  
-  function updateMagnifier() {
+  function updateMagnifier(timestamp) {
     if (!magnifierOn) return;
-    const el = getElementAtStrip();
-    if (el && el.textContent.trim()) {
-      content.textContent = el.textContent.trim();
+    if (timestamp - lastUpdate > 100) { // Update every 100ms
+      const text = getTextAtStrip();
+      if (text && text.length > 0) {
+        content.textContent = text;
+      }
+      lastUpdate = timestamp;
     }
+    rafId = requestAnimationFrame(updateMagnifier);
   }
   
-  // Throttled scroll handler
-  let ticking = false;
+  // Shadow on scroll (lightweight)
   window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        updateMagnifier();
-        // Shadow on sticky header when scrolled
-        if (window.scrollY > 10) {
-          stickyHeader.classList.add('header-shadow');
-        } else {
-          stickyHeader.classList.remove('header-shadow');
-        }
-        ticking = false;
-      });
-      ticking = true;
-    }
+    stickyHeader.classList.toggle('header-shadow', window.scrollY > 10);
   }, { passive: true });
   
-  // Initial update
-  updateMagnifier();
+  // Start magnifier loop
+  if (magnifierOn) {
+    rafId = requestAnimationFrame(updateMagnifier);
+  }
   
-  // Position strip at 40% from top
-  strip.style.top = (window.innerHeight * STRIP_POSITION) + 'px';
+  // Reposition on resize
   window.addEventListener('resize', () => {
     strip.style.top = (window.innerHeight * STRIP_POSITION) + 'px';
   });
+  
+  strip.style.top = (window.innerHeight * STRIP_POSITION) + 'px';
 })();
 </script>
 
