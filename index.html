@@ -320,10 +320,74 @@
 }
 </style>
 
+
+<style>
+/* Sticky dossier header */
+#sticky-dossier-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: box-shadow 0.3s;
+}
+#sticky-dossier-header.header-shadow {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+/* Magnifier strip */
+#magnifier-strip {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10,17,40,0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid #c9933a;
+  border-bottom: 1px solid #c9933a;
+  transition: opacity 0.3s, transform 0.3s;
+}
+#magnifier-strip.magnifier-off {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+#magnifier-strip.magnifier-on {
+  opacity: 1;
+  transform: translateY(0);
+}
+#magnifier-content {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 1.5em;
+  color: #f5f3ee;
+  text-align: center;
+  padding: 0 24px;
+  line-height: 1.4;
+  max-width: 1100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#magnifier-focal-line {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c9933a, transparent);
+}
+#magnifier-toggle.active {
+  background: #c9933a;
+  color: #0a1128;
+}
+</style>
+
 </head>
 <body>
-
-<!-- HEADER -->
+<div id="sticky-dossier-header">
 <header class="site-header">
     <div class="header-inner">
         <div class="logo-block">
@@ -333,12 +397,11 @@
                 <div class="tagline">Forensic Governance &amp; Compliance Consultancy</div>
             </div>
         </div>
-<div class="header-status"> ACTIVE <div class="pulse" style="display:inline-block;width:8px;height:8px;background:#b8860b;border-radius:50%;margin-left:4px;"></div> CASE NO. EH‑2026‑001 • CONSOLIDATED FORENSIC REPORT • JUNE 2026 </div>
+<div class="header-status">
+<button id="magnifier-toggle" title="Toggle Magnifier" style="background:none;border:1px solid #c9933a;color:#c9933a;padding:2px 8px;border-radius:4px;cursor:pointer;font-size:0.8rem;margin-left:8px;">🔍</button> ACTIVE <div class="pulse" style="display:inline-block;width:8px;height:8px;background:#b8860b;border-radius:50%;margin-left:4px;"></div> CASE NO. EH‑2026‑001 • CONSOLIDATED FORENSIC REPORT • JUNE 2026 </div>
         </div>
     </div>
 </header>
-
-<!-- NAV TABS -->
 <nav class="nav-tabs">
     <div class="tabs-inner">
         <button class="tab-btn active" onclick="showPanel('landing', event)">🏠 Overview</button>
@@ -350,6 +413,13 @@
 
     </div>
 </nav>
+</div>
+
+<!-- HEADER -->
+
+
+<!-- NAV TABS -->
+
 
 <!-- MAIN -->
 <main class="main">
@@ -1652,6 +1722,99 @@ function activateGlossaryTags() {
     }
   });
 }
+</script>
+
+
+<div id="magnifier-strip" class="magnifier-off">
+  <div id="magnifier-content"></div>
+  <div id="magnifier-focal-line"></div>
+</div>
+
+
+<script>
+(function() {
+  const STRIP_POSITION = 0.4; // 40% from top
+  const MAG_SCALE = 1.5;
+  
+  const strip = document.getElementById('magnifier-strip');
+  const content = document.getElementById('magnifier-content');
+  const toggle = document.getElementById('magnifier-toggle');
+  const stickyHeader = document.getElementById('sticky-dossier-header');
+  const main = document.querySelector('.main');
+  
+  let magnifierOn = localStorage.getItem('magnifier') === 'on';
+  
+  function setMagnifierState(on) {
+    magnifierOn = on;
+    localStorage.setItem('magnifier', on ? 'on' : 'off');
+    strip.className = on ? 'magnifier-on' : 'magnifier-off';
+    toggle.classList.toggle('active', on);
+  }
+  
+  toggle.addEventListener('click', () => setMagnifierState(!magnifierOn));
+  
+  // Initialize
+  setMagnifierState(magnifierOn);
+  
+  // Get all text elements in main
+  function getTextElements() {
+    return main ? main.querySelectorAll('p, li, td, th, h1, h2, h3, h4, span, div') : [];
+  }
+  
+  function getElementAtStrip() {
+    const stripTop = window.innerHeight * STRIP_POSITION;
+    const stripCenter = stripTop + 40; // half of strip height
+    let closest = null;
+    let closestDist = Infinity;
+    
+    getTextElements().forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.height === 0) return;
+      const center = rect.top + rect.height / 2;
+      const dist = Math.abs(center - stripCenter);
+      if (dist < closestDist && dist < rect.height * 2) {
+        closestDist = dist;
+        closest = el;
+      }
+    });
+    return closest;
+  }
+  
+  function updateMagnifier() {
+    if (!magnifierOn) return;
+    const el = getElementAtStrip();
+    if (el && el.textContent.trim()) {
+      content.textContent = el.textContent.trim();
+    }
+  }
+  
+  // Throttled scroll handler
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateMagnifier();
+        // Shadow on sticky header when scrolled
+        if (window.scrollY > 10) {
+          stickyHeader.classList.add('header-shadow');
+        } else {
+          stickyHeader.classList.remove('header-shadow');
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+  
+  // Initial update
+  updateMagnifier();
+  
+  // Position strip at 40% from top
+  strip.style.top = (window.innerHeight * STRIP_POSITION) + 'px';
+  window.addEventListener('resize', () => {
+    strip.style.top = (window.innerHeight * STRIP_POSITION) + 'px';
+  });
+})();
 </script>
 
 </body>
