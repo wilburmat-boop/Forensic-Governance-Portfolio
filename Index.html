@@ -981,13 +981,42 @@ async function loadRefData() {
 }
 
 function makeRefsClickable(element) {
+  if (element.querySelector('.ref-link')) return;
   const REF_PATTERN = /\b([A-Z][0-9]{1,2})\b/g;
-  const html = element.innerHTML;
-  element.innerHTML = html.replace(REF_PATTERN, (match, code) => {
-    if (REF_MAP[code]) {
-      return `<span class="ref-link" onclick="showRefModal('${code}')" style="display:inline-block;background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:1px 7px;border-radius:3px;font-family:monospace;font-size:0.78rem;cursor:pointer;margin:1px;">${code}</span>`;
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null);
+  const nodes = [];
+  let n;
+  while (n = walker.nextNode()) {
+    if (REF_PATTERN.test(n.textContent)) nodes.push(n);
+    REF_PATTERN.lastIndex = 0;
+  }
+  nodes.forEach(textNode => {
+    const parts = [];
+    let last = 0;
+    let m;
+    REF_PATTERN.lastIndex = 0;
+    while ((m = REF_PATTERN.exec(textNode.textContent)) !== null) {
+      parts.push({text: textNode.textContent.slice(last, m.index), code: null});
+      parts.push({text: m[1], code: m[1]});
+      last = m.index + m[0].length;
     }
-    return match;
+    parts.push({text: textNode.textContent.slice(last), code: null});
+    if (parts.length <= 1) return;
+    const frag = document.createDocumentFragment();
+    parts.forEach(part => {
+      if (!part.text) return;
+      if (part.code && REF_MAP[part.code]) {
+        const span = document.createElement('span');
+        span.className = 'ref-link';
+        span.textContent = part.code;
+        span.style.cssText = 'display:inline-block;background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:1px 7px;border-radius:3px;font-family:monospace;font-size:0.78rem;cursor:pointer;margin:1px;';
+        span.addEventListener('click', () => showRefModal(part.code));
+        frag.appendChild(span);
+      } else {
+        frag.appendChild(document.createTextNode(part.text));
+      }
+    });
+    textNode.parentNode.replaceChild(frag, textNode);
   });
 }
 
@@ -1117,6 +1146,12 @@ function loadCustomDoc(url) {
 <script>
 // Chronology data — date + event + references
 const CHRONOLOGY = {
+  "23 Jul 2025": {
+    event: "Unlawful 40.47% salary deduction — R14,811.77 deducted in single pay cycle",
+    refs: ["A2"],
+    narrative: "On 23 July 2025 the employer deducted 40.47% of the complainant's salary in a single pay cycle — exceeding the BCEA Section 34(2) 25% cap by 15.47 percentage points. The employer's own admission states 'our policy doesn't permit for staggering.' This unlawful deduction is the financial act that set in motion the cascade of destitution documented throughout this portfolio.",
+    statutory: "BCEA Section 34(2) — 25% deduction cap; LRA Section 187(1)(f)"
+  },
   "18 Mar 2025": {
     event: "Admitted to Akeso Stepping Stones Clinic — severe depression and PTSD diagnosed",
     refs: ["B1"],

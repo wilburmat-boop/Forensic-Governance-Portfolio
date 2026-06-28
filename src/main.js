@@ -137,10 +137,62 @@ function toggleKeywordDropdown() {
 function applyKeyword(kw) {
   activeKeyword = kw;
   document.getElementById('evidence-search').value = kw;
-  document.getElementById('active-keyword').textContent = kw;
+  document.getElementById('active-keyword').textContent = '× ' + kw;
   document.getElementById('active-keyword').style.display = 'inline-block';
   document.getElementById('keyword-dropdown').style.display = 'none';
   renderVault(kw);
+  filterDatePills(kw);
+}
+
+function filterDatePills(kw) {
+  const pillContainer = document.getElementById('date-pills');
+  if (!pillContainer) return;
+
+  const q = kw ? kw.toLowerCase() : '';
+  const pills = pillContainer.querySelectorAll('button');
+  let visible = 0;
+
+  pills.forEach(pill => {
+    const dateStr = pill.textContent.split(' (')[0];
+    const files = DATE_INDEX[dateStr] || [];
+
+    if (!q) {
+      pill.style.display = '';
+      return;
+    }
+
+    // Check if any file for this date matches the keyword index
+    const matches = files.some(file => {
+      const kwMatches = KEYWORD_INDEX[file.path] || [];
+      return kwMatches.some(k => k.toLowerCase().includes(q) || q.includes(k.toLowerCase()));
+    });
+
+    if (matches && visible < 3) {
+      pill.style.display = '';
+      pill.style.background = '#1e3a5f';
+      pill.style.borderColor = '#2563eb';
+      visible++;
+    } else {
+      pill.style.display = 'none';
+    }
+  });
+
+  // Show message if filtered
+  const dateSection = document.getElementById('date-browser');
+  if (dateSection) {
+    let msg = dateSection.querySelector('.filter-msg');
+    if (q && visible > 0) {
+      if (!msg) {
+        msg = document.createElement('div');
+        msg.className = 'filter-msg';
+        msg.style.cssText = 'font-family:monospace;font-size:0.72rem;color:#6b7280;margin-top:8px;';
+        pillContainer.after(msg);
+      }
+      msg.textContent = `Showing ${visible} date(s) matching "${kw}" — click to view evidence`;
+    } else if (msg) {
+      msg.remove();
+    }
+  }
 }
 
 function clearKeyword() {
@@ -148,6 +200,7 @@ function clearKeyword() {
   document.getElementById('evidence-search').value = '';
   document.getElementById('active-keyword').style.display = 'none';
   renderVault('');
+  filterDatePills('');
 }
 
 function getMatchingPaths(query) {
