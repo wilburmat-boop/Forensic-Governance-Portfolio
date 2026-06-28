@@ -918,6 +918,19 @@ function showReadme(event) {
     .then(response => response.text())
     .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
 }
+
+function loadCustomDoc(url) {
+    document.getElementById('readme-content').innerHTML = "Loading...";
+    showPanel('readme-panel', event);
+    fetch(url)
+    .then(response => response.text())
+    .then(text => {
+        document.getElementById('readme-content').innerHTML = marked.parse(text);
+    })
+    .catch(err => {
+        document.getElementById('readme-content').innerHTML = "Error loading document.";
+    });
+}
 </script>
 function showReadme(event) {
     showPanel("readme-panel", event);
@@ -1027,10 +1040,10 @@ function showRefModal(code) {
       <div style="padding:20px;">
         ${isPDF ? `
           <iframe src="${fileUrl}" style="width:100%;height:500px;border:1px solid #1f2937;border-radius:6px;background:white;" title="${filename}"></iframe>
-          <div style="margin-top:8px;"><a href="${fileUrl}" target="_blank" style="color:#3b82f6;font-family:monospace;font-size:0.8rem;text-decoration:none;">↗ Open in new tab</a></div>
+          <div style="margin-top:8px;"><a href="#" onclick="loadCustomDoc('${fileUrl}'); return false;" style="color:#3b82f6;font-family:monospace;font-size:0.8rem;text-decoration:none;">↗ Open in new tab</a></div>
         ` : `
           <div style="background:#030712;border:1px solid #1f2937;border-radius:6px;padding:20px;text-align:center;">
-            <a href="${fileUrl}" target="_blank" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:10px 20px;border-radius:6px;text-decoration:none;font-family:monospace;font-size:0.85rem;">↗ Open ${filename}</a>
+            <a href="#" onclick="loadCustomDoc('${fileUrl}'); return false;" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:10px 20px;border-radius:6px;text-decoration:none;font-family:monospace;font-size:0.85rem;">↗ Open ${filename}</a>
           </div>
         `}
       </div>
@@ -1047,6 +1060,19 @@ function showReadme(event) {
     fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
     .then(response => response.text())
     .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
+}
+
+function loadCustomDoc(url) {
+    document.getElementById('readme-content').innerHTML = "Loading...";
+    showPanel('readme-panel', event);
+    fetch(url)
+    .then(response => response.text())
+    .then(text => {
+        document.getElementById('readme-content').innerHTML = marked.parse(text);
+    })
+    .catch(err => {
+        document.getElementById('readme-content').innerHTML = "Error loading document.";
+    });
 }
 </script>
 
@@ -1155,7 +1181,7 @@ function showRefFromDate(filePath) {
         <code style="color:#34d399;font-family:monospace;font-size:0.75rem;word-break:break-all;">${sha256}</code>
       </div>
       <div style="padding:20px;">
-        ${isPDF ? `<iframe src="${fileUrl}" style="width:100%;height:500px;border:1px solid #1f2937;border-radius:6px;background:white;"></iframe><div style="margin-top:8px;"><a href="${fileUrl}" target="_blank" style="color:#3b82f6;font-family:monospace;font-size:0.8rem;text-decoration:none;">↗ Open in new tab</a></div>` : `<div style="text-align:center;padding:20px;"><a href="${fileUrl}" target="_blank" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:10px 20px;border-radius:6px;text-decoration:none;font-family:monospace;">↗ Open ${filename}</a></div>`}
+        ${isPDF ? `<iframe src="${fileUrl}" style="width:100%;height:500px;border:1px solid #1f2937;border-radius:6px;background:white;"></iframe><div style="margin-top:8px;"><a href="#" onclick="loadCustomDoc('${fileUrl}'); return false;" style="color:#3b82f6;font-family:monospace;font-size:0.8rem;text-decoration:none;">↗ Open in new tab</a></div>` : `<div style="text-align:center;padding:20px;"><a href="#" onclick="loadCustomDoc('${fileUrl}'); return false;" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:10px 20px;border-radius:6px;text-decoration:none;font-family:monospace;">↗ Open ${filename}</a></div>`}
       </div>
     </div>
   `;
@@ -1265,6 +1291,19 @@ function showReadme(event) {
     fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
     .then(response => response.text())
     .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
+}
+
+function loadCustomDoc(url) {
+    document.getElementById('readme-content').innerHTML = "Loading...";
+    showPanel('readme-panel', event);
+    fetch(url)
+    .then(response => response.text())
+    .then(text => {
+        document.getElementById('readme-content').innerHTML = marked.parse(text);
+    })
+    .catch(err => {
+        document.getElementById('readme-content').innerHTML = "Error loading document.";
+    });
 }
 </script>
 
