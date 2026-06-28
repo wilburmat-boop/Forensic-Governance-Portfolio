@@ -1768,6 +1768,107 @@ function activateGlossaryTags() {
 })();
 </script>
 
+
+<script>
+(function() {
+  // ==========================================
+  // COLORED PILLS → Open evidence file
+  // ==========================================
+  document.querySelectorAll('.tag-perjury, .tag-criminal, .tag-market, .tag-attrition, .tag-court, .tag-coverup, .tag-legal, .tag-nhi, .tag-pda').forEach(pill => {
+    pill.style.cursor = 'pointer';
+    pill.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const term = this.textContent.trim().toUpperCase();
+      // Search date_index for matching files
+      if (typeof DATE_INDEX !== 'undefined') {
+        let found = null;
+        for (const [date, files] of Object.entries(DATE_INDEX)) {
+          for (const f of files) {
+            if (f.filename.toUpperCase().includes(term) || f.path.toUpperCase().includes(term)) {
+              found = f.path;
+              break;
+            }
+          }
+          if (found) break;
+        }
+        if (found && typeof showEvidenceModal === 'function') {
+          showEvidenceModal(found);
+        } else {
+          alert('No direct evidence file found for: ' + this.textContent);
+        }
+      }
+    });
+  });
+
+  // ==========================================
+  // FAILURE LABELS → Scroll to timeline row
+  // ==========================================
+  document.querySelectorAll('.tag-failure').forEach(pill => {
+    pill.style.cursor = 'pointer';
+    pill.title = 'Click to find in timeline';
+    pill.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const label = this.textContent.trim();
+      // Search all text in the document for this label in a timeline context
+      const allElements = document.querySelectorAll('td, th, li, p, div');
+      let target = null;
+      for (const el of allElements) {
+        if (el.textContent.trim() === label || el.textContent.includes(label)) {
+          // Prefer table cells or list items (timeline entries)
+          if (el.tagName === 'TD' || el.tagName === 'LI') {
+            target = el;
+            break;
+          }
+        }
+      }
+      if (!target) {
+        // Fallback: find any element containing the exact label
+        for (const el of allElements) {
+          if (el.textContent.trim() === label) {
+            target = el;
+            break;
+          }
+        }
+      }
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Highlight with amber glow
+        target.style.transition = 'box-shadow 0.3s, background 0.3s';
+        target.style.boxShadow = '0 0 20px rgba(201,147,58,0.8)';
+        target.style.background = 'rgba(201,147,58,0.15)';
+        setTimeout(() => {
+          target.style.boxShadow = '';
+          target.style.background = '';
+        }, 2500);
+        // Show return pill
+        showReturnPill(target);
+      }
+    });
+  });
+
+  // ==========================================
+  // RETURN PILL
+  // ==========================================
+  function showReturnPill(targetElement) {
+    // Remove any existing return pill
+    const existing = document.getElementById('return-pill');
+    if (existing) existing.remove();
+    
+    const pill = document.createElement('div');
+    pill.id = 'return-pill';
+    pill.textContent = '↑ Back';
+    pill.style.cssText = 'position:fixed;bottom:20px;right:20px;background:#c9933a;color:#0a1128;padding:8px 16px;border-radius:20px;font-family:monospace;font-size:0.8rem;cursor:pointer;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.4);font-weight:700;';
+    pill.addEventListener('click', () => {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      pill.remove();
+    });
+    document.body.appendChild(pill);
+    // Auto-remove after 10 seconds
+    setTimeout(() => { if (pill.parentNode) pill.remove(); }, 10000);
+  }
+})();
+</script>
+
 </body>
 <script>
 function showReadme(event) {
