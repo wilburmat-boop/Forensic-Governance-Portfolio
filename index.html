@@ -997,6 +997,17 @@ function showRefModal(code) {
   const sha256 = fileData.sha256 || 'Hash not available';
   const filename = filePath ? filePath.split('/').pop() : code;
   const fileUrl = filePath ? '/' + filePath.split('/').map(p => encodeURIComponent(p)).join('/') : '#';
+  if (filename.toLowerCase().endsWith('.md')) {
+    const rawUrl = fileUrl.replace('/02_Evidence_Core/', 'https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/02_Evidence_Core/');
+    fetch(rawUrl).then(r=>r.text()).then(t=>{
+      document.getElementById('readme-content').innerHTML = marked.parse(t);
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+      document.getElementById('readme-panel').classList.add('active');
+      const existing = document.getElementById('ref-modal');
+      if(existing) existing.remove();
+    }).catch(()=>window.open(fileUrl,'_blank'));
+    return;
+  }
   const isPDF = filename.toLowerCase().endsWith('.pdf');
 
   const modal = document.createElement('div');
