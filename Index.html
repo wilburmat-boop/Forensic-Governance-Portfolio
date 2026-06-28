@@ -1304,14 +1304,7 @@ function activateDates() {
     }
   });
 }
-function activateDates_OLD() {
-  document.querySelectorAll('table td:first-child').forEach(td => {
-    const text = td.textContent.trim();
-    if (CHRONOLOGY[text]) {
-      td.innerHTML = `<span onclick="showDateModal('${text}')" style="cursor:pointer;color:#c9933a;border-bottom:1px dashed #c9933a;font-weight:600;">${text}</span>`;
-    }
-  });
-}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
@@ -1321,19 +1314,33 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function activateAllDates() {
-  // Match date patterns across ALL text in all three parts
-  const DATE_PATTERN = /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{4}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{4}|\d{4}-\d{2}-\d{2})\b/g;
-
-  document.querySelectorAll('td:first-child, p, li, h3, h4').forEach(el => {
-    const text = el.textContent.trim();
-    // Check if this element contains a date that exists in CHRONOLOGY
-    Object.keys(CHRONOLOGY).forEach(dateStr => {
-      if (text.includes(dateStr) && !el.querySelector('.date-link') && !el.closest('.date-link')) {
-        el.innerHTML = el.innerHTML.replace(
-          dateStr,
-          `<span class="date-link" onclick="showDateModal('${dateStr}')" style="cursor:pointer;color:#c9933a;border-bottom:1px dashed #c9933a;font-weight:600;">${dateStr}</span>`
-        );
+  Object.keys(CHRONOLOGY).forEach(dateStr => {
+    document.querySelectorAll('p, li, td').forEach(el => {
+      if (el.querySelector('.date-link')) return;
+      if (!el.textContent.includes(dateStr)) return;
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+      const nodes = [];
+      let n;
+      while (n = walker.nextNode()) {
+        if (n.textContent.includes(dateStr)) nodes.push(n);
       }
+      nodes.forEach(textNode => {
+        const parts = textNode.textContent.split(dateStr);
+        if (parts.length < 2) return;
+        const frag = document.createDocumentFragment();
+        parts.forEach((part, i) => {
+          frag.appendChild(document.createTextNode(part));
+          if (i < parts.length - 1) {
+            const span = document.createElement('span');
+            span.className = 'date-link';
+            span.textContent = dateStr;
+            span.style.cssText = 'cursor:pointer;color:#c9933a;border-bottom:1px dashed #c9933a;font-weight:600;';
+            span.addEventListener('click', () => showDateModal(dateStr));
+            frag.appendChild(span);
+          }
+        });
+        textNode.parentNode.replaceChild(frag, textNode);
+      });
     });
   });
 }
