@@ -905,7 +905,7 @@
 
 <script>
     function showPanel(id, evt) {
-    setTimeout(function(){ activateRefs(); activateDates(); }, 50);
+    
         document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(id).classList.add('active');
