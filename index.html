@@ -1733,70 +1733,38 @@ function activateGlossaryTags() {
 
 <script>
 (function() {
-  const STRIP_POSITION = 0.4;
   const strip = document.getElementById('magnifier-strip');
-  const content = document.getElementById('magnifier-content');
   const toggle = document.getElementById('magnifier-toggle');
   const stickyHeader = document.getElementById('sticky-dossier-header');
+  const content = document.getElementById('magnifier-content');
   
   let magnifierOn = localStorage.getItem('magnifier') === 'on';
-  let lastUpdate = 0;
-  let rafId = null;
   
   function setMagnifierState(on) {
     magnifierOn = on;
     localStorage.setItem('magnifier', on ? 'on' : 'off');
     strip.className = on ? 'magnifier-on' : 'magnifier-off';
     toggle.classList.toggle('active', on);
-    if (!on) {
+    if (on) {
+      content.textContent = '🔍 Magnifier active — forensic cross‑reference ready';
+    } else {
       content.textContent = '';
-      cancelAnimationFrame(rafId);
     }
   }
   
   toggle.addEventListener('click', () => setMagnifierState(!magnifierOn));
   setMagnifierState(magnifierOn);
   
-  // Fast element lookup using document.elementFromPoint
-  function getTextAtStrip() {
-    const x = window.innerWidth / 2;
-    const y = window.innerHeight * STRIP_POSITION + 40;
-    const el = document.elementFromPoint(x, y);
-    if (!el) return '';
-    // Get the nearest text-containing ancestor
-    const textEl = el.closest('p, li, td, th, h1, h2, h3, h4');
-    if (textEl) return textEl.textContent.trim();
-    return el.textContent.trim();
-  }
-  
-  function updateMagnifier(timestamp) {
-    if (!magnifierOn) return;
-    if (timestamp - lastUpdate > 100) { // Update every 100ms
-      const text = getTextAtStrip();
-      if (text && text.length > 0) {
-        content.textContent = text;
-      }
-      lastUpdate = timestamp;
-    }
-    rafId = requestAnimationFrame(updateMagnifier);
-  }
-  
-  // Shadow on scroll (lightweight)
+  // Shadow on sticky header
   window.addEventListener('scroll', () => {
     stickyHeader.classList.toggle('header-shadow', window.scrollY > 10);
   }, { passive: true });
   
-  // Start magnifier loop
-  if (magnifierOn) {
-    rafId = requestAnimationFrame(updateMagnifier);
-  }
-  
-  // Reposition on resize
+  // Position strip
+  strip.style.top = (window.innerHeight * 0.4) + 'px';
   window.addEventListener('resize', () => {
-    strip.style.top = (window.innerHeight * STRIP_POSITION) + 'px';
+    strip.style.top = (window.innerHeight * 0.4) + 'px';
   });
-  
-  strip.style.top = (window.innerHeight * STRIP_POSITION) + 'px';
 })();
 </script>
 
