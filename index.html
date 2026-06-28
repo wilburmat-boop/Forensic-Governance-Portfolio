@@ -912,12 +912,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-function showReadme(event) {
-    showPanel("readme-panel", event);
-    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
-    .then(response => response.text())
-    .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
-}
 
 function loadCustomDoc(url) {
     document.getElementById('readme-content').innerHTML = "Loading...";
@@ -925,19 +919,13 @@ function loadCustomDoc(url) {
     fetch(url)
     .then(response => response.text())
     .then(text => {
-        document.getElementById('readme-content').innerHTML = marked.parse(text);
+        document.getElementById("readme-content").innerHTML = marked.parse(text); setTimeout(activateRefs, 50);
     })
     .catch(err => {
         document.getElementById('readme-content').innerHTML = "Error loading document.";
     });
 }
 </script>
-function showReadme(event) {
-    showPanel("readme-panel", event);
-    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
-    .then(response => response.text())
-    .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
-}
 <script type="module" src="/src/main.js"></script>
 
 <script>
@@ -1055,12 +1043,6 @@ function showRefModal(code) {
 }
 
 document.addEventListener('DOMContentLoaded', loadRefData);
-function showReadme(event) {
-    showPanel("readme-panel", event);
-    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
-    .then(response => response.text())
-    .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
-}
 
 function loadCustomDoc(url) {
     document.getElementById('readme-content').innerHTML = "Loading...";
@@ -1068,7 +1050,7 @@ function loadCustomDoc(url) {
     fetch(url)
     .then(response => response.text())
     .then(text => {
-        document.getElementById('readme-content').innerHTML = marked.parse(text);
+        document.getElementById("readme-content").innerHTML = marked.parse(text); setTimeout(activateRefs, 50);
     })
     .catch(err => {
         document.getElementById('readme-content').innerHTML = "Error loading document.";
@@ -1286,12 +1268,6 @@ function activateAllDates() {
     });
   });
 }
-function showReadme(event) {
-    showPanel("readme-panel", event);
-    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
-    .then(response => response.text())
-    .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
-}
 
 function loadCustomDoc(url) {
     document.getElementById('readme-content').innerHTML = "Loading...";
@@ -1299,7 +1275,7 @@ function loadCustomDoc(url) {
     fetch(url)
     .then(response => response.text())
     .then(text => {
-        document.getElementById('readme-content').innerHTML = marked.parse(text);
+        document.getElementById("readme-content").innerHTML = marked.parse(text); setTimeout(activateRefs, 50);
     })
     .catch(err => {
         document.getElementById('readme-content').innerHTML = "Error loading document.";
@@ -1309,4 +1285,11 @@ function loadCustomDoc(url) {
 
 <div id="readme-panel" class="panel" style="display:none;"><div id="readme-content">Loading...</div></div>
 </body>
-</html>
+</html><script>
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
+}
+</script>
