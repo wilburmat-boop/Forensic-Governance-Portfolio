@@ -1,4 +1,5 @@
 let HASH_MANIFEST = {};
+let DATE_INDEX = {};
 let KEYWORD_INDEX = {};
 let activeKeyword = null;
 
@@ -292,6 +293,54 @@ function verifyHash() {
   }
 }
 
+
+function renderDateBrowser() {
+  const pillContainer = document.getElementById('date-pills');
+  if (!pillContainer) return;
+
+  Object.keys(DATE_INDEX).forEach(dateStr => {
+    const count = DATE_INDEX[dateStr].length;
+    const pill = document.createElement('button');
+    pill.style.cssText = 'background:#111827;border:1px solid #c9933a;color:#c9933a;padding:4px 12px;border-radius:4px;font-family:monospace;font-size:0.75rem;cursor:pointer;';
+    pill.textContent = `${dateStr} (${count})`;
+    pill.addEventListener('click', () => showDateEvidence(dateStr));
+    pillContainer.appendChild(pill);
+  });
+}
+
+function showDateEvidence(dateStr) {
+  const results = document.getElementById('date-results');
+  const files = DATE_INDEX[dateStr] || [];
+
+  results.innerHTML = `
+    <div style="border:1px solid #c9933a;border-radius:8px;overflow:hidden;">
+      <div style="background:#111827;padding:12px 16px;border-bottom:1px solid #1f2937;">
+        <span style="font-family:monospace;font-size:0.8rem;color:#c9933a;font-weight:700;">📅 ${dateStr} — ${files.length} sealed evidence file(s)</span>
+      </div>
+      <div style="padding:12px;background:#030712;display:flex;flex-direction:column;gap:8px;">
+        ${files.map(file => `
+          <div style="padding:10px 14px;background:#0b0f19;border:1px solid #1f2937;border-radius:6px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+            <div style="min-width:0;flex:1;">
+              <div style="color:#e5e7eb;font-family:monospace;font-size:0.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${file.filename}</div>
+              <div style="color:#34d399;font-family:monospace;font-size:0.65rem;margin-top:3px;">🛡️ ${file.sha256.substring(0,32)}...</div>
+            </div>
+            <button class="view-date-btn" data-path="${file.path}" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:6px 14px;font-size:0.75rem;font-family:monospace;border-radius:4px;cursor:pointer;flex-shrink:0;">View Evidence ↗</button>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  // Add click handlers
+  results.querySelectorAll('.view-date-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      showEvidenceModal(this.getAttribute('data-path'));
+    });
+  });
+
+  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 async function initPortal() {
   const root = document.getElementById('root');
 
@@ -339,20 +388,31 @@ async function initPortal() {
         </div>
       </div>
 
+      <!-- Date Browser -->
+      <div id="date-browser" style="margin-bottom:24px;">
+        <div style="font-family:monospace;font-size:0.7rem;color:#c9933a;font-weight:700;letter-spacing:0.1em;margin-bottom:10px;">📅 BROWSE BY DATE — Click any date to see its sealed evidence files</div>
+        <div id="date-pills" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+        <div id="date-results" style="margin-top:16px;"></div>
+      </div>
+
       <div id="tree-accordion-root"></div>
     </div>
   `;
 
   try {
-    const [hashRes, kwRes] = await Promise.all([
+    const [hashRes, kwRes, dateRes] = await Promise.all([
       fetch('/hash_manifest.sha256'),
-      fetch('/keyword_index.json')
+      fetch('/keyword_index.json'),
+      fetch('/date_index.json')
     ]);
     const hashData = await hashRes.json();
     const kwData = await kwRes.json();
+    const dateData = await dateRes.json();
     HASH_MANIFEST = hashData.files || {};
     KEYWORD_INDEX = kwData.index || {};
+    DATE_INDEX = dateData || {};
     renderVault();
+    renderDateBrowser();
   } catch(e) {
     document.getElementById('tree-accordion-root').innerHTML = `
       <div style="background:#451a03;color:#fcd34d;padding:20px;border-radius:6px;font-family:monospace;font-size:0.875rem;border:1px solid #78350f;">
