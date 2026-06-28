@@ -2083,6 +2083,77 @@ function activateGlossaryTags() {
 })();
 </script>
 
+
+<script>
+// Load cross-reference metadata
+let EVIDENCE_CROSSREF = {};
+fetch('evidence_crossref.json')
+  .then(r => r.json())
+  .then(data => { EVIDENCE_CROSSREF = data; })
+  .catch(e => console.warn('CrossRef not loaded:', e));
+
+// Override showEvidenceModal to add metadata panel
+const origShowEvidence = showEvidenceModal;
+showEvidenceModal = function(filePath) {
+  origShowEvidence(filePath);
+  
+  setTimeout(() => {
+    const modal = document.getElementById('evidence-modal');
+    if (!modal) return;
+    
+    // Remove old metadata panel if any
+    const oldPanel = document.getElementById('crossref-panel');
+    if (oldPanel) oldPanel.remove();
+    
+    const meta = EVIDENCE_CROSSREF[filePath];
+    if (!meta) return;
+    
+    // Build metadata panel
+    const panel = document.createElement('div');
+    panel.id = 'crossref-panel';
+    panel.style.cssText = 'margin-top:12px;padding:12px;background:rgba(201,147,58,0.08);border:1px solid #c9933a;border-radius:6px;font-family:monospace;font-size:0.8rem;max-width:600px;';
+    
+    const fields = [
+      {label:'Date', key:'date'},
+      {label:'Incident', key:'incident'},
+      {label:'Place', key:'place'},
+      {label:'Entity', key:'entity'},
+      {label:'Person', key:'person'},
+      {label:'Conflict', key:'conflict'},
+      {label:'Litigation', key:'litigation'},
+      {label:'Resolution', key:'resolution'},
+      {label:'Remediation', key:'remediation'}
+    ];
+    
+    fields.forEach(f => {
+      if (meta[f.key]) {
+        const tag = document.createElement('span');
+        tag.textContent = f.label + ': ' + meta[f.key];
+        tag.style.cssText = 'display:inline-block;background:#1e3a5f;color:#93c5fd;padding:2px 8px;margin:2px;border-radius:3px;cursor:pointer;';
+        tag.title = 'Click to filter evidence by ' + f.label;
+        tag.onclick = () => {
+          // Filter evidence vault (navigate to dashboard tab and apply filter)
+          showPanel('dashboard', new Event('click'));
+          setTimeout(() => {
+            const search = document.getElementById('evidence-search');
+            if (search) {
+              search.value = meta[f.key];
+              search.dispatchEvent(new Event('input'));
+            }
+          }, 300);
+          modal.remove();
+        };
+        panel.appendChild(tag);
+      }
+    });
+    
+    // Insert panel after the content area
+    const content = modal.querySelector('div');
+    if (content) content.appendChild(panel);
+  }, 400);
+};
+</script>
+
 </body>
 <script>
 function showReadme(event) {
