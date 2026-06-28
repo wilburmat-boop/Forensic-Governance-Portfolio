@@ -284,6 +284,14 @@
   font-size: 9px; 
   letter-spacing: 0.08em; 
 }
+.overview-logo {
+  filter: drop-shadow(0 0 18px rgba(201,147,58,0.35)) drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+  animation: haloFloat 3s ease-in-out infinite;
+}
+@keyframes haloFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
 </style>
 
 </head>
