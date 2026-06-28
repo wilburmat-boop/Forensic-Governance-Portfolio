@@ -252,6 +252,46 @@ function renderVault(filter = '') {
   }
 }
 
+
+function verifyHash() {
+  const input = document.getElementById('hash-input').value.trim().toLowerCase();
+  const result = document.getElementById('verify-result');
+
+  if (!input || input.length !== 64) {
+    result.style.display = 'block';
+    result.innerHTML = '<div style="background:#451a03;border:1px solid #78350f;color:#fcd34d;padding:12px 16px;border-radius:6px;font-family:monospace;font-size:0.82rem;">⚠️ Invalid hash — SHA-256 hashes are exactly 64 hexadecimal characters.</div>';
+    return;
+  }
+
+  // Search manifest for matching hash
+  const match = Object.entries(HASH_MANIFEST).find(([path, data]) =>
+    data.sha256.toLowerCase() === input
+  );
+
+  if (match) {
+    const [filePath, fileData] = match;
+    result.style.display = 'block';
+    result.innerHTML = `
+      <div style="background:#022c22;border:1px solid #065f46;border-radius:6px;padding:16px;">
+        <div style="font-family:monospace;font-size:0.75rem;color:#34d399;font-weight:700;margin-bottom:10px;">✓ HASH VERIFIED — FILE AUTHENTICATED</div>
+        <div style="color:#f9fafb;font-weight:600;margin-bottom:6px;">${fileData.filename}</div>
+        <div style="font-family:monospace;font-size:0.72rem;color:#6b7280;margin-bottom:12px;">${filePath}</div>
+        <div style="font-family:monospace;font-size:0.72rem;color:#34d399;word-break:break-all;margin-bottom:12px;">${fileData.sha256}</div>
+        <div style="font-size:0.8rem;color:#d1d5db;margin-bottom:12px;">Size: ${(fileData.size/1024).toFixed(1)} KB — This document has not been altered since cryptographic sealing.</div>
+        <button onclick="showEvidenceModal('${filePath}')" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:8px 16px;border-radius:4px;font-family:monospace;font-size:0.8rem;cursor:pointer;">View Document ↗</button>
+      </div>
+    `;
+  } else {
+    result.style.display = 'block';
+    result.innerHTML = `
+      <div style="background:#450a0a;border:1px solid #7f1d1d;border-radius:6px;padding:16px;">
+        <div style="font-family:monospace;font-size:0.75rem;color:#f87171;font-weight:700;margin-bottom:8px;">✗ HASH NOT FOUND IN SEALED EVIDENCE REGISTRY</div>
+        <div style="font-size:0.82rem;color:#fca5a5;">This hash does not match any of the 881 sealed evidence files in this portfolio. The document may have been tampered with, or it is not part of this submission.</div>
+      </div>
+    `;
+  }
+}
+
 async function initPortal() {
   const root = document.getElementById('root');
 
