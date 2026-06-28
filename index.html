@@ -292,6 +292,16 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
+@media (min-width: 700px) {
+  .overview-logo {
+    filter: drop-shadow(0 0 28px rgba(201,147,58,0.5)) drop-shadow(0 12px 32px rgba(0,0,0,0.4));
+    animation: haloFloatDesktop 4s ease-in-out infinite;
+  }
+  @keyframes haloFloatDesktop {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
 </style>
 
 </head>
