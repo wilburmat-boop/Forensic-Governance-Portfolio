@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerText = text);
+}
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -272,6 +278,8 @@
         <button class="tab-btn" onclick="showPanel('part3', event)">Part 3 · Justice</button>
         <button class="tab-btn" onclick="showPanel('dashboard', event)">Dashboard · Evidence Vault</button>
         <button class="tab-btn" onclick="showReadme(event)">User Guide (Docs)</button>
+
+
 
     </div>
 </nav>
@@ -925,7 +933,19 @@ function loadCustomDoc(url) {
         document.getElementById('readme-content').innerHTML = "Error loading document.";
     });
 }
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerText = text);
+}
 </script>
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerText = text);
+}
 <script type="module" src="/src/main.js"></script>
 
 <script>
@@ -1055,6 +1075,12 @@ function loadCustomDoc(url) {
     .catch(err => {
         document.getElementById('readme-content').innerHTML = "Error loading document.";
     });
+}
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerText = text);
 }
 </script>
 
@@ -1281,8 +1307,15 @@ function loadCustomDoc(url) {
         document.getElementById('readme-content').innerHTML = "Error loading document.";
     });
 }
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerText = text);
+}
 </script>
 
+<div id="readme-panel" class="panel" style="display:none;"><div id="readme-content">Loading...</div></div>
 <div id="readme-panel" class="panel" style="display:none;"><div id="readme-content">Loading...</div></div>
 </body>
 </html><script>
@@ -1291,5 +1324,11 @@ function showReadme(event) {
     fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
     .then(response => response.text())
     .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
+}
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerText = text);
 }
 </script>
