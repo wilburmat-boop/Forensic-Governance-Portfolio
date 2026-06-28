@@ -930,20 +930,33 @@ async function loadRefData() {
   } catch(e) { console.log('Ref data load error:', e); }
 }
 
-function activateRefs() {
-  const REF_PATTERN = /\b([A-Z][0-9]{1,2})(?:\s*(?:;|&amp;)\s*[A-Z][0-9]{1,2})*\b/g;
+function makeRefsClickable(element) {
+  const REF_PATTERN = /\b([A-Z][0-9]{1,2})\b/g;
+  const html = element.innerHTML;
+  element.innerHTML = html.replace(REF_PATTERN, (match, code) => {
+    if (REF_MAP[code]) {
+      return `<span class="ref-link" onclick="showRefModal('${code}')" style="display:inline-block;background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:1px 7px;border-radius:3px;font-family:monospace;font-size:0.78rem;cursor:pointer;margin:1px;">${code}</span>`;
+    }
+    return match;
+  });
+}
 
-  document.querySelectorAll('td:last-child').forEach(td => {
-    const text = td.innerHTML;
-    td.innerHTML = text.replace(REF_PATTERN, (match) => {
-      const codes = match.split(/[;,&\s]+/).map(s => s.trim()).filter(s => /^[A-Z][0-9]{1,2}$/.test(s));
-      return codes.map(code => {
-        if (REF_MAP[code]) {
-          return `<span class="ref-link" onclick="showRefModal('${code}')" style="display:inline-block;background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:1px 7px;border-radius:3px;font-family:monospace;font-size:0.78rem;cursor:pointer;margin:1px;">${code}</span>`;
-        }
-        return `<span style="font-family:monospace;font-size:0.78rem;color:#6b7280;">${code}</span>`;
-      }).join(' ');
-    });
+function activateRefs() {
+  // Make table last-column refs clickable
+  document.querySelectorAll('td:last-child').forEach(td => makeRefsClickable(td));
+
+  // Make ALL evidence paragraphs clickable across all three parts
+  document.querySelectorAll('p, li, .evidence-card p, .sig-block p').forEach(el => {
+    if (el.innerHTML.match(/\b[A-Z][0-9]{1,2}\b/)) {
+      makeRefsClickable(el);
+    }
+  });
+
+  // Make evidence chain table cells clickable
+  document.querySelectorAll('td').forEach(td => {
+    if (td.innerHTML.match(/\b[A-Z][0-9]{1,2}\b/)) {
+      makeRefsClickable(td);
+    }
   });
 }
 
@@ -1146,11 +1159,30 @@ function activateDates() {
   });
 }
 
-// Run after ref system loads
-const origLoadRefData = window.loadRefData;
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(activateDates, 100);
+  setTimeout(() => {
+    activateDates();
+    activateAllDates();
+  }, 100);
 });
+
+function activateAllDates() {
+  // Match date patterns across ALL text in all three parts
+  const DATE_PATTERN = /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{4}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{4}|\d{4}-\d{2}-\d{2})\b/g;
+
+  document.querySelectorAll('td:first-child, p, li, h3, h4').forEach(el => {
+    const text = el.textContent.trim();
+    // Check if this element contains a date that exists in CHRONOLOGY
+    Object.keys(CHRONOLOGY).forEach(dateStr => {
+      if (text.includes(dateStr) && !el.querySelector('.date-link') && !el.closest('.date-link')) {
+        el.innerHTML = el.innerHTML.replace(
+          dateStr,
+          `<span class="date-link" onclick="showDateModal('${dateStr}')" style="cursor:pointer;color:#c9933a;border-bottom:1px dashed #c9933a;font-weight:600;">${dateStr}</span>`
+        );
+      }
+    });
+  });
+}
 </script>
 
 </body>
