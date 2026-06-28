@@ -1290,7 +1290,7 @@ function loadCustomDoc(url) {
 <script>
 function showReadme(event) {
     showPanel("readme-panel", event);
-    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/PORTFOLIO_USER_GUIDE.md")
     .then(response => response.text())
     .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
 }
