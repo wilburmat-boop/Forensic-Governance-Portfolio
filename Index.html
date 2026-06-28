@@ -267,7 +267,8 @@
 <!-- NAV TABS -->
 <nav class="nav-tabs">
     <div class="tabs-inner">
-        <button class="tab-btn active" onclick="showPanel('part1', event)">Part 1 · Foundation</button>
+        <button class="tab-btn active" onclick="showPanel('landing', event)">🏠 Overview</button>
+        <button class="tab-btn" onclick="showPanel('part1', event)">Part 1 · Foundation</button>
         <button class="tab-btn" onclick="showPanel('part2', event)">Part 2 · Regulators</button>
         <button class="tab-btn" onclick="showPanel('part3', event)">Part 3 · Justice</button>
         <button class="tab-btn" onclick="showPanel('dashboard', event)">Dashboard · Evidence Vault</button>
@@ -279,8 +280,33 @@
 <!-- MAIN -->
 <main class="main">
 
+    <!-- ============ LANDING ============ -->
+    <div id="landing" class="panel active">
+        <div class="container">
+
+            <!-- Logo and Header -->
+            <div style="text-align:center; padding: 3em 0 2em;">
+                <img src="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg" alt="EthicHawks Logo" style="height:80px; width:auto; margin-bottom:1.5em;">
+                <div style="background: var(--navy); border: 3px solid var(--gold); padding: 1.5em 2em; margin-bottom: 1.5em; display:inline-block; min-width:300px;">
+                    <div style="font-family: var(--mono); font-size:0.75rem; color: var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.5em;">EthicHawks Forensic Governance & Compliance Consultancy</div>
+                    <div style="font-family: var(--serif); font-size:1.8rem; font-weight:700; color: white; line-height:1.3;">Consolidated Forensic<br>Oversight Report</div>
+                    <div style="font-family: var(--mono); font-size:0.8rem; color: rgba(255,255,255,0.6); margin-top:0.5em;">Parliamentary Submission · June 2026</div>
+                </div>
+                <div style="margin-top:1em;">
+                    <a href="https://github.com/wilburmat-boop/Forensic-Governance-Portfolio" target="_blank" style="font-family:var(--mono); font-size:0.85rem; color:var(--gold); text-decoration:none; border:1px solid var(--gold); padding:0.5em 1.2em; border-radius:3px;">⚙ github.com/wilburmat-boop/Forensic-Governance-Portfolio</a>
+                </div>
+            </div>
+
+            <!-- User Guide content rendered here -->
+            <div id="user-guide-content" style="max-width:800px; margin:0 auto;">
+                <div style="text-align:center; color:var(--steel); font-family:var(--mono); font-size:0.85rem;">Loading user guide...</div>
+            </div>
+
+        </div>
+    </div>
+
     <!-- ============ PART 1 ============ -->
-    <div id="part1" class="panel active">
+    <div id="part1" class="panel">
         <div class="container">
 
             <!-- TITLE -->
@@ -1056,6 +1082,22 @@ function showRefModal(code) {
 }
 
 document.addEventListener('DOMContentLoaded', loadRefData);
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/PORTFOLIO_USER_GUIDE.md')
+    .then(r => r.text())
+    .then(text => {
+      const el = document.getElementById('user-guide-content');
+      if (el && window.marked) {
+        el.innerHTML = marked.parse(text);
+      } else if (el) {
+        el.innerHTML = '<pre style="white-space:pre-wrap;font-family:var(--sans);color:var(--ink);">' + text + '</pre>';
+      }
+    })
+    .catch(() => {
+      const el = document.getElementById('user-guide-content');
+      if (el) el.innerHTML = '<p style="color:var(--steel);">User guide loading...</p>';
+    });
+});
 
 function loadCustomDoc(url) {
     document.getElementById('readme-content').innerHTML = "Loading...";
@@ -1249,6 +1291,20 @@ function showDateModal(dateStr) {
 
 // Activate clickable dates in chronology tables
 function activateDates() {
+  document.querySelectorAll('td:first-child').forEach(td => {
+    const text = td.textContent.trim();
+    if (CHRONOLOGY[text] && !td.querySelector('.date-link')) {
+      td.innerHTML = '';
+      const span = document.createElement('span');
+      span.className = 'date-link';
+      span.textContent = text;
+      span.style.cssText = 'cursor:pointer;color:#c9933a;border-bottom:1px dashed #c9933a;font-weight:600;';
+      span.addEventListener('click', () => showDateModal(text));
+      td.appendChild(span);
+    }
+  });
+}
+function activateDates_OLD() {
   document.querySelectorAll('table td:first-child').forEach(td => {
     const text = td.textContent.trim();
     if (CHRONOLOGY[text]) {
