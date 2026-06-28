@@ -270,7 +270,8 @@
         <button class="tab-btn" onclick="showPanel('part2', event)">Part 2 · Regulators</button>
         <button class="tab-btn" onclick="showPanel('part3', event)">Part 3 · Justice</button>
         <button class="tab-btn" onclick="showPanel('dashboard', event)">Dashboard · Evidence Vault</button>
-        <button class="tab-btn" onclick="window.open('https://github.com/wilburmat-boop/Forensic-Governance-Portfolio/blob/main/README.md', '_blank')">User Guide (Docs)</button>
+        <button class="tab-btn" onclick="showReadme(event)">User Guide (Docs)</button>
+
     </div>
 </nav>
 
@@ -910,7 +911,19 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerText = text);
+}
 </script>
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerText = text);
+}
 <script type="module" src="/src/main.js"></script>
 
 <script>
@@ -1028,6 +1041,12 @@ function showRefModal(code) {
 }
 
 document.addEventListener('DOMContentLoaded', loadRefData);
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerText = text);
+}
 </script>
 
 
@@ -1240,7 +1259,14 @@ function activateAllDates() {
     });
   });
 }
+function showReadme(event) {
+    showPanel("readme-panel", event);
+    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
+    .then(response => response.text())
+    .then(text => document.getElementById("readme-content").innerText = text);
+}
 </script>
 
+<div id="readme-panel" class="panel" style="display:none;"><div id="readme-content">Loading...</div></div>
 </body>
 </html>
