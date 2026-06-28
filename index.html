@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EthicHawks · Consolidated Forensic Oversight Report · June 2026</title>
@@ -915,14 +916,14 @@ function showReadme(event) {
     showPanel("readme-panel", event);
     fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
     .then(response => response.text())
-    .then(text => document.getElementById("readme-content").innerText = text);
+    .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
 }
 </script>
 function showReadme(event) {
     showPanel("readme-panel", event);
     fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
     .then(response => response.text())
-    .then(text => document.getElementById("readme-content").innerText = text);
+    .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
 }
 <script type="module" src="/src/main.js"></script>
 
@@ -1045,7 +1046,7 @@ function showReadme(event) {
     showPanel("readme-panel", event);
     fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
     .then(response => response.text())
-    .then(text => document.getElementById("readme-content").innerText = text);
+    .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
 }
 </script>
 
@@ -1263,7 +1264,7 @@ function showReadme(event) {
     showPanel("readme-panel", event);
     fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/README.md")
     .then(response => response.text())
-    .then(text => document.getElementById("readme-content").innerText = text);
+    .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
 }
 </script>
 
