@@ -1111,6 +1111,7 @@ function showRefModal(code) {
 }
 
 document.addEventListener('DOMContentLoaded', loadRefData);
+document.addEventListener('DOMContentLoaded', () => setTimeout(activateGlossaryTags, 300));
 document.addEventListener('DOMContentLoaded', function() {
   fetch('https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/PORTFOLIO_USER_GUIDE.md')
     .then(r => r.text())
@@ -1396,6 +1397,189 @@ function loadCustomDoc(url) {
 
 <div id="readme-panel" class="panel"><div id="readme-content">Loading...</div></div>
 <script src="part1.js"></script>
+
+<script>
+const LEGAL_GLOSSARY = {
+  "PERJURY": {
+    term: "Perjury",
+    plain: "Lying under oath in a sworn legal document or court proceeding.",
+    context: "In this matter, Gerald van Wyk (Group CEO) and LSM Mpumlwana (Company Secretary) made sworn statements in court documents that are contradicted by primary source evidence — including recruitment advertisements and Medscheme's own Root Cause Analysis.",
+    statute: "Perjury Act 1 of 1981; Criminal Procedure Act Section 319"
+  },
+  "CRIMINAL": {
+    term: "Criminal Conduct",
+    plain: "Conduct that violates the criminal law and may result in prosecution and imprisonment.",
+    context: "Multiple criminal referrals have been filed in this matter — including SAPS CAS 705/3/2026 and a referral to the Specialised Commercial Crimes Unit (SCCU) and Directorate for Priority Crime Investigation (DNPA) on 28 May 2026.",
+    statute: "Criminal Procedure Act 51 of 1977; Companies Act Section 214"
+  },
+  "Fraud on the Court": {
+    term: "Fraud on the Court",
+    plain: "Deliberately deceiving a court by concealing material facts or evidence, leading the court to make an order it would not otherwise have made.",
+    context: "Deneys Reitz Inc. approached the Western Cape High Court on an ex parte basis (without notice to the other side) and concealed the complainant's answering affidavit from the court. The court was not informed that the matter was opposed, and granted the interim interdict on that basis.",
+    statute: "Uniform Rules of Court Rule 6(2); Common law — ex parte applications"
+  },
+  "Biowatch Violation": {
+    term: "Biowatch Principle",
+    plain: "A constitutional principle established by the Constitutional Court that protects citizens from being ordered to pay costs when they raise constitutional rights against the state or powerful institutions. An indigent litigant raising constitutional issues should not be deterred by the threat of costs.",
+    context: "Scale C costs are threatened against the complainant — a destitute, self-represented litigant raising constitutional issues including the right to petition Parliament and the right of access to courts. This appears to violate the Biowatch principle.",
+    statute: "Biowatch Trust v Registrar Genetic Resources 2009 (6) SA 232 (CC)"
+  },
+  "Contempt Trap": {
+    term: "Contempt Trap",
+    plain: "A procedural manoeuvre that places a litigant in an impossible position — where complying with one legal obligation forces them to violate another, creating grounds for contempt of court.",
+    context: "The CMS demanded a new complaint form after the High Court interim order was granted. Submitting a new complaint would require the complainant to repeat the protected disclosures that the court order restrains — exposing him to contempt proceedings.",
+    statute: "Contempt of Court; High Court Rules"
+  },
+  "Ex Parte": {
+    term: "Ex Parte Application",
+    plain: "A court application brought by one party without notice to or presence of the other party. These are only permissible in urgent circumstances and require full disclosure of all material facts.",
+    context: "Deneys Reitz brought the interdict application ex parte — without notifying the complainant. They were obliged to disclose all material facts including the existence of the complainant's answering affidavit. They did not.",
+    statute: "Uniform Rules of Court Rule 6(2); Ex parte applications principles"
+  },
+  "Rule Nisi": {
+    term: "Rule Nisi",
+    plain: "A provisional court order that operates immediately but requires the respondent to appear on a return date to show cause why it should not be made final. Latin for 'unless'.",
+    context: "The Western Cape High Court issued a rule nisi on 16 April 2026 — extended to 1 March 2027. This imposed 11 months of silence on a protected whistleblower while the clinical risk to 1.9 million GEMS beneficiaries continued unaddressed.",
+    statute: "Uniform Rules of Court Rule 6(8)"
+  },
+  "Constructive Dismissal": {
+    term: "Constructive Dismissal",
+    plain: "When an employer makes working conditions so intolerable that the employee has no reasonable alternative but to resign. The law treats this as a dismissal by the employer.",
+    context: "The complainant resigned on 12 December 2025 citing LRA Section 186(1)(e) after a sustained pattern of retaliation including unlawful salary deduction, gender harassment, insubordination labelling, and suppression of protected disclosures.",
+    statute: "Labour Relations Act Section 186(1)(e)"
+  },
+  "Chapter 9 Abdication": {
+    term: "Chapter 9 Institution",
+    plain: "Independent constitutional bodies established under Chapter 9 of the South African Constitution to support democracy and protect constitutional rights — including the SAHRC, Public Protector, and Auditor-General.",
+    context: "The South African Human Rights Commission (SAHRC) is a Chapter 9 institution with the power to initiate its own investigations under Section 14 of the SAHRC Act. Despite acknowledging the seriousness of the concerns, the SAHRC did not exercise this power — constituting an abdication of its constitutional mandate.",
+    statute: "Constitution Section 181; SAHRC Act Section 14"
+  },
+  "Regulatory Capture": {
+    term: "Regulatory Capture",
+    plain: "A phenomenon where a regulatory body, created to act in the public interest, instead advances the interests of the industry or entities it is supposed to regulate — through inaction, selective enforcement, or outright complicity.",
+    context: "All 16 institutions approached in this matter acknowledged the concerns raised but provided zero remedies. This coordinated pattern of acknowledgement without action constitutes the Institutional Silence construct documented in the Wilbur Method™ — a forensic indicator of systemic regulatory capture.",
+    statute: "PFMA Section 38; Public Audit Act; King IV Principle 11"
+  },
+  "Attrition Strategy Documented": {
+    term: "Litigation by Attrition",
+    plain: "A litigation strategy where a powerful party deliberately prolongs proceedings, makes unreasonable demands, and exploits the opposing party's lack of resources — with the aim of exhausting them into abandoning their claim.",
+    context: "Between 13-20 June 2026, Deneys Reitz Inc. engaged in dilatory delay, asymmetrical evidentiary demands, and refused to commit to binding resolution — despite initiating settlement discussions. This conduct is documented in primary source emails and constitutes procedural bad faith.",
+    statute: "LRA Section 158; Calderbank principle; Legal Practice Act"
+  },
+  "BCEA Cap Not Enforced": {
+    term: "BCEA Section 34(2) — 25% Deduction Cap",
+    plain: "The Basic Conditions of Employment Act limits salary deductions to 25% of an employee's remuneration in any pay period. Any deduction exceeding this cap is unlawful regardless of employer policy.",
+    context: "The employer deducted 40.47% of the complainant's salary on 23 July 2025 — exceeding the statutory cap by 15.47 percentage points. The employer admitted 'our policy doesn't permit for staggering.' The DEL failed to enforce this statutory protection.",
+    statute: "Basic Conditions of Employment Act Section 34(2)"
+  },
+  "Gag Order": {
+    term: "Gag Order (Interim Interdict)",
+    plain: "A court order restraining a person from disclosing certain information or taking certain actions, pending the final determination of a dispute.",
+    context: "The Western Cape High Court granted an interim interdict on 16 April 2026 restraining the complainant from disclosing the systemic clinical risk — obtained by concealing his answering affidavit from the court. This order overrides the protections of PDA Section 9 and imposes 11 months of silence.",
+    statute: "PDA Section 9; Constitution Section 16; Uniform Rules Rule 6"
+  },
+  "Ministerial Silence": {
+    term: "Ministerial Silence",
+    plain: "The failure of a government minister to respond to a formal communication on a matter within their statutory mandate.",
+    context: "The Minister of Justice published the Protected Disclosures Bill 2026 promising to protect whistleblowers. Two weeks later, the complainant called her office, spoke to her assistant, sent an email detailing homelessness and starvation. No reply was received. The guardian of the PDA did not protect the whistleblower who called her for help.",
+    statute: "Protected Disclosures Act; PAJA Section 6 — duty to act"
+  },
+  "Market Deception": {
+    term: "Market Deception / False Disclosure",
+    plain: "The publication of materially false statements in documents submitted to financial markets — including annual reports, SENS announcements, or regulatory filings — that mislead investors and the public.",
+    context: "AfroCentric's Board approved its Integrated Annual Report 2025 claiming 'both platforms fully integrated' and 'no material ESG-related incidents' — despite having been formally served with the Priority 1 Material Risk Report, the Root Cause Analysis, and active litigation across multiple forums.",
+    statute: "JSE Listings Requirements; Companies Act Section 29; Financial Markets Act"
+  },
+  "NHI RISK": {
+    term: "NHI Governance Risk",
+    plain: "A identified risk that the systemic governance failures documented in this matter will replicate within the National Health Insurance system — which will manage R200 billion annually.",
+    context: "The same patterns of regulatory capture, suppression of clinical whistleblowers, false accreditation statements, and undefined investigation units that enabled the failures in this case are already present in the institutions that will govern NHI implementation.",
+    statute: "NHI Act Sections 20, 39, 40, 57; PFMA Section 38"
+  },
+  "Biased Commissioner": {
+    term: "Commissioner Bias / Prejudgment",
+    plain: "When a presiding officer in a quasi-judicial body (such as the CCMA) demonstrates a predetermined view of the case before hearing evidence — violating the principle of impartiality.",
+    context: "Commissioner Ntabiseng Ngwane declared 'there is nothing here that relates to a protected disclosure' before hearing any evidence. She also told a destitute self-represented litigant to 'Google it' when he asked for procedural guidance.",
+    statute: "LRA Section 138; CCMA Rules; audi alteram partem principle"
+  },
+  "Deregistration": {
+    term: "Professional Deregistration",
+    plain: "The removal of a professional from their regulatory body's register — preventing them from practising their profession lawfully.",
+    context: "The South African Nursing Council deregistered the complainant for non-payment of R870 in annual fees — a direct consequence of the employer's unlawful 40.47% salary deduction. This deregistration compounds the harm caused by the employer's statutory breach.",
+    statute: "Nursing Act Section 31; BCEA Section 34(2)"
+  },
+  "Whistleblower": {
+    term: "Whistleblower / Protected Disclosure",
+    plain: "A person who discloses information about wrongdoing in an organisation to an appropriate authority. A protected disclosure is one made in good faith under the Protected Disclosures Act.",
+    context: "Sr. Wilbur William Matthee made a protected disclosure on 23 October 2025 when he identified the Gexus-DMS clinical data integrity failure affecting 1.9 million GEMS beneficiaries and refused to contact a patient using false data.",
+    statute: "Protected Disclosures Act 26 of 2000 Section 3"
+  },
+  "Fraud Architecture": {
+    term: "Fraud Architecture",
+    plain: "A systemic structure — whether intentional or through negligence — that enables fraud to occur and persist without detection or consequence.",
+    context: "The Gexus-DMS integration gap was reported, confirmed by Root Cause Analysis, suppressed by the CRO, denied in sworn affidavits, and then falsely reported as resolved in the Integrated Annual Report 2025. This constitutes a multi-layered fraud architecture operating at board level.",
+    statute: "Companies Act Section 76; King IV Principle 11; NHI Act Section 40"
+  }
+};
+
+function showGlossaryModal(term) {
+  const existing = document.getElementById('glossary-modal');
+  if (existing) existing.remove();
+
+  const entry = LEGAL_GLOSSARY[term] || LEGAL_GLOSSARY[Object.keys(LEGAL_GLOSSARY).find(k => k.toLowerCase() === term.toLowerCase())];
+  if (!entry) return;
+
+  const modal = document.createElement('div');
+  modal.id = 'glossary-modal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.88);z-index:3000;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;';
+
+  modal.innerHTML = `
+    <div style="background:#0b0f19;border:1px solid #c9933a;border-radius:8px;width:100%;max-width:700px;font-family:ui-sans-serif,system-ui,sans-serif;">
+      <div style="background:#111827;padding:14px 20px;border-bottom:1px solid #1f2937;display:flex;justify-content:space-between;align-items:center;border-radius:8px 8px 0 0;">
+        <div style="font-family:monospace;font-size:0.75rem;color:#c9933a;font-weight:700;letter-spacing:0.08em;">⚖️ LEGAL GLOSSARY · PARLIAMENTARY REFERENCE</div>
+        <button onclick="document.getElementById('glossary-modal').remove()" style="background:none;border:1px solid #374151;color:#9ca3af;padding:4px 12px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.8rem;">✕ Close</button>
+      </div>
+      <div style="padding:20px;border-bottom:1px solid #1f2937;">
+        <div style="font-size:1.3rem;font-weight:800;color:#f9fafb;margin-bottom:4px;">${entry.term}</div>
+        <div style="background:#030712;border-left:3px solid #c9933a;padding:12px 16px;border-radius:0 4px 4px 0;margin-top:12px;">
+          <div style="font-family:monospace;font-size:0.7rem;color:#c9933a;font-weight:700;margin-bottom:6px;">PLAIN LANGUAGE DEFINITION</div>
+          <div style="color:#e5e7eb;font-size:0.92rem;line-height:1.6;">${entry.plain}</div>
+        </div>
+      </div>
+      <div style="padding:20px;border-bottom:1px solid #1f2937;background:#030712;">
+        <div style="font-family:monospace;font-size:0.7rem;color:#34d399;font-weight:700;margin-bottom:8px;">IN THIS MATTER</div>
+        <div style="color:#d1d5db;font-size:0.88rem;line-height:1.6;">${entry.context}</div>
+      </div>
+      <div style="padding:16px 20px;">
+        <div style="font-family:monospace;font-size:0.7rem;color:#6b7280;font-weight:700;margin-bottom:6px;">STATUTORY / LEGAL REFERENCE</div>
+        <div style="color:#93c5fd;font-family:monospace;font-size:0.8rem;">${entry.statute}</div>
+      </div>
+    </div>
+  `;
+
+  modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+  document.body.appendChild(modal);
+}
+
+// Make all tag spans clickable with glossary
+function activateGlossaryTags() {
+  document.querySelectorAll('.tag').forEach(tag => {
+    const text = tag.textContent.trim();
+    const key = Object.keys(LEGAL_GLOSSARY).find(k =>
+      k.toLowerCase() === text.toLowerCase() ||
+      text.toLowerCase().includes(k.toLowerCase()) ||
+      k.toLowerCase().includes(text.toLowerCase())
+    );
+    if (key) {
+      tag.style.cursor = 'pointer';
+      tag.title = 'Click for definition';
+      tag.style.borderBottom = '1px dashed currentColor';
+      tag.addEventListener('click', () => showGlossaryModal(key));
+    }
+  });
+}
+</script>
+
 </body>
 <script>
 function showReadme(event) {
