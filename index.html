@@ -89,7 +89,7 @@ td { padding: 10px 12px; border-bottom: 1px solid var(--rule); }
 <main class="main">
 
 <!-- LANDING PANEL -->
-<div id="landing" class="panel active" style="outline: 5px solid red; min-height: 200px;">
+<div id="landing" class="panel active" >
   <div class="container">
     <div style="text-align:center; padding: 2em 0 1.5em;">
       <img src="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg" alt="EthicHawks Logo" class="overview-logo" style="width:100%; height:auto; max-width:100%; object-fit:contain; margin-bottom:1.5em;">
@@ -973,5 +973,7 @@ document.addEventListener('DOMContentLoaded', function() {
   showPanel('landing', {currentTarget: landingBtn});
 });
 </script>
+<script>window.onerror = function(m) { document.body.insertAdjacentHTML("beforeend", "<p style=color:red>JS Error: " + m + "</p>"); };</script>
+<script src="/src/main.js"></script>
 </body>
 </html>

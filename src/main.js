@@ -454,14 +454,14 @@ async function initPortal() {
 
   try {
     const [hashRes, kwRes, dateRes] = await Promise.all([
-      fetch('/hash_manifest.sha256'),
+      fetch('/Forensic_manifest.json'),
       fetch('/keyword_index.json'),
       fetch('/date_index.json')
     ]);
     const hashData = await hashRes.json();
     const kwData = await kwRes.json();
     const dateData = await dateRes.json();
-    HASH_MANIFEST = hashData.files || {};
+    HASH_MANIFEST = {}; (Array.isArray(hashData)?hashData:[]).forEach(f=>{HASH_MANIFEST[f.path]=f;});
     KEYWORD_INDEX = kwData.index || {};
     DATE_INDEX = dateData || {};
     renderVault();

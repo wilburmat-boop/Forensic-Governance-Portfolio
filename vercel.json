@@ -1,5 +1,7 @@
 {
-  "buildCommand": null,
   "outputDirectory": ".",
-  "framework": null
+  "framework": null,
+  "rewrites": [
+    { "source": "/02_Evidence_Core/(.*)", "destination": "/dist/02_Evidence_Core/$1" }
+  ]
 }
