@@ -893,5 +893,117 @@ function showReadme(e) {
   // placeholder – will load user guide later
 }
 </script>
+
+<script>
+// ==========================================
+// Tab switching
+// ==========================================
+function showPanel(id, e) {
+  // Hide all panels
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  // Show the requested panel
+  var target = document.getElementById(id);
+  if (target) target.classList.add('active');
+  // Highlight the clicked tab button
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  if (e && e.currentTarget) e.currentTarget.classList.add('active');
+}
+
+// ==========================================
+// Evidence modal
+// ==========================================
+function showEvidenceModal(filePath) {
+  // Remove any existing modal
+  var existing = document.getElementById('evidence-modal');
+  if (existing) existing.remove();
+  
+  var fileUrl = '/' + filePath.split('/').map(function(p) { return encodeURIComponent(p); }).join('/');
+  var filename = filePath.split('/').pop();
+  var ext = filename.split('.').pop().toLowerCase();
+  
+  var modal = document.createElement('div');
+  modal.id = 'evidence-modal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;';
+  
+  // Close button
+  var closeBtn = document.createElement('button');
+  closeBtn.textContent = '✕ Close';
+  closeBtn.style.cssText = 'background:none;border:1px solid #374151;color:#9ca3af;padding:4px 12px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.8rem;position:absolute;top:12px;right:16px;z-index:10;';
+  closeBtn.onclick = function() { modal.remove(); };
+  modal.appendChild(closeBtn);
+  
+  // Content area
+  var content = document.createElement('div');
+  content.style.cssText = 'max-width:90vw;max-height:80vh;overflow:auto;background:#0d1f3c;border:1px solid #c9933a;border-radius:6px;padding:16px;text-align:center;';
+  
+  // AUDIO files
+  if (['mp3','wav','ogg','m4a','aac','flac'].indexOf(ext) !== -1) {
+    var audio = document.createElement('audio');
+    audio.controls = true;
+    audio.style.cssText = 'width:100%;max-width:600px;';
+    var source = document.createElement('source');
+    source.src = fileUrl;
+    source.type = 'audio/' + (ext === 'm4a' ? 'mp4' : ext);
+    audio.appendChild(source);
+    content.appendChild(audio);
+    content.innerHTML += '<p style="color:#c9933a;font-family:monospace;font-size:0.85rem;margin-top:12px;">🎙️ ' + filename + '</p>';
+  }
+  // VIDEO files
+  else if (['mp4','webm','mov','avi'].indexOf(ext) !== -1) {
+    var video = document.createElement('video');
+    video.controls = true;
+    video.style.cssText = 'width:100%;max-width:800px;max-height:70vh;';
+    var source = document.createElement('source');
+    source.src = fileUrl;
+    source.type = 'video/' + (ext === 'mov' ? 'mp4' : ext);
+    video.appendChild(source);
+    content.appendChild(video);
+    content.innerHTML += '<p style="color:#c9933a;font-family:monospace;font-size:0.85rem;margin-top:12px;">🎬 ' + filename + '</p>';
+  }
+  // IMAGES
+  else if (['jpg','jpeg','png','gif','webp','svg'].indexOf(ext) !== -1) {
+    var img = document.createElement('img');
+    img.src = fileUrl;
+    img.style.cssText = 'max-width:100%;max-height:70vh;border:1px solid #1f2937;border-radius:6px;';
+    content.appendChild(img);
+  }
+  // PDF
+  else if (ext === 'pdf') {
+    var iframe = document.createElement('iframe');
+    iframe.src = fileUrl;
+    iframe.style.cssText = 'width:100%;height:600px;border:1px solid #1f2937;border-radius:6px;background:white;';
+    content.appendChild(iframe);
+  }
+  // OTHER (download link)
+  else {
+    var link = document.createElement('a');
+    link.href = fileUrl;
+    link.target = '_blank';
+    link.textContent = '↗ Open ' + filename;
+    link.style.cssText = 'background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:10px 20px;border-radius:6px;text-decoration:none;font-family:monospace;font-size:0.85rem;display:inline-block;';
+    content.appendChild(link);
+  }
+  
+  // External link
+  var extLink = document.createElement('div');
+  extLink.style.cssText = 'margin-top:12px;';
+  extLink.innerHTML = '<a href="' + fileUrl + '" target="_blank" style="color:#3b82f6;font-family:monospace;font-size:0.8rem;">↗ Open in new tab</a>';
+  content.appendChild(extLink);
+  
+  modal.appendChild(content);
+  document.body.appendChild(modal);
+  
+  // Close on background click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) modal.remove();
+  });
+}
+
+// Activate the first tab (Overview) on load
+document.addEventListener('DOMContentLoaded', function() {
+  showPanel('landing', {currentTarget: document.querySelector('.tab-btn.active')});
+});
+</script>
+
 </body>
 </html>
