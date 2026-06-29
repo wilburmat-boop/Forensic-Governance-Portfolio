@@ -88,25 +88,51 @@ td { padding: 10px 12px; border-bottom: 1px solid var(--rule); }
 <main class="main">
 
 <!-- LANDING PANEL -->
-<div id="landing" class="panel active" >
-  <div class="container">
-    <div style="text-align:center; padding: 2em 0 1.5em;">
-      <img src="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg" alt="EthicHawks Logo" class="overview-logo" style="width:100%; height:auto; max-width:100%; object-fit:contain; margin-bottom:1.5em;">
+<div id="landing" class="panel active">
+  <div class="container" style="text-align:center; padding: 2em 1em;">
+
+    <!-- LOGO -->
+    <div style="padding: 1.5em 0 1em;">
+      <img src="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg" alt="EthicHawks Logo" class="overview-logo" style="max-width:160px; height:auto; object-fit:contain; margin-bottom:1.2em;">
     </div>
-    <div style="background: var(--navy); border: 3px solid var(--gold); padding: 1.5em 2em; margin-bottom: 1.5em; display:inline-block; min-width:300px;">
-      <div style="font-family: var(--mono); font-size:0.75rem; color: var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.5em;">EthicHawks Forensic Governance & Compliance Consultancy</div>
-      <div style="font-family: var(--serif); font-size:1.8rem; font-weight:700; color: white; line-height:1.3;">Consolidated Forensic<br>Oversight Report</div>
-      <div style="font-family: var(--mono); font-size:0.8rem; color: rgba(255,255,255,0.6); margin-top:0.5em;">Parliamentary Submission · June 2026</div>
+
+    <!-- TITLE BLOCK -->
+    <div style="background: var(--navy); border: 3px solid var(--gold); padding: 1.5em 2em; margin: 0 auto 2em; display:inline-block; max-width:600px; width:100%;">
+      <div style="font-family: var(--mono); font-size:0.7rem; color: var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.5em;">EthicHawks Forensic Governance & Compliance Consultancy</div>
+      <div style="font-family: var(--serif); font-size:1.7rem; font-weight:700; color: white; line-height:1.3;">Consolidated Forensic<br>Oversight Report</div>
+      <div style="font-family: var(--mono); font-size:0.75rem; color: rgba(255,255,255,0.6); margin-top:0.5em;">Parliamentary Submission · June 2026</div>
     </div>
-    <div style="margin-top:1em;">
-      <a href="https://github.com/wilburmat-boop/Forensic-Governance-Portfolio" target="_blank" style="font-family:var(--mono); font-size:0.85rem; color:var(--gold); text-decoration:none; border:1px solid var(--gold); padding:0.5em 1.2em; border-radius:3px;">Forensic Governance Portfolio</a>
+
+    <!-- LANGUAGE SELECTOR HEADING -->
+    <div style="font-family: var(--mono); font-size:0.75rem; color: var(--steel); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1em;">
+      Select your language · Kies u taal · Khetha ulimi lwakho
     </div>
+
+    <!-- LANGUAGE GRID -->
+    <div id="lang-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:0.75em; max-width:700px; margin: 0 auto 2em;">
+      <button onclick="setLang('en')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 English</button>
+      <button onclick="setLang('af')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 Afrikaans</button>
+      <button onclick="setLang('zu')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 isiZulu</button>
+      <button onclick="setLang('xh')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 isiXhosa</button>
+      <button onclick="setLang('st')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 Sesotho</button>
+      <button onclick="setLang('tn')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 Setswana</button>
+      <button onclick="setLang('nso')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 Sepedi</button>
+      <button onclick="setLang('ss')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 siSwati</button>
+      <button onclick="setLang('ve')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 Tshivenda</button>
+      <button onclick="setLang('ts')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 Xitsonga</button>
+      <button onclick="setLang('nr')" style="font-family:var(--mono); font-size:0.85rem; background:var(--navy); color:var(--gold); border:2px solid var(--gold); padding:0.75em 1em; border-radius:4px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">🇿🇦 isiNdebele</button>
+    </div>
+
+    <!-- NAVIGATION GUIDE (shown after language selection) -->
+    <div id="lang-guide" style="display:none; text-align:left; max-width:700px; margin:0 auto; background:var(--paper); border:2px solid var(--gold); padding:2em; border-radius:4px;">
+      <div id="lang-content"></div>
+      <div style="margin-top:2em; padding-top:1.5em; border-top:1px solid var(--rule);">
+        <div style="font-family:var(--mono); font-size:0.7rem; color:var(--steel); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1em;" id="nav-heading"></div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:0.5em;" id="nav-buttons"></div>
+      </div>
+    </div>
+
   </div>
-</div>
-<div style="margin-top:1em;">
-<a href="https://github.com/wilburmat-boop/Forensic-Governance-Portfolio" target="_blank" style="font-family:var(--mono); font-size:0.85rem; color:var(--gold); text-decoration:none; border:1px solid var(--gold); padding:0.5em 1.2em; border-radius:3px;">Forensic Governance Portfolio</a>
-</div>
-</div>
 </div>
 
 <!-- PART 1 -->
@@ -971,6 +997,116 @@ document.addEventListener('DOMContentLoaded', function() {
   var landingBtn = document.querySelector('.tab-btn.active');
   showPanel('landing', {currentTarget: landingBtn});
 });
+
+// ===== LANGUAGE SELECTOR =====
+const langData = {
+  en: {
+    title: "Welcome to the EthicHawks Forensic Governance Portfolio",
+    body: "This portfolio is a parliamentary-grade forensic evidence submission documenting the total collapse of South Africa's governance guardrails. It is organised into the following sections. Please use the navigation tabs at the top to move between sections.",
+    navHeading: "Navigate to a section:",
+    tabs: ["Overview","Part 1 · Foundation","Part 2 · Regulators","Part 3 · Justice","Dashboard · Evidence Vault","Labour Court","Defence","High Court","User Guide"]
+  },
+  af: {
+    title: "Welkom by die EthicHawks Forensiese Beheerportefeulje",
+    body: "Hierdie portefeulje is 'n parlementêre forensiese bewysindiening wat die totale ineenstorting van Suid-Afrika se bestuurswaghonde dokumenteer. Dit is in die volgende afdelings georganiseer. Gebruik die navigasie-oortjies bo-aan om tussen afdelings te beweeg.",
+    navHeading: "Navigeer na 'n afdeling:",
+    tabs: ["Oorsig","Deel 1 · Grondslag","Deel 2 · Reguleerders","Deel 3 · Justisie","Bewyskluis","Arbeidshof","Verdediging","Hooggeregshof","Gebruikersgids"]
+  },
+  zu: {
+    title: "Siyakwamukela ku-EthicHawks Forensic Governance Portfolio",
+    body: "Le portfolio iyisethulo sobufakazi be-forensic esizingeni sepalamente esibhala ukuwa okuphelele kwezinhlaka zokuphatha zaseNingizimu Afrika. Ilungiselelwe izigaba ezilandelayo. Sicela usebenzise izithuba zokukhomba phezulu ukuze uhambele phakathi kwezigaba.",
+    navHeading: "Yiya esigabeni:",
+    tabs: ["Uhlolojikelele","Ingxenye 1 · Isisekelo","Ingxenye 2 · Abalawuli","Ingxenye 3 · Ubulungiswa","Igumbi Lobufakazi","Inkantolo Yabasebenzi","Ukuzivikela","INkantolo Ephakeme","Umhlahlandlela"]
+  },
+  xh: {
+    title: "Wamkelekile kwi-EthicHawks Forensic Governance Portfolio",
+    body: "Le portfolio sisibonelelo sobungqina be-forensic kwizinga lePalamente esibhala ukuwa okupheleleyo kweenguqu zolawulo lweMzantsi Afrika. Ilungiselelwe iicandelo ezilandelayo. Nceda usebenzise iitab zokukhangela ngaphezulu ukuhamba phakathi kwezigaba.",
+    navHeading: "Khangela icandelo:",
+    tabs: ["Uphononongo","Icandelo 1 · Isiseko","Icandelo 2 · Abarholayo","Icandelo 3 · Ubulungisa","Igumbi Lobungqina","Inkundla Yabasebenzi","Ukuzikhusela","INkundla Ephakamileyo","Umhlahlandlela"]
+  },
+  st: {
+    title: "Rea u amohela ho EthicHawks Forensic Governance Portfolio",
+    body: "Portfolio ena ke tlhahiso ya bohlatsi ba forensic ya boemo ba Palamente e hlalosang ho wa ha botlalo ha dipolokelo tsa puso ya Afrika Borwa. E hlophisitswe ka dikarolo tse latelang. Ka kopo sebedisa di-tab tsa tsamaiso ka holimo ho tsamaea pakeng tsa dikarolo.",
+    navHeading: "Tsamaea ho karolo:",
+    tabs: ["Bohloko","Karolo 1 · Motheo","Karolo 2 · Balokisi","Karolo 3 · Toka","Bodulo ba Bohlatsi","Kgotla ya Basebetsi","Tshireletso","Kgotla e Kholohali","Tataiso"]
+  },
+  tn: {
+    title: "Re a go amogela mo EthicHawks Forensic Governance Portfolio",
+    body: "Portfolio eno ke tlhagiso ya bopaki jwa forensic ya maemo a Palamente e e tlhalosang go wa ga botlhe ga ditlamelo tsa puso ya Aforika Borwa. E rulaganyeditswe ka dikarolwana tse di latelang. Tswee-tswee dirisa di-tab tsa go tsamaya kwa godimo go tsamaya gareng ga dikarolwana.",
+    navHeading: "Tsamaya go karolwana:",
+    tabs: ["Kakaretso","Karolo 1 · Motheo","Karolo 2 · Balokisi","Karolo 3 · Tshiamo","Phaposi ya Bopaki","Kgotla ya Badiri","Tshireletso","Kgotla e Kgolo","Kaedi"]
+  },
+  nso: {
+    title: "Re a go amogela go EthicHawks Forensic Governance Portfolio",
+    body: "Portfolio ye ke tlhagišo ya bopaki bja forensic ya maemo a Palamente ye e hlalosago go wa ga botlhe ga dikgetho tša pušo ya Afrika Borwa. E hlophišitšwe ka dikarolo tše di latelago. Hle šomiša di-tab tša go sepela ka godimo go sepela gare ga dikarolo.",
+    navHeading: "Sepela go karolo:",
+    tabs: ["Kakaretšo","Karolo 1 · Motheo","Karolo 2 · Balokiši","Karolo 3 · Toka","Ntlo ya Bopaki","Kgotla ya Babereki","Tšhireletšo","Kgotla e Kgolo","Kaedi"]
+  },
+  ss: {
+    title: "Siyakwamukela ku-EthicHawks Forensic Governance Portfolio",
+    body: "Le portfolio kuniketelo lobufakazi be-forensic ngemazinga ePhalamende lokubhala ukuwa kwemgcele wetinhlangano tebuphatsi baseNingizimu Afrika. Ilungiselelwe tincenye letilandelako. Sicela usebenzise emathabhu enavigeyishini ngetulu ukuze uhambele phakathi kwetincenye.",
+    navHeading: "Yiya encenyeni:",
+    tabs: ["Inchubo","Incenye 1 · Sisekelo","Incenye 2 · Balawuli","Incenye 3 · Bulingiswa","Gumbi Lobufakazi","Inkhantolo Yabasebenzi","Kutikhulula","INkhantolo Lephakeme","Umhlahlandlela"]
+  },
+  ve: {
+    title: "Ri a ni amukela kha EthicHawks Forensic Governance Portfolio",
+    body: "Portfolio iyi ndi ndaulo ya vhubindu ha forensic ya ndinganyelwa ya Palamente yo rekodhiwaho u bvela fhasi ha vhuḓifhinduleli ha mvelelo ya Afrika Tshipembe. Yo ṱanganedzwa nga zwiṱirathisi zwi tevhelaho. Khathutshelo shumisa zwiṱirathisi zwa u fhirela nṱha u fhirela vhukati ha zwiṱirathisi.",
+    navHeading: "Fhirela kha tshiṱirathisi:",
+    tabs: ["Mbuedzedzo","Tshipiḓa 1 · Motheo","Tshipiḓa 2 · Vhalangi","Tshipiḓa 3 · Vhutshilo","Ndaulo ya Vhubindu","Kgotla ya Vhashumi","U Zvivhikhela","Kgotla Khulwane","Tshikhokho"]
+  },
+  ts: {
+    title: "Hi ku amukela eka EthicHawks Forensic Governance Portfolio",
+    body: "Portfolio leyi i ntirhelo wa vumbhoni bya forensic bya nkalo wa Palamente lowu rekodhiweke ku wela ka nhlayo ya swikombelo swa vufambisi bya Afrika-Dzonga. Yi hlawulekisiwe hi tindzhawu leti landzelaka. Kombela tirhisa swithebi swa ku famba ehenhla ku famba exikarhi ka tindzhawu.",
+    navHeading: "Famba eka ndzhawu:",
+    tabs: ["Mbulavulo","Xiphemu 1 · Nhlayo","Xiphemu 2 · Valangi","Xiphemu 3 · Vukheta","Ndzhawu ya Vumbhoni","Kgotla ya Swirho","Ku Ximundzela","Kgotla Nkulu","Xileriso"]
+  },
+  nr: {
+    title: "Siyakwamukela ku-EthicHawks Forensic Governance Portfolio",
+    body: "Le portfolio isinikelo sobufakazi be-forensic kwizinga lePhathi lokubhala ukuwa okupheleleyo kwezinhlaka zokuphatha zaseNingizimu Afrika. Ilungiselelwe izigaba ezilandelayo. Sicela usebenzise iitab zokukhangela phezulu ukuhambela phakathi kwezigaba.",
+    navHeading: "Yiya esigabeni:",
+    tabs: ["Uhlolojikelele","Ingxenye 1 · Isisekelo","Ingxenye 2 · Abalawuli","Ingxenye 3 · Ubulungiswa","Igumbi Lobufakazi","Inkantolo Yabasebenzi","Ukuzivikela","INkantolo Ephakeme","Umhlahlandlela"]
+  }
+};
+
+const panelIds = ['landing','part1','part2','part3','dashboard','labourcourt','defence','highcourt','docs'];
+
+function setLang(code) {
+  const d = langData[code];
+  if (!d) return;
+
+  document.getElementById('lang-content').innerHTML = `
+    <h2 style="font-family:var(--serif); color:var(--navy); font-size:1.4rem; margin-bottom:0.75em; border:none; padding:0;">${d.title}</h2>
+    <p style="font-family:var(--sans); color:var(--ink); font-size:0.95rem; line-height:1.8;">${d.body}</p>
+  `;
+
+  document.getElementById('nav-heading').textContent = d.navHeading;
+
+  const btnContainer = document.getElementById('nav-buttons');
+  btnContainer.innerHTML = '';
+  d.tabs.forEach((label, i) => {
+    const pid = panelIds[i];
+    if (!pid) return;
+    const btn = document.createElement('button');
+    btn.textContent = label;
+    btn.style.cssText = 'font-family:var(--mono); font-size:0.78rem; background:white; color:var(--navy); border:1px solid var(--navy); padding:0.6em 0.8em; border-radius:3px; cursor:pointer; text-align:left; transition:all 0.2s;';
+    btn.onmouseover = () => { btn.style.background = 'var(--navy)'; btn.style.color = 'white'; };
+    btn.onmouseout = () => { btn.style.background = 'white'; btn.style.color = 'var(--navy)'; };
+    btn.onclick = () => {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const panel = document.getElementById(pid);
+      if (panel) panel.classList.add('active');
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      if (tabBtns[i]) tabBtns[i].classList.add('active');
+      window.scrollTo(0,0);
+    };
+    btnContainer.appendChild(btn);
+  });
+
+  document.getElementById('lang-guide').style.display = 'block';
+  document.getElementById('lang-guide').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
 </script>
 <script>window.onerror = function(m) { document.body.insertAdjacentHTML("beforeend", "<p style=color:red>JS Error: " + m + "</p>"); };</script>
 <script src="/src/main.js"></script>
