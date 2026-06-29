@@ -318,6 +318,18 @@
 @media (min-width: 1025px) {
   .overview-logo { width: 55%; max-width: 500px; }
 }
+
+.confidential-banner {
+    background: #fff3f3;
+    border: 2px solid #c9933a;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: #c9933a;
+    font-family: var(--mono);
+    letter-spacing: 0.1em;
+    margin-bottom: 2em;
+}
 </style>
 
 
@@ -551,6 +563,7 @@
         <button class="tab-btn" onclick="showPanel('part3', event)">Part 3 · Justice</button>
         <button class="tab-btn" onclick="showPanel('dashboard', event)">Dashboard · Evidence Vault</button>
         <button class="tab-btn" onclick="showReadme(event)">User Guide (Docs)</button>
+<button class="tab-btn" onclick="showPanel('labour-court', event)">⚖️ Labour Court</button>
 
     </div>
 </nav>
@@ -591,6 +604,58 @@
     <!-- User Guide content rendered here -->
     <div id="user-guide-content" style="max-width:800px; margin:0 auto;">
         <div style="text-align:center; color:var(--steel); font-family:var(--mono); font-size:0.85rem;">Loading user guide...</div>
+    </div>
+</div>
+
+
+<div id="labour-court" class="panel">
+    <div class="container">
+        <div class="confidential-banner">STRICTLY CONFIDENTIAL - FORENSIC GOVERNANCE DOCUMENT</div>
+        <h1>MATTHEE v AFROCENTRIC INVESTMENT CORPORATION LIMITED / MEDSCHEME HOLDINGS</h1>
+        <p><strong>Master Forensic Governance & Regulatory Register</strong></p>
+        <p>Prepared by: EthicHawks Forensic Governance Consultancy | 03 April 2026 | info@ethichawks.co.za</p>
+
+        <h2>TABLE 1: MASTER CHRONOLOGICAL REGISTER (Summary)</h2>
+        <table>
+            <thead><tr><th>Date / Time</th><th>Recipient / Body</th><th>Problem Identified</th><th>Response / Action</th><th>Status</th></tr></thead>
+            <tbody>
+                <tr><td>11 Jan 2024</td><td>Internal</td><td>Interview invitation for Specialist role</td><td>Matthee invited</td><td>Complete</td></tr>
+                <tr><td>09 Apr 2024</td><td>Internal</td><td>Bait-and-switch: 'Care Coordinator' contract</td><td>Matthee signs contract</td><td>Complete</td></tr>
+                <tr><td>23 Jul 2025</td><td>Internal</td><td>UNLAWFUL SALARY DEDUCTION (40.47%)</td><td>Employer invokes 'no work no pay'</td><td>Complete</td></tr>
+                <tr><td>23 Sep 2025</td><td>Internal</td><td>Gender identity discrimination ('Wilma' post)</td><td>Formal complaint lodged</td><td>Complete</td></tr>
+                <tr><td>12 Dec 2025</td><td>Internal</td><td>Resignation (Constructive Dismissal)</td><td>Resignation submitted</td><td>Complete</td></tr>
+                <tr><td>19 Mar 2026</td><td>SAPS Delft</td><td>Criminal Referral</td><td>Case registered (CAS 705/3/2026)</td><td>Complete</td></tr>
+            </tbody>
+        </table>
+
+        <h2>TABLE 2: INTERNAL CHRONOLOGY - ISOLATED EMPLOYMENT EVENTS</h2>
+        <p>This table traces the sequence of protected disclosures, retaliatory conduct, and governance escalations.</p>
+        <ul>
+            <li><strong>16 May 2025</strong>: Employer placed on formal written notice of disability regarding severe depression and PTSD.</li>
+            <li><strong>23 Oct 2025</strong>: Protected disclosure regarding Gexus-DMS system integration gap.</li>
+            <li><strong>31 Oct 2025</strong>: Recorded retaliatory admission from manager regarding harassment complaints.</li>
+        </ul>
+
+        <h2>TABLE 3: KEY PATTERN IDENTIFICATION</h2>
+        <p>Twelve structural governance and legal patterns were identified.</p>
+        <ul>
+            <li><strong>Title Suppression</strong>: Systematic role downgrading.</li>
+            <li><strong>Institutional Whitewash</strong>: Dismissal of serious complaints as 'typos'.</li>
+            <li><strong>Regulatory 'Passed Buck' Carousel</strong>: Systemic failure of oversight bodies.</li>
+        </ul>
+
+        <h2>TABLE 4: UPDATED AWAITING FEEDBACK REGISTRY</h2>
+        <table>
+            <thead><tr><th>Regulator / Body</th><th>Status</th><th>Urgency</th></tr></thead>
+            <tbody>
+                <tr><td>High Court (Section 162)</td><td>Awaiting audio/transcript for rescission</td><td>CRITICAL</td></tr>
+                <tr><td>High Court (BCEA Claim)</td><td>Awaiting hearing date</td><td>HIGH</td></tr>
+                <tr><td>SAPS (Woodstock)</td><td>Awaiting new case number</td><td>HIGH</td></tr>
+            </tbody>
+        </table>
+
+        <hr>
+        <p><em>This register is a living forensic document. Please contact info@ethichawks.co.za for the full 148-entry dataset.</em></p>
     </div>
 </div>
 
@@ -1877,40 +1942,65 @@ function activateGlossaryTags() {
 
 
 <script>
+
+<script>
 (function() {
+  const STRIP_POSITION = 0.4; // 40% from top
   const strip = document.getElementById('magnifier-strip');
+  const content = document.getElementById('magnifier-content');
   const toggle = document.getElementById('magnifier-toggle');
   const stickyHeader = document.getElementById('sticky-dossier-header');
-  const content = document.getElementById('magnifier-content');
   
   let magnifierOn = localStorage.getItem('magnifier') === 'on';
+  let lastUpdate = 0;
   
   function setMagnifierState(on) {
     magnifierOn = on;
     localStorage.setItem('magnifier', on ? 'on' : 'off');
     strip.className = on ? 'magnifier-on' : 'magnifier-off';
     toggle.classList.toggle('active', on);
-    if (on) {
-      content.textContent = '🔍 Magnifier active — forensic cross‑reference ready';
-    } else {
-      content.textContent = '';
-    }
   }
   
   toggle.addEventListener('click', () => setMagnifierState(!magnifierOn));
   setMagnifierState(magnifierOn);
   
-  // Shadow on sticky header
+  function getTextAtStrip() {
+    const x = window.innerWidth / 2;
+    const y = window.innerHeight * STRIP_POSITION + 40;
+    const el = document.elementFromPoint(x, y);
+    if (!el) return '';
+    // Look for the nearest meaningful text container (table cell, list item, paragraph)
+    const textEl = el.closest('td, th, li, p, h1, h2, h3, h4, .container');
+    if (textEl) return textEl.innerText.trim().substring(0, 200);
+    return el.innerText.trim().substring(0, 200);
+  }
+  
+  function update(timestamp) {
+    if (!magnifierOn) return;
+    if (timestamp - lastUpdate > 100) {
+      const text = getTextAtStrip();
+      if (text) content.textContent = text;
+      lastUpdate = timestamp;
+    }
+    requestAnimationFrame(update);
+  }
+  
+  // Start the loop
+  requestAnimationFrame(update);
+  
+  // Shadow on scroll
   window.addEventListener('scroll', () => {
     stickyHeader.classList.toggle('header-shadow', window.scrollY > 10);
   }, { passive: true });
   
   // Position strip
-  strip.style.top = (window.innerHeight * 0.4) + 'px';
+  strip.style.top = (window.innerHeight * STRIP_POSITION) + 'px';
   window.addEventListener('resize', () => {
-    strip.style.top = (window.innerHeight * 0.4) + 'px';
+    strip.style.top = (window.innerHeight * STRIP_POSITION) + 'px';
   });
 })();
+</script>
+
 </script>
 
 
