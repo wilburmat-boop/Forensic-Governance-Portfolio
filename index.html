@@ -2363,6 +2363,115 @@ showEvidenceModal = function(filePath) {
 };
 </script>
 
+<script id="annexure-map-script">
+const ANNEXURE_MAP = {
+  "RA1": "02_Evidence_Core/02_Evidence_Core/RA1 (REPLYING AFFIDAVIT TO THE RESPONDENT'S OPPOSITION TO CONDONATION_).pdf",
+  "OA1": "02_Evidence_Core/OA1 (Opposing affidavid responded) .pdf",
+  "Annexure_01_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
+  "Annexure_02_Founding_affid": "02_Evidence_Core/Answering_Affidavit_2026-086906_Matthee.docx",
+  "Annexure_03_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
+  "Annexure_04_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
+  "Annexure_05_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
+  "Annexure_06_Founding_affid": "02_Evidence_Core/Answering_Affidavit_2026-086906_Matthee.docx",
+  "Annexure_07_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
+  "Annexure_08_Founding_affid": "02_Evidence_Core/Answering_Affidavit_2026-086906_Matthee.docx",
+  "Annexure_09_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
+  "Annexure_10_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
+  "Annexure_01_Supplementary": "02_Evidence_Core/EWECT0125184368_LRA711.pdf",
+  "Annexure_02_Supplementary": "02_Evidence_Core/ADDITIONAL ATTACHMENT No True Accommodation post mental helth admission Fw_ Meeting Feedback 16 April 2025.pdf",
+  "Annexure_03_Supplementary": "02_Evidence_Core/AFR1282 Letter to Parliament 03.06.2026.PDF",
+  "Annexure_04_Supplementary": "02_Evidence_Core/AFR1282 Letter to Matthee 04.06.2026.pdf",
+  "Annexure_05_Supplementary": "02_Evidence_Core/EWECT0125188054_EWECT0125188054_LRA711.pdf",
+  "Annexure_06_Supplementary": "02_Evidence_Core/02_Evidence_Core/FILING OF PRACTICE NOTE AND SUPPLEMENTARY ANSWERING AFFIDAVIT _CASE NO_ 2026-086906 _ MATTHEE v AFROCENTRIC.PDF",
+  "Annexure_07_Supplementary": "02_Evidence_Core/JSE_FSCA_Questco/Gmail - URGENT SUPPLEMENTARY FILING_ Institutional Validation of Fraud, Governance Collapse & Bad Faith Litigation _ Afro(1).PDF",
+  "Annexure_08_Supplementary": "02_Evidence_Core/02_Evidence_Core/FILING OF PRACTICE NOTE AND SUPPLEMENTARY ANSWERING AFFIDAVIT _CASE NO_ 2026-086906 _ MATTHEE v AFROCENTRIC.PDF",
+  "Annexure_09_Supplementary": "02_Evidence_Core/JSE_FSCA_Questco/Gmail - URGENT SUPPLEMENTARY FILING_ Institutional Validation of Fraud, Governance Collapse & Bad Faith Litigation _ Afro(1).PDF",
+  "Annexure_10_Supplementary": "02_Evidence_Core/isbn_9786337800100.pdf",
+  "C-1": "02_Evidence_Core/02_Evidence_Core/A2 Payslip June 2025.pdf",
+  "C-2": "02_Evidence_Core/Attachement E (1)- Fw_ July 2025 Salary dispute, No staggering,  over 40%.pdf",
+  "C-3": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
+  "C-4": "02_Evidence_Core/02_Evidence_Core/b-bbee-final-gazetted-regulations.pdf",
+  "C-5": "02_Evidence_Core/02_Evidence_Core/- complete_SAHRC_FinalUpdate_13March2026 (1) (1).pdf",
+  "C-6": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
+  "C-7": "02_Evidence_Core/40.47 percent deductuion without consultation at one go.pdf",
+  "VICT1": "02_Evidence_Core/Copy of EthicHawks_Doc1_Protected_Disclosure(2).PDF",
+  "EXIT1": "02_Evidence_Core/A1 Employment Contract.pdf",
+  "PSL1": "02_Evidence_Core/A1 Employment Contract.pdf",
+  "GRC1": "02_Evidence_Core/URGENT _ PRIORITY 1_ Imminent Danger to Life and Safety \u2013 Request for Immediate Intervention (Wilbur Matthee _ Medscheme (1).PDF",
+  "PDA1": "02_Evidence_Core/A1 Employment Contract.pdf",
+  "PS-1": "02_Evidence_Core/A1 Employment Contract.pdf",
+  "PS-2": "02_Evidence_Core/SAPS_Criminal_Complaint_WW_Matthee_23Feb2026.docx"
+};
+</script>
+
+<script id="annexure-linkify-script">
+(function() {
+  // Function to turn annexure codes into clickable links
+  function linkifyAnnexures(root) {
+    if (!root) root = document;
+    const keys = Object.keys(ANNEXURE_MAP);
+    // Create regex pattern that matches any key as a whole word, optionally preceded by "Annexure"
+    const pattern = new RegExp('(?:Annexure\s+)?(' + keys.map(k => k.replace(/[.*+?^${}()|[\]\]/g, '\$&')).join('|') + ')', 'gi');
+    
+    function walk(node) {
+      if (node.nodeType === Node.TEXT_NODE && node.parentNode) {
+        // Skip if already inside a link or our own span
+        if (node.parentNode.tagName === 'A' || node.parentNode.classList.contains('annexure-link')) return;
+        const text = node.textContent;
+        if (!text) return;
+        const matches = [...text.matchAll(pattern)];
+        if (matches.length === 0) return;
+        
+        const frag = document.createDocumentFragment();
+        let lastIndex = 0;
+        matches.forEach(match => {
+          const code = match[1];
+          // Add text before match
+          if (match.index > lastIndex) {
+            frag.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+          }
+          // Create clickable span
+          const span = document.createElement('span');
+          span.className = 'annexure-link';
+          span.textContent = match[0]; // full matched string "Annexure C-1" or just "C-1"
+          span.title = 'Open evidence: ' + code;
+          span.style.cssText = 'color:#c9933a;cursor:pointer;text-decoration:underline;font-weight:600;';
+          span.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const filePath = ANNEXURE_MAP[code];
+            if (filePath && typeof showEvidenceModal === 'function') {
+              showEvidenceModal(filePath);
+            }
+          });
+          frag.appendChild(span);
+          lastIndex = match.index + match[0].length;
+        });
+        if (lastIndex < text.length) {
+          frag.appendChild(document.createTextNode(text.substring(lastIndex)));
+        }
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === Node.ELEMENT_NODE && !['SCRIPT','STYLE','NOSCRIPT'].includes(node.tagName)) {
+        // Avoid scanning elements we've already processed
+        if (node.classList.contains('annexure-link')) return;
+        node.childNodes.forEach(walk);
+      }
+    }
+    walk(root);
+  }
+  
+  // Run on page load
+  document.addEventListener('DOMContentLoaded', () => linkifyAnnexures(document));
+  // Also run when panels are switched (since content may be inside hidden panels)
+  const origShowPanel = window.showPanel;
+  if (typeof origShowPanel === 'function') {
+    window.showPanel = function(id, e) {
+      origShowPanel(id, e);
+      setTimeout(() => linkifyAnnexures(document.getElementById(id)), 100);
+    };
+  }
+})();
+</script>
+
 </body>
 <script>
 function showReadme(event) {
