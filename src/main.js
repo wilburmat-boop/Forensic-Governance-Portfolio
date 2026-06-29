@@ -70,7 +70,7 @@ function showEvidenceModal(filePath) {
   const sha256 = fileData.sha256 || 'Hash not available';
   const size = fileData.size ? (fileData.size / 1024).toFixed(1) + ' KB' : 'Unknown';
   const filename = fileData.filename || filePath.split('/').pop();
-  const fileUrl = '/' + filePath.split('/').map(p => encodeURIComponent(p)).join('/');
+  const fileUrl = 'https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/dist/' + filePath.split('/').map(p => encodeURIComponent(p)).join('/');
   const ext = filename.split('.').pop().toLowerCase();
   const isPDF = ['pdf'].includes(ext);
   const isImage = ['jpg', 'jpeg', 'png'].includes(ext);
