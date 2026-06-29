@@ -395,7 +395,7 @@ function showDateEvidence(dateStr) {
 }
 
 async function initPortal() {
-  const root = document.getElementById('root');
+  const root = document.getElementById('root'); if (!root) return;
 
   const keywordDropdownHTML = Object.entries(KEYWORD_CATEGORIES).map(([cat, keywords]) => `
     <div style="margin-bottom:16px;">
@@ -409,10 +409,7 @@ async function initPortal() {
   root.innerHTML = `
     <div style="background:#030712;color:#f3f4f6;min-height:100vh;font-family:ui-sans-serif,system-ui,sans-serif;padding:32px 24px;max-width:1200px;margin:0 auto;">
 
-      <div style="background:#7f1d1d;border:1px solid #b91c1c;border-radius:6px;padding:12px 16px;margin-bottom:28px;display:flex;align-items:center;gap:12px;">
-        <span>⚖️</span>
-        <span style="font-family:monospace;font-size:0.8rem;font-weight:700;color:#fca5a5;letter-spacing:0.05em;">STATUTORY SOVEREIGNTY DECLARATION · PARLIAMENTARY OVERSIGHT SUBMISSION · PROTECTED DISCLOSURE PDA s8</span>
-      </div>
+      
 
       <header style="border-bottom:1px solid #1f2937;padding-bottom:20px;margin-bottom:28px;">
         <div style="font-family:monospace;font-size:0.75rem;color:#3b82f6;font-weight:800;letter-spacing:0.1em;margin-bottom:4px;">ETHICHAWKS FORENSIC GOVERNANCE</div>
