@@ -2,6 +2,7 @@
   "outputDirectory": ".",
   "framework": null,
   "rewrites": [
-    { "source": "/02_Evidence_Core/(.*)", "destination": "/dist/02_Evidence_Core/02_Evidence_Core/$1" }
+    { "source": "/02_Evidence_Core/02_Evidence_Core/(.*)", "destination": "/dist/02_Evidence_Core/02_Evidence_Core/$1" },
+    { "source": "/02_Evidence_Core/(.*)", "destination": "/dist/02_Evidence_Core/$1" }
   ]
 }
