@@ -6,7 +6,31 @@
 <title>EthicHawks · Consolidated Forensic Oversight Report · June 2026</title>
 <link rel="icon" type="image/jpeg" href="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 <style>
+
+#sticky-dossier-header{position:sticky;top:0;z-index:1000;background:#0a1628;border-bottom:2px solid #c9933a;box-shadow:0 4px 20px rgba(0,0,0,0.6)}
+#sticky-dossier-header::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background-image:repeating-linear-gradient(45deg,rgba(201,147,58,0.03) 0px,rgba(201,147,58,0.03) 1px,transparent 1px,transparent 10px);pointer-events:none}
+.site-header{background:transparent;padding:12px 20px;backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,147,58,0.3)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1400px;margin:0 auto}
+.logo-block{display:flex;align-items:center;gap:14px;position:relative}
+.logo-block::after{content:"";position:absolute;right:-10px;top:15%;height:70%;width:2px;background:linear-gradient(to bottom,transparent,#c9933a,transparent)}
+.logo-icon{width:42px;height:42px;border-radius:6px;overflow:hidden;box-shadow:0 0 12px rgba(201,147,58,0.3);border:1px solid rgba(201,147,58,0.5)}
+.logo-text .org{font-family:var(--mono);font-size:16px;font-weight:700;color:#f0e6d2;letter-spacing:0.1em}
+.logo-text .tagline{font-size:10px;color:rgba(240,230,210,0.7);letter-spacing:0.08em}
+.header-status{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;color:rgba(240,230,210,0.8);background:rgba(10,22,40,0.6);padding:6px 16px;border:1px solid rgba(201,147,58,0.4);border-radius:4px;backdrop-filter:blur(4px)}
+.pulse{width:8px;height:8px;border-radius:50%;background:#f59e0b;box-shadow:0 0 8px #f59e0b;animation:pulse 2s infinite}
+@keyframes pulse{0%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(1.2)}100%{opacity:1;transform:scale(1)}}
+#magnifier-toggle{background:rgba(10,22,40,0.8);border:1px solid #c9933a;color:#c9933a;padding:2px 10px;border-radius:4px;cursor:pointer;font-size:0.8rem;transition:all 0.2s}
+#magnifier-toggle.active{background:#c9933a;color:#0a1628}
+.nav-tabs{background:rgba(10,22,40,0.95);border-bottom:1px solid rgba(201,147,58,0.3);backdrop-filter:blur(8px)}
+.tab-btn{color:rgba(240,230,210,0.7);border-bottom:3px solid transparent;transition:all 0.2s;cursor:pointer;padding:14px 20px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;background:none;border-left:none;border-right:none;border-top:none;white-space:nowrap;margin-bottom:-2px}
+.tab-btn:hover{color:#f0e6d2;border-bottom-color:rgba(201,147,58,0.5)}
+.tab-btn.active{color:#f0e6d2;border-bottom-color:#c9933a}
+.evidence-link{color:#c9933a;cursor:pointer;text-decoration:underline;font-weight:600}
+@media(max-width:700px){.header-inner{padding:8px 12px}.logo-icon{width:34px;height:34px}.logo-text .org{font-size:14px}.header-status{font-size:9px;padding:4px 10px}}
+
+
 /* ===== ORIGINAL STYLES (kept intact) ===== */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap');
 :root { --ink: #0a0c0f; --paper: #f5f3ee; --navy: #0d1f3c; --gold: #c9933a; --crimson: #8b1a1a; --steel: #4a5568; --rule: #d4cfc5; --verified: #1a5c3a; --placeholder: #b8860b; --mono: 'IBM Plex Mono', monospace; --sans: 'IBM Plex Sans', sans-serif; --serif: 'IBM Plex Serif', serif; }
@@ -47,7 +71,8 @@ td { padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: t
 .evidence-link{color:#c9933a;cursor:pointer;text-decoration:underline;font-weight:600}
 @media(max-width:700px){.header-inner{padding:8px 12px}.logo-icon{width:34px;height:34px}.logo-text .org{font-size:14px}.header-status{font-size:9px;padding:4px 10px}}
 #sticky-dossier-header{position:sticky;top:0;z-index:1000;background:#0a1628;border-bottom:2px solid #c9933a;box-shadow:0 4px 20px rgba(0,0,0,0.6)}#sticky-dossier-header::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background-image:repeating-linear-gradient(45deg,rgba(201,147,58,0.03) 0px,rgba(201,147,58,0.03) 1px,transparent 1px,transparent 10px);pointer-events:none}.site-header{background:transparent;padding:12px 20px;backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,147,58,0.3)}.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1400px;margin:0 auto}.logo-block{display:flex;align-items:center;gap:14px;position:relative}.logo-block::after{content:"";position:absolute;right:-10px;top:15%;height:70%;width:2px;background:linear-gradient(to bottom,transparent,#c9933a,transparent)}.logo-icon{width:42px;height:42px;border-radius:6px;overflow:hidden;box-shadow:0 0 12px rgba(201,147,58,0.3);border:1px solid rgba(201,147,58,0.5)}.logo-text .org{font-family:var(--mono);font-size:16px;font-weight:700;color:#f0e6d2;letter-spacing:0.1em}.logo-text .tagline{font-size:10px;color:rgba(240,230,210,0.7);letter-spacing:0.08em}.header-status{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;color:rgba(240,230,210,0.8);background:rgba(10,22,40,0.6);padding:6px 16px;border:1px solid rgba(201,147,58,0.4);border-radius:4px;backdrop-filter:blur(4px)}.pulse{width:8px;height:8px;border-radius:50%;background:#f59e0b;box-shadow:0 0 8px #f59e0b;animation:pulse 2s infinite}@keyframes pulse{0%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(1.2)}100%{opacity:1;transform:scale(1)}}#magnifier-toggle{background:rgba(10,22,40,0.8);border:1px solid #c9933a;color:#c9933a;padding:2px 10px;border-radius:4px;cursor:pointer;font-size:0.8rem;transition:all 0.2s}#magnifier-toggle.active{background:#c9933a;color:#0a1628}.nav-tabs{background:rgba(10,22,40,0.95);border-bottom:1px solid rgba(201,147,58,0.3);backdrop-filter:blur(8px)}.tab-btn{color:rgba(240,230,210,0.7);border-bottom:3px solid transparent;transition:all 0.2s}.tab-btn:hover{color:#f0e6d2;border-bottom-color:rgba(201,147,58,0.5)}.tab-btn.active{color:#f0e6d2;border-bottom-color:#c9933a}@media(max-width:700px){.header-inner{padding:8px 12px}.logo-icon{width:34px;height:34px}.logo-text .org{font-size:14px}.header-status{font-size:9px;padding:4px 10px}}
-#sticky-dossier-header{position:sticky;top:0;z-index:1000;background:#0a1628;border-bottom:2px solid #c9933a;box-shadow:0 4px 20px rgba(0,0,0,0.6)}#sticky-dossier-header::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background-image:repeating-linear-gradient(45deg,rgba(201,147,58,0.03) 0px,rgba(201,147,58,0.03) 1px,transparent 1px,transparent 10px);pointer-events:none}.site-header{background:transparent;padding:12px 20px;backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,147,58,0.3)}.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1400px;margin:0 auto}.logo-block{display:flex;align-items:center;gap:14px;position:relative}.logo-block::after{content:"";position:absolute;right:-10px;top:15%;height:70%;width:2px;background:linear-gradient(to bottom,transparent,#c9933a,transparent)}.logo-icon{width:42px;height:42px;border-radius:6px;overflow:hidden;box-shadow:0 0 12px rgba(201,147,58,0.3);border:1px solid rgba(201,147,58,0.5)}.logo-text .org{font-family:var(--mono);font-size:16px;font-weight:700;color:#f0e6d2;letter-spacing:0.1em}.logo-text .tagline{font-size:10px;color:rgba(240,230,210,0.7);letter-spacing:0.08em}.header-status{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;color:rgba(240,230,210,0.8);background:rgba(10,22,40,0.6);padding:6px 16px;border:1px solid rgba(201,147,58,0.4);border-radius:4px;backdrop-filter:blur(4px)}.pulse{width:8px;height:8px;border-radius:50%;background:#f59e0b;box-shadow:0 0 8px #f59e0b;animation:pulse 2s infinite}@keyframes pulse{0%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(1.2)}100%{opacity:1;transform:scale(1)}}#magnifier-toggle{background:rgba(10,22,40,0.8);border:1px solid #c9933a;color:#c9933a;padding:2px 10px;border-radius:4px;cursor:pointer;font-size:0.8rem;transition:all 0.2s}#magnifier-toggle.active{background:#c9933a;color:#0a1628}.nav-tabs{background:rgba(10,22,40,0.95);border-bottom:1px solid rgba(201,147,58,0.3);backdrop-filter:blur(8px)}.tab-btn{color:rgba(240,230,210,0.7);border-bottom:3px solid transparent;transition:all 0.2s}.tab-btn:hover{color:#f0e6d2;border-bottom-color:rgba(201,147,58,0.5)}.tab-btn.active{color:#f0e6d2;border-bottom-color:#c9933a}@media(max-width:700px){.header-inner{padding:8px 12px}.logo-icon{width:34px;height:34px}.logo-text .org{font-size:14px}.header-status{font-size:9px;padding:4px 10px}}</style>
+#sticky-dossier-header{position:sticky;top:0;z-index:1000;background:#0a1628;border-bottom:2px solid #c9933a;box-shadow:0 4px 20px rgba(0,0,0,0.6)}#sticky-dossier-header::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background-image:repeating-linear-gradient(45deg,rgba(201,147,58,0.03) 0px,rgba(201,147,58,0.03) 1px,transparent 1px,transparent 10px);pointer-events:none}.site-header{background:transparent;padding:12px 20px;backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,147,58,0.3)}.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1400px;margin:0 auto}.logo-block{display:flex;align-items:center;gap:14px;position:relative}.logo-block::after{content:"";position:absolute;right:-10px;top:15%;height:70%;width:2px;background:linear-gradient(to bottom,transparent,#c9933a,transparent)}.logo-icon{width:42px;height:42px;border-radius:6px;overflow:hidden;box-shadow:0 0 12px rgba(201,147,58,0.3);border:1px solid rgba(201,147,58,0.5)}.logo-text .org{font-family:var(--mono);font-size:16px;font-weight:700;color:#f0e6d2;letter-spacing:0.1em}.logo-text .tagline{font-size:10px;color:rgba(240,230,210,0.7);letter-spacing:0.08em}.header-status{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;color:rgba(240,230,210,0.8);background:rgba(10,22,40,0.6);padding:6px 16px;border:1px solid rgba(201,147,58,0.4);border-radius:4px;backdrop-filter:blur(4px)}.pulse{width:8px;height:8px;border-radius:50%;background:#f59e0b;box-shadow:0 0 8px #f59e0b;animation:pulse 2s infinite}@keyframes pulse{0%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(1.2)}100%{opacity:1;transform:scale(1)}}#magnifier-toggle{background:rgba(10,22,40,0.8);border:1px solid #c9933a;color:#c9933a;padding:2px 10px;border-radius:4px;cursor:pointer;font-size:0.8rem;transition:all 0.2s}#magnifier-toggle.active{background:#c9933a;color:#0a1628}.nav-tabs{background:rgba(10,22,40,0.95);border-bottom:1px solid rgba(201,147,58,0.3);backdrop-filter:blur(8px)}.tab-btn{color:rgba(240,230,210,0.7);border-bottom:3px solid transparent;transition:all 0.2s}.tab-btn:hover{color:#f0e6d2;border-bottom-color:rgba(201,147,58,0.5)}.tab-btn.active{color:#f0e6d2;border-bottom-color:#c9933a}@media(max-width:700px){.header-inner{padding:8px 12px}.logo-icon{width:34px;height:34px}.logo-text .org{font-size:14px}.header-status{font-size:9px;padding:4px 10px}}
+</style>
 </head>
 <body>
 
@@ -61,25 +86,23 @@ td { padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: t
 <div class="tagline">Forensic Governance &amp; Compliance Consultancy</div>
 </div>
 </div>
-<div class="header-status"><button id="magnifier-toggle" title="Toggle Magnifier">🔍</button> ACTIVE <div class="pulse"></div> CASE NO. EH‑2026‑001 • CONSOLIDATED FORENSIC REPORT • JUNE 2026</div>
+<div class="header-status"><button id="magnifier-toggle" title="Toggle Magnifier">&#128269;</button> ACTIVE <div class="pulse"></div> CASE NO. EH&#8209;2026&#8209;001 &bull; CONSOLIDATED FORENSIC REPORT &bull; JUNE 2026</div>
 </div>
 </header>
 <nav class="nav-tabs">
 <div class="tabs-inner">
-<button class="tab-btn active" onclick="showPanel('landing', event)">🏠 Overview</button>
-<button class="tab-btn" onclick="showPanel('part1', event)">Part 1 · Foundation</button>
-<button class="tab-btn" onclick="showPanel('part2', event)">Part 2 · Regulators</button>
-<button class="tab-btn" onclick="showPanel('part3', event)">Part 3 · Justice</button>
-<button class="tab-btn" onclick="showPanel('dashboard', event)">Dashboard · Evidence Vault</button>
-<button class="tab-btn" onclick="showPanel('labour-court', event)">⚖️ Labour Court</button>
-<button class="tab-btn" onclick="showPanel('defence', event)">🛡️ Defence</button>
-<button class="tab-btn" onclick="showPanel('high-court', event)">⚖️ High Court</button>
+<button class="tab-btn active" onclick="showPanel('landing', event)">&#127968; Overview</button>
+<button class="tab-btn" onclick="showPanel('part1', event)">Part 1 &middot; Foundation</button>
+<button class="tab-btn" onclick="showPanel('part2', event)">Part 2 &middot; Regulators</button>
+<button class="tab-btn" onclick="showPanel('part3', event)">Part 3 &middot; Justice</button>
+<button class="tab-btn" onclick="showPanel('dashboard', event)">Dashboard &middot; Evidence Vault</button>
+<button class="tab-btn" onclick="showPanel('labour-court', event)">&#9878; Labour Court</button>
+<button class="tab-btn" onclick="showPanel('defence', event)">&#128737; Defence</button>
+<button class="tab-btn" onclick="showPanel('high-court', event)">&#9878; High Court</button>
 <button class="tab-btn" onclick="showReadme(event)">User Guide (Docs)</button>
 </div>
 </nav>
 </div>
-
-
 
 <main class="main">
 <div id="landing" class="panel active"><div class="container">
