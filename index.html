@@ -1,214 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/jpeg" href="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg">
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EthicHawks · Consolidated Forensic Oversight Report · June 2026</title>
+<link rel="icon" type="image/jpeg" href="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+/* ===== ORIGINAL STYLES (kept intact) ===== */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap');
+:root { --ink: #0a0c0f; --paper: #f5f3ee; --navy: #0d1f3c; --gold: #c9933a; --crimson: #8b1a1a; --steel: #4a5568; --rule: #d4cfc5; --verified: #1a5c3a; --placeholder: #b8860b; --mono: 'IBM Plex Mono', monospace; --sans: 'IBM Plex Sans', sans-serif; --serif: 'IBM Plex Serif', serif; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.container { background: white; padding: 48px 56px; box-shadow: 0 4px 24px rgba(0,0,0,0.05); border: 1px solid var(--rule); max-width: 1100px; margin: 0 auto; }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; color: var(--navy); margin: 1.5em 0 0.5em; }
+h1 { font-size: 2.2rem; margin-top: 0; border-bottom: 4px solid var(--gold); padding-bottom: 0.3em; }
+h2 { font-size: 1.8rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.3em; }
+h3 { font-size: 1.3rem; margin-top: 1.8em; }
+h4 { font-size: 1.1rem; font-weight: 700; margin-top: 1.2em; color: var(--navy); }
+p { margin: 0 0 1.2em; }
+.block-quote { font-family: var(--serif); font-size: 1.05rem; padding: 1.2em 2em; background: var(--paper); border-left: 6px solid var(--gold); margin: 1.5em 0; font-style: italic; }
+.evidence-card { background: var(--paper); padding: 20px 24px; margin: 1.5em 0; border-left: 4px solid var(--navy); }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1.5em 0; }
+th { background: var(--navy); color: white; font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 10px 12px; text-align: left; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+/* ===== FORENSIC DASHBOARD HEADER (inserted) ===== */
+#sticky-dossier-header{position:sticky;top:0;z-index:1000;background:#0a1628;border-bottom:2px solid #c9933a;box-shadow:0 4px 20px rgba(0,0,0,0.6)}
+#sticky-dossier-header::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background-image:repeating-linear-gradient(45deg,rgba(201,147,58,0.03) 0px,rgba(201,147,58,0.03) 1px,transparent 1px,transparent 10px);pointer-events:none}
+.site-header{background:transparent;padding:12px 20px;backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,147,58,0.3)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1400px;margin:0 auto}
+.logo-block{display:flex;align-items:center;gap:14px;position:relative}
+.logo-block::after{content:"";position:absolute;right:-10px;top:15%;height:70%;width:2px;background:linear-gradient(to bottom,transparent,#c9933a,transparent)}
+.logo-icon{width:42px;height:42px;border-radius:6px;overflow:hidden;box-shadow:0 0 12px rgba(201,147,58,0.3);border:1px solid rgba(201,147,58,0.5)}
+.logo-text .org{font-family:var(--mono);font-size:16px;font-weight:700;color:#f0e6d2;letter-spacing:0.1em}
+.logo-text .tagline{font-size:10px;color:rgba(240,230,210,0.7);letter-spacing:0.08em}
+.header-status{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;color:rgba(240,230,210,0.8);background:rgba(10,22,40,0.6);padding:6px 16px;border:1px solid rgba(201,147,58,0.4);border-radius:4px;backdrop-filter:blur(4px)}
+.pulse{width:8px;height:8px;border-radius:50%;background:#f59e0b;box-shadow:0 0 8px #f59e0b;animation:pulse 2s infinite}
+@keyframes pulse{0%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(1.2)}100%{opacity:1;transform:scale(1)}}
+#magnifier-toggle{background:rgba(10,22,40,0.8);border:1px solid #c9933a;color:#c9933a;padding:2px 10px;border-radius:4px;cursor:pointer;font-size:0.8rem;transition:all 0.2s}
+#magnifier-toggle.active{background:#c9933a;color:#0a1628}
+.nav-tabs{background:rgba(10,22,40,0.95);border-bottom:1px solid rgba(201,147,58,0.3);backdrop-filter:blur(8px)}
+.tab-btn{color:rgba(240,230,210,0.7);border-bottom:3px solid transparent;transition:all 0.2s}
+.tab-btn:hover{color:#f0e6d2;border-bottom-color:rgba(201,147,58,0.5)}
+.tab-btn.active{color:#f0e6d2;border-bottom-color:#c9933a}
+.evidence-link{color:#c9933a;cursor:pointer;text-decoration:underline;font-weight:600}
+@media(max-width:700px){.header-inner{padding:8px 12px}.logo-icon{width:34px;height:34px}.logo-text .org{font-size:14px}.header-status{font-size:9px;padding:4px 10px}}
+</style>
+</head>
+<body>
+<div id="sticky-dossier-header">
+<header class="site-header">
+<div class="header-inner">
+<div class="logo-block">
+<div class="logo-icon"><img src="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg" alt="Logo" style="width:100%;height:100%;object-fit:contain;"></div>
+<div class="logo-text">
+<div class="org">EthicHawks</div>
+<div class="tagline">Forensic Governance & Compliance Consultancy</div>
+</div>
+</div>
+<div class="header-status"><button id="magnifier-toggle" title="Toggle Magnifier">🔍</button> ACTIVE <div class="pulse"></div> CASE NO. EH‑2026‑001 • CONSOLIDATED FORENSIC REPORT • JUNE 2026</div>
+</div>
+</header>
+<nav class="nav-tabs">
+<div class="tabs-inner">
+<button class="tab-btn active" onclick="showPanel('landing', event)">🏠 Overview</button>
+<button class="tab-btn" onclick="showPanel('part1', event)">Part 1 · Foundation</button>
+<button class="tab-btn" onclick="showPanel('part2', event)">Part 2 · Regulators</button>
+<button class="tab-btn" onclick="showPanel('part3', event)">Part 3 · Justice</button>
+<button class="tab-btn" onclick="showPanel('dashboard', event)">Dashboard · Evidence Vault</button>
+<button class="tab-btn" onclick="showPanel('labour-court', event)">⚖️ Labour Court</button>
+<button class="tab-btn" onclick="showPanel('defence', event)">🛡️ Defence</button>
+<button class="tab-btn" onclick="showPanel('high-court', event)">⚖️ High Court</button>
+<button class="tab-btn" onclick="showReadme(event)">User Guide (Docs)</button>
+</div>
+</nav>
+</div>
 
-<script id="annexure-map-script">
-const ANNEXURE_MAP = {
-  "RA1": "02_Evidence_Core/02_Evidence_Core/RA1 (REPLYING AFFIDAVIT TO THE RESPONDENT'S OPPOSITION TO CONDONATION_).pdf",
-  "OA1": "02_Evidence_Core/OA1 (Opposing affidavid responded) .pdf",
-  "Annexure_01_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
-  "Annexure_02_Founding_affid": "02_Evidence_Core/Answering_Affidavit_2026-086906_Matthee.docx",
-  "Annexure_03_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
-  "Annexure_04_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
-  "Annexure_05_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
-  "Annexure_06_Founding_affid": "02_Evidence_Core/Answering_Affidavit_2026-086906_Matthee.docx",
-  "Annexure_07_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
-  "Annexure_08_Founding_affid": "02_Evidence_Core/Answering_Affidavit_2026-086906_Matthee.docx",
-  "Annexure_09_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
-  "Annexure_10_Founding_affid": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
-  "Annexure_01_Supplementary": "02_Evidence_Core/EWECT0125184368_LRA711.pdf",
-  "Annexure_02_Supplementary": "02_Evidence_Core/ADDITIONAL ATTACHMENT No True Accommodation post mental helth admission Fw_ Meeting Feedback 16 April 2025.pdf",
-  "Annexure_03_Supplementary": "02_Evidence_Core/AFR1282 Letter to Parliament 03.06.2026.PDF",
-  "Annexure_04_Supplementary": "02_Evidence_Core/AFR1282 Letter to Matthee 04.06.2026.pdf",
-  "Annexure_05_Supplementary": "02_Evidence_Core/EWECT0125188054_EWECT0125188054_LRA711.pdf",
-  "Annexure_06_Supplementary": "02_Evidence_Core/02_Evidence_Core/FILING OF PRACTICE NOTE AND SUPPLEMENTARY ANSWERING AFFIDAVIT _CASE NO_ 2026-086906 _ MATTHEE v AFROCENTRIC.PDF",
-  "Annexure_07_Supplementary": "02_Evidence_Core/JSE_FSCA_Questco/Gmail - URGENT SUPPLEMENTARY FILING_ Institutional Validation of Fraud, Governance Collapse & Bad Faith Litigation _ Afro(1).PDF",
-  "Annexure_08_Supplementary": "02_Evidence_Core/02_Evidence_Core/FILING OF PRACTICE NOTE AND SUPPLEMENTARY ANSWERING AFFIDAVIT _CASE NO_ 2026-086906 _ MATTHEE v AFROCENTRIC.PDF",
-  "Annexure_09_Supplementary": "02_Evidence_Core/JSE_FSCA_Questco/Gmail - URGENT SUPPLEMENTARY FILING_ Institutional Validation of Fraud, Governance Collapse & Bad Faith Litigation _ Afro(1).PDF",
-  "Annexure_10_Supplementary": "02_Evidence_Core/isbn_9786337800100.pdf",
-  "C-1": "02_Evidence_Core/02_Evidence_Core/A2 Payslip June 2025.pdf",
-  "C-2": "02_Evidence_Core/Attachement E (1)- Fw_ July 2025 Salary dispute, No staggering,  over 40%.pdf",
-  "C-3": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
-  "C-4": "02_Evidence_Core/02_Evidence_Core/b-bbee-final-gazetted-regulations.pdf",
-  "C-5": "02_Evidence_Core/02_Evidence_Core/- complete_SAHRC_FinalUpdate_13March2026 (1) (1).pdf",
-  "C-6": "02_Evidence_Core/CCMA/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF",
-  "C-7": "02_Evidence_Core/40.47 percent deductuion without consultation at one go.pdf",
-  "VICT1": "02_Evidence_Core/Copy of EthicHawks_Doc1_Protected_Disclosure(2).PDF",
-  "EXIT1": "02_Evidence_Core/A1 Employment Contract.pdf",
-  "PSL1": "02_Evidence_Core/A1 Employment Contract.pdf",
-  "GRC1": "02_Evidence_Core/URGENT _ PRIORITY 1_ Imminent Danger to Life and Safety \u2013 Request for Immediate Intervention (Wilbur Matthee _ Medscheme (1).PDF",
-  "PDA1": "02_Evidence_Core/A1 Employment Contract.pdf",
-  "PS-1": "02_Evidence_Core/A1 Employment Contract.pdf",
-  "PS-2": "02_Evidence_Core/SAPS_Criminal_Complaint_WW_Matthee_23Feb2026.docx"
-};
-</script>
+<main class="main">
+<div id="landing" class="panel active"><div class="container">
+<div style="text-align:center; padding: 3em 0 2em;">
+<img src="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg" alt="EthicHawks Logo" style="width:100%; height:auto; max-width:100%; object-fit:contain; margin-bottom:1.5em;">
+<div style="background: var(--navy); border: 3px solid var(--gold); padding: 1.5em 2em; margin-bottom: 1.5em; display:inline-block; min-width:300px;">
+<div style="font-family: var(--mono); font-size:0.75rem; color: var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.5em;">EthicHawks Forensic Governance & Compliance Consultancy</div>
+<div style="font-family: var(--serif); font-size:1.8rem; font-weight:700; color: white; line-height:1.3;">Consolidated Forensic<br>Oversight Report</div>
+<div style="font-family: var(--mono); font-size:0.8rem; color: rgba(255,255,255,0.6); margin-top:0.5em;">Parliamentary Submission · June 2026</div>
+</div>
+<div style="margin-top:1em;">
+<a href="https://github.com/wilburmat-boop/Forensic-Governance-Portfolio" target="_blank" style="font-family:var(--mono); font-size:0.85rem; color:var(--gold); text-decoration:none; border:1px solid var(--gold); padding:0.5em 1.2em; border-radius:3px;">Forensic Governance Portfolio</a>
+</div>
+</div>
+<div id="user-guide-content" style="max-width:800px; margin:0 auto;"><div style="text-align:center; color:var(--steel); font-family:var(--mono); font-size:0.85rem;">Loading user guide...</div></div>
+</div></div>
 
-<script id="annexure-linkify-script">
-(function() {
-  // Function to turn annexure codes into clickable links
-  function linkifyAnnexures(root) {
-    if (!root) root = document;
-    const keys = Object.keys(ANNEXURE_MAP);
-    // Create regex pattern that matches any key as a whole word, optionally preceded by "Annexure"
-    const pattern = new RegExp('(?:Annexure\s+)?(' + keys.map(k => k.replace(/[.*+?^${}()|[\]\]/g, '\$&')).join('|') + ')', 'gi');
-    
-    function walk(node) {
-      if (node.nodeType === Node.TEXT_NODE && node.parentNode) {
-        // Skip if already inside a link or our own span
-        if (node.parentNode.tagName === 'A' || node.parentNode.classList.contains('annexure-link')) return;
-        const text = node.textContent;
-        if (!text) return;
-        const matches = [...text.matchAll(pattern)];
-        if (matches.length === 0) return;
-        
-        const frag = document.createDocumentFragment();
-        let lastIndex = 0;
-        matches.forEach(match => {
-          const code = match[1];
-          // Add text before match
-          if (match.index > lastIndex) {
-            frag.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
-          }
-          // Create clickable span
-          const span = document.createElement('span');
-          span.className = 'annexure-link';
-          span.textContent = match[0]; // full matched string "Annexure C-1" or just "C-1"
-          span.title = 'Open evidence: ' + code;
-          span.style.cssText = 'color:#c9933a;cursor:pointer;text-decoration:underline;font-weight:600;';
-          span.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const filePath = ANNEXURE_MAP[code];
-            if (filePath && typeof showEvidenceModal === 'function') {
-              showEvidenceModal(filePath);
-            }
-          });
-          frag.appendChild(span);
-          lastIndex = match.index + match[0].length;
-        });
-        if (lastIndex < text.length) {
-          frag.appendChild(document.createTextNode(text.substring(lastIndex)));
-        }
-        node.parentNode.replaceChild(frag, node);
-      } else if (node.nodeType === Node.ELEMENT_NODE && !['SCRIPT','STYLE','NOSCRIPT'].includes(node.tagName)) {
-        // Avoid scanning elements we've already processed
-        if (node.classList.contains('annexure-link')) return;
-        node.childNodes.forEach(walk);
-      }
-    }
-    walk(root);
-  }
-  
-  // Run on page load
-  document.addEventListener('DOMContentLoaded', () => linkifyAnnexures(document));
-  // Also run when panels are switched (since content may be inside hidden panels)
-  const origShowPanel = window.showPanel;
-  if (typeof origShowPanel === 'function') {
-    window.showPanel = function(id, e) {
-      origShowPanel(id, e);
-      setTimeout(() => linkifyAnnexures(document.getElementById(id)), 100);
-    };
-  }
-})();
-</script>
+<div id="part1" class="panel"><div class="container"><h1>Part 1 · Foundation</h1><p>Content being restored.</p></div></div>
+<div id="part2" class="panel"><div class="container"><h1>Part 2 · Regulators</h1><p>Content being restored.</p></div></div>
+<div id="part3" class="panel"><div class="container"><h1>Part 3 · Justice</h1><p>Content being restored.</p></div></div>
+<div id="dashboard" class="panel"><div class="container"><h1>Dashboard · Evidence Vault</h1><p>Content being restored.</p></div></div>
+<div id="labour-court" class="panel"><div class="container"><h1>MATTHEE v AFROCENTRIC / MEDSCHEME HOLDINGS</h1><h2>Labour Court Chronology</h2><h3>Master Chronological Register</h3><table><thead><tr><th>Date</th><th>Body</th><th>Problem</th><th>Action</th><th>Status</th></tr></thead><tbody><tr><td><span class="evidence-link" onclick="showEvidenceModal('02_Evidence_Core/02_Evidence_Core/Emailing Wilbur Matthee - letter to employer.pdf.eml')">11 Jan 2024</span></td><td>Internal</td><td>Interview Specialist</td><td>Neo Sekgoka invites</td><td>Complete</td></tr><tr><td><span class="evidence-link" onclick="showEvidenceModal('02_Evidence_Core/02_Evidence_Core/FW_ Formal Grievance - Evidence of Malicious Intent, Constructive Dismissal, and Hostile Work Environment by Mary-Ann Jones (1).eml')">09 Apr 2024</span></td><td>Internal</td><td>Bait-and-switch</td><td>Matthee signs</td><td>Complete</td></tr><tr><td><span class="evidence-link" onclick="showEvidenceModal('02_Evidence_Core/02_Evidence_Core/July 2025 Salary dispute, No staggering,  over 40% (1).eml')">23 Jul 2025</span></td><td>Internal</td><td>40.47% deduction</td><td>Employer invokes</td><td>Complete</td></tr><tr><td><span class="evidence-link" onclick="showEvidenceModal('02_Evidence_Core/02_Evidence_Core/RE_ Formal Complaint_ Handling of Harassment and Discrimination Case (1).eml')">23 Sep 2025</span></td><td>Internal</td><td>Gender discrimination</td><td>Complaint lodged</td><td>Complete</td></tr><tr><td><span class="evidence-link" onclick="showEvidenceModal('02_Evidence_Core/02_Evidence_Core/FW_ Formal Grievance - Evidence of Malicious Intent, Constructive Dismissal, and Hostile Work Environment by Mary-Ann Jones (1).eml')">12 Dec 2025</span></td><td>Internal</td><td>Resignation</td><td>Submitted</td><td>Complete</td></tr><tr><td><span class="evidence-link" onclick="showEvidenceModal('02_Evidence_Core/02_Evidence_Core/Re_ Confirmation of meeting_ Regarding Formal Grievance and CCMA Referral [Case number_ EWECT0125184368].eml')">19 Mar 2026</span></td><td>SAPS Delft</td><td>Criminal Referral</td><td>CAS 705/3/2026</td><td>Complete</td></tr></tbody></table><h3>Internal Chronology</h3><table><thead><tr><th>Date</th><th>Event</th></tr></thead><tbody><tr><td><span class="evidence-link" onclick="showEvidenceModal('02_Evidence_Core/02_Evidence_Core/FW_ Formal Grievance - Evidence of Malicious Intent, Constructive Dismissal, and Hostile Work Environment by Mary-Ann Jones (1).eml')">16 May 2025</span></td><td>Disability notice</td></tr><tr><td><span class="evidence-link" onclick="showEvidenceModal('02_Evidence_Core/02_Evidence_Core/GEMS ADRM Hybrid_Flexi pilot agreement 16 October 2025.eml')">23 Oct 2025</span></td><td>Protected disclosure</td></tr><tr><td><span class="evidence-link" onclick="showEvidenceModal('02_Evidence_Core/02_Evidence_Core/FW_ Formal Grievance - Evidence of Malicious Intent, Constructive Dismissal, and Hostile Work Environment by Mary-Ann Jones (1).eml')">31 Oct 2025</span></td><td>Retaliatory admission</td></tr></tbody></table><p><em>Click any date to open the exact evidence file (SHA-256 sealed).</em></p></div></div>
+<div id="defence" class="panel"><div class="container"><h1>🛡️ Defence</h1><p>Consolidated LRA/PDA/BCEA defence – content being restored.</p></div></div>
+<div id="high-court" class="panel"><div class="container"><h1>⚖️ High Court</h1><p>Case No. 2026-086906 – content being restored.</p></div></div>
+</main>
 
-
+<script src="src/main.js"></script>
+<script src="part1.js"></script>
 <script>
-function showEvidenceModal(filePath) {
-  // Remove any existing modal
-  const existing = document.getElementById('evidence-modal');
-  if (existing) existing.remove();
-  
-  const fileUrl = '/' + filePath.split('/').map(p => encodeURIComponent(p)).join('/');
-  const filename = filePath.split('/').pop();
-  const ext = filename.split('.').pop().toLowerCase();
-  
-  const modal = document.createElement('div');
-  modal.id = 'evidence-modal';
-  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;';
-  
-  // Close button
-  const closeBtn = document.createElement('button');
-  closeBtn.textContent = '✕ Close';
-  closeBtn.style.cssText = 'background:none;border:1px solid #374151;color:#9ca3af;padding:4px 12px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.8rem;position:absolute;top:12px;right:16px;z-index:10;';
-  closeBtn.onclick = () => modal.remove();
-  modal.appendChild(closeBtn);
-  
-  // Content area
-  const content = document.createElement('div');
-  content.style.cssText = 'max-width:90vw;max-height:80vh;overflow:auto;background:#0d1f3c;border:1px solid #c9933a;border-radius:6px;padding:16px;text-align:center;';
-  
-  // AUDIO
-  if (['mp3','wav','ogg','m4a','aac','flac'].includes(ext)) {
-    const audio = document.createElement('audio');
-    audio.controls = true;
-    audio.style.cssText = 'width:100%;max-width:600px;';
-    const source = document.createElement('source');
-    source.src = fileUrl;
-    source.type = 'audio/' + (ext === 'm4a' ? 'mp4' : ext);
-    audio.appendChild(source);
-    content.appendChild(audio);
-    content.innerHTML += '<p style="color:#c9933a;font-family:monospace;font-size:0.85rem;margin-top:12px;">🎙️ ' + filename + '</p>';
-  }
-  // VIDEO
-  else if (['mp4','webm','mov','avi'].includes(ext)) {
-    const video = document.createElement('video');
-    video.controls = true;
-    video.style.cssText = 'width:100%;max-width:800px;max-height:70vh;';
-    const source = document.createElement('source');
-    source.src = fileUrl;
-    source.type = 'video/' + (ext === 'mov' ? 'mp4' : ext);
-    video.appendChild(source);
-    content.appendChild(video);
-    content.innerHTML += '<p style="color:#c9933a;font-family:monospace;font-size:0.85rem;margin-top:12px;">🎬 ' + filename + '</p>';
-  }
-  // IMAGES
-  else if (['jpg','jpeg','png','gif','webp','svg'].includes(ext)) {
-    const img = document.createElement('img');
-    img.src = fileUrl;
-    img.style.cssText = 'max-width:100%;max-height:70vh;border:1px solid #1f2937;border-radius:6px;';
-    content.appendChild(img);
-  }
-  // PDF
-  else if (ext === 'pdf') {
-    const iframe = document.createElement('iframe');
-    iframe.src = fileUrl;
-    iframe.style.cssText = 'width:100%;height:600px;border:1px solid #1f2937;border-radius:6px;background:white;';
-    content.appendChild(iframe);
-  }
-  // OTHER (download link)
-  else {
-    const link = document.createElement('a');
-    link.href = fileUrl;
-    link.target = '_blank';
-    link.textContent = '↗ Open ' + filename;
-    link.style.cssText = 'background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:10px 20px;border-radius:6px;text-decoration:none;font-family:monospace;font-size:0.85rem;display:inline-block;';
-    content.appendChild(link);
-  }
-  
-  // External link
-  const extLink = document.createElement('div');
-  extLink.style.cssText = 'margin-top:12px;';
-  extLink.innerHTML = '<a href="' + fileUrl + '" target="_blank" style="color:#3b82f6;font-family:monospace;font-size:0.8rem;">↗ Open in new tab</a>';
-  content.appendChild(extLink);
-  
-  modal.appendChild(content);
-  document.body.appendChild(modal);
-  
-  // Close on background click
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) modal.remove();
-  });
+// Tab switching logic
+function showPanel(id, e) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  if (e && e.target) e.target.classList.add('active');
+}
+function showReadme(e) {
+  // placeholder – will load user guide later
 }
 </script>
-
 </body>
-<script>
-function showReadme(event) {
-    showPanel("readme-panel", event);
-    fetch("https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/PORTFOLIO_USER_GUIDE.md")
-    .then(response => response.text())
-    .then(text => document.getElementById("readme-content").innerHTML = marked.parse(text));
-}
-</script>
+</html>
