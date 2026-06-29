@@ -603,7 +603,66 @@
     </div>
     
     <!-- User Guide content rendered here -->
-    <div id="user-guide-content" style="max-width:800px; margin:0 auto;">
+    
+<div style="margin-top:2em; border-top: 2px solid var(--gold); padding-top:1.5em;">
+    <h3 style="color:var(--gold); font-family:var(--mono); font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1em;">📂 Portfolio Bundle Contents</h3>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap:12px;">
+        <div class="nav-card" onclick="showPanel('part1', event)" style="cursor:pointer;">
+            <strong>Part 1 · Foundation</strong>
+            <p style="font-size:0.85rem; color:var(--steel);">Whistleblower case overview, regulatory framework, protected disclosures.</p>
+        </div>
+        <div class="nav-card" onclick="showPanel('part2', event)" style="cursor:pointer;">
+            <strong>Part 2 · Regulators</strong>
+            <p style="font-size:0.85rem; color:var(--steel);">Deep dive into each regulatory body’s response and failure patterns.</p>
+        </div>
+        <div class="nav-card" onclick="showPanel('part3', event)" style="cursor:pointer;">
+            <strong>Part 3 · Justice</strong>
+            <p style="font-size:0.85rem; color:var(--steel);">Judicial and prosecutorial actions, court filings, perjury schedule.</p>
+        </div>
+        <div class="nav-card" onclick="showPanel('dashboard', event)" style="cursor:pointer;">
+            <strong>Dashboard · Evidence Vault</strong>
+            <p style="font-size:0.85rem; color:var(--steel);">Searchable index of all sealed evidence files with SHA‑256 verification.</p>
+        </div>
+        <div class="nav-card" onclick="showPanel('labour-court', event)" style="cursor:pointer;">
+            <strong>⚖️ Labour Court</strong>
+            <p style="font-size:0.85rem; color:var(--steel);">Chronology of employment events, unfair dismissal, and CCMA history.</p>
+        </div>
+        <div class="nav-card" onclick="showPanel('defence', event)" style="cursor:pointer;">
+            <strong>🛡️ Defence</strong>
+            <p style="font-size:0.85rem; color:var(--steel);">Consolidated legal defence across LRA, PDA, BCEA with evidence annexures.</p>
+        </div>
+        <div class="nav-card" onclick="showPanel('high-court', event)" style="cursor:pointer;">
+            <strong>⚖️ High Court</strong>
+            <p style="font-size:0.85rem; color:var(--steel);">Section 162 Director Delinquency application, complete bundle, and filings.</p>
+        </div>
+        <div class="nav-card" onclick="showReadme(event)" style="cursor:pointer;">
+            <strong>User Guide (Docs)</strong>
+            <p style="font-size:0.85rem; color:var(--steel);">How to use this forensic portfolio and navigate the evidence.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.nav-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--gold);
+    padding: 16px;
+    transition: all 0.2s;
+}
+.nav-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-left-color: var(--navy);
+}
+.nav-card strong {
+    display: block;
+    font-family: var(--serif);
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+</style>
+
+<div id="user-guide-content" style="max-width:800px; margin:0 auto;">
         <div style="text-align:center; color:var(--steel); font-family:var(--mono); font-size:0.85rem;">Loading user guide...</div>
     </div>
 </div>
