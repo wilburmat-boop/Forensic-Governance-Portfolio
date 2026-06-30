@@ -79,7 +79,7 @@ td { padding: 10px 12px; border-bottom: 1px solid var(--rule); }
 <button class="tab-btn" onclick="showPanel('labour-court', event)">&#9878; Labour Court</button>
 <button class="tab-btn" onclick="showPanel('defence', event)">&#128737; Defence</button>
 <button class="tab-btn" onclick="showPanel('high-court', event)">&#9878; High Court</button>
-<button class="tab-btn" onclick="showReadme(event)">User Guide (Docs)</button>
+<button class="tab-btn" onclick="showReadme(event)">User Guide</button>
 </div>
 </nav>
 </div>
@@ -1092,6 +1092,12 @@ function setLang(code) {
     btn.onmouseover = () => { btn.style.background = 'var(--navy)'; btn.style.color = 'white'; };
     btn.onmouseout = () => { btn.style.background = 'white'; btn.style.color = 'var(--navy)'; };
     btn.onclick = () => {
+      if (pid === 'docs') {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        if (tabBtns[i]) { showReadme({currentTarget: tabBtns[i]}); }
+        window.scrollTo(0,0);
+        return;
+      }
       document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       const panel = document.getElementById(pid);
