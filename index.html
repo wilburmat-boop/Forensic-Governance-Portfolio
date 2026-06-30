@@ -929,7 +929,14 @@ td { padding: 10px 12px; border-bottom: 1px solid var(--rule); }
   </div>
 </div>
 
-
+<!-- USER GUIDE (DOCS) -->
+<div id="docs" class="panel">
+  <div class="container">
+    <div id="docs-content" style="font-family: var(--sans);">
+      <p style="font-family:var(--mono); color:var(--steel);">Loading user guide...</p>
+    </div>
+  </div>
+</div>
 
 </main>
 
@@ -989,7 +996,18 @@ function showEvidenceModal(filePath) {
 }
 
 function showReadme(e) {
-  showPanel('landing', e);
+  showPanel('docs', e);
+  const target = document.getElementById('docs-content');
+  if (target.dataset.loaded === 'true') return;
+  fetch('/PORTFOLIO_USER_GUIDE.md')
+    .then(r => { if (!r.ok) throw new Error('Could not load guide (' + r.status + ')'); return r.text(); })
+    .then(md => {
+      target.innerHTML = window.marked ? marked.parse(md) : '<pre style="white-space:pre-wrap;">' + md + '</pre>';
+      target.dataset.loaded = 'true';
+    })
+    .catch(err => {
+      target.innerHTML = '<div style="background:#451a03;color:#fcd34d;padding:16px;border-radius:6px;font-family:var(--mono);font-size:0.85rem;">[FAULT] Unable to load User Guide: ' + err.message + '</div>';
+    });
 }
 
 // Activate landing on load
