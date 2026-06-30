@@ -458,7 +458,10 @@ async function initPortal() {
     const hashData = await hashRes.json();
     const kwData = await kwRes.json();
     const dateData = await dateRes.json();
-    HASH_MANIFEST = {}; (Array.isArray(hashData)?hashData:[]).forEach(f=>{HASH_MANIFEST[f.path]=f;});
+    HASH_MANIFEST = {};
+    Object.values(dateData || {}).forEach(arr => {
+      (Array.isArray(arr) ? arr : []).forEach(f => { if (f && f.path) HASH_MANIFEST[f.path] = f; });
+    });
     KEYWORD_INDEX = kwData.index || {};
     DATE_INDEX = dateData || {};
     renderVault();
