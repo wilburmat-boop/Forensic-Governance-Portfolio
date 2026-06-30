@@ -462,7 +462,15 @@ async function initPortal() {
     Object.values(dateData || {}).forEach(arr => {
       (Array.isArray(arr) ? arr : []).forEach(f => { if (f && f.path) HASH_MANIFEST[f.path] = f; });
     });
-    KEYWORD_INDEX = kwData.index || {};
+    KEYWORD_INDEX = {};
+    Object.entries(kwData || {}).forEach(([keyword, fileList]) => {
+      if (keyword === 'index') return;
+      (Array.isArray(fileList) ? fileList : []).forEach(f => {
+        if (!f || !f.path) return;
+        if (!KEYWORD_INDEX[f.path]) KEYWORD_INDEX[f.path] = [];
+        KEYWORD_INDEX[f.path].push(keyword);
+      });
+    });
     DATE_INDEX = dateData || {};
     renderVault();
     renderDateBrowser();
