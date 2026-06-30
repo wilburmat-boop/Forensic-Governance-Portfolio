@@ -25,11 +25,14 @@ No login is required. No software installation is needed. Simply open the URL in
 
 ---
 
-## The Four Tabs
+## Navigating the Portfolio
 
-When you open the portfolio you will see four navigation tabs at the top of the screen. On mobile, scroll the tab bar horizontally if not all tabs are visible.
+When you open the portfolio you will see eight navigation tabs at the top of the screen, plus this User Guide. On mobile, scroll the tab bar horizontally if not all tabs are visible.
 
-### Tab 1 — Part 1 · Foundation
+### Tab 1 — Overview
+The landing page. Select your preferred official language to receive a short orientation summary and quick-navigation links to every section, including this User Guide.
+
+### Tab 2 — Part 1 · Foundation
 Contains the complete forensic foundation of the submission:
 - Executive title page and classification
 - Foreword — The NHI Will Be Built on the Bones of This Whistleblower
@@ -37,7 +40,7 @@ Contains the complete forensic foundation of the submission:
 - Scorecard of all 16 failed institutions
 - Health Regulator failures — CMS, HPCSA, SANC, SAPC, GEMS
 
-### Tab 2 — Part 2 · Regulators
+### Tab 3 — Part 2 · Regulators
 Contains the detailed analysis of employment, transformation, and Chapter 9 failures:
 - Department of Employment and Labour
 - B-BBEE Commission
@@ -46,7 +49,7 @@ Contains the detailed analysis of employment, transformation, and Chapter 9 fail
 - CCMA
 - The Whistleblower House
 
-### Tab 3 — Part 3 · Justice
+### Tab 4 — Part 3 · Justice
 Contains the judicial and market fraud analysis:
 - Market Regulators — JSE and FSCA
 - The Judiciary — Western Cape High Court and Labour Court
@@ -57,8 +60,17 @@ Contains the judicial and market fraud analysis:
 - Consolidated Prayer for Relief
 - Final Declaration
 
-### Tab 4 — Dashboard · Evidence Vault
-The interactive evidence vault containing all 881 sealed documents.
+### Tab 5 — Dashboard · Evidence Vault
+The interactive evidence vault containing all sealed documents. Includes full-text search, a keyword dropdown, a date browser, the SHA-256 hash verifier, and direct-access buttons to the six Portfolio Committee briefs (Health; Employment and Labour; Trade, Industry and Competition; Justice and Correctional Services; SCOPA; Police), each opening in a popup with links to its supporting evidence.
+
+### Tab 6 — Labour Court
+Filings, annexures, and case details for the Labour Court matters (Constructive Dismissal / PDA Retaliation and BCEA Unlawful Deduction).
+
+### Tab 7 — Defence
+The consolidated defence submission covering the Labour Relations Act, Protected Disclosures Act, and Basic Conditions of Employment Act claims, with cross-referenced evidence annexures.
+
+### Tab 8 — High Court
+Filings, annexures, and the interim order / rule nisi status for the Western Cape High Court Section 162 director delinquency application.
 
 ---
 
