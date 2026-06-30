@@ -9,7 +9,7 @@
 
 ## Overview
 
-The EthicHawks Forensic Governance Portfolio is a parliamentary-grade digital evidence vault containing 881 cryptographically sealed documents. It is accessible from any device — mobile phone, tablet, laptop, or desktop computer — using any modern web browser (Chrome, Firefox, Safari, Edge).
+The EthicHawks Forensic Governance Portfolio is a parliamentary-grade digital evidence vault containing 977 cryptographically sealed documents. It is accessible from any device — mobile phone, tablet, laptop, or desktop computer — using any modern web browser (Chrome, Firefox, Safari, Edge).
 
 No login is required. No software installation is needed. Simply open the URL in your browser.
 
@@ -88,7 +88,7 @@ Throughout the report in Tabs 1, 2, and 3, dates appear highlighted in gold with
 Throughout the report, evidence reference codes appear as small blue boxes — B1, C1, E1, O1, M1, M2 etc. Click or tap any blue badge to open the evidence viewer for that specific document.
 
 ### Evidence Vault Search — Tab 4
-In the Dashboard tab, a search bar allows full-text search across all 881 sealed files.
+In the Dashboard tab, a search bar allows full-text search across all 977 sealed files.
 
 ### Keyword Dropdown — Tab 4
 Click the Keywords button in the Dashboard to open a dropdown of 80+ pre-categorised forensic keywords.
