@@ -98,6 +98,12 @@ Paste a 64-character SHA-256 hash and click Verify Hash to confirm document auth
 
 ---
 
+## Glossary Definitions
+
+Throughout the report, key statutory and regulatory terms — such as BCEA, PDA, LRA, Section 162, Section 34, Section 186, CCMA, NHI, POPIA, King IV, and the Biowatch principle — are marked with a small gold ↗ symbol. Tap or click this symbol to open a short definition of that term.
+
+---
+
 ## Understanding SHA-256 Cryptographic Integrity
 
 Every document in this portfolio has been sealed with a SHA-256 cryptographic hash — a mathematical fingerprint of the document's exact contents. If even a single character is changed after sealing, the hash changes completely.
