@@ -967,7 +967,11 @@ function showPanel(id, e) {
 }
 
 function buildEvidenceUrl(filePath) {
-  return 'https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/dist/' + filePath.split('/').map(function(p) { return encodeURIComponent(p); }).join('/');
+  var ext = filePath.split('.').pop().toLowerCase();
+  var base = (ext === 'pdf')
+    ? 'https://media.githubusercontent.com/media/wilburmat-boop/Forensic-Governance-Portfolio/main/dist/'
+    : 'https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/dist/';
+  return base + filePath.split('/').map(function(p) { return encodeURIComponent(p); }).join('/');
 }
 
 function showEvidenceModal(filePath) {
