@@ -13,3 +13,4 @@ build/
 index.html.bak
 webhook.ts
 public/reference_map.json
+.env
