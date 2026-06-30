@@ -966,10 +966,30 @@ function showPanel(id, e) {
   if (window.autoLinkGlossary) { setTimeout(window.autoLinkGlossary, 50); }
 }
 
+function buildEvidenceUrl(filePath) {
+  return 'https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/dist/' + filePath.split('/').map(function(p) { return encodeURIComponent(p); }).join('/');
+}
+
 function showEvidenceModal(filePath) {
   var existing = document.getElementById('evidence-modal');
   if (existing) existing.remove();
-  var fileUrl = 'https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/dist/' + filePath.split('/').map(function(p) { return encodeURIComponent(p); }).join('/');
+  var primaryUrl = buildEvidenceUrl(filePath);
+  var doubledPath = filePath.indexOf('02_Evidence_Core/02_Evidence_Core/') === 0
+    ? filePath
+    : filePath.replace('02_Evidence_Core/', '02_Evidence_Core/02_Evidence_Core/');
+  var fallbackUrl = buildEvidenceUrl(doubledPath);
+  var fileUrl = primaryUrl;
+  fetch(primaryUrl, {method:'HEAD'}).then(function(r){
+    if (!r.ok) {
+      setTimeout(function() {
+        var el1 = document.getElementById('evidence-src-1');
+        var el2 = document.getElementById('evidence-src-2');
+        if (el1) { if (el1.tagName === 'A') { el1.href = fallbackUrl; } else { el1.src = fallbackUrl; if (el1.tagName === 'SOURCE' && el1.parentElement) el1.parentElement.load && el1.parentElement.load(); } }
+        if (el2) { el2.href = fallbackUrl; }
+        fileUrl = fallbackUrl;
+      }, 100);
+    }
+  }).catch(function(){});
   var filename = filePath.split('/').pop();
   var ext = filename.split('.').pop().toLowerCase();
   var modal = document.createElement('div');
@@ -984,27 +1004,27 @@ function showEvidenceModal(filePath) {
   content.style.cssText = 'max-width:90vw;max-height:80vh;overflow:auto;background:#0d1f3c;border:1px solid #c9933a;border-radius:6px;padding:16px;text-align:center;';
   if (['mp3','wav','ogg','m4a','aac','flac'].indexOf(ext) !== -1) {
     var audio = document.createElement('audio'); audio.controls = true; audio.style.cssText = 'width:100%;max-width:600px;';
-    var s = document.createElement('source'); s.src = fileUrl; s.type = 'audio/' + (ext === 'm4a' ? 'mp4' : ext);
+    var s = document.createElement('source'); s.src = fileUrl; s.id='evidence-src-1'; s.type = 'audio/' + (ext === 'm4a' ? 'mp4' : ext);
     audio.appendChild(s); content.appendChild(audio);
     content.innerHTML += '<p style="color:#c9933a;font-family:monospace;font-size:0.85rem;margin-top:12px;">🎙️ ' + filename + '</p>';
   } else if (['mp4','webm','mov','avi'].indexOf(ext) !== -1) {
     var video = document.createElement('video'); video.controls = true; video.style.cssText = 'width:100%;max-width:800px;max-height:70vh;';
-    var vs = document.createElement('source'); vs.src = fileUrl; vs.type = 'video/' + (ext === 'mov' ? 'mp4' : ext);
+    var vs = document.createElement('source'); vs.src = fileUrl; vs.id='evidence-src-1'; vs.type = 'video/' + (ext === 'mov' ? 'mp4' : ext);
     video.appendChild(vs); content.appendChild(video);
     content.innerHTML += '<p style="color:#c9933a;font-family:monospace;font-size:0.85rem;margin-top:12px;">🎬 ' + filename + '</p>';
   } else if (['jpg','jpeg','png','gif','webp','svg'].indexOf(ext) !== -1) {
-    var img = document.createElement('img'); img.src = fileUrl; img.style.cssText = 'max-width:100%;max-height:70vh;border:1px solid #1f2937;border-radius:6px;';
+    var img = document.createElement('img'); img.src = fileUrl; img.id='evidence-src-1'; img.style.cssText = 'max-width:100%;max-height:70vh;border:1px solid #1f2937;border-radius:6px;';
     content.appendChild(img);
   } else if (ext === 'pdf') {
-    var iframe = document.createElement('iframe'); iframe.src = fileUrl; iframe.style.cssText = 'width:100%;height:600px;border:1px solid #1f2937;border-radius:6px;background:white;';
+    var iframe = document.createElement('iframe'); iframe.src = fileUrl; iframe.id='evidence-src-1'; iframe.style.cssText = 'width:100%;height:600px;border:1px solid #1f2937;border-radius:6px;background:white;';
     content.appendChild(iframe);
   } else {
-    var link = document.createElement('a'); link.href = fileUrl; link.target = '_blank'; link.textContent = '↗ Open ' + filename;
+    var link = document.createElement('a'); link.href = fileUrl; link.id='evidence-src-1'; link.target = '_blank'; link.textContent = '↗ Open ' + filename;
     link.style.cssText = 'background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:10px 20px;border-radius:6px;text-decoration:none;font-family:monospace;font-size:0.85rem;display:inline-block;';
     content.appendChild(link);
   }
   var extLink = document.createElement('div'); extLink.style.cssText = 'margin-top:12px;';
-  extLink.innerHTML = '<a href="' + fileUrl + '" target="_blank" style="color:#3b82f6;font-family:monospace;font-size:0.8rem;">↗ Open in new tab</a>';
+  extLink.innerHTML = '<a id="evidence-src-2" href="' + fileUrl + '" target="_blank" style="color:#3b82f6;font-family:monospace;font-size:0.8rem;">↗ Open in new tab</a>';
   content.appendChild(extLink);
   modal.appendChild(content);
   document.body.appendChild(modal);
