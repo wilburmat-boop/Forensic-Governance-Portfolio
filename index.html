@@ -1032,6 +1032,19 @@ function showEvidenceModal(filePath) {
     pdfFallback.innerHTML = '<a href="' + fileUrl + '" target="_blank" style="color:#93c5fd;font-family:monospace;font-size:0.78rem;">↗ Trouble viewing? Open PDF directly</a>';
     pdfWrap.appendChild(pdfFallback);
     content.appendChild(pdfWrap);
+  } else if (['doc','docx','xls','xlsx','ppt','pptx'].indexOf(ext) !== -1) {
+    var officeWrap = document.createElement('div');
+    officeWrap.style.cssText = 'width:100%;';
+    var officeViewerUrl = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(fileUrl);
+    var officeFrame = document.createElement('iframe');
+    officeFrame.src = officeViewerUrl; officeFrame.id = 'evidence-src-1';
+    officeFrame.style.cssText = 'width:100%;height:75vh;border:1px solid #1f2937;border-radius:6px;background:white;';
+    officeWrap.appendChild(officeFrame);
+    var officeFallback = document.createElement('p');
+    officeFallback.style.cssText = 'margin-top:8px;text-align:center;';
+    officeFallback.innerHTML = '<a href="' + fileUrl + '" target="_blank" style="color:#93c5fd;font-family:monospace;font-size:0.78rem;">↗ Trouble viewing? Open document directly</a>';
+    officeWrap.appendChild(officeFallback);
+    content.appendChild(officeWrap);
   } else {
     var link = document.createElement('a'); link.href = fileUrl; link.id='evidence-src-1'; link.target = '_blank'; link.textContent = '↗ Open ' + filename;
     link.style.cssText = 'background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:10px 20px;border-radius:6px;text-decoration:none;font-family:monospace;font-size:0.85rem;display:inline-block;';
