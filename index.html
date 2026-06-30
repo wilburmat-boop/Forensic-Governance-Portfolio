@@ -1071,6 +1071,72 @@ const committeeBriefs = {
   }
 };
 
+const GLOSSARY = {
+  "BCEA": "Basic Conditions of Employment Act 75 of 1997 — sets minimum employment standards in South Africa, including limits on salary deductions (Section 34).",
+  "PDA": "Protected Disclosures Act 26 of 2000 — protects employees who disclose unlawful or irregular conduct by their employer from being subjected to occupational detriment.",
+  "LRA": "Labour Relations Act 66 of 1995 — governs labour relations, dismissal, and dispute resolution in South Africa, including constructive and automatically unfair dismissal.",
+  "Section 162": "Companies Act 71 of 2008, Section 162 — allows a court to declare a company director delinquent for serious breaches of their duties.",
+  "Section 34": "BCEA Section 34 — restricts an employer from deducting more than 25% of an employee's remuneration without written consent, subject to certain conditions.",
+  "Section 186": "Labour Relations Act Section 186 — defines dismissal, including constructive dismissal (186(1)(e)) and automatically unfair dismissal (187(1)(h)).",
+  "CCMA": "Commission for Conciliation, Mediation and Arbitration — a statutory body providing dispute resolution services for labour disputes in South Africa.",
+  "NHI": "National Health Insurance — South Africa's proposed universal health coverage system, intended to pool funding for equitable access to healthcare.",
+  "POPIA": "Protection of Personal Information Act 4 of 2013 — regulates the processing of personal information by public and private bodies in South Africa.",
+  "King IV": "King IV Report on Corporate Governance — South Africa's leading corporate governance framework, setting principles for ethical and effective leadership.",
+  "Biowatch": "Biowatch principle — a Constitutional Court ruling that costs should generally not be awarded against unsuccessful litigants raising constitutional issues against the state, to protect access to justice."
+};
+
+function showGlossaryTerm(term) {
+  const def = GLOSSARY[term];
+  if (!def) return;
+  const existing = document.getElementById('glossary-modal');
+  if (existing) existing.remove();
+  const modal = document.createElement('div');
+  modal.id = 'glossary-modal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,12,15,0.75);z-index:2100;display:flex;align-items:center;justify-content:center;padding:20px;';
+  modal.innerHTML = `
+    <div style="background:white;max-width:420px;width:100%;border-radius:6px;border:2px solid var(--gold);padding:1.5em 1.75em;position:relative;">
+      <button onclick="document.getElementById('glossary-modal').remove()" style="position:absolute;top:0.8em;right:0.8em;background:none;border:1px solid var(--rule);color:var(--steel);padding:2px 10px;border-radius:4px;cursor:pointer;font-family:var(--mono);font-size:0.75rem;">✕</button>
+      <div style="font-family:var(--mono);font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5em;">Glossary</div>
+      <h3 style="margin:0 0 0.5em; border:none; padding:0; color:var(--navy);">${term}</h3>
+      <p style="font-size:0.9rem; line-height:1.6; margin:0;">${def}</p>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+}
+
+function autoLinkGlossary() {
+  const panels = document.querySelectorAll('.panel .container');
+  const terms = Object.keys(GLOSSARY).sort((a,b) => b.length - a.length);
+  panels.forEach(panel => {
+    terms.forEach(term => {
+      if (panel.dataset['gloss_' + term.replace(/[^a-zA-Z0-9]/g,'')]) return;
+      const walker = document.createTreeWalker(panel, NodeFilter.SHOW_TEXT, null);
+      let node;
+      while ((node = walker.nextNode())) {
+        const idx = node.nodeValue.indexOf(term);
+        if (idx === -1) continue;
+        if (node.parentElement.closest('.evidence-link, button, script, style')) continue;
+        const before = node.nodeValue.slice(0, idx);
+        const after = node.nodeValue.slice(idx + term.length);
+        const span = document.createElement('span');
+        span.innerHTML = term + ' <span onclick="showGlossaryTerm(\'' + term.replace(/'/g,"\\'") + '\')" title="Definition" style="display:inline-block;cursor:pointer;color:var(--gold);font-weight:700;font-size:0.85em;">&#8599;</span>';
+        const afterNode = document.createTextNode(after);
+        const beforeNode = document.createTextNode(before);
+        const parent = node.parentNode;
+        parent.insertBefore(beforeNode, node);
+        parent.insertBefore(span, node);
+        parent.insertBefore(afterNode, node);
+        parent.removeChild(node);
+        panel.dataset['gloss_' + term.replace(/[^a-zA-Z0-9]/g,'')] = '1';
+        break;
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => { setTimeout(autoLinkGlossary, 300); });
+
 function showCommitteeBrief(key) {
   const b = committeeBriefs[key];
   if (!b) return;
@@ -1127,7 +1193,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const langData = {
   en: {
     title: "Welcome to the EthicHawks Forensic Governance Portfolio",
-    body: "This portfolio is a parliamentary-grade forensic evidence submission documenting the total collapse of South Africa's governance guardrails. It is organised into the following sections. Please use the navigation tabs at the top to move between sections.",
+    body: "This portfolio is a parliamentary-grade forensic evidence submission documenting the total collapse of South Africa's governance guardrails. It is organised into the following sections. Please use the navigation tabs at the top to move between sections.<br><br>New here? Tap <strong>User Guide</strong> below to get started.",
     navHeading: "Navigate to a section:",
     tabs: ["Overview","Part 1 · Foundation","Part 2 · Regulators","Part 3 · Justice","Dashboard · Evidence Vault","Labour Court","Defence","High Court","User Guide"]
   },
