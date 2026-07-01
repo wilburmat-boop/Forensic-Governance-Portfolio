@@ -340,7 +340,7 @@ function verifyHash() {
     result.innerHTML = `
       <div style="background:#450a0a;border:1px solid #7f1d1d;border-radius:6px;padding:16px;">
         <div style="font-family:monospace;font-size:0.75rem;color:#f87171;font-weight:700;margin-bottom:8px;">✗ HASH NOT FOUND IN SEALED EVIDENCE REGISTRY</div>
-        <div style="font-size:0.82rem;color:#fca5a5;">This hash does not match any of the 881 sealed evidence files in this portfolio. The document may have been tampered with, or it is not part of this submission.</div>
+        <div style="font-size:0.82rem;color:#fca5a5;">This hash does not match any of the 664 sealed evidence files in this portfolio. The document may have been tampered with, or it is not part of this submission.</div>
       </div>
     `;
   }
@@ -414,7 +414,7 @@ async function initPortal() {
       <header style="border-bottom:1px solid #1f2937;padding-bottom:20px;margin-bottom:28px;">
         <div style="font-family:monospace;font-size:0.75rem;color:#3b82f6;font-weight:800;letter-spacing:0.1em;margin-bottom:4px;">ETHICHAWKS FORENSIC GOVERNANCE</div>
         <h1 style="color:#f9fafb;font-size:2rem;font-weight:800;margin:0 0 8px 0;">Institutional Oversight · Evidence Vault</h1>
-        <p style="color:#6b7280;font-size:0.9rem;margin:0 0 4px 0;">867 files · SHA-256 cryptographically sealed · 392 files keyword-indexed · Parliamentary submission June 2026</p>
+        <p style="color:#6b7280;font-size:0.9rem;margin:0 0 4px 0;">664 files · SHA-256 cryptographically sealed · Parliamentary submission June 2026</p>
       </header>
 
       <!-- Search + Keywords Bar -->

@@ -1,0 +1,5 @@
+#!/bin/bash
+# Usage: ./update_status "filename" "new_status"
+sed -i 's/"file": "'"$1"'", "narrative_link": "pending"/"file": "'"$1"'", "narrative_link": "'"$2"'"/' "$HOME/Forensic-Governance-Portfolio/keyword_index.json"
+echo "Updated $1 to status: $2"
+
