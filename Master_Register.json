@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {
+      "title": "Test Case A",
+      "status": "RED",
+      "summary": "This is a test to verify the monitor is working."
+    },
+    {
+      "title": "Test Case B",
+      "status": "GREEN",
+      "summary": "Everything is normal."
+    }
+  ]
+}

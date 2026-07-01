@@ -1,22 +1,14 @@
 {
-  "name": "EthicHawks Forensic Portal",
-  "short_name": "EthicHawks",
-  "description": "Secure, cryptographically verified forensic oversight dossier.",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "background_color": "#111827",
-  "theme_color": "#1f2937",
-  "orientation": "portrait",
-  "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+  "20260630": {
+    "file": "/Evidence_Core/20260630_EH_Formal_Declaration_National_Speaker_22June2026.pdf",
+    "anchor": "page=1"
+  },
+  "ethichawks": {
+    "file": "/Evidence_Core/EthicHawks_Consolidated_Forensic_Oversight_Report_FULL_June2026.pdf",
+    "anchor": "table_1"
+  },
+  "medical": {
+    "file": "/Evidence_Core/MEDICAL_SCHEMES_ACT_NO_131_OF_1998.pdf",
+    "anchor": "section_58"
+  }
 }
