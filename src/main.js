@@ -3,7 +3,29 @@ let DATE_INDEX = {};
 let KEYWORD_INDEX = {};
 let activeKeyword = null;
 
-const KEYWORD_CATEGORIES = {
+const KEYWORD_CATEGORIES = {,
+    "rule nisi": "A court order that will become final unless a specific cause is shown against it.",
+    "ex parte": "Proceedings done for the benefit of one party without the presence of the other.",
+    "affidavit": "A written statement confirmed by oath or affirmation.",
+    "deponent": "A person who gives evidence or makes an affidavit.",
+    "perjury": "The offense of willfully telling an untruth in a court after having taken an oath.",
+    "contempt": "Disobedience to or disrespect of a court of law.",
+    "interdict": "A judicial order that restrains a person from beginning or continuing an action.",
+    "fiduciary": "A person who holds a legal or ethical relationship of trust with one or more other parties.",
+    "victimisation": "The action of singling someone out for cruel or unjust treatment.",
+    "retaliation": "The action of returning a military attack or injury; counter-attack.",
+    "regulatory capture": "A form of corruption where a regulatory agency acts in the interest of the industry it is charged with regulating.",
+    "HPCSA": "Health Professions Council of South Africa.",
+    "SANC": "South African Nursing Council.",
+    "SAPC": "South African Pharmacy Council.",
+    "GEMS": "Government Employees Medical Scheme.",
+    "SAHRC": "South African Human Rights Commission.",
+    "FSCA": "Financial Sector Conduct Authority.",
+    "JSE": "Johannesburg Stock Exchange.",
+    "UI-19": "The form used to register an employee for UIF.",
+    "UIF": "Unemployment Insurance Fund.",
+    "PFMA": "Public Finance Management Act."
+
   "⚖️ Legal Proceedings": [
     "perjury", "criminal", "fraud", "contempt", "interdict", "affidavit",
     "deponent", "sworn", "oath", "court order", "rule nisi", "ex parte",

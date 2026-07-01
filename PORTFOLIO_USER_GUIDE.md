@@ -32,7 +32,7 @@ When you open the portfolio you will see eight navigation tabs at the top of the
 ### Tab 1 — Overview
 The landing page. Select your preferred official language to receive a short orientation summary and quick-navigation links to every section, including this User Guide.
 
-### Tab 2 — Part 1 · Foundation
+### Tab 2 — Foundation
 Contains the complete forensic foundation of the submission:
 - Executive title page and classification
 - Foreword — The NHI Will Be Built on the Bones of This Whistleblower
