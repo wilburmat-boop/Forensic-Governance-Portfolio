@@ -1,0 +1,29 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "my-pages-app",
+  "pages_build_output_dir": "./dist",
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "<NAMESPACE_ID>"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "northwind-demo",
+      "database_id": "<DATABASE_ID>"
+    }
+  ],
+  "vars": {
+    "API_KEY": "1234567asdf"
+  }
+}
+{
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "<NAMESPACE_ID>"
+    }
+  ]
+}

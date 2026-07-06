@@ -1,0 +1,27 @@
+name: Sync File Hashes to Supabase
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-hashes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Generate Hashes and Sync
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          # This script runs on the GitHub server, not your phone
+          for f in *.pdf; do
+            hash=$(sha256sum "$f" | cut -d' ' -f1)
+            curl -X POST "${SUPABASE_URL}/rest/v1/app_chapters" \
+              -H "apikey: ${SUPABASE_KEY}" \
+              -H "Authorization: Bearer ${SUPABASE_KEY}" \
+              -H "Content-Type: application/json" \
+              -d "{\"chapter_id\": 0, \"title\": \"$f\", \"sha256_verification_hash\": \"$hash\"}"
+          done

@@ -1,0 +1,16 @@
+{
+  "name": "ethical-forensic-bundle",
+  "version": "1.0.0",
+  "description": "Cryptographic audible structural blueprint for forensic evidence compilation",
+  "main": "index.js",
+  "scripts": {
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "vite": "5.4.11"
+  },
+  "author": "Ethical Forensic Governance",
+  "license": "UNLICENSED",
+  "private": true
+}

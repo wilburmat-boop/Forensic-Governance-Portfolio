@@ -1,0 +1,46 @@
+./engine.py
+./__pycache__/engine.cpython-313.pyc
+./.gitignore
+./PORTFOLIO.md
+./.git/description
+./.git/config
+./.git/HEAD
+./.git/COMMIT_EDITMSG
+./.git/index
+./.git/FETCH_HEAD
+./.git/ORIG_HEAD
+./.git/packed-refs
+./README.md
+./build/submission.pdf
+./build/submission.pdf.sha256
+./src/run_submission.py
+./generate_hash_manifest.py
+./init_portfolio.sh
+./run_submission.py
+./build_vault.py
+./review_code.py
+./02_Evidence_Core/Gmail - WECT23564-25 respondents opposing affidavit(1).PDF
+./02_Evidence_Core/Gmail - WECT24486-25_2_SetDownParConArb.PDF
+./02_Evidence_Core/Gmail - Urgent Response – Employer’s Objection to Con‑Arb (WECT24486‑25)(2).PDF
+./02_Evidence_Core/Gmail - CORRECTION TO COMPLAINT OF 16 FEBRUARY 2026 _ CMS Correspondence Characterisation _ Lisa Mari — Responsible Pharm(4).PDF
+./02_Evidence_Core/EthicHawks_Portfolio_May2026(6).html
+./02_Evidence_Core/Gmail - FORMAL COMPLAINT OF UNPROFESSIONAL CONDUCT _ Lisa Mari — Responsible Pharmacist _ Medscheme Holdings (AfroCentric(2).PDF
+./02_Evidence_Core/EthicHawks_Consolidated_Evidence_Portfolio_April2026'
+./02_Evidence_Core/EthicHawks_Consolidated_Evidence_Portfolio_April2026.pdf
+./termux/.exmu-cfg1.data
+./termux/.thumbcache_idx_FPNyuLhAtVnAeldjikus
+./organize_evidence.py
+./audit_narrative.py
+./audit_narrative.yes
+./test_output.html
+./01_Executive_Briefs/PARL_SUBMISSION_MAIN_JUNE2026.md
+./01_Executive_Briefs/SUMMARY_HEALTH.md
+./01_Executive_Briefs/PARL_SUBMISSION_MAIN_JUNE2026
+./01_Executive_Briefs/SPEAKER_SUMMARY_ANALYTICS.md
+./03_Regulatory_Cross_Maps/KING_V_ALIGNMENT_GAP_ANALYSIS.md
+./03_Regulatory_Cross_Maps/STATUTORY_BREACH_MATRIX.md
+./file_list.txt
+./hash_manifest.sha256
+./sort_evidence.sh
+./categorize_by_content.py
+./MASTER_MANIFEST.txt

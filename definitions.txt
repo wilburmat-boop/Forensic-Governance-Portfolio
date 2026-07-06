@@ -1,0 +1,3 @@
+PERJURY@Willfully making a false statement under oath or in a sworn affidavit.
+CRIMINAL@An act that violates criminal law and may be prosecuted by the state.
+Market Deception@Intentionally misleading market participants or the public for unfair advantage.

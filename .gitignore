@@ -1,0 +1,59 @@
+# Dependencies & Build Artifacts
+node_modules/
+dist/assets/
+dist/.vite/
+
+# Environment & Cache
+.env
+.env.local
+.vite-cache/
+.DS_Store
+
+# Logs & Temporary Files
+*.log
+*.swp
+else:
+update_status
+
+# Build Triggers (manual flags)
+.force_deploy
+.force_new_build
+.trigger_rebuild
+
+# Backups
+index.html.bak
+webhook.ts
+
+# Evidence exclusions (keep in repo, but exclude specific large items)
+#02_Evidence_Core/11 Willow way/
+#02_Evidence_Core/Pre-owned Apple Watch*
+#02_Evidence_Core/Receipt_23Jun2025_191620.pdf
+#02_Evidence_Core/Zero_Based_Budget_Wilbur.xlsx
+#02_Evidence_Core/googleac2776e85285adb5*
+#02_Evidence_Core/isbn_9786337800100.pdf
+#02_Evidence_Core/linkedin_post_package.html
+#02_Evidence_Core/receipt .pdf
+#02_Evidence_Core/rejection_wallpaper-5.html
+#02_Evidence_Core/*Vitamin B1*
+
+# Public folder exclusions
+public/reference_map.json
+public/02_Evidence_Core/0_0_1_Wilbur_William_Matthee/
+public/02_Evidence_Core/0_9_Miscellaneous_Folder /
+public/02_Evidence_Core/0_1_Parliamentary_Oversight /Portfolio Oversight 4 june 2026/Parliament_Oversight_Wilbur_Matthee_4_June_2026.mp4
+dist/02_Evidence_Core/0_1_Parliamentary_Oversight /Portfolio Oversight 4 june 2026/Parliament_Oversight_Wilbur_Matthee_4_June_2026.mp4
+
+# Network & VPN
+*.ovpn
+uuids.txt
+
+# Generated reports
+final_report.md
+
+# Python cache
+__pycache__/
+build/
+dist/02_Evidence_Core/**/Mrs_Kamaldiem_Health_Report.pdf
+dist/02_Evidence_Core/0_1_Parliamentary_Oversight/Portfolio Oversight 4 june 2026/Parliament_Oversight_Wilbur_Matthee_4_June_2026.mp4
+evidence_archive_2026_06_30.tar
+evidence_archive_2026_06_30.tar
