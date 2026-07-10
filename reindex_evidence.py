@@ -91,7 +91,17 @@ def main():
     keyword_index = {}
     count = 0
 
-    for dirpath, _, filenames in os.walk(EVIDENCE_DIR):
+    EXCLUDED_DIRS = [
+        "0_0_1_Wilbur_William_Matthee",
+        "0_9_Miscellaneous_Folder",
+        "0_1_Parliamentary_Oversight",  # video too large for git, excluded via .gitignore
+    ]
+
+    for dirpath, dirnames, filenames in os.walk(EVIDENCE_DIR):
+        dirnames[:] = [d for d in dirnames if d not in EXCLUDED_DIRS]
+        rel_check = str(Path(dirpath).relative_to(EVIDENCE_DIR.parent))
+        if any(ex in rel_check for ex in EXCLUDED_DIRS):
+            continue
         for fname in sorted(filenames):
             if fname.startswith('.'):
                 continue
