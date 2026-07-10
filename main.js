@@ -1,15 +1,9 @@
-
-// Function to handle clicking evidence references
-function goToSource(refId) {
-    fetch('reference_map.json')
-        .then(response => response.json())
-        .then(data => {
-            const path = data[refId];
-            if (path) {
-                window.open(path, '_blank');
-            } else {
-                alert("Evidence reference " + refId + " not found in vault.");
-            }
-        })
-        .catch(error => console.error('Error loading reference map:', error));
+function showCommitteeBrief(briefId) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById(briefId);
+  if (target) {
+    target.classList.add('active');
+  } else {
+    console.error("Panel not found for ID:", briefId);
+  }
 }
