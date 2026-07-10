@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EthicHawks · Consolidated Forensic Oversight Report · June 2026</title>
 <link rel="icon" type="image/jpeg" href="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg">
+<script>
+  const glossary = {
+    "GEMS": "Government Employees Medical Scheme",
+    "CMS": "Council for Medical Schemes",
+    "B-BEE": "Broad-Based Black Economic Empowerment",
+    "SAPS": "South African Police Service",
+    "POPIA": "Protection of Personal Information Act"
+  };
+</script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap');
@@ -52,7 +61,7 @@ td { padding: 10px 12px; border-bottom: 1px solid var(--rule); }
 /* ===== RESPONSIVE ===== */
 @media(max-width:700px){.header-inner{padding:8px 12px}.logo-icon{width:38px;height:38px}.logo-text .org{font-size:14px}.header-status{font-size:9px;padding:4px 10px}.container{padding:24px}}
 </style>
-</head>
+<script src="/briefs-data.js"></script></head>
 <body>
 
 <!-- STICKY HEADER + TABS -->
@@ -988,6 +997,7 @@ td { padding: 10px 12px; border-bottom: 1px solid var(--rule); }
 </main>
 
 <!-- JAVASCRIPT -->
+<script src="/glossary-data.js"></script>
 <script>
 function showPanel(id, e) {
   document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
