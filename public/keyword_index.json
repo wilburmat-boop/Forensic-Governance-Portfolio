@@ -175,6 +175,14 @@
       "folder": "02_Evidence_Core/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/0_0_EH_Compliance/POPIA_COMPLIANCE",
       "date_iso": "Undated",
       "size": 109383
+    },
+    {
+      "path": "02_Evidence_Core/0_1_2_Judicial_Service_&_Conduct_Commission/EH_Wilbur_Matthee_POPIA_PAIA_Complaint_Information_Regulator.pdfopen_.pdf",
+      "filename": "EH_Wilbur_Matthee_POPIA_PAIA_Complaint_Information_Regulator.pdfopen_.pdf",
+      "sha256": "5b07e5f3e562c00c6ac7d91e03d433c285f9558bff008b27727902feb875b192",
+      "folder": "02_Evidence_Core/0_1_2_Judicial_Service_&_Conduct_Commission",
+      "date_iso": "Undated",
+      "size": 1327505
     }
   ],
   "affidavit": [
@@ -9165,6 +9173,14 @@
       "folder": "02_Evidence_Core/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie",
       "date_iso": "Undated",
       "size": 166833
+    },
+    {
+      "path": "02_Evidence_Core/0_1_2_Judicial_Service_&_Conduct_Commission/EH_Wilbur_Matthee_JSC_JCC_Formal_Complaint/URGENT_ Formal Section 14(4) Complaint & Evidentiary Dossier – Judicial Misconduct & Registry Malfeasance (Ref_ EH_JO_2026_0.PDF",
+      "filename": "URGENT_ Formal Section 14(4) Complaint & Evidentiary Dossier – Judicial Misconduct & Registry Malfeasance (Ref_ EH_JO_2026_0.PDF",
+      "sha256": "750b10f34990e2c6c45ceb5cfa211ea9a8e336a77ea49e77b5ae8f6522de169e",
+      "folder": "02_Evidence_Core/0_1_2_Judicial_Service_&_Conduct_Commission/EH_Wilbur_Matthee_JSC_JCC_Formal_Complaint",
+      "date_iso": "Undated",
+      "size": 85913
     }
   ],
   "retaliation": [
