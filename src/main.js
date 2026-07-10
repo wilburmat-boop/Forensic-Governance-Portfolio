@@ -337,6 +337,7 @@ window.showEvidenceModal = showEvidenceModal;
 window.searchEvidence = searchEvidence;
 window.clearKeyword = clearKeyword;
 window.toggleKeywordDropdown = toggleKeywordDropdown;
+window.showGlossary = showGlossary;
 
 function renderKeywordDropdown() {
   const dropdown = document.getElementById('keyword-dropdown');
