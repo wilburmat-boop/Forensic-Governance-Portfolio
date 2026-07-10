@@ -53,6 +53,7 @@ const GLOSSARY_TERMS = {
   "HPCSA": "Health Professions Council of South Africa. Regulates healthcare professionals.",
   "SHA-256": "Cryptographic hash producing 256-bit mathematical fingerprint of document. Any alteration produces completely different hash."
 };
+const GLOSSARY = GLOSSARY_TERMS;
 
 function showGlossary(term) {
   const definition = GLOSSARY_TERMS[term];
