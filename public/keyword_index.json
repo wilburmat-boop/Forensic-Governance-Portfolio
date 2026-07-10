@@ -2015,14 +2015,6 @@
       "folder": "02_Evidence_Core/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/0_8_Afrocentric_Lies /AFROcentric legal lies",
       "date_iso": "2026-05-04",
       "size": 3149611
-    },
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/AFR1282 Contempt - Founding Affidavit.PDF",
-      "filename": "AFR1282 Contempt - Founding Affidavit.PDF",
-      "sha256": "3491d56f43dd1213f27c3cbdd98cac9e1433c0521e41ff2ae46f9ecb6f10dec0",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 10259607
     }
   ],
   "sworn": [
@@ -4997,6 +4989,14 @@
       "folder": "02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie",
       "date_iso": "Undated",
       "size": 130888
+    },
+    {
+      "path": "02_Evidence_Core/GEMS_Notification/GEMS plan risks members’ long-term interests – CMS - Juta MedicalBrief.mht",
+      "filename": "GEMS plan risks members’ long-term interests – CMS - Juta MedicalBrief.mht",
+      "sha256": "bbac2cc33f0c3133d00078932c580b1e60436a7f8ff0f3ebf2368827afd00db7",
+      "folder": "02_Evidence_Core/GEMS_Notification",
+      "date_iso": "Undated",
+      "size": 1857903
     },
     {
       "path": "02_Evidence_Core/02_Evidence_Core/0_1_Regulators_R_S_A /CMS/C_M_S_16_Feb_2026.PDF",
@@ -12767,38 +12767,6 @@
       "folder": "02_Evidence_Core/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie",
       "date_iso": "Undated",
       "size": 236588
-    },
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Notice of Administrative Default _ Status Update - Office of the Chief Justice(2).PDF",
-      "filename": "Notice of Administrative Default _ Status Update - Office of the Chief Justice(2).PDF",
-      "sha256": "2c5a97c56c1128da43533947ed8bc9a026426d3136ddfb120ecb04ef0932a1fe",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 43169
-    },
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Notice of Administrative Default _ Status Update - Office of the Chief Justice..pdf",
-      "filename": "Notice of Administrative Default _ Status Update - Office of the Chief Justice..pdf",
-      "sha256": "eb1af8893cd293048ba68d16ea4fd7d5a40b0fcf76b88e96834e8005d75ea207",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 43759
-    },
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS(1).PDF",
-      "filename": "RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS(1).PDF",
-      "sha256": "6a3a0cc42f80d309310c0c6d08bbae82e7df83f5b9e2e23b4d9fcfc5d3ef9625",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 125300
-    },
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS.PDF.pdf",
-      "filename": "RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS.PDF.pdf",
-      "sha256": "8c0df6cc8134b5ea1d7525a7a435272bbe5da843772af4f1a90232ec448f390c",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 117149
     }
   ],
   "gems": [
@@ -12907,12 +12875,68 @@
       "size": 25647
     },
     {
+      "path": "02_Evidence_Core/GEMS_Notification/GEMS plan risks members’ long-term interests – CMS - Juta MedicalBrief.mht",
+      "filename": "GEMS plan risks members’ long-term interests – CMS - Juta MedicalBrief.mht",
+      "sha256": "bbac2cc33f0c3133d00078932c580b1e60436a7f8ff0f3ebf2368827afd00db7",
+      "folder": "02_Evidence_Core/GEMS_Notification",
+      "date_iso": "Undated",
+      "size": 1857903
+    },
+    {
+      "path": "02_Evidence_Core/GEMS_Notification/GEMS_Media_Release_2026_Contribution_Revision_07052026_Final.pdf",
+      "filename": "GEMS_Media_Release_2026_Contribution_Revision_07052026_Final.pdf",
+      "sha256": "ae09753800833ef1e4757953426202272daaba9ea27436bf74f55dc225314bab",
+      "folder": "02_Evidence_Core/GEMS_Notification",
+      "date_iso": "Undated",
+      "size": 204208
+    },
+    {
       "path": "02_Evidence_Core/GEMS_Notification/GEMS_Protected_Disclosure_13_April_2026.pdf",
       "filename": "GEMS_Protected_Disclosure_13_April_2026.pdf",
       "sha256": "8dd123eecd7e399fa9a9d2d5128dd840d2c0af50173598433cebd153c4b9c191",
       "folder": "02_Evidence_Core/GEMS_Notification",
       "date_iso": "2026-04-13",
       "size": 431559
+    },
+    {
+      "path": "02_Evidence_Core/GEMS_Notification/GEMS_adjusts_contribution_increase_to_7_5%_The_Public_Servant_Online.mht",
+      "filename": "GEMS_adjusts_contribution_increase_to_7_5%_The_Public_Servant_Online.mht",
+      "sha256": "d21ae154ea6263a33efe5f4257df5a172cb7589c1f8a8c676b3ac7ea81a0c16d",
+      "folder": "02_Evidence_Core/GEMS_Notification",
+      "date_iso": "Undated",
+      "size": 1029064
+    },
+    {
+      "path": "02_Evidence_Core/GEMS_Notification/GEMS_cuts_2026_contribution_increase_to_7_5%_amid_pressure_from_unions_and_members.mht",
+      "filename": "GEMS_cuts_2026_contribution_increase_to_7_5%_amid_pressure_from_unions_and_members.mht",
+      "sha256": "2c5c5651e2df78c940b3b95bfa48b3f5a7a02547709a0b314e398c457afcef43",
+      "folder": "02_Evidence_Core/GEMS_Notification",
+      "date_iso": "Undated",
+      "size": 347754
+    },
+    {
+      "path": "02_Evidence_Core/GEMS_Notification/GEMS_lowers_2026_medical_aid_increases.mht",
+      "filename": "GEMS_lowers_2026_medical_aid_increases.mht",
+      "sha256": "46f03b9fc466b087a99cb6a033253f8456e6480b23ce9131f4b02ce96ef49514",
+      "folder": "02_Evidence_Core/GEMS_Notification",
+      "date_iso": "Undated",
+      "size": 2168879
+    },
+    {
+      "path": "02_Evidence_Core/GEMS_Notification/GEMS_under_pressure_from_unions.pdf",
+      "filename": "GEMS_under_pressure_from_unions.pdf",
+      "sha256": "3ba5aa0e33c323a2d207cf93f2d75e3a6e7fffd81ddb2e458d208dbcc677a12a",
+      "folder": "02_Evidence_Core/GEMS_Notification",
+      "date_iso": "Undated",
+      "size": 903335
+    },
+    {
+      "path": "02_Evidence_Core/GEMS_Notification/MEDIA_BRIEFING_STATEMENT_ COSATU_AND_FEDUSA_GEMS_CAMPAIGN_COSATU.mht",
+      "filename": "MEDIA_BRIEFING_STATEMENT_ COSATU_AND_FEDUSA_GEMS_CAMPAIGN_COSATU.mht",
+      "sha256": "aee7edc1d6b3c0072d710accef5733b63aac637ece98b7c2489598357dca222a",
+      "folder": "02_Evidence_Core/GEMS_Notification",
+      "date_iso": "Undated",
+      "size": 340335
     },
     {
       "path": "02_Evidence_Core/02_Evidence_Core/0_1_Regulators_R_S_A /CMS_CLOSURE/EH_CMS_GEMS_Medscheme_Parliamentary_Address_June_2026",
@@ -51051,46 +51075,6 @@
       "folder": "02_Evidence_Core/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/0_8_Afrocentric_Lies /Round_Table_Input",
       "date_iso": "Undated",
       "size": 252558
-    },
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Re_ PROPOSAL FOR PRE-TRIAL CONFERENCE_ WILBUR WILLIAM MATTHEE v AFROCENTRIC HEALTH (PTY) LTD & ANOTHER – CASE NO_ 202(4).PDF",
-      "filename": "RE_ Re_ PROPOSAL FOR PRE-TRIAL CONFERENCE_ WILBUR WILLIAM MATTHEE v AFROCENTRIC HEALTH (PTY) LTD & ANOTHER – CASE NO_ 202(4).PDF",
-      "sha256": "193d4718e3b8395d40a02f9ecc71825c8e680f5b6148d42482e220b7d4edd953",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 122089
-    },
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(1).PDF",
-      "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(1).PDF",
-      "sha256": "000faa64f5baf664fcc06f7f310ae198e89660ab45ba3f2b4a114744e99f9e3c",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 117491
-    },
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(3).PDF",
-      "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(3).PDF",
-      "sha256": "97f6acaeed6d80385e98d934cb99aff79215c2192241d0f9cb8c5b8e496d1a2f",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 117491
-    },
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505] (1).pdf",
-      "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505] (1).pdf",
-      "sha256": "9024681236c43a16f9f24cb1e57857062d1b7e8f3a94d1ab54bdc34dac942fd7",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 117865
-    },
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505].pdf",
-      "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505].pdf",
-      "sha256": "fd466708df2b4d215d3db30a47a060c8c6f32411b5285c28c4fdcfe3b02d3292",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 117865
     }
   ],
   "fraud": [
@@ -59857,16 +59841,6 @@
       "folder": "02_Evidence_Core/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/0_0_EH_Compliance/POPIA_COMPLIANCE",
       "date_iso": "Undated",
       "size": 109383
-    }
-  ],
-  "contempt": [
-    {
-      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/AFR1282 Contempt - Founding Affidavit.PDF",
-      "filename": "AFR1282 Contempt - Founding Affidavit.PDF",
-      "sha256": "3491d56f43dd1213f27c3cbdd98cac9e1433c0521e41ff2ae46f9ecb6f10dec0",
-      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
-      "date_iso": "Undated",
-      "size": 10259607
     }
   ]
 }
