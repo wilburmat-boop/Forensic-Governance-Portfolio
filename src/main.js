@@ -86,7 +86,7 @@ function resolveFilePath(filePath) {
 }
 
 function buildRawUrl(filePath) {
-  const base = 'https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/dist/02_Evidence_Core/';
+  const base = 'https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/public/02_Evidence_Core/';
   const clean = filePath.replace(/^02_Evidence_Core\//, '').replace(/^dist\/02_Evidence_Core\//, '');
   return base + clean.split('/').map(p => encodeURIComponent(p)).join('/');
 }
