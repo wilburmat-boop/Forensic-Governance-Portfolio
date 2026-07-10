@@ -44904,54 +44904,6 @@
     "size": 69240
   },
   {
-    "path": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration/Conciliation_C_C_M_A.m4a",
-    "filename": "Conciliation_C_C_M_A.m4a",
-    "sha256": "6428dea7e760fd68a1c679729d64d167f1198c7317ac442dd17ba0606dac2b6f",
-    "folder": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration",
-    "date_iso": "Undated",
-    "size": 88227606
-  },
-  {
-    "path": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration/Gmail_C_C_M_A_Notification_of_Regulator_Escalation_C_C_M_A_Case_WECT24486_25_2.PDF",
-    "filename": "Gmail_C_C_M_A_Notification_of_Regulator_Escalation_C_C_M_A_Case_WECT24486_25_2.PDF",
-    "sha256": "f616883a7addc83c6bb8de964645ee87af0f522ae20098ba14e913fe9977de07",
-    "folder": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration",
-    "date_iso": "Undated",
-    "size": 80932
-  },
-  {
-    "path": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration/Gmail_C_C_M_A_Urgent<Response_Employers_Objection_to_Con_Arb_WECT24486_25_2.PDF",
-    "filename": "Gmail_C_C_M_A_Urgent<Response_Employers_Objection_to_Con_Arb_WECT24486_25_2.PDF",
-    "sha256": "0a8ee3f8f5d4fad71bcbb7c723e381d9829b52cb13a436ce868cf7cb6829d60d",
-    "folder": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration",
-    "date_iso": "Undated",
-    "size": 86594
-  },
-  {
-    "path": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration/Gmail_C_C_M_A_WECT23564_25_Respondents_Opposing_Affidavit_1.PDF",
-    "filename": "Gmail_C_C_M_A_WECT23564_25_Respondents_Opposing_Affidavit_1.PDF",
-    "sha256": "9ab265bbe17f8a697008f1170ed02343de047ae9db0b41c003866265aefbf8fd",
-    "folder": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration",
-    "date_iso": "Undated",
-    "size": 139426
-  },
-  {
-    "path": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration/Gmail_C_C_M_A_WECT24486_25_2_Set_Down_Par_Con_Arb.PDF",
-    "filename": "Gmail_C_C_M_A_WECT24486_25_2_Set_Down_Par_Con_Arb.PDF",
-    "sha256": "50829963a97367b1da081e6ad4e3c84331b197872ec82f6b80551b8f0a5c1a1d",
-    "folder": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration",
-    "date_iso": "Undated",
-    "size": 87443
-  },
-  {
-    "path": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration/Gmail_RE_Amendment_Request_Automatically_Unfair_Constructive_Dismissal_ C_C_M_A_CASE_NO_2.PDF",
-    "filename": "Gmail_RE_Amendment_Request_Automatically_Unfair_Constructive_Dismissal_ C_C_M_A_CASE_NO_2.PDF",
-    "sha256": "dd7ba59071356d29756f1641ddbb69e972cfb78ad603011846abb14088356416",
-    "folder": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration",
-    "date_iso": "Undated",
-    "size": 94657
-  },
-  {
     "path": "02_Evidence_Core/0_2_1_Labour_Court_CT /BCEA_&_LRA_PDA/aos_lra_pda_.pdf",
     "filename": "aos_lra_pda_.pdf",
     "sha256": "57e1babb6e635a28c79572e8968d865b1bbdcc026c429ce853ec7e50d57d68e9",
@@ -48238,6 +48190,206 @@
     "folder": "02_Evidence_Core/0_8_Afrocentric_Lies /Round_Table_Input",
     "date_iso": "Undated",
     "size": 252558
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/AFR1282 Contempt - Founding Affidavit.PDF",
+    "filename": "AFR1282 Contempt - Founding Affidavit.PDF",
+    "sha256": "3491d56f43dd1213f27c3cbdd98cac9e1433c0521e41ff2ae46f9ecb6f10dec0",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 10259607
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/AFR1282 Interim Order 16.04.2026(1).pdf",
+    "filename": "AFR1282 Interim Order 16.04.2026(1).pdf",
+    "sha256": "94a7f9695041804a5d932016c349dd61777cab71583af3fc417b01c20381009a",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 221261
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/AFR1282 Letter of Demand Matthee 02.07.2026 (1).pdf",
+    "filename": "AFR1282 Letter of Demand Matthee 02.07.2026 (1).pdf",
+    "sha256": "87018d2298a471c08ff43acebb89da2ecb434e903c1449dd98dc314ee40d52bb",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 223677
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/AFR1282 Letter to Matthee 04.06.2026.pdf",
+    "filename": "AFR1282 Letter to Matthee 04.06.2026.pdf",
+    "sha256": "7c019b611beed24ec2db1cff94992acd1e46ada456dd293d3506db12ce749e13",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 171544
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/AFR1282 – Urgent Notice of Resumption of Statutory Processes _ Case No(3).PDF",
+    "filename": "AFR1282 – Urgent Notice of Resumption of Statutory Processes _ Case No(3).PDF",
+    "sha256": "c48aff31f7f3d63a1a3a94b00f4e87934df66d46be76f563281faec97b15ffac",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 106432
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/AFR1282_Notice_of_Opposition_and_Appointment_as_Attorneys_of_record_24.03.2026_202676_11624_2026.07.06.13.06.pdf",
+    "filename": "AFR1282_Notice_of_Opposition_and_Appointment_as_Attorneys_of_record_24.03.2026_202676_11624_2026.07.06.13.06.pdf",
+    "sha256": "f7f950a50172e02553495fe02204e9a9741487e2b67130980c846d99e412bb2a",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 397464
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Emailing 4. Annexures to the bill of costs - Wilbur William Matthee v Bruno Fernandes  Others.PDF.pdf",
+    "filename": "Emailing 4. Annexures to the bill of costs - Wilbur William Matthee v Bruno Fernandes  Others.PDF.pdf",
+    "sha256": "7fc5393ede337734b5b39ae66549d46fa72f5d26a90d24ae2fc0487e9f60e17f",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 664316
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Notice of Administrative Default _ Status Update - Office of the Chief Justice(2).PDF",
+    "filename": "Notice of Administrative Default _ Status Update - Office of the Chief Justice(2).PDF",
+    "sha256": "2c5a97c56c1128da43533947ed8bc9a026426d3136ddfb120ecb04ef0932a1fe",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 43169
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Notice of Administrative Default _ Status Update - Office of the Chief Justice..pdf",
+    "filename": "Notice of Administrative Default _ Status Update - Office of the Chief Justice..pdf",
+    "sha256": "eb1af8893cd293048ba68d16ea4fd7d5a40b0fcf76b88e96834e8005d75ea207",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 43759
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ ADVANCE SERVICE_ Unilateral Pre-Trial Minute – Case No_ 2026-083299 _ 2026-077546 [IMAN-CPT_MATTERS.PDF",
+    "filename": "RE_ ADVANCE SERVICE_ Unilateral Pre-Trial Minute – Case No_ 2026-083299 _ 2026-077546 [IMAN-CPT_MATTERS.PDF",
+    "sha256": "33226d93fa68373ed6c33188d57393a427c4e10e947fe20b0f583c5b9f85b58b",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 121831
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Fwd_  FORMAL SERVICE_ Strengthened Consolidated Forensic Oversight Report [IMAN-CPT_MATTERS(3).PDF",
+    "filename": "RE_ Fwd_  FORMAL SERVICE_ Strengthened Consolidated Forensic Oversight Report [IMAN-CPT_MATTERS(3).PDF",
+    "sha256": "de81cf833f6d90aaae94f248dd5e1f9a037f1519309ec5a82c8bbdab00469530",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 152696
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Fwd_  FORMAL SERVICE_ Strengthened Consolidated Forensic Oversight Report [IMAN-CPT_MATTERS(4).PDF",
+    "filename": "RE_ Fwd_  FORMAL SERVICE_ Strengthened Consolidated Forensic Oversight Report [IMAN-CPT_MATTERS(4).PDF",
+    "sha256": "b971aac0fa5b9cc7dd453ce26b7e259fdd59c3dd389bf12a0c581f0f96d4c7ea",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 152696
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ NOTICE OF FILING_ Case No. 2026-066952 – TERMINATION OF NEGOTIATION AND COMMENCEMENT OF ENFORCEMENT [IMAN-CPT_MATTERS.FID2264505] (1).pdf",
+    "filename": "RE_ NOTICE OF FILING_ Case No. 2026-066952 – TERMINATION OF NEGOTIATION AND COMMENCEMENT OF ENFORCEMENT [IMAN-CPT_MATTERS.FID2264505] (1).pdf",
+    "sha256": "8da69145347c76b89e19478dd3bd5b27ddfceef9e2e10be488b78172ecb99cee",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 144939
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ NOTICE OF FILING_ Case No. 2026-066952 – TERMINATION OF NEGOTIATION AND COMMENCEMENT OF ENFORCEMENT [IMAN-CPT_MATTERS.FID2264505].pdf",
+    "filename": "RE_ NOTICE OF FILING_ Case No. 2026-066952 – TERMINATION OF NEGOTIATION AND COMMENCEMENT OF ENFORCEMENT [IMAN-CPT_MATTERS.FID2264505].pdf",
+    "sha256": "a5684d0a15b62457885b42cf5c33db7e615a910b94e1ba6153a1045f4e797520",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 144939
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS(1).PDF",
+    "filename": "RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS(1).PDF",
+    "sha256": "6a3a0cc42f80d309310c0c6d08bbae82e7df83f5b9e2e23b4d9fcfc5d3ef9625",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 125300
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS.PDF.pdf",
+    "filename": "RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS.PDF.pdf",
+    "sha256": "8c0df6cc8134b5ea1d7525a7a435272bbe5da843772af4f1a90232ec448f390c",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 117149
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Re_ PROPOSAL FOR PRE-TRIAL CONFERENCE_ WILBUR WILLIAM MATTHEE v AFROCENTRIC HEALTH (PTY) LTD & ANOTHER – CASE NO_ 202(4).PDF",
+    "filename": "RE_ Re_ PROPOSAL FOR PRE-TRIAL CONFERENCE_ WILBUR WILLIAM MATTHEE v AFROCENTRIC HEALTH (PTY) LTD & ANOTHER – CASE NO_ 202(4).PDF",
+    "sha256": "193d4718e3b8395d40a02f9ecc71825c8e680f5b6148d42482e220b7d4edd953",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 122089
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(1).PDF",
+    "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(1).PDF",
+    "sha256": "000faa64f5baf664fcc06f7f310ae198e89660ab45ba3f2b4a114744e99f9e3c",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 117491
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(3).PDF",
+    "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(3).PDF",
+    "sha256": "97f6acaeed6d80385e98d934cb99aff79215c2192241d0f9cb8c5b8e496d1a2f",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 117491
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505] (1).pdf",
+    "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505] (1).pdf",
+    "sha256": "9024681236c43a16f9f24cb1e57857062d1b7e8f3a94d1ab54bdc34dac942fd7",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 117865
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505].pdf",
+    "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505].pdf",
+    "sha256": "fd466708df2b4d215d3db30a47a060c8c6f32411b5285c28c4fdcfe3b02d3292",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 117865
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Screenshot_20260703-095555.png",
+    "filename": "Screenshot_20260703-095555.png",
+    "sha256": "2f86e4ada765c0af69696836eb523bae25a3dd9e46a7f3935b31545ec88e5cad",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 69521
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Screenshot_20260703-132516.png",
+    "filename": "Screenshot_20260703-132516.png",
+    "sha256": "9530dae657744c6f9693f446d1696800a0b9a41d675b70a3bc8c66bcaf0abadb",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 231999
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Screenshot_20260703-132524.png",
+    "filename": "Screenshot_20260703-132524.png",
+    "sha256": "c05898c0c9c31c82c972b11d9ef6ef92d18f8f26374945e8064133da415e0a24",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 356313
+  },
+  {
+    "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Screenshot_20260703_133123_Chrome.jpg",
+    "filename": "Screenshot_20260703_133123_Chrome.jpg",
+    "sha256": "97ef97b6a70765dc4fa1c5be99bebb803d403e7f7bf5ce5f7e8f526ebe3c91d6",
+    "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+    "date_iso": "Undated",
+    "size": 704489
   },
   {
     "path": "02_Evidence_Core/0_9_Oversight_Narrative /Conflict_of_Interest.pdf",

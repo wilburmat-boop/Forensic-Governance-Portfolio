@@ -25,14 +25,6 @@
       "size": 78242
     },
     {
-      "path": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration/Gmail_C_C_M_A_WECT23564_25_Respondents_Opposing_Affidavit_1.PDF",
-      "filename": "Gmail_C_C_M_A_WECT23564_25_Respondents_Opposing_Affidavit_1.PDF",
-      "sha256": "9ab265bbe17f8a697008f1170ed02343de047ae9db0b41c003866265aefbf8fd",
-      "folder": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration",
-      "date_iso": "Undated",
-      "size": 139426
-    },
-    {
       "path": "02_Evidence_Core/0_2_1_Labour_Court_CT /STATEMENT_OF_CLAIM_LRA_PDA/1_Feb_Statutory_Founding_Affidavit_Matthee_v_Medscheme.pdf",
       "filename": "1_Feb_Statutory_Founding_Affidavit_Matthee_v_Medscheme.pdf",
       "sha256": "53fba522b84847a2cf24414a8df5638db92dd3a9d9c07316d01decc81a664375",
@@ -2023,6 +2015,14 @@
       "folder": "02_Evidence_Core/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/0_8_Afrocentric_Lies /AFROcentric legal lies",
       "date_iso": "2026-05-04",
       "size": 3149611
+    },
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/AFR1282 Contempt - Founding Affidavit.PDF",
+      "filename": "AFR1282 Contempt - Founding Affidavit.PDF",
+      "sha256": "3491d56f43dd1213f27c3cbdd98cac9e1433c0521e41ff2ae46f9ecb6f10dec0",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 10259607
     }
   ],
   "sworn": [
@@ -12767,6 +12767,38 @@
       "folder": "02_Evidence_Core/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie",
       "date_iso": "Undated",
       "size": 236588
+    },
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Notice of Administrative Default _ Status Update - Office of the Chief Justice(2).PDF",
+      "filename": "Notice of Administrative Default _ Status Update - Office of the Chief Justice(2).PDF",
+      "sha256": "2c5a97c56c1128da43533947ed8bc9a026426d3136ddfb120ecb04ef0932a1fe",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 43169
+    },
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Notice of Administrative Default _ Status Update - Office of the Chief Justice..pdf",
+      "filename": "Notice of Administrative Default _ Status Update - Office of the Chief Justice..pdf",
+      "sha256": "eb1af8893cd293048ba68d16ea4fd7d5a40b0fcf76b88e96834e8005d75ea207",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 43759
+    },
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS(1).PDF",
+      "filename": "RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS(1).PDF",
+      "sha256": "6a3a0cc42f80d309310c0c6d08bbae82e7df83f5b9e2e23b4d9fcfc5d3ef9625",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 125300
+    },
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS.PDF.pdf",
+      "filename": "RE_ Notice of Administrative Default _ Status Update - Office of the Chief Justice. [IMAN-CPT_MATTERS.PDF.pdf",
+      "sha256": "8c0df6cc8134b5ea1d7525a7a435272bbe5da843772af4f1a90232ec448f390c",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 117149
     }
   ],
   "gems": [
@@ -51019,6 +51051,46 @@
       "folder": "02_Evidence_Core/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/0_8_Afrocentric_Lies /Round_Table_Input",
       "date_iso": "Undated",
       "size": 252558
+    },
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/RE_ Re_ PROPOSAL FOR PRE-TRIAL CONFERENCE_ WILBUR WILLIAM MATTHEE v AFROCENTRIC HEALTH (PTY) LTD & ANOTHER – CASE NO_ 202(4).PDF",
+      "filename": "RE_ Re_ PROPOSAL FOR PRE-TRIAL CONFERENCE_ WILBUR WILLIAM MATTHEE v AFROCENTRIC HEALTH (PTY) LTD & ANOTHER – CASE NO_ 202(4).PDF",
+      "sha256": "193d4718e3b8395d40a02f9ecc71825c8e680f5b6148d42482e220b7d4edd953",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 122089
+    },
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(1).PDF",
+      "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(1).PDF",
+      "sha256": "000faa64f5baf664fcc06f7f310ae198e89660ab45ba3f2b4a114744e99f9e3c",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 117491
+    },
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(3).PDF",
+      "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS(3).PDF",
+      "sha256": "97f6acaeed6d80385e98d934cb99aff79215c2192241d0f9cb8c5b8e496d1a2f",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 117491
+    },
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505] (1).pdf",
+      "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505] (1).pdf",
+      "sha256": "9024681236c43a16f9f24cb1e57857062d1b7e8f3a94d1ab54bdc34dac942fd7",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 117865
+    },
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505].pdf",
+      "filename": "Re_ AfroCentric Investment Corporation Limited __ Wilbur William Matthee (Case No. 2026-086906) [IMAN-CPT_MATTERS.FID2264505].pdf",
+      "sha256": "fd466708df2b4d215d3db30a47a060c8c6f32411b5285c28c4fdcfe3b02d3292",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 117865
     }
   ],
   "fraud": [
@@ -59785,6 +59857,16 @@
       "folder": "02_Evidence_Core/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/evidence_backup/02_Evidence_Core/0_0_EH_Compliance/POPIA_COMPLIANCE",
       "date_iso": "Undated",
       "size": 109383
+    }
+  ],
+  "contempt": [
+    {
+      "path": "02_Evidence_Core/0_8_Denyes_Reitz_Inc/AFR1282 Contempt - Founding Affidavit.PDF",
+      "filename": "AFR1282 Contempt - Founding Affidavit.PDF",
+      "sha256": "3491d56f43dd1213f27c3cbdd98cac9e1433c0521e41ff2ae46f9ecb6f10dec0",
+      "folder": "02_Evidence_Core/0_8_Denyes_Reitz_Inc",
+      "date_iso": "Undated",
+      "size": 10259607
     }
   ]
 }
