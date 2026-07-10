@@ -3,6 +3,7 @@ let KEYWORD_INDEX = {};
 let DATE_INDEX = {};
 let KEYWORD_INDEX_RAW = {};
 let activeKeyword = null;
+let GLOSSARY = {};
 
 const KEYWORD_CATEGORIES = {
     "rule nisi": "A court order that will become final unless a specific cause is shown against it.",
