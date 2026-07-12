@@ -1,0 +1,353 @@
+[
+  {
+    "date": "06 Mar 2025",
+    "annexure": "M1",
+    "keyword": "M1_Genesis_Teams_message",
+    "status": "missing"
+  },
+  {
+    "date": "06 Mar 2025",
+    "annexure": "T1",
+    "keyword": "T_1_Genesis_Threat",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/T_1_Genesis_Threat_06_Mar_2026.jpg",
+    "sha256": "71ea65446f6786648a836140c3e40504b68c46dd73b0f6dc281d29ecc193c764",
+    "size": 1081408
+  },
+  {
+    "date": "Mar 2025",
+    "annexure": "MED1",
+    "keyword": "MED1 - letter to employer",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/MED1 - letter to employer.pdf",
+    "sha256": "9175ec28cac6a83c873b6123a86e580d186ab963d60b496314f8b2d4c64c15f2",
+    "size": 417742
+  },
+  {
+    "date": "09 Apr 2024",
+    "annexure": "A1",
+    "keyword": "A1_Employment_Contract",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/A1_Employment_Contract.pdf",
+    "sha256": "ce681d9dc3b4e686fc8bed322040ab9489ddb060358d629eec155eb12a2653b5",
+    "size": 255933
+  },
+  {
+    "date": "16 Apr 2025",
+    "annexure": "STAG",
+    "keyword": "do not apply staggering",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/do not apply staggering 16 apr25.png",
+    "sha256": "42f4492654b1c02631b7a2e51208afb92b2d5578e9607f6edae05f81bf296073",
+    "size": 84365
+  },
+  {
+    "date": "16 Apr 2025",
+    "annexure": "LIE1",
+    "keyword": "LIE1__16_04_2025",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/LIE1__16_04_2025.pdf",
+    "sha256": "6d01b73d810a07c445c5565bc241e8c149d5ce02417ace26f91471c3558e4973",
+    "size": 175730
+  },
+  {
+    "date": "23 Apr 2025",
+    "annexure": "CPD1",
+    "keyword": "CPD_1_22_Apr_2025",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/CPD_1_22_Apr_2025.pdf",
+    "sha256": "ac4d4257090cf0228a6ce8512a9c73ace1c08b6bd30f6c952c945edf57c7b01f",
+    "size": 156782
+  },
+  {
+    "date": "09 May 2025",
+    "annexure": "HD1",
+    "keyword": "Half day leave applied",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/Half day leave applied .pdf",
+    "sha256": "fb2fa2f221eeffae11634fdc68063173083ab53bfbba16c4fda6420a1ec59885",
+    "size": 149816
+  },
+  {
+    "date": "16 May 2025",
+    "annexure": "EM1",
+    "keyword": "EM_1_Mental_Health_Disclosure_To_Employer",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/EM_1_Mental_Health_Disclosure_To_Employer.pdf",
+    "sha256": "43f14ff2897d7d23e9938042f962626534bca18808b996e110abc56d63ac146c",
+    "size": 257328
+  },
+  {
+    "date": "23 Jul 2025",
+    "annexure": "DED1",
+    "keyword": "40.47 percent deductuion",
+    "status": "missing"
+  },
+  {
+    "date": "24 Jul 2025",
+    "annexure": "AOD",
+    "keyword": "24th July 2025 Salary snippet",
+    "status": "missing"
+  },
+  {
+    "date": "23 Sep 2025",
+    "annexure": "SCR1",
+    "keyword": "SCR_1_Wilma_Screenshot_23_Sep_2025",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/SCR_1_Wilma_Screenshot_23_Sep_2025.png",
+    "sha256": "584d9c08fb0c03f2c35630ca560675fbd6abe622fcd1c4c181b15020abc22c26",
+    "size": 455502
+  },
+  {
+    "date": "25 Sep 2025",
+    "annexure": "ONE1",
+    "keyword": "ONE_1_To_Meet_With_Perpetrator",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/ONE_1_To_Meet_With_Perpetrator.pdf",
+    "sha256": "01c616f2132e07f43e44f089ecde61ca3f7fa4cb4b3960be1edecfbf8d2eb5aa",
+    "size": 110012
+  },
+  {
+    "date": "25 Sep 2025",
+    "annexure": "FG1",
+    "keyword": "FG_1_Gender_Identity_Discrimination_Formal_Complaint",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/FG_1_Gender_Identity_Discrimination_Formal_Complaint.pdf",
+    "sha256": "705e3def67fc5ce3ac1a2f09f30df33078067680c06a19afc5ac628c39929546",
+    "size": 330449
+  },
+  {
+    "date": "29 Sep 2025",
+    "annexure": "ULP1",
+    "keyword": "ULP_1_unpaid_leave_approved",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/ULP_1_unpaid_leave_approved_without_com.png",
+    "sha256": "5855d9fe2818f73d226d9e6b6b9d4e96b20d2feac2dd4aab90dd7d83e709ac64",
+    "size": 40064
+  },
+  {
+    "date": "01 Oct 2025",
+    "annexure": "TYP1",
+    "keyword": "TYP_1_Gender_Identity_Discrimination_Typo_resolution",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/TYP_1_Gender_Identity_Discrimination_Typo_resolution.pdf",
+    "sha256": "07da9f8e6bd6bfa7686492933959f62ccf472739fe3c1d258fc2a8bb79658cb5",
+    "size": 217594
+  },
+  {
+    "date": "06 Oct 2025",
+    "annexure": "HTV1",
+    "keyword": "Follow-Up on Unpaid Half-Day Leave",
+    "status": "ambiguous",
+    "candidates": [
+      "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/Gmail - Fw_ Follow-Up on Unpaid Half-Day Leave – 25 September 2025.PDF",
+      "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/HTV1 (Gmail - Fw_ Follow-Up on Unpaid Half-Day Leave – 25 September 2025).pdf"
+    ]
+  },
+  {
+    "date": "23 Oct 2025",
+    "annexure": "VICT1",
+    "keyword": "C_M_S_FollowUp_EthicHawks",
+    "status": "ambiguous",
+    "candidates": [
+      "public/02_Evidence_Core/0_1_Regulators_R_S_A /CMS/C_M_S_FollowUp_EthicHawks_2April2026.pdf",
+      "public/02_Evidence_Core/0_1_Regulators_R_S_A /CMS/C_M_S_FollowUp_EthicHawks_2_April_2026-2",
+      "public/02_Evidence_Core/0_1_Regulators_R_S_A /CMS/C_M_S_FollowUp_EthicHawks_2_April_2026.pdf"
+    ]
+  },
+  {
+    "date": "31 Oct 2025",
+    "annexure": "FG2",
+    "keyword": "FG_2_Evidence_of_Malicious_Intent",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/FG_2_Evidence_of_Malicious_Intent_Constructive_Dismissal_and_Hostile_Work_Environment_By_Mary_Ann_Jones.pdf",
+    "sha256": "ece26934cf99bcaee3ab969eea5c6dad77c5d9a55f5cd8d6f43f6b1764c2305b",
+    "size": 201072
+  },
+  {
+    "date": "31 Oct 2025",
+    "annexure": "AUDIO1",
+    "keyword": "you made a case against me",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/Recordings/jones you made a case against me.mp4",
+    "sha256": "120caaf2cf06644a9e66f4b1dd14f97c8dbf6edc9d3ec692877c7a59771c3cfe",
+    "size": 4233101
+  },
+  {
+    "date": "31 Oct 2025",
+    "annexure": "AUDIO2",
+    "keyword": "refusing to call member equals subordination",
+    "status": "missing"
+  },
+  {
+    "date": "02 Nov 2025",
+    "annexure": "IMP1",
+    "keyword": "IMP_1_Impact_Statement_on_Oct_Retaliation",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/IMP_1_Impact_Statement_on_Oct_Retaliation.pdf",
+    "sha256": "2f07197692316ec3530febf15e72d05fd96b3cc79457e0755fda5305440211e1",
+    "size": 337283
+  },
+  {
+    "date": "04 Dec 2025",
+    "annexure": "EXE1",
+    "keyword": "EXE_1_Executive_Leadership_Escalation",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/EXE_1_Executive_Leadership_Escalation .pdf",
+    "sha256": "87e0cd1b0789d2f03173c8b02217b0441fb161342f3f14f4e2d1e25732340fb2",
+    "size": 110788
+  },
+  {
+    "date": "05 Dec 2025",
+    "annexure": "DEESC1",
+    "keyword": "Executive de-escalation to the department",
+    "status": "missing"
+  },
+  {
+    "date": "09 Dec 2025",
+    "annexure": "UNION1",
+    "keyword": "union notification",
+    "status": "missing"
+  },
+  {
+    "date": "09 Dec 2025",
+    "annexure": "GRC1",
+    "keyword": "BRD_GRC_0_1",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/BRD_GRC_0_1_Fwd_Delivery_Status_Notification_Failure_CONFIDENTIAL_LEGAL_PRIVILEGE_URGENT_MATERIAL_GOVERNANCE_FAILURE_DISCRIMINATION_VICTIMISATION_&_INSTITUTIONAL_SILENCE_REQUIRING_IMMEDIATE_BOARD_INTERVENTION_09_Dec_2025",
+    "sha256": "8732459d8bb238ff42486af32c9acca7f53058e4a8533dce8519e804e5cfee26",
+    "size": 122053
+  },
+  {
+    "date": "10 Dec 2025",
+    "annexure": "OA1",
+    "keyword": "Opposing Affidavid",
+    "status": "missing"
+  },
+  {
+    "date": "10 Dec 2025",
+    "annexure": "RA1",
+    "keyword": "Replying Affidavit",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/RA1 (REPLYING AFFIDAVIT TO THE RESPONDENT'S OPPOSITION TO CONDONATION_).pdf",
+    "sha256": "da18dde99e2c96cdbc77273466f5ae6744587280dbc2fe50f51c5360d5fa6dd7",
+    "size": 188290
+  },
+  {
+    "date": "10 Dec 2025",
+    "annexure": "CRO1",
+    "keyword": "CRO Request to Stop Emailing Board",
+    "status": "missing"
+  },
+  {
+    "date": "11 Dec 2025",
+    "annexure": "GRC2",
+    "keyword": "BRD_GRC_0_2",
+    "status": "missing"
+  },
+  {
+    "date": "16 Dec 2025",
+    "annexure": "GRC3",
+    "keyword": "BRD_GRC_0_3",
+    "status": "missing"
+  },
+  {
+    "date": "17 Dec 2025",
+    "annexure": "GRC4",
+    "keyword": "BRD_GRC_0_4",
+    "status": "missing"
+  },
+  {
+    "date": "18 Dec 2025",
+    "annexure": "INLIM",
+    "keyword": "WECT23564-25_InLimine",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/WECT23564-25_InLimine.PDF",
+    "sha256": "40667178afb3aece08b1d3cfd17ebdb9afa93f2476dc526db9eeff442fba5781",
+    "size": 204920
+  },
+  {
+    "date": "18 Dec 2025",
+    "annexure": "CRO2",
+    "keyword": "Board Level Asking to stop sending emails",
+    "status": "missing"
+  },
+  {
+    "date": "18 Dec 2025",
+    "annexure": "CRO3",
+    "keyword": "final reply to CRO at Board level",
+    "status": "missing"
+  },
+  {
+    "date": "07 Jan 2026",
+    "annexure": "EXIT1",
+    "keyword": "EXIT_1_Request_for_Assistance",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/EXIT_1_Request_for_Assistance_ UI_19_Forms_and_Umbrella_fund_Benefit_Documents.PDF.pdf",
+    "sha256": "042d350079fb35205fcad9539ea3eded2673a2db3cc3a47e61c09efa4783d1ff",
+    "size": 74814
+  },
+  {
+    "date": "09 Jan 2026",
+    "annexure": "K1",
+    "keyword": "Certificate of Non-Resolution",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/K1: Certificate of Non-Resolution (Outcome).jpg",
+    "sha256": "4f07a1fea8783f178ed2f408af4d91c7eff397e3fd33e59aa4a7e3ef59398119",
+    "size": 1273749
+  },
+  {
+    "date": "09 Jan 2026",
+    "annexure": "SANC1",
+    "keyword": "SANC_1_URGENT",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/SANC_1_URGENT_ Notification_of_Professional_Deregistration_via_Occupational_Detriment_Registration_No_15831886_09_Jan_2026.pdf",
+    "sha256": "b493768e401fcd3aad8542901ce5437da53e5ff2bed6e2fdf4750a9cc442366d",
+    "size": 137442
+  },
+  {
+    "date": "14 Jan 2026",
+    "annexure": "EXIT2",
+    "keyword": "EXIT_2_Retirement_forms_and_Uif_forms",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/LEXIT_2_Retirement_forms_and_Uif_forms.pdf",
+    "sha256": "6410a0de0d68a22b659c84886e5fe755309a2af7e0cabc7ba5c3fbef88ee9280",
+    "size": 164711
+  },
+  {
+    "date": "15 Jan 2026",
+    "annexure": "EXIT3",
+    "keyword": "EXIT_3_URGENT_NOTICE",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/EXIT_3_URGENT_NOTICE_OF_STATlUTORY_NON_COMPLIANCE_UIF_AND_SYSTEMIC_WITHHOLDING_OF_EXIT_DOCUMlENTS.pdf",
+    "sha256": "a950f3f94d06f0bd91d2e1b13d9c8977b4085f840331796882529dc33d51dd58",
+    "size": 216514
+  },
+  {
+    "date": "18-19 Jan 2026",
+    "annexure": "EXIT4",
+    "keyword": "EXIT_4_URGENT_NOTICE",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/EXIT_4_URGENT_NOTICE_OF_STATUTORY_NON_COMPLIANCE_UIF_AND_&_SYSTEMIC_WITHHOLDING_OF_EXIT_DOCUMENTS.pdf",
+    "sha256": "9a1f43779dabf944298db093da645310e0922574ea1f77e93b56739b137f2263",
+    "size": 468788
+  },
+  {
+    "date": "19 Jan 2026",
+    "annexure": "EXIT5",
+    "keyword": "EXIT_5_Correction_Required",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/EXIT_5_Correction_Required_Certificate_of_Service_Misrepresentation.pdf",
+    "sha256": "d7595868e3be4ecb647348443107b1b2b2fe426fb8de22ce21e78f3f5b7eb62b",
+    "size": 193001
+  },
+  {
+    "date": "19 Jan 2026",
+    "annexure": "UI19",
+    "keyword": "UI_19_Medscheme_Matthee_W",
+    "status": "confirmed",
+    "path": "public/02_Evidence_Core/0_8_Afrocentric_Lies /1_Proof_No_Lie/UI_19_Medscheme_Matthee_W.pdf",
+    "sha256": "f2e7a76270564fe1a73e2edd262ef430f11349020af06006346d9279037072ef",
+    "size": 117823
+  }
+]
