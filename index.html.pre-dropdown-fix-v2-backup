@@ -778,16 +778,15 @@ td { padding: 10px 12px; border-bottom: 1px solid var(--rule); }
 </div>
 
 <div id="root">
-  <div style="margin-bottom:16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;position:relative;">
+  <div style="margin-bottom:16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
     <input id="evidence-search" type="text" placeholder="Search evidence files..." oninput="searchEvidence()" style="flex:1;min-width:200px;padding:10px;background:#111827;border:1px solid #374151;color:#f3f4f6;border-radius:4px;font-family:monospace;">
     <button onclick="clearKeyword()" style="padding:10px 16px;background:#111827;border:1px solid #374151;color:#d1d5db;border-radius:4px;cursor:pointer;">Clear</button>
     <button onclick="toggleKeywordDropdown()" style="padding:10px 16px;background:#111827;border:1px solid #374151;color:#d1d5db;border-radius:4px;cursor:pointer;">Keywords ▾</button>
-      <div id="keyword-dropdown" style="position:absolute;top:100%;right:0;z-index:1001;display:none;margin-top:4px;padding:12px;background:#111827;border:1px solid #374151;border-radius:4px;max-height:240px;overflow-y:auto;width:min(320px,90vw);box-shadow:0 8px 24px rgba(0,0,0,0.4);"></div>
   </div>
   <div id="result-counter" style="color:#6b7280;font-family:monospace;font-size:0.85rem;margin-bottom:12px;"></div>
   <div id="date-section" style="margin-bottom:16px;">
     <div id="date-pills" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
-    
+    <div id="keyword-dropdown" style="position:relative;z-index:1001;display:none;margin-top:8px;padding:12px;background:#111827;border:1px solid #374151;border-radius:4px;max-height:200px;overflow-y:auto;"></div>
   </div>
   <div id="evidence-vault-root"></div>
 </div>
