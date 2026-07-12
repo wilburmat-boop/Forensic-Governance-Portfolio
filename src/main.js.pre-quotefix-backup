@@ -366,7 +366,7 @@ function renderKeywordDropdown() {
   if (!dropdown) return;
   const keywords = Object.keys(KEYWORD_INDEX_RAW || {}).sort();
   dropdown.innerHTML = keywords.map(kw => `
-    <button onclick="document.getElementById('evidence-search').value='${kw.replace(/'/g,"\\'")}';searchEvidence();document.getElementById('keyword-dropdown').style.display='none';" style="display:inline-block;margin:4px;padding:6px 10px;background:#1f2937;border:1px solid #374151;color:#d1d5db;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.78rem;">${kw}</button>
+    <button onclick="document.getElementById('evidence-search').value='${kw}';searchEvidence();document.getElementById('keyword-dropdown').style.display='none';" style="display:inline-block;margin:4px;padding:6px 10px;background:#1f2937;border:1px solid #374151;color:#d1d5db;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.78rem;">${kw}</button>
   `).join('');
 }
 window.renderKeywordDropdown = renderKeywordDropdown;
