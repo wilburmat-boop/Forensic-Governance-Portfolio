@@ -155,7 +155,7 @@ function filterDatePills(kw) {
   let anyVisible = false;
   
   pills.forEach(pill => {
-    const date = pill.dataset.date || pill.textContent.trim();
+    const date = pill.textContent.trim();
     const files = DATE_INDEX[date] || [];
     const matches = files.filter(f => getMatchingPaths(kw).includes(f.path));
     
