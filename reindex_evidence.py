@@ -73,13 +73,11 @@ def extract_date(name):
     return "Undated"
 
 def find_keywords(text):
-    text_l = text.lower()
-    found = []
-    for kws in KEYWORD_CATEGORIES.values():
-        for kw in kws:
-            if kw in text_l:
-                found.append(kw)
-    return found
+    """Extract all words from text as keywords"""
+    import re
+    # Extract words (remove file extensions and special chars)
+    words = re.findall(r'[a-zA-Z0-9_]{3,}', text.lower())
+    return list(set(words))
 
 def main():
     if not EVIDENCE_DIR.exists():

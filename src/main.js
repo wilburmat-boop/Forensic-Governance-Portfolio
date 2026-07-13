@@ -139,12 +139,30 @@ function copyToClipboard(text, btn) {
   setTimeout(() => btn.textContent = 'Copy Hash', 2000);
 }
 
+
+let searchTimeout;
+function debounceSearch() {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    searchEvidence();
+  }, 300);
+}
+
+
 function searchEvidence() {
-  const query = document.getElementById('evidence-search').value;
-  const paths = getMatchingPaths(query);
-  const filteredKeywords = Object.fromEntries(Object.entries(KEYWORD_INDEX).filter(([k]) => paths.includes(k)));
-  renderVault(query);
-  filterDatePills(query);
+  try {
+    const query = document.getElementById('evidence-search').value;
+    console.log('Search value:', query);
+    const paths = getMatchingPaths(query);
+    const filteredKeywords = Object.fromEntries(Object.entries(KEYWORD_INDEX).filter(([k]) => paths.includes(k)));
+    renderVault(query);
+    filterDatePills(query);
+  } catch(err) {
+    const debugBox = document.getElementById('debug-box');
+    debugBox.style.display = 'block';
+    debugBox.innerHTML = `ERROR: ${err.message}<br>${err.stack}`;
+    console.error(err);
+  }
 }
 
 function filterDatePills(kw) {
@@ -194,12 +212,28 @@ function clearKeyword() {
 function getMatchingPaths(query) {
   const q = query.toLowerCase().trim();
   if (!q) return Object.keys(HASH_MANIFEST);
-  
-  return Object.keys(HASH_MANIFEST).filter(path => {
+  const matchingPaths = new Set();
+  Object.keys(HASH_MANIFEST).forEach(path => {
     const data = HASH_MANIFEST[path];
-    return (data.filename || path).toLowerCase().includes(q) ||
-           (data.keywords || []).some(kw => kw.toLowerCase().includes(q));
+    if ((data.filename || path).toLowerCase().includes(q) || (data.folder || '').toLowerCase().includes(q)) {
+      matchingPaths.add(path);
+    }
   });
+  Object.keys(KEYWORD_INDEX).forEach(kw => {
+    if (kw.toLowerCase().includes(q)) {
+      (KEYWORD_INDEX[kw] || []).forEach(entry => {
+        if (entry && entry.path) matchingPaths.add(entry.path);
+      });
+    }
+  });
+  Object.keys(DATE_INDEX).forEach(dateStr => {
+    if (dateStr.toLowerCase().includes(q)) {
+      (DATE_INDEX[dateStr] || []).forEach(entry => {
+        if (entry && entry.path) matchingPaths.add(entry.path);
+      });
+    }
+  });
+  return Array.from(matchingPaths);
 }
 
 function renderVault(filter = '') {
@@ -224,7 +258,7 @@ function renderVault(filter = '') {
   
   Object.entries(grouped).forEach(([category, items]) => {
     totalShown += items.length;
-    const isOpen = !q;
+    const isOpen = !q && category !== 'Uncategorized';
     html += `
       <div style="border:1px solid #1f2937;border-radius:6px;overflow:hidden;">
         <div onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'" style="background:#111827;padding:12px;cursor:pointer;display:flex;align-items:center;gap:8px;">
@@ -320,9 +354,9 @@ function toggleKeywordDropdown() {
 async function initializePortfolio() {
   try {
     const [hashRes, kwRes, dateRes] = await Promise.all([
-      fetch('/Forensic_manifest.json'),
-      fetch('/keyword_index.json'),
-      fetch('/date_index.json')
+      fetch('./public/Forensic_manifest.json'),
+      fetch('./public/keyword_index.json'),
+      fetch('./public/date_index.json')
     ]);
     const hashData = await hashRes.json();
     const kwData = await kwRes.json();
@@ -348,6 +382,15 @@ async function initializePortfolio() {
   } catch(e) {
     document.getElementById('tree-accordion-root').innerHTML = `<div style="color:#f87171;padding:20px;font-family:monospace;">[FAULT] Unable to load manifests. Ensure Forensic_manifest.json, keyword_index.json, and date_index.json are in the repository root.</div>`;
   }
+
+  // DEBUG: Test input
+  setTimeout(() => {
+    const input = document.getElementById('evidence-search');
+    if (input) {
+      input.addEventListener('focus', () => { document.getElementById('debug-box').textContent = 'Input focused'; });
+      input.addEventListener('input', (e) => { document.getElementById('debug-box').textContent = 'Typed: ' + e.target.value; });
+    }
+  }, 500);
 }
 
 document.addEventListener('DOMContentLoaded', initializePortfolio);
@@ -376,7 +419,7 @@ let CHRONOLOGY_INDEX = {};
 
 async function loadChronology() {
   try {
-    const r = await fetch('/chronology_crossref.json');
+    const r = await fetch('./public/chronology_crossref.json');
     if (!r.ok) return;
     CHRONOLOGY_INDEX = await r.json();
     linkGoldDates();
@@ -450,3 +493,29 @@ function showChronologyModal(dateStr) {
 
 window.showChronologyModal = showChronologyModal;
 document.addEventListener('DOMContentLoaded', loadChronology);
+
+// DEBUG: Test if input is focusable
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('evidence-search');
+  if (input) {
+    input.addEventListener('focus', () => {
+      console.log('Input FOCUSED');
+      document.getElementById('debug-box').textContent = 'Input focused OK';
+    });
+    input.addEventListener('input', (e) => {
+      console.log('Input event fired, value:', e.target.value);
+      document.getElementById('debug-box').textContent = 'Typed: ' + e.target.value;
+    });
+    input.addEventListener('keydown', (e) => {
+      console.log('Keydown:', e.key, e.code);
+      document.getElementById('debug-box').textContent = 'Keydown: ' + e.key;
+    });
+  }
+});
+
+// Export functions to window for onclick handlers
+window.debounceSearch = debounceSearch;
+window.toggleKeywordDropdown = toggleKeywordDropdown;
+window.clearKeyword = clearKeyword;
+window.showEvidenceModal = showEvidenceModal;
+window.searchEvidence = searchEvidence;
