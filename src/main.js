@@ -105,7 +105,7 @@ function showEvidenceModal(filePath) {
 
   const modal = document.getElementById('evidence-modal') || document.createElement('div');
   modal.id = 'evidence-modal';
-  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px;box-sizing:border-box;';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:2200;padding:20px;box-sizing:border-box;';
   
   const matchedKeywords = KEYWORD_INDEX[filePath] || [];
   
