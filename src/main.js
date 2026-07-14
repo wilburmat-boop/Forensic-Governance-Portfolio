@@ -428,8 +428,11 @@ async function loadChronology() {
 }
 
 function linkGoldDates() {
-  const panels = document.querySelectorAll('.panel .container');
-  console.log('linkGoldDates: found', panels.length, 'panels');
+  // Search ENTIRE page for dates, not just panels
+  const panels = document.querySelectorAll('body, .panel, .panel .container, [id*="part"], [id*="court"]');
+  console.log('linkGoldDates: scanning', panels.length, 'elements');
+  console.log('Dates to find:', Object.keys(CHRONOLOGY_INDEX).slice(0, 5));
+  
   panels.forEach(panel => {
     if (panel.dataset.datesLinked) return;
     const walker = document.createTreeWalker(panel, NodeFilter.SHOW_TEXT, null);
@@ -473,8 +476,8 @@ function showChronologyModal(dateStr) {
     <div style="background:#0b0f19;border:1px solid #1f2937;border-radius:6px;padding:16px;margin-bottom:12px;">
       <div style="font-family:monospace;font-size:0.75rem;color:#c9933a;font-weight:700;margin-bottom:8px;">${e.ref || ''}</div>
       <p style="color:#e5e7eb;font-size:0.9rem;line-height:1.7;margin:0 0 12px 0;">${e.description || ''}</p>
-      ${e.file ? `<button onclick="showEvidenceModal('${e.file.replace(/'/g,"\'")}');document.getElementById('chronology-modal').remove();" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:6px 14px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.78rem;">View Primary Evidence ↗</button>` : ''}
-      ${e.supporting ? `<button onclick="showEvidenceModal('${e.supporting.replace(/'/g,"\'")}');document.getElementById('chronology-modal').remove();" style="background:#111827;border:1px solid #374151;color:#9ca3af;padding:6px 14px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.78rem;margin-left:8px;">Supporting Evidence ↗</button>` : ''}
+      ${e.file ? `<button onclick="showEvidenceModal('public/${e.file.replace(/'/g,"\'")}');document.getElementById('chronology-modal').remove();" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:6px 14px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.78rem;">View Primary Evidence ↗</button>` : ''}
+      ${e.supporting ? `<button onclick="showEvidenceModal('public/${e.supporting.replace(/'/g,"\'")}');document.getElementById('chronology-modal').remove();" style="background:#111827;border:1px solid #374151;color:#9ca3af;padding:6px 14px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.78rem;margin-left:8px;">Supporting Evidence ↗</button>` : ''}
     </div>
   `).join('');
 
