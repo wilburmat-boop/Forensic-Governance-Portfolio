@@ -87,14 +87,22 @@ function resolveFilePath(filePath) {
 }
 
 function buildRawUrl(filePath) {
-  const base = 'https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/public/02_Evidence_Core/';
-  const clean = filePath.replace(/^02_Evidence_Core\//, '').replace(/^dist\/02_Evidence_Core\//, '');
-  return base + clean.split('/').map(p => encodeURIComponent(p)).join('/');
+  // For local dev: serve from public/
+  return '/public/' + filePath.split('/').map(p => encodeURIComponent(p)).join('/');
 }
 
 function showEvidenceModal(filePath) {
   filePath = resolveFilePath(filePath);
-  const fileData = HASH_MANIFEST[filePath] || {};
+  console.log('showEvidenceModal:', filePath);
+  console.log('Looking for in HASH_MANIFEST...');
+  console.log('Keys sample:', Object.keys(HASH_MANIFEST).slice(0, 3));
+  // Try to find file in manifest with various path formats
+  let fileData = HASH_MANIFEST[filePath] || {};
+  if (!fileData.sha256) {
+    // Try without public/ prefix
+    const cleanPath = filePath.replace(/^public\//, '');
+    fileData = HASH_MANIFEST[cleanPath] || HASH_MANIFEST[filePath] || {};
+  }
   const sha256 = fileData.sha256 || 'Hash not available';
   const size = fileData.size ? (fileData.size / 1024).toFixed(1) + ' KB' : 'Unknown';
   const filename = fileData.filename || filePath.split('/').pop();
@@ -117,7 +125,7 @@ function showEvidenceModal(filePath) {
         <div>📄 ${ext.toUpperCase()} · 🔐 ${size}</div>
         <div style="margin-top:8px;">Hash (SHA-256):</div>
         <div style="display:flex;gap:8px;margin-top:4px;">
-          <code style="color:#34d399;font-family:monospace;font-size:0.78rem;word-break:break-all;flex:1;">${sha256}</code>
+          <code style="color:${sha256 === 'Hash not available' ? '#6b7280' : '#34d399'};font-family:monospace;font-size:0.78rem;word-break:break-all;flex:1;">${sha256}</code>
           <button id="copy-btn" onclick="copyToClipboard('${sha256}', this)" style="background:#111827;border:1px solid #374151;color:#9ca3af;padding:6px 12px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.75rem;flex-shrink:0;">Copy Hash</button>
         </div>
         <div style="font-size:0.7rem;color:#4b5563;font-family:monospace;margin-top:8px;">🛡️ Mathematical proof this document is unaltered since forensic sealing. Any single character change produces a completely different hash.</div>
@@ -362,9 +370,10 @@ async function initializePortfolio() {
     const kwData = await kwRes.json();
     const dateData = await dateRes.json();
     HASH_MANIFEST = {};
-    Object.values(dateData || {}).forEach(arr => {
-      (Array.isArray(arr) ? arr : []).forEach(f => { if (f && f.path) HASH_MANIFEST[f.path] = f; });
+    (Array.isArray(hashData) ? hashData : []).forEach(f => { 
+      if (f && f.path) HASH_MANIFEST[f.path] = f; 
     });
+    DATE_INDEX = dateData || {};
     KEYWORD_INDEX = {};
     Object.entries(kwData || {}).forEach(([keyword, fileList]) => {
       if (keyword === 'index') return;
@@ -476,8 +485,8 @@ function showChronologyModal(dateStr) {
     <div style="background:#0b0f19;border:1px solid #1f2937;border-radius:6px;padding:16px;margin-bottom:12px;">
       <div style="font-family:monospace;font-size:0.75rem;color:#c9933a;font-weight:700;margin-bottom:8px;">${e.ref || ''}</div>
       <p style="color:#e5e7eb;font-size:0.9rem;line-height:1.7;margin:0 0 12px 0;">${e.description || ''}</p>
-      ${e.file ? `<button onclick="showEvidenceModal('public/${e.file.replace(/'/g,"\'")}');document.getElementById('chronology-modal').remove();" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:6px 14px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.78rem;">View Primary Evidence ↗</button>` : ''}
-      ${e.supporting ? `<button onclick="showEvidenceModal('public/${e.supporting.replace(/'/g,"\'")}');document.getElementById('chronology-modal').remove();" style="background:#111827;border:1px solid #374151;color:#9ca3af;padding:6px 14px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.78rem;margin-left:8px;">Supporting Evidence ↗</button>` : ''}
+      ${e.file ? `<button onclick="showEvidenceModal('${e.file.replace(/'/g,"\'")}');document.getElementById('chronology-modal').remove();" style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;padding:6px 14px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.78rem;">View Primary Evidence ↗</button>` : ''}
+      ${e.supporting ? `<button onclick="showEvidenceModal('${e.supporting.replace(/'/g,"\'")}');document.getElementById('chronology-modal').remove();" style="background:#111827;border:1px solid #374151;color:#9ca3af;padding:6px 14px;border-radius:4px;cursor:pointer;font-family:monospace;font-size:0.78rem;margin-left:8px;">Supporting Evidence ↗</button>` : ''}
     </div>
   `).join('');
 

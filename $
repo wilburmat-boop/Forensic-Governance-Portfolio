@@ -1,0 +1,2 @@
+235:    const isOpen = !q;
+    Object.entries(grouped).forEach(([category, items]) => {    totalShown += items.length;    const isOpen = !q;~/Forensic-Governance-Portfolio $let html = '<div style="display:flex;flex-direction:column;gap:16px;">';  let totalShown = 0;~/Forensic-Governance-Portfolio $ sed -n '225,235p' src/main.js    const category = data.category || 'Uncategorized';    if (!grouped[category]) grouped[category] = [];    grouped[category].push([path, data]);  });
