@@ -1031,11 +1031,7 @@ function restoreActiveTab() {
 // document.addEventListener('DOMContentLoaded', restoreActiveTab);
 
 function buildEvidenceUrl(filePath) {
-  var ext = filePath.split('.').pop().toLowerCase();
-  var base = (ext === 'pdf')
-    ? 'https://media.githubusercontent.com/media/wilburmat-boop/Forensic-Governance-Portfolio/main/dist/'
-    : 'https://raw.githubusercontent.com/wilburmat-boop/Forensic-Governance-Portfolio/main/dist/';
-  return base + filePath.split('/').map(function(p) { return encodeURIComponent(p); }).join('/');
+  return '/public/' + filePath;
 }
 
 

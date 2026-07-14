@@ -73,11 +73,27 @@ def extract_date(name):
     return "Undated"
 
 def find_keywords(text):
-    """Extract all words from text as keywords"""
+    """Extract both category keywords AND filename words"""
     import re
-    # Extract words (remove file extensions and special chars)
-    words = re.findall(r'[a-zA-Z0-9_]{3,}', text.lower())
-    return list(set(words))
+    text_l = text.lower()
+    found = []
+    
+    # Keep CATEGORY keywords (broad search)
+    for kws in KEYWORD_CATEGORIES.values():
+        for kw in kws:
+            if kw in text_l:
+                found.append(kw)
+            # ALSO add individual words from multi-word keywords
+            for word in kw.split():
+                if len(word) > 2:
+                    found.append(word)
+    
+    # Extract meaningful words from filename (3+ chars, not common words)
+    words = re.findall(r'[a-zA-Z0-9]{3,}', text.lower())
+    common = {'the', 'and', 'pdf', 'doc', 'xlsx', 'docx', 'ppt', 'file', 'data', 'report'}
+    found.extend([w for w in words if w not in common and len(set(w)) > 1])
+    
+    return list(set(found))
 
 def main():
     if not EVIDENCE_DIR.exists():
@@ -87,6 +103,17 @@ def main():
     manifest = []
     date_index = {}
     keyword_index = {}
+    
+    # Pre-populate keyword index with ALL category keywords (empty file lists for now)
+    for kws in KEYWORD_CATEGORIES.values():
+        for kw in kws:
+            if kw not in keyword_index:
+                keyword_index[kw] = []
+            # Also add individual words from multi-word keywords
+            for word in kw.split():
+                if len(word) > 2 and word not in keyword_index:
+                    keyword_index[word] = []
+    
     count = 0
 
     EXCLUDED_DIRS = [
@@ -129,6 +156,19 @@ def main():
                 keyword_index.setdefault(kw, []).append(entry)
 
             count += 1
+
+
+    # Link category keywords to ALL matching files (by filename/folder search)
+    for kws in KEYWORD_CATEGORIES.values():
+        for kw in kws:
+            for entry in manifest:
+                fname_folder = (entry.get('filename', '') + ' ' + entry.get('folder', '')).lower()
+                if kw.lower() in fname_folder:
+                    keyword_index.setdefault(kw, []).append(entry)
+                # Also add individual words from multi-word keywords
+                for word in kw.split():
+                    if len(word) > 2 and word.lower() in fname_folder:
+                        keyword_index.setdefault(word, []).append(entry)
 
     manifest.sort(key=lambda e: e["path"])
 
