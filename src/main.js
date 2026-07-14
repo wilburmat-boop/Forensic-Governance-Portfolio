@@ -422,12 +422,14 @@ async function loadChronology() {
     const r = await fetch('./public/chronology_crossref.json');
     if (!r.ok) return;
     CHRONOLOGY_INDEX = await r.json();
-    linkGoldDates();
+    console.log('Chronology loaded:', Object.keys(CHRONOLOGY_INDEX).length, 'dates');
+    setTimeout(() => linkGoldDates(), 500);
   } catch(e) { console.warn('Chronology not loaded:', e); }
 }
 
 function linkGoldDates() {
   const panels = document.querySelectorAll('.panel .container');
+  console.log('linkGoldDates: found', panels.length, 'panels');
   panels.forEach(panel => {
     if (panel.dataset.datesLinked) return;
     const walker = document.createTreeWalker(panel, NodeFilter.SHOW_TEXT, null);
