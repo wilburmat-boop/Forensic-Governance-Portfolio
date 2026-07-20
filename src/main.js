@@ -362,7 +362,7 @@ function toggleKeywordDropdown() {
 async function initializePortfolio() {
   try {
     const [hashRes, kwRes, dateRes] = await Promise.all([
-      fetch('./public/Forensic_manifest.json'),
+      fetch('./Forensic_manifest.json'),
       fetch('./keyword_index.json'),
       fetch('./date_index.json')
     ]);
