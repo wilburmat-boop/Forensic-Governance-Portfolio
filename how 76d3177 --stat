@@ -1,0 +1,50 @@
+[33m9275789[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fix .gitignore bug excluding all Evidence_Core subfolders; restore Regulators/CMS and Afrocentric_Lies evidence (446 files)
+[33mff06e81[m Fix: restore missing Regulators/CMS and Afrocentric_Lies evidence folders; strip trailing-space path bugs from index.html
+[33m286672b[m Revert manifest to working state: 940 files, uncategorized collapsed
+[33m6328150[m Remove duplicate directories, regenerate manifest for 940 files
+[33m76d3177[m Fix: Golden date evidence files now load in modal with correct paths
+[33mfdad8f5[m Add: Date references to manifest, logging to chronology loader
+[33m8e55cba[m Fix: File paths corrected, search working, keywords extracted, PDF viewer functional
+[33m99bbfb5[m Fix: Search functionality restored with keyword extraction, deduplication, and debounce
+[33mc2c049c[m fix: raise evidence modal z-index above sticky header so close button isn't covered
+[33me3a45fe[m fix: include chronology_crossref.json in public/ so Vite copies it to dist/ for deployment
+[33mc437ade[m feat: remember active tab across page refreshes using localStorage
+[33mc6d1f5d[m remove temporary debug alert - keyword dropdown click confirmed working
+[33m63fd6c7[m debug: temporary alert on keyword click to diagnose unresponsive dropdown
+[33m2069f60[m safety: escape apostrophes in keyword dropdown onclick handlers
+[33mf00f484[m fix: keyword dropdown now floats over content instead of pushing the page down
+[33m116a4b5[m fix: keyword dropdown now floats over content instead of pushing the page down
+[33m0a4b9c3[m fix: filterDatePills was matching on pill text (with emoji) instead of actual date, causing all pills to hide on search
+[33m7c6a350[m feat: date pill file-count badges, active-state highlight, search now filters date pills
+[33m14db2b3[m feat: date pill file-count badges, active-state highlight, search now filters date pills
+[33m255a49e[m fix: expose GLOSSARY to global scope so index.html can read it (fixes 'glossary is not defined')
+[33m4905f97[m add 8 legislation buttons + 40 chronology rows with verified evidence links
+[33m49f55a5[m add 40 new chronology rows with verified evidence links
+[33mdd26ec0[m fix: restore POL1_pdf, correct POL1 filenames to 2025, update evidence links
+[33m2c424ac[m fix: reconcile evidence links with SHA-256 verification - 31/31 links corrected
+[33mea1cfa3[m Remove recursive duplicate evidence folder (5.1G reclaimed)
+[33me90d285[m Remove duplicate root-level data-service.js (moved to public/)
+[33m1d90e2a[m Fix data-service.js: replace corrupted paste with correct 237-line script
+[33mf5efcbe[m Create data-service.js
+[33m010d0c5[m Add data-service.js loader and commit briefs-data.js
+[33mdbdcd32[m Map committee IDs to actual element IDs
+[33m8d129ca[m Add showCommitteeBrief function to main.js
+[33m2583e0f[m Fix glossary reference error and update index structure
+[33mf01aeec[m Add evidence file
+[33maeb5a18[m fix: add GLOSSARY guard check and correct PDF URL to public directory
+[33m96fdfa2[m fix: increase autoLinkGlossary timeout to 1000ms to wait for main.js module load
+[33m3d8e06e[m fix: remove broken symlink from public directory
+[33m6ba220b[m fix: move glossary-data.js to public directory for Vite build
+[33m72d517e[m fix: change GLOSSARY redeclaration to assignment
+[33mdb03caf[m fix: remove glossary-data.js script reference - using GLOSSARY_TERMS from main.js instead
+[33m90026f1[m fix: remove premature autoLinkGlossary call before main.js loads
+[33mda2a3d1[m chore: trigger Vercel redeploy
+[33md8ecc4c[m fix: declare GLOSSARY at module top before HTML autoLinkGlossary executes
+[33m1df09eb[m fix: define GLOSSARY at top of main.js before autoLinkGlossary executes
+[33m13cf200[m fix: add GLOSSARY alias to GLOSSARY_TERMS for HTML inline script compatibility
+[33m054ef53[m fix: export showGlossary to window to resolve ReferenceError
+[33mf748480[m chore: update reindex script exclusions and sync script for next session
+[33me3708c4[m sync: update GEMS_Notification evidence from Google Drive, re-hashed and re-indexed
+[33m8d1e9b1[m sync: update 0_8_Denyes_Reitz_Inc evidence from Google Drive, re-hashed and re-indexed
+[33m451cc34[m sync: update 0_2_0_Council_Concilliation_Mediation_Arbitration evidence from Google Drive, re-hashed and re-indexed
+[33m45f7d76[m sync: update 0_1_2_Judicial_Service_&_Conduct_Commission evidence from Google Drive, re-hashed and re-indexed
