@@ -428,7 +428,7 @@ let CHRONOLOGY_INDEX = {};
 
 async function loadChronology() {
   try {
-    const r = await fetch('./public/chronology_crossref.json');
+    const r = await fetch('./chronology_crossref.json');
     if (!r.ok) return;
     CHRONOLOGY_INDEX = await r.json();
     console.log('Chronology loaded:', Object.keys(CHRONOLOGY_INDEX).length, 'dates');
