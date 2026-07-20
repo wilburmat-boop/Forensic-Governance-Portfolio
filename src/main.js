@@ -87,8 +87,8 @@ function resolveFilePath(filePath) {
 }
 
 function buildRawUrl(filePath) {
-  // For local dev: serve from public/
-  return '/public/' + filePath.split('/').map(p => encodeURIComponent(p)).join('/');
+  // Vite flattens public/ to root in production
+  return '/' + filePath.split('/').map(p => encodeURIComponent(p)).join('/');
 }
 
 function showEvidenceModal(filePath) {
@@ -437,41 +437,32 @@ async function loadChronology() {
 }
 
 function linkGoldDates() {
-  // Search ENTIRE page for dates, not just panels
-  const panels = document.querySelectorAll('body, .panel, .panel .container, [id*="part"], [id*="court"]');
-  console.log('linkGoldDates: scanning', panels.length, 'elements');
-  console.log('Dates to find:', Object.keys(CHRONOLOGY_INDEX).slice(0, 5));
-  
-  panels.forEach(panel => {
-    if (panel.dataset.datesLinked) return;
-    const walker = document.createTreeWalker(panel, NodeFilter.SHOW_TEXT, null);
-    const nodes = [];
-    let node;
-    while ((node = walker.nextNode())) nodes.push(node);
-    
-    nodes.forEach(node => {
-      if (node.parentElement.closest('button,script,style,.evidence-link')) return;
-      const text = node.nodeValue;
-      Object.keys(CHRONOLOGY_INDEX).forEach(dateStr => {
-        if (!text.includes(dateStr)) return;
-        const parts = text.split(dateStr);
-        if (parts.length < 2) return;
-        const frag = document.createDocumentFragment();
-        parts.forEach((part, i) => {
-          frag.appendChild(document.createTextNode(part));
-          if (i < parts.length - 1) {
-            const span = document.createElement('span');
-            span.textContent = dateStr;
-            span.style.cssText = 'color:#c9933a;border-bottom:2px dashed #c9933a;cursor:pointer;font-weight:600;';
-            span.title = 'Click for forensic narrative';
-            span.onclick = () => showChronologyModal(dateStr);
-            frag.appendChild(span);
-          }
-        });
-        node.parentNode.replaceChild(frag, node);
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+  const nodes = [];
+  let node;
+  while ((node = walker.nextNode())) nodes.push(node);
+  console.log('linkGoldDates: walking', nodes.length, 'text nodes');
+  nodes.forEach(node => {
+    if (node.parentElement.closest('button,script,style,.evidence-link')) return;
+    const text = node.nodeValue;
+    Object.keys(CHRONOLOGY_INDEX).forEach(dateStr => {
+      if (!text.includes(dateStr)) return;
+      const parts = text.split(dateStr);
+      if (parts.length < 2) return;
+      const frag = document.createDocumentFragment();
+      parts.forEach((part, i) => {
+        frag.appendChild(document.createTextNode(part));
+        if (i < parts.length - 1) {
+          const span = document.createElement('span');
+          span.textContent = dateStr;
+          span.className = 'evidence-link';
+          span.style.cssText = 'cursor:pointer;color:#fbbf24;text-decoration:underline;';
+          span.onclick = () => showChronologyModal(dateStr);
+          frag.appendChild(span);
+        }
       });
+      node.parentNode.replaceChild(frag, node);
     });
-    panel.dataset.datesLinked = '1';
   });
 }
 
