@@ -363,8 +363,8 @@ async function initializePortfolio() {
   try {
     const [hashRes, kwRes, dateRes] = await Promise.all([
       fetch('./public/Forensic_manifest.json'),
-      fetch('./public/keyword_index.json'),
-      fetch('./public/date_index.json')
+      fetch('./keyword_index.json'),
+      fetch('./date_index.json')
     ]);
     const hashData = await hashRes.json();
     const kwData = await kwRes.json();
