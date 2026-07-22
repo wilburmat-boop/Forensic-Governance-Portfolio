@@ -1,18 +1,82 @@
 {
-  "B1": {"file": "02_Evidence_Core/0_1_2_Judicial_Service_&_Conduct_Commission/JSC_Formal_Complaint_Matthee_9July2026.pdf", "date": "18 Mar 2025", "description": "Admitted to Akeso Stepping Stones Clinic"},
-  "SCR1": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/SCR_1_Wilma_Screenshot_23_Sep_2025.png", "date": "23 Sep 2025", "description": "Wilma gender-identity harassment screenshot"},
-  "VICT1": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/VICT_1_RCA_RE_General_Complaint_Received_GEMS_000655789_Dependent_0_2.pdf", "date": "23 Oct 2025", "description": "Protected disclosure: Gexus-DMS integration gap"},
-  "E1": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/RPM_1_Leaving_Work_21_May_2025.pdf", "date": "31 Oct 2025", "description": "Recorded admission of retaliatory intent"},
-  "GRC1": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/BRD_GRC_0_1_Fwd_Delivery_Status_Notification_Failure_CONFIDENTIAL_LEGAL_PRIVILEGE_URGENT_MATERIAL_GOVERNANCE_FAILURE_DISCRIMINATION_VICTIMISATION_&_INSTITUTIONAL_SILENCE_REQUIRING_IMMEDIATE_BOARD_INTERVENTION_09_Dec_2025", "date": "9 Dec 2025", "description": "Priority 1 Material Risk Report to Board"},
-  "O1": {"file": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration/Gmail_C_C_M_A_WECT23564_25_Respondents_Opposing_Affidavit_1.PDF", "date": "10 Dec 2025", "description": "CCMA opposing affidavit"},
-  "GRC2": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/BRD_GRC_2_URGENT_UPDATE_Legal_Opposition_Affidavit_Confirms_Institutional_Bad_Faith_&_Escalates_Governance_Risk_11_DEC_2025.pdf", "date": "11 Dec 2025", "description": "Urgent Board update: legal opposition"},
-  "H2": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/BRD_GRC_4_MAXIMUM_SEVERITY_GRC_ESCALATION_RETRACTION_17_Dec_2025.pdf", "date": "12 Dec 2025", "description": "Constructive dismissal resignation"},
-  "GRC3": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/BRD_GRC_3_MAXIMUM_SEVERITY_GRC_ESCALATION_Documented_Retaliation_Suppression_of_Investigative_Findings_and_Governance_Failure_in_Case_GEMS_000655789_Dependent_02_16_TO18_DEC_2025.pdf", "date": "16 Dec 2025", "description": "Maximum Severity GRC Escalation"},
-  "CRO1": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/CRO_1_Board_Level_Asking_to_stop_sending_emails_i_appear_inpatient_18_Dec_2025.pdf", "date": "18 Dec 2025", "description": "CRO suppression email"},
-  "U1": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/EM_1_Mental_Health_Disclosure_To_Employer.pdf", "date": "23 Dec 2025", "description": "Initial CMS complaint"},
-  "U5": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/CCMA_2nd_CASE.pdf", "date": "4 Feb 2026", "description": "CMS first declination"},
-  "J2": {"file": "02_Evidence_Core/0_1_Regulators_R_S_A/SAHRC_Human_Rights/SAHRC_FinalUpdate_13_March_2026_1._sahrcpdf", "date": "10 Feb 2026", "description": "SAHRC acknowledges concerns"},
-  "U8": {"file": "02_Evidence_Core/0_1_Regulators_R_S_A/CMS/C_M_S_FollowUp_EthicHawks_2April2026.pdf", "date": "2 Apr 2026", "description": "Formal CMS re-engagement"},
-  "M1": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/AfrocentricInvestmentCorporationLimitedvWilburWilliamMatthee2026086906AFR1282v020FCompleteBundle.pdf", "date": "16 Apr 2026", "description": "Western Cape High Court interim interdict"},
-  "U11": {"file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/CCMA_2nd_CASE.pdf", "date": "7 May 2026", "description": "CMS second declination"}
+  "B1": {
+    "file": "02_Evidence_Core/0_1_2_Judicial_Service_&_Conduct_Commission/JSC_Formal_Complaint_Matthee_9July2026.pdf",
+    "date": "18 Mar 2025",
+    "description": "Admitted to Akeso Stepping Stones Clinic"
+  },
+  "SCR1": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/SCR_1_Wilma_Screenshot_23_Sep_2025.png",
+    "date": "23 Sep 2025",
+    "description": "Wilma gender-identity harassment screenshot"
+  },
+  "VICT1": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/VICT_1_RCA_RE_General_Complaint_Received_GEMS_000655789_Dependent_0_2.pdf",
+    "date": "23 Oct 2025",
+    "description": "Protected disclosure: Gexus-DMS integration gap"
+  },
+  "E1": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/Recording 2025-10-31 141051.mp4",
+    "date": "31 Oct 2025",
+    "description": "Recorded admission of retaliatory intent"
+  },
+  "GRC1": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/BRD_GRC_0_1_Fwd_Delivery_Status_Notification_Failure_CONFIDENTIAL_LEGAL_PRIVILEGE_URGENT_MATERIAL_GOVERNANCE_FAILURE_DISCRIMINATION_VICTIMISATION_&_INSTITUTIONAL_SILENCE_REQUIRING_IMMEDIATE_BOARD_INTERVENTION_09_Dec_2025",
+    "date": "9 Dec 2025",
+    "description": "Priority 1 Material Risk Report to Board"
+  },
+  "O1": {
+    "file": "02_Evidence_Core/0_2_0_Council_Concilliation_Mediation_Arbitration/Gmail_C_C_M_A_WECT23564_25_Respondents_Opposing_Affidavit_1.PDF",
+    "date": "10 Dec 2025",
+    "description": "CCMA opposing affidavit"
+  },
+  "GRC2": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/BRD_GRC_2_URGENT_UPDATE_Legal_Opposition_Affidavit_Confirms_Institutional_Bad_Faith_&_Escalates_Governance_Risk_11_DEC_2025.pdf",
+    "date": "11 Dec 2025",
+    "description": "Urgent Board update: legal opposition"
+  },
+  "H2": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/BRD_GRC_4_MAXIMUM_SEVERITY_GRC_ESCALATION_RETRACTION_17_Dec_2025.pdf",
+    "date": "12 Dec 2025",
+    "description": "Constructive dismissal resignation"
+  },
+  "GRC3": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/BRD_GRC_3_MAXIMUM_SEVERITY_GRC_ESCALATION_Documented_Retaliation_Suppression_of_Investigative_Findings_and_Governance_Failure_in_Case_GEMS_000655789_Dependent_02_16_TO18_DEC_2025.pdf",
+    "date": "16 Dec 2025",
+    "description": "Maximum Severity GRC Escalation"
+  },
+  "CRO1": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/CRO_1_Board_Level_Asking_to_stop_sending_emails_i_appear_inpatient_18_Dec_2025.pdf",
+    "date": "18 Dec 2025",
+    "description": "CRO suppression email"
+  },
+  "U1": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/EM_1_Mental_Health_Disclosure_To_Employer.pdf",
+    "date": "23 Dec 2025",
+    "description": "Initial CMS complaint"
+  },
+  "U5": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/CCMA_2nd_CASE.pdf",
+    "date": "4 Feb 2026",
+    "description": "CMS first declination"
+  },
+  "J2": {
+    "file": "02_Evidence_Core/0_1_Regulators_R_S_A/SAHRC_Human_Rights/SAHRC_FinalUpdate_13_March_2026_1._sahrcpdf",
+    "date": "10 Feb 2026",
+    "description": "SAHRC acknowledges concerns"
+  },
+  "U8": {
+    "file": "02_Evidence_Core/0_1_Regulators_R_S_A/CMS/C_M_S_FollowUp_EthicHawks_2April2026.pdf",
+    "date": "2 Apr 2026",
+    "description": "Formal CMS re-engagement"
+  },
+  "M1": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/AfrocentricInvestmentCorporationLimitedvWilburWilliamMatthee2026086906AFR1282v020FCompleteBundle.pdf",
+    "date": "16 Apr 2026",
+    "description": "Western Cape High Court interim interdict"
+  },
+  "U11": {
+    "file": "02_Evidence_Core/0_8_Afrocentric_Lies/1_Proof_No_Lie/CCMA_2nd_CASE.pdf",
+    "date": "7 May 2026",
+    "description": "CMS second declination"
+  }
 }
