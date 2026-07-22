@@ -40,9 +40,9 @@
   'use strict';
 
   const DATA_FILES = [
-    '/public/tab_data_by_date.json',
-    '/public/tab_data_by_folder.json',
-    '/public/tab_data_master.json'
+    '/tab_data_by_date.json',
+    '/tab_data_by_folder.json',
+    '/tab_data_master.json'
   ];
 
   const EVIDENCE_SELECTOR = [

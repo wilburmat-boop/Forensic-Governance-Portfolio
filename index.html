@@ -992,8 +992,8 @@ td { padding: 10px 12px; border-bottom: 1px solid var(--rule); }
 </main>
 
 <!-- JAVASCRIPT -->
-<script src="/public/glossary-data.js"></script>
-    <script src="/public/data-service.js"></script>
+<script src="/glossary-data.js"></script>
+    <script src="/data-service.js"></script>
 <script>
 function showPanel(id, e) {
   document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
@@ -1016,7 +1016,7 @@ function restoreActiveTab() {
 // document.addEventListener('DOMContentLoaded', restoreActiveTab);
 
 function buildEvidenceUrl(filePath) {
-  return '/public/' + filePath;
+  return filePath;
 }
 
 
