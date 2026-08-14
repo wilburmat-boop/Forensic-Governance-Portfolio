@@ -18,8 +18,8 @@ mapping = {}
 def sanitize_name(name):
     s = name.strip()
     # remove leading/trailing single/double quotes and smart quotes
-    s = re.sub(r'^[\'"\u2018\u2019\u201C\u201D]+', '', s)
-    s = re.sub(r'[\'"\u2018\u2019\u201C\u201D]+$', '', s)
+    s = re.sub(r'^[\'\"\u2018\u2019\u201C\u201D]+', '', s)
+    s = re.sub(r'[\'\"\u2018\u2019\u201C\u201D]+$', '', s)
     # collapse multiple whitespace into single space
     s = re.sub(r'\s+', ' ', s).strip()
     # remove leading/trailing dots
