@@ -9,9 +9,12 @@
     "dev": "vite --host"
   },
   "devDependencies": {
-    "vite": "5.4.11"
+    "vite": "^5.4.21"
   },
   "author": "Ethical Forensic Governance",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
 }

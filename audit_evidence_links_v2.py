@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/env python3
 import json
 import re
@@ -64,3 +65,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+=======
+python3: can't open file '/data/data/com.termux/files/home/Forensic-Governance-Portfolio/fix_evidence_paths.py': [Errno 2] No such file or directory
+>>>>>>> 15b8d40 (Save progress: update evidence paths and validation scripts)
