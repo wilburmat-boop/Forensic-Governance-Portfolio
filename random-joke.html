@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Random Joke Generator</title>
+  <style>
+    :root { --bg:#0f1724; --card:#0b1220; --accent:#efb810; --muted:#94a3b8; --white:#eef2ff; }
+    html,body{height:100%}
+    body{
+      font-family: system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      margin:0;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,#071028 0%, #0f1724 100%);
+      color:var(--white);padding:24px;
+    }
+    .card{
+      width:100%;max-width:720px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);padding:28px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.6);
+    }
+    h1{font-size:1.25rem;margin:0 0 12px}
+    .joke-area{min-height:120px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;justify-content:center;padding:18px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.02)}
+    .setup{font-weight:600;font-size:1.05rem}
+    .punchline{font-weight:700;color:var(--accent);font-size:1.15rem}
+    .meta{font-size:0.85rem;color:var(--muted)}
+    .controls{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+    button{background:var(--accent);color:#081022;padding:8px 12px;border:0;border-radius:8px;cursor:pointer;font-weight:600}
+    button.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
+    button:disabled{opacity:0.45;cursor:not-allowed}
+    .small{font-size:0.85rem;padding:6px 10px}
+    .note{margin-top:12px;color:var(--muted);font-size:0.85rem}
+    .row{display:flex;gap:8px;align-items:center}
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <h1 id="title">Random Joke Generator</h1>
+
+    <div class="joke-area" id="jokeArea" aria-live="polite">
+      <div class="meta" id="source">Source: —</div>
+      <div class="setup" id="setup">Click "New joke" to begin.</div>
+      <div class="punchline" id="punchline"></div>
+    </div>
+
+    <div class="controls">
+      <button id="newJoke">New joke</button>
+      <button id="reveal" class="secondary small">Reveal punchline</button>
+      <button id="copy" class="secondary small">Copy</button>
+      <button id="share" class="secondary small">Share</button>
+    </div>
+
+    <div class="note">
+      Uses the public Official Joke API (https://official-joke-api.appspot.com). If that fails it falls back to icanhazdadjoke.com.
+    </div>
+  </main>
+
+  <script>
+    const el = {
+      newBtn: document.getElementById('newJoke'),
+      revealBtn: document.getElementById('reveal'),
+      copyBtn: document.getElementById('copy'),
+      shareBtn: document.getElementById('share'),
+      setup: document.getElementById('setup'),
+      punchline: document.getElementById('punchline'),
+      source: document.getElementById('source'),
+      area: document.getElementById('jokeArea')
+    };
+
+    let current = { setup: '', punchline: '', source: '' };
+    let punchlineRevealed = true;
+
+    function setLoading(on, text = 'Loading...') {
+      el.newBtn.disabled = on;
+      el.newBtn.textContent = on ? text : 'New joke';
+      if (on) {
+        el.setup.textContent = '...';
+        el.punchline.textContent = '';
+        el.source.textContent = 'Source: fetching...';
+      }
+    }
+
+    async function fetchOfficialJoke(){
+      const url = 'https://official-joke-api.appspot.com/random_joke';
+      const resp = await fetch(url);
+      if (!resp.ok) throw new Error('Official Joke API error: '+resp.status);
+      return resp.json();
+    }
+
+    async function fetchIcanHazDadJoke(){
+      const url = 'https://icanhazdadjoke.com/';
+      const resp = await fetch(url, { headers: { Accept: 'application/json' } });
+      if (!resp.ok) throw new Error('icanhazdadjoke error: '+resp.status);
+      return resp.json();
+    }
+
+    async function getJoke(){
+      setLoading(true);
+      punchlineRevealed = false;
+      try {
+        const oj = await fetchOfficialJoke();
+        current.setup = oj.setup || '';
+        current.punchline = oj.punchline || '';
+        current.source = 'Official Joke API';
+      } catch (err1) {
+        console.warn('Official API failed:', err1);
+        try {
+          const dj = await fetchIcanHazDadJoke();
+          current.setup = dj.joke || '';
+          current.punchline = '';
+          current.source = 'icanhazdadjoke (fallback)';
+        } catch (err2) {
+          console.warn('Fallback failed:', err2);
+          const fallback = [
+            {setup: "Why did the scarecrow win an award?", punchline: "Because he was outstanding in his field.", source: 'local' },
+            {setup: "What do you call fake spaghetti?", punchline: "An impasta.", source: 'local' },
+          ];
+          const pick = fallback[Math.floor(Math.random()*fallback.length)];
+          current = { ...pick };
+        }
+      } finally {
+        renderJoke();
+        setLoading(false);
+      }
+    }
+
+    function renderJoke(){
+      el.source.textContent = 'Source: ' + (current.source || 'unknown');
+      if (current.punchline && current.setup) {
+        el.setup.textContent = current.setup;
+        el.punchline.textContent = punchlineRevealed ? current.punchline : 'Click "Reveal punchline" to show it';
+        el.revealBtn.disabled = false;
+      } else {
+        el.setup.textContent = current.setup || current.punchline || 'No joke available';
+        el.punchline.textContent = '';
+        el.revealBtn.disabled = true;
+      }
+    }
+
+    el.newBtn.addEventListener('click', async () => {
+      await getJoke();
+    });
+
+    el.revealBtn.addEventListener('click', () => {
+      punchlineRevealed = true;
+      renderJoke();
+    });
+
+    el.copyBtn.addEventListener('click', async () => {
+      const text = current.setup + (current.punchline ? '\n\n' + current.punchline : '');
+      if (!text) return alert('Nothing to copy');
+      try {
+        await navigator.clipboard.writeText(text);
+        el.copyBtn.textContent = 'Copied!';
+        setTimeout(()=>el.copyBtn.textContent='Copy',1200);
+      } catch (e) {
+        alert('Copy not available: ' + e);
+      }
+    });
+
+    el.shareBtn.addEventListener('click', async () => {
+      const text = current.setup + (current.punchline ? '\n\n' + current.punchline : '');
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: 'Random joke', text });
+        } catch (e) {
+          console.warn('Share failed', e);
+        }
+      } else {
+        try {
+          await navigator.clipboard.writeText(text);
+          el.shareBtn.textContent = 'Copied for share';
+          setTimeout(()=>el.shareBtn.textContent='Share',1200);
+        } catch(e){
+          alert('Share/copy not available: ' + e);
+        }
+      }
+    });
+
+    getJoke().catch(e => {
+      console.error('Initial load failed', e);
+    });
+  </script>
+</body>
+</html>
