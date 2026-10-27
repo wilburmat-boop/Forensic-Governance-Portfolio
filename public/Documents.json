@@ -1,139 +1,548 @@
-{
-  "version": 1,
-  "title": "Documents timeline",
-  "note": "sha256 and bytes are filled in by build_manifest.py. Dates marked approximate must be confirmed against the original files.",
-  "documents": [
-    {
-      "id": "d01",
-      "title": "Chat record: The Weight of Silence / The Chrysalis",
-      "file": "documents/2026-08_chat-chrysalis-narrative.html",
-      "type": "transcript",
-      "cases": ["Labour Court 2026-083299", "Labour Court 2026-077546", "High Court 2026-086906"],
-      "dateLabel": "August 2026 (from footer)",
-      "sort": "2026-08-31",
-      "dateConfidence": "approximate",
-      "summary": "Full chat export covering the evidence batches, SAHRC and SAPS records, the narrative drafts and the urgent interim relief strategy for the Labour Court.",
-      "notes": [
-        "Large file uploads are summarised, not reproduced, in this export.",
-        "Contains health details, an address and named individuals: review before publishing publicly."
-      ],
-      "visibility": "review"
-    },
-    {
-      "id": "d02",
-      "title": "Chat record: The Weight of Silence (XML export)",
-      "file": "documents/2026-08_chat-chrysalis-narrative.xml",
-      "type": "transcript",
-      "cases": ["Labour Court 2026-083299", "Labour Court 2026-077546", "High Court 2026-086906"],
-      "dateLabel": "August 2026 (same chat as d01)",
-      "sort": "2026-08-30",
-      "dateConfidence": "approximate",
-      "duplicateOf": "d01",
-      "summary": "Earlier XML export of the same conversation as d01. Message bodies are placeholders.",
-      "notes": ["Duplicate of d01 in another format. Keep as an alternate or drop it."],
-      "visibility": "review"
-    },
-    {
-      "id": "d03",
-      "title": "Case dossier: AfroCentric v Matthee (2026-086906)",
-      "file": "documents/2026-09-02_case-dossier.html",
-      "type": "analysis",
-      "cases": ["High Court 2026-086906"],
-      "dateLabel": "2 September 2026",
-      "sort": "2026-09-02",
-      "dateConfidence": "exact",
-      "summary": "Consolidated dossier: chronology, merits opinion, s 18(1) stay, false recital, without prejudice conduct, draft answering affidavit and heads, leverage analysis.",
-      "notes": [
-        "Probability percentages and 'who wins' tables are AI estimates, not findings.",
-        "Authority descriptions (for example Setlogelo for clean hands) need checking against the reports before filing."
-      ],
-      "visibility": "review"
-    },
-    {
-      "id": "d04",
-      "title": "Case summary and legal documents (hearing of 7 September 2026)",
-      "file": "documents/2026-09-05_case-summary-and-legal-documents.html",
-      "type": "analysis",
-      "cases": ["High Court 2026-086906"],
-      "dateLabel": "5 September 2026",
-      "sort": "2026-09-05",
-      "dateConfidence": "exact",
-      "summary": "Statutes, authorities, 519-page index, draft order, rebuttal heads, rebuttal of the Applicant's bundle, Information Regulator status, hearing checklist.",
-      "notes": [
-        "Knoop v Gupta is described as a challenge to State Capture Commission orders. The judgment in your bundle concerns business rescue practitioners.",
-        "Mkhitha is cited for the s 18(1) automatic stay. The judgment text in your bundle deals with causation and the leave to appeal threshold.",
-        "Draft order para 44 says the contempt application was filed on 7 July 2026. The chronology says the conditional notice of motion was filed on 31 August 2026.",
-        "Check every authority summary against the actual judgment before it goes into a filing."
-      ],
-      "visibility": "review"
-    },
-    {
-      "id": "d05",
-      "title": "Consultation record: Registrar silence and non-enrolment",
-      "file": "documents/2026-10-16_consultation-record.html",
-      "type": "transcript",
-      "cases": ["High Court 2026-086906"],
-      "dateLabel": "16 October 2026",
-      "sort": "2026-10-16",
-      "dateConfidence": "exact",
-      "summary": "Chat from the morning of the allocated s 18(4) hearing: read receipts, Deneys' enquiry, the court roll, Rule 16A follow-up, and the s 18(2) misclassification point.",
-      "notes": [
-        "Statements about why Deneys did not attend and who misclassified the matter are inference, not record.",
-        "Names Registry staff with strong characterisations: keep the facts (dates, read receipts) separate from the commentary."
-      ],
-      "visibility": "review"
-    },
-    {
-      "id": "d06",
-      "title": "Constitutional Court Rule 18: notice of motion and founding affidavit (earlier draft)",
-      "file": "documents/2026-10_concourt-rule18-draft-1.html",
-      "type": "filing",
-      "cases": ["Constitutional Court (case no. not yet allocated)", "High Court 2026-086906"],
-      "dateLabel": "October 2026, after 16 October (draft)",
-      "sort": "2026-10-17",
-      "dateConfidence": "approximate",
-      "summary": "Unsigned draft notice of motion and founding affidavit seeking direct access on the failure to hear the s 18(4) appeal.",
-      "notes": [
-        "Gives the OCJ Final Closure Report date as 23 June 2026. The later version (d07) says 23 July 2026. Confirm the correct date.",
-        "Treats the JSC interview exchange as showing the Acting Judge's unfamiliarity with s 18(3). The later version frames it as a point of legal comparison with no allegation of bad faith.",
-        "Unsigned, undated, no annexures."
-      ],
-      "visibility": "review"
-    },
-    {
-      "id": "d07",
-      "title": "Chat record: bundle of authorities, Rule 18 affidavit and overview for Grant",
-      "file": "documents/2026-10_chat-bundle-and-rule18-overview.html",
-      "type": "transcript",
-      "cases": ["Constitutional Court (case no. not yet allocated)", "High Court 2026-086906"],
-      "dateLabel": "After 19 October 2026 (latest event referenced)",
-      "sort": "2026-10-20",
-      "dateConfidence": "approximate",
-      "summary": "Bundle of Authorities (6 Sept 2026) and table corrections, two versions of the Rule 18 founding affidavit with annexures WM1 to WM13, and a chronological overview.",
-      "notes": [
-        "Affidavit version 1, para 11.1 says 47 pages; the same affidavit says 67 elsewhere.",
-        "Affidavit version 1 has typos: Fake NO (Fakie NO), Deneves, Deneyes.",
-        "Page ranges for Zuma and Biowatch differ between the corrected table (87 to 126, 127 to 162) and the draft (87 to 213, 214 to 375). Confirm against the PDF.",
-        "Annexure WM1 is shown as 151 pages in the index but omitted in this export."
-      ],
-      "visibility": "review"
-    },
-    {
-      "id": "d08",
-      "title": "Analysis: Notice of Application for Leave to Appeal",
-      "file": "documents/undated_analysis-leave-to-appeal-notice.html",
-      "type": "analysis",
-      "cases": ["High Court 2026-086906"],
-      "dateLabel": "Date to confirm (after 21 August 2026)",
-      "sort": null,
-      "notBefore": "2026-08-21",
-      "dateConfidence": "unknown",
-      "summary": "Ground-by-ground assessment of the nine grounds in the leave to appeal notice, with scores and suggested additions.",
-      "notes": [
-        "The 1 to 10 strength scores are AI opinion, not a legal assessment.",
-        "No date in the file. Add the date you received it."
-      ],
-      "visibility": "review"
-    }
-  ]
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documents timeline | Forensic Governance Portfolio</title>
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --charcoal: #2B2D42;
+    --gold: #C9A84C;
+    --red: #B01010;
+    --paper: #F7F5EF;
+    --rule: #D9D2BF;
+    --muted: #5d6270;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--paper);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+  header {
+    background: var(--navy);
+    color: #fff;
+    padding: 2rem 1.25rem 1.5rem;
+    border-bottom: 4px solid var(--gold);
+  }
+  header h1 { margin: 0 0 .25rem; font-size: 1.6rem; font-weight: normal; }
+  header p { margin: 0; color: #c8cfda; max-width: 60ch; }
+  .summary-box {
+    margin: 1.1rem auto 0;
+    max-width: 860px;
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(201,168,76,.45);
+    border-radius: 8px;
+  }
+  .summary-box h2 {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 .5rem;
+    color: var(--gold);
+  }
+  .summary-box p {
+    margin: 0;
+    color: #edf1f7;
+  }
+  .tools {
+    display: flex; flex-wrap: wrap; gap: .6rem;
+    padding: 1rem 1.25rem;
+    background: #fff; border-bottom: 1px solid var(--rule);
+    position: sticky; top: 0; z-index: 5;
+  }
+  .tools input, .tools select {
+    font: inherit; font-size: .95rem;
+    padding: .5rem .7rem; border: 1px solid var(--rule); border-radius: 4px;
+    background: #fff; color: var(--charcoal); min-width: 0;
+  }
+  .tools input { flex: 1 1 12rem; }
+  .tools input:focus-visible, .tools select:focus-visible,
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  main { max-width: 860px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  .count { color: var(--muted); font-size: .9rem; margin: 0 0 1rem; }
+
+  .month { margin: 2rem 0 .5rem; font-size: 1.05rem; color: var(--navy); }
+  .spine { position: relative; padding-left: 1.6rem; border-left: 2px solid var(--gold); margin-left: .4rem; }
+  .entry { position: relative; padding: 0 0 1.6rem; }
+  .entry::before {
+    content: ""; position: absolute; left: calc(-1.6rem - 7px); top: .5rem;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--paper); border: 2px solid var(--gold);
+  }
+  .entry.sealed::before { background: var(--gold); }
+  .entry.unknown::before { border-style: dashed; border-color: var(--red); }
+  .when { font-size: 1.35rem; color: var(--navy); line-height: 1.2; }
+  .when small { display: block; font-size: .85rem; color: var(--muted); }
+  .entry h2 { margin: .3rem 0 .2rem; font-size: 1.1rem; }
+  .entry h2 a { color: var(--navy); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+  .meta { font-size: .88rem; color: var(--muted); margin: 0 0 .4rem; }
+  .meta span + span { margin-left: .9rem; }
+  .tag { color: var(--red); }
+  .summary { margin: 0 0 .5rem; max-width: 68ch; }
+  .seal { font-family: "Courier New", monospace; font-size: .78rem; color: var(--muted); word-break: break-all; }
+  details { margin-top: .4rem; }
+  summary { cursor: pointer; color: var(--red); font-size: .92rem; }
+  details ul { margin: .4rem 0 0 1.1rem; padding: 0; font-size: .92rem; }
+  details li { margin-bottom: .3rem; }
+  .empty { padding: 2rem 0; color: var(--muted); }
+  @media (max-width: 520px) { .meta span { display: block; margin: 0; } .meta span + span { margin: 0; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Document register</h1>
+  <p>Standalone evidence and narrative records retained for legal, oversight and compliance review.</p>
+  <div class="summary-box">
+    <h2>Public-safe summary</h2>
+    <p id="registerSummary">Loading public summary…</p>
+  </div>
+</header>
+
+<div class="tools">
+  <input id="q" type="search" placeholder="Search titles, summaries, case numbers" aria-label="Search documents">
+  <select id="type" aria-label="Filter by type"><option value="">All types</option></select>
+  <select id="case" aria-label="Filter by case"><option value="">All cases</option></select>
+</div>
+
+<main>
+  <p class="count" id="count"></p>
+  <div id="list"></div>
+</main>
+
+<script>
+(function () {
+  var TYPE_LABEL = {
+    filing: "Court filing (draft)",
+    analysis: "Analysis",
+    transcript: "Chat transcript"
+  };
+  var docs = [];
+  var q = document.getElementById("q");
+  var typeSel = document.getElementById("type");
+  var caseSel = document.getElementById("case");
+  var list = document.getElementById("list");
+  var count = document.getElementById("count");
+  var summaryBox = document.getElementById("registerSummary");
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function monthKey(d) {
+    if (!d.sort) return "Date to confirm";
+    var dt = new Date(d.sort + "T00:00:00");
+    return dt.toLocaleDateString("en-ZA", { month: "long", year: "numeric" });
+  }
+
+  function render() {
+    var term = q.value.trim().toLowerCase();
+    var t = typeSel.value, c = caseSel.value;
+    var shown = docs.filter(function (d) {
+      if (t && d.type !== t) return false;
+      if (c && (d.cases || []).indexOf(c) === -1) return false;
+      if (!term) return true;
+      var hay = [d.title, d.summary, d.dateLabel, (d.cases || []).join(" ")].join(" ").toLowerCase();
+      return hay.indexOf(term) !== -1;
+    });
+
+    list.textContent = "";
+    count.textContent = shown.length + " of " + docs.length + " documents";
+    if (!shown.length) { list.appendChild(el("p", "empty", "No documents match. Clear the search or filters.")); return; }
+
+    var current = null, spine = null;
+    shown.forEach(function (d) {
+      var m = monthKey(d);
+      if (m !== current) {
+        current = m;
+        list.appendChild(el("h3", "month", m));
+        spine = el("div", "spine");
+        list.appendChild(spine);
+      }
+      var e = el("article", "entry" + (d.sha256 ? " sealed" : "") + (d.dateConfidence === "unknown" ? " unknown" : ""));
+
+      var when = el("div", "when", d.dateLabel || "");
+      if (d.dateConfidence && d.dateConfidence !== "exact") {
+        when.appendChild(el("small", null, d.dateConfidence === "unknown" ? "Date not in the file" : "Approximate date: confirm against the original"));
+      }
+      e.appendChild(when);
+
+      var h = el("h2");
+      var a = el("a", null, d.title);
+      a.href = d.file; a.target = "_blank"; a.rel = "noopener";
+      h.appendChild(a);
+      e.appendChild(h);
+
+      var meta = el("p", "meta");
+      meta.appendChild(el("span", null, TYPE_LABEL[d.type] || d.type));
+      meta.appendChild(el("span", null, (d.cases || []).join(", ")));
+      if (d.duplicateOf) meta.appendChild(el("span", "tag", "Duplicate of " + d.duplicateOf));
+      if (d.visibility === "review") meta.appendChild(el("span", "tag", "Review before publishing"));
+      e.appendChild(meta);
+
+      if (d.summary) e.appendChild(el("p", "summary", d.summary));
+      e.appendChild(el("div", "seal", d.sha256 ? "SHA-256 " + d.sha256 : "Hash pending: run build_manifest.py"));
+
+      if (d.notes && d.notes.length) {
+        var det = el("details");
+        det.appendChild(el("summary", null, "Points to check (" + d.notes.length + ")"));
+        var ul = el("ul");
+        d.notes.forEach(function (n) { ul.appendChild(el("li", null, n)); });
+        det.appendChild(ul);
+        e.appendChild(det);
+      }
+      spine.appendChild(e);
+    });
+  }
+
+  function fill(sel, values, labelFn) {
+    values.forEach(function (v) {
+      var o = el("option", null, labelFn ? labelFn(v) : v);
+      o.value = v; sel.appendChild(o);
+    });
+  }
+
+  function loadManifest(path) {
+    return fetch(path).then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
+  }
+
+  loadManifest("Documents.json")
+    .catch(function () { return loadManifest("documents.json"); })
+    .then(function (data) {
+      if (data.publicSummary) summaryBox.textContent = data.publicSummary;
+      docs = (data.documents || []).slice().sort(function (a, b) {
+        if (!a.sort && !b.sort) return 0;
+        if (!a.sort) return 1;
+        if (!b.sort) return -1;
+        return a.sort < b.sort ? -1 : a.sort > b.sort ? 1 : 0;
+      });
+      var types = [], cases = [];
+      docs.forEach(function (d) {
+        if (types.indexOf(d.type) === -1) types.push(d.type);
+        (d.cases || []).forEach(function (c) { if (cases.indexOf(c) === -1) cases.push(c); });
+      });
+      fill(typeSel, types, function (v) { return TYPE_LABEL[v] || v; });
+      fill(caseSel, cases.sort());
+      render();
+    })
+    .catch(function () {
+      summaryBox.textContent = "The register is unavailable. Confirm that Documents.json is present in the same directory as this page.";
+      list.appendChild(el("p", "empty", "Could not load the document register. Check that Documents.json or documents.json is present next to this page."));
+    });
+
+  q.addEventListener("input", render);
+  typeSel.addEventListener("change", render);
+  caseSel.addEventListener("change", render);
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"}

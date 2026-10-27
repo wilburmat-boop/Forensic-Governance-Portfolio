@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence index | Forensic Governance Portfolio</title>
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --charcoal: #2B2D42;
+    --gold: #C9A84C;
+    --red: #B01010;
+    --paper: #F7F5EF;
+    --rule: #D9D2BF;
+    --muted: #5d6270;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--paper);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+  header {
+    background: var(--navy);
+    color: #fff;
+    padding: 2rem 1.25rem 1.5rem;
+    border-bottom: 4px solid var(--gold);
+  }
+  header h1 { margin: 0 0 .25rem; font-size: 1.55rem; font-weight: normal; }
+  header p { margin: 0; color: #c8cfda; max-width: 68ch; }
+  main {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 3rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(13,27,42,0.06);
+    border: 1px solid var(--rule);
+  }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: .7rem .7rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: .95rem;
+  }
+  th {
+    background: #f3f0e8;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  th:nth-child(1), td:nth-child(1) { width: 7ch; }
+  th:nth-child(2), td:nth-child(2) { width: 28%; }
+  th:nth-child(3), td:nth-child(3) { width: 14%; }
+  th:nth-child(4), td:nth-child(4) { width: 12%; }
+  th:nth-child(5), td:nth-child(5) { width: 22%; }
+  th:nth-child(6), td:nth-child(6) { width: 17%; }
+  .status {
+    display: inline-block;
+    padding: .18rem .5rem;
+    border-radius: 999px;
+    background: #f7e9bf;
+    color: var(--navy);
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .status.restricted { background: #fbe4d3; color: var(--red); }
+  .muted { color: var(--muted); }
+  .empty { padding: 2rem 0; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Evidence index</h1>
+  <p>Formal register of retained documents with document ID, case reference, type, status, and hash fields. This index is for review and evidentiary tracking rather than publication.</p>
+</header>
+<main>
+  <div id="tableWrap"></div>
+</main>
+<script>
+(function () {
+  var target = document.getElementById('tableWrap');
+  function renderEmpty(message) {
+    target.innerHTML = '<p class="empty">' + message + '</p>';
+  }
+
+  function load(path) {
+    return fetch(path).then(function (r) {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json();
+    });
+  }
+
+  load('Documents.json')
+    .catch(function () { return load('documents.json'); })
+    .then(function (data) {
+      var docs = (data.documents || []).slice();
+      if (!docs.length) {
+        renderEmpty('No documents available in the register.');
+        return;
+      }
+
+      var table = document.createElement('table');
+      var thead = document.createElement('thead');
+      var headRow = document.createElement('tr');
+      ['ID', 'Case', 'Type', 'Status', 'SHA-256', 'File'].forEach(function (label) {
+        var th = document.createElement('th');
+        th.textContent = label;
+        headRow.appendChild(th);
+      });
+      thead.appendChild(headRow);
+      table.appendChild(thead);
+
+      var tbody = document.createElement('tbody');
+      docs.forEach(function (d) {
+        var tr = document.createElement('tr');
+        var cases = (d.cases || []).join(', ') || '—';
+        var status = (d.status || d.visibility || 'restricted');
+        var hash = d.sha256 || 'hash pending';
+
+        [d.id || '—', cases, d.type || '—', '<span class="status ' + status + '">' + status + '</span>', hash, d.file || '—'].forEach(function (value, idx) {
+          var td = document.createElement('td');
+          if (idx === 3) {
+            td.innerHTML = value;
+          } else if (idx === 4) {
+            td.textContent = value;
+          } else {
+            td.textContent = value;
+          }
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      target.appendChild(table);
+    })
+    .catch(function () {
+      renderEmpty('Could not load the document register. Check that Documents.json or documents.json is present beside this page.');
+    });
+})();
+</script>
+</body>
+</html>
