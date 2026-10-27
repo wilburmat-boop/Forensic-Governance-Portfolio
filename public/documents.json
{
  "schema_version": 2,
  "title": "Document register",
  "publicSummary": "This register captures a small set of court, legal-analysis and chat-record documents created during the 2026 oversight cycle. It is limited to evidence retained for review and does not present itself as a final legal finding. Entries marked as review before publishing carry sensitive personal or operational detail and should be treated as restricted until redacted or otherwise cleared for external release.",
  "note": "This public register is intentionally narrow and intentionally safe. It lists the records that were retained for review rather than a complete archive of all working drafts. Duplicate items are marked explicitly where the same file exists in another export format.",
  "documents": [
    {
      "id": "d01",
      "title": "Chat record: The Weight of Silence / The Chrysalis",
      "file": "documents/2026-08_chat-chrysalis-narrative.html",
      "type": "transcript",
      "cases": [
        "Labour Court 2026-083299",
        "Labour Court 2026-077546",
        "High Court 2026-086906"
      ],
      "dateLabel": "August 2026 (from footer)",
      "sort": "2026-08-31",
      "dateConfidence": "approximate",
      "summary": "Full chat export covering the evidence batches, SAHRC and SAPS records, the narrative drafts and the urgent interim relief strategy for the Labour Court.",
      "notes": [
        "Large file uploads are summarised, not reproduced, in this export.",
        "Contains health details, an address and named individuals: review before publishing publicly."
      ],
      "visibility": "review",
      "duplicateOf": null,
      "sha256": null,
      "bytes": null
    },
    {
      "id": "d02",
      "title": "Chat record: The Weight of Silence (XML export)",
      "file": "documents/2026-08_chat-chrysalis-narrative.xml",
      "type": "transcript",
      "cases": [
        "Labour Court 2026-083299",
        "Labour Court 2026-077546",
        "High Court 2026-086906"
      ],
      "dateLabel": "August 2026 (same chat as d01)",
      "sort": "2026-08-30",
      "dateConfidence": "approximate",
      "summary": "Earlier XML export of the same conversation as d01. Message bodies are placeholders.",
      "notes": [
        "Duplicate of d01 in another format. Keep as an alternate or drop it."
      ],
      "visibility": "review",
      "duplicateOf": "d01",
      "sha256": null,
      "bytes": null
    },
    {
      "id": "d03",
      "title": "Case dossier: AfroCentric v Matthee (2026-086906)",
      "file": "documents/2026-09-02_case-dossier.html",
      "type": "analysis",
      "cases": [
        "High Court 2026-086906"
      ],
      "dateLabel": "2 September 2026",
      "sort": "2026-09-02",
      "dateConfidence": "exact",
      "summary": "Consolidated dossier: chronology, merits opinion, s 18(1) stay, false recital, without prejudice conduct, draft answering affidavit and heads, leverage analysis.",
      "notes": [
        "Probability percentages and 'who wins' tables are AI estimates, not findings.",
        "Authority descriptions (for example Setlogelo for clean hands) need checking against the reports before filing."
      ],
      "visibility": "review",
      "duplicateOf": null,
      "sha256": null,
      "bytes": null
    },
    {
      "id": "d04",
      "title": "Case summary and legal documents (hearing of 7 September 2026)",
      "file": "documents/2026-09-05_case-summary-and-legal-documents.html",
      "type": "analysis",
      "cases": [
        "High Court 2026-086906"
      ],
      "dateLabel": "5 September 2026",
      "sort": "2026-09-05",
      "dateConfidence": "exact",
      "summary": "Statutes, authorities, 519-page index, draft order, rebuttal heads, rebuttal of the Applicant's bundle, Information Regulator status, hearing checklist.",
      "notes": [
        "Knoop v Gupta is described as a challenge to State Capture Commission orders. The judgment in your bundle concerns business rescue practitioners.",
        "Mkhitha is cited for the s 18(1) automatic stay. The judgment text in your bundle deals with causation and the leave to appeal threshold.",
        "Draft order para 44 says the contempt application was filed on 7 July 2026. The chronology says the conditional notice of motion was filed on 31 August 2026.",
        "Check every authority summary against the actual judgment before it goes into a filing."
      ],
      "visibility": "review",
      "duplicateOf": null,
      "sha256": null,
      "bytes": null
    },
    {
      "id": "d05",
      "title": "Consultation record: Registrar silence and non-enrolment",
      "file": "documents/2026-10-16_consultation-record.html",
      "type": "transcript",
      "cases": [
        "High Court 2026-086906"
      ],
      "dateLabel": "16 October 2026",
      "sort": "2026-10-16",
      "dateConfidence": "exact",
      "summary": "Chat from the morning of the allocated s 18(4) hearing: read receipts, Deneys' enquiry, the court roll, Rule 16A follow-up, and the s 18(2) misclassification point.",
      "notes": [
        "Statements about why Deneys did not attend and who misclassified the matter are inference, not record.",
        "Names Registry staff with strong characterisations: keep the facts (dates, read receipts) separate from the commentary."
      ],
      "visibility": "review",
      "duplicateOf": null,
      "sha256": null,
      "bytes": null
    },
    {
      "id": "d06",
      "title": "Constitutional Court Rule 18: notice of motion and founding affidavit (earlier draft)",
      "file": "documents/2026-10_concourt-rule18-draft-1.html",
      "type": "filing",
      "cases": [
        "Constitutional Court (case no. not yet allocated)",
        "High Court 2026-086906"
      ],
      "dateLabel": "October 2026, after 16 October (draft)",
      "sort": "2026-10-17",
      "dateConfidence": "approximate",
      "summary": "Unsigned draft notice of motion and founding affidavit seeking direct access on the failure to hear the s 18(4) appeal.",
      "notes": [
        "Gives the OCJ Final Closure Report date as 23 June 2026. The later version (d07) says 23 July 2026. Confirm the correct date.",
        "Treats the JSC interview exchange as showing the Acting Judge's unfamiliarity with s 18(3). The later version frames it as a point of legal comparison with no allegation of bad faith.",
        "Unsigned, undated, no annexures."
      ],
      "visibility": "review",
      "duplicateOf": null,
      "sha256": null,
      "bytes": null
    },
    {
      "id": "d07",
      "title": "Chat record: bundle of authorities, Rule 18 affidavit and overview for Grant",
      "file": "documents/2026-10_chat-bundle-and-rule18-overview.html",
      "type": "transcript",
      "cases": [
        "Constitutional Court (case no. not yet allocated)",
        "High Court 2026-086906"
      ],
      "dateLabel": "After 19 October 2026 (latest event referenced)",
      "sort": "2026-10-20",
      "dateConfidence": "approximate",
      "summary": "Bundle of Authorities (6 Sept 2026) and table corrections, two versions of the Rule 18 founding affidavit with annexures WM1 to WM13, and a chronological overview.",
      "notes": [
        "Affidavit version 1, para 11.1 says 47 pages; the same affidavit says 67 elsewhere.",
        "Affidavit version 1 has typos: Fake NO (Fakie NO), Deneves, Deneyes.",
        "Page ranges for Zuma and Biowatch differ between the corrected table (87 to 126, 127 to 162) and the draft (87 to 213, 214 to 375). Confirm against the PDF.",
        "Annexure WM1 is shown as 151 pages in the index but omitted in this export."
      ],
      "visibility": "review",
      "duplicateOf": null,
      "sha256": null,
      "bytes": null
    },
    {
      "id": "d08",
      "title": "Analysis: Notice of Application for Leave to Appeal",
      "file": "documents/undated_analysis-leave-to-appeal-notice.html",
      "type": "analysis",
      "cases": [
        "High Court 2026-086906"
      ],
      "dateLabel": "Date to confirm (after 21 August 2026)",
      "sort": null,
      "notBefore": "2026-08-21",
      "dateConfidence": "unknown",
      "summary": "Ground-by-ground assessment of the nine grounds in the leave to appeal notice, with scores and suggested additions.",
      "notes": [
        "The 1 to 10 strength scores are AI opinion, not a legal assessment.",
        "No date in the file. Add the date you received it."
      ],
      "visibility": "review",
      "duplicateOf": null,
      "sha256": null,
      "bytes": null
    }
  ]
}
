@@ -1,0 +1,595 @@
+{
+  "schema_version": 2,
+  "title": "Document register",
+  "publicSummary": "This register captures a small set of court, legal-analysis and chat-record documents created during the 2026 oversight cycle. It is limited to evidence retained for review and does not present itself as a final legal finding. Entries marked as review before publishing carry sensitive personal or operational detail and should be treated as restricted until redacted or otherwise cleared for external release.",
+  "note": "This public register is intentionally narrow and intentionally safe. It lists the records that were retained for review rather than a complete archive of all working drafts. Duplicate items are marked explicitly where the same file exists in another export format.",
+  "documents": [
+    {
+      "id": "d01",
+      "title": "Chat record: The Weight of Silence / The Chrysalis",
+      "file": "documents/2026-08_chat-chrysalis-narrative.html",
+      "type": "transcript",
+      "cases": [
+        "Labour Court 2026-083299",
+        "Labour Court 2026-077546",
+        "High Court 2026-086906"
+      ],
+      "dateLabel": "August 2026 (from footer)",
+      "sort": "2026-08-31",
+      "dateConfidence": "approximate",
+      "summary": "Full chat export covering the evidence batches, SAHRC and SAPS records, the narrative drafts and the urgent interim relief strategy for the Labour Court.",
+      "notes": [
+        "Large file uploads are summarised, not reproduced, in this export.",
+        "Contains health details, an address and named individuals: review before publishing publicly."
+      ],
+      "visibility": "review",
+      "duplicateOf": null,
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "id": "d02",
+      "title": "Chat record: The Weight of Silence (XML export)",
+      "file": "documents/2026-08_chat-chrysalis-narrative.xml",
+      "type": "transcript",
+      "cases": [
+        "Labour Court 2026-083299",
+        "Labour Court 2026-077546",
+        "High Court 2026-086906"
+      ],
+      "dateLabel": "August 2026 (same chat as d01)",
+      "sort": "2026-08-30",
+      "dateConfidence": "approximate",
+      "summary": "Earlier XML export of the same conversation as d01. Message bodies are placeholders.",
+      "notes": [
+        "Duplicate of d01 in another format. Keep as an alternate or drop it."
+      ],
+      "visibility": "review",
+      "duplicateOf": "d01",
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "id": "d03",
+      "title": "Case dossier: AfroCentric v Matthee (2026-086906)",
+      "file": "documents/2026-09-02_case-dossier.html",
+      "type": "analysis",
+      "cases": [
+        "High Court 2026-086906"
+      ],
+      "dateLabel": "2 September 2026",
+      "sort": "2026-09-02",
+      "dateConfidence": "exact",
+      "summary": "Consolidated dossier: chronology, merits opinion, s 18(1) stay, false recital, without prejudice conduct, draft answering affidavit and heads, leverage analysis.",
+      "notes": [
+        "Probability percentages and 'who wins' tables are AI estimates, not findings.",
+        "Authority descriptions (for example Setlogelo for clean hands) need checking against the reports before filing."
+      ],
+      "visibility": "review",
+      "duplicateOf": null,
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "id": "d04",
+      "title": "Case summary and legal documents (hearing of 7 September 2026)",
+      "file": "documents/2026-09-05_case-summary-and-legal-documents.html",
+      "type": "analysis",
+      "cases": [
+        "High Court 2026-086906"
+      ],
+      "dateLabel": "5 September 2026",
+      "sort": "2026-09-05",
+      "dateConfidence": "exact",
+      "summary": "Statutes, authorities, 519-page index, draft order, rebuttal heads, rebuttal of the Applicant's bundle, Information Regulator status, hearing checklist.",
+      "notes": [
+        "Knoop v Gupta is described as a challenge to State Capture Commission orders. The judgment in your bundle concerns business rescue practitioners.",
+        "Mkhitha is cited for the s 18(1) automatic stay. The judgment text in your bundle deals with causation and the leave to appeal threshold.",
+        "Draft order para 44 says the contempt application was filed on 7 July 2026. The chronology says the conditional notice of motion was filed on 31 August 2026.",
+        "Check every authority summary against the actual judgment before it goes into a filing."
+      ],
+      "visibility": "review",
+      "duplicateOf": null,
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "id": "d05",
+      "title": "Consultation record: Registrar silence and non-enrolment",
+      "file": "documents/2026-10-16_consultation-record.html",
+      "type": "transcript",
+      "cases": [
+        "High Court 2026-086906"
+      ],
+      "dateLabel": "16 October 2026",
+      "sort": "2026-10-16",
+      "dateConfidence": "exact",
+      "summary": "Chat from the morning of the allocated s 18(4) hearing: read receipts, Deneys' enquiry, the court roll, Rule 16A follow-up, and the s 18(2) misclassification point.",
+      "notes": [
+        "Statements about why Deneys did not attend and who misclassified the matter are inference, not record.",
+        "Names Registry staff with strong characterisations: keep the facts (dates, read receipts) separate from the commentary."
+      ],
+      "visibility": "review",
+      "duplicateOf": null,
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "id": "d06",
+      "title": "Constitutional Court Rule 18: notice of motion and founding affidavit (earlier draft)",
+      "file": "documents/2026-10_concourt-rule18-draft-1.html",
+      "type": "filing",
+      "cases": [
+        "Constitutional Court (case no. not yet allocated)",
+        "High Court 2026-086906"
+      ],
+      "dateLabel": "October 2026, after 16 October (draft)",
+      "sort": "2026-10-17",
+      "dateConfidence": "approximate",
+      "summary": "Unsigned draft notice of motion and founding affidavit seeking direct access on the failure to hear the s 18(4) appeal.",
+      "notes": [
+        "Gives the OCJ Final Closure Report date as 23 June 2026. The later version (d07) says 23 July 2026. Confirm the correct date.",
+        "Treats the JSC interview exchange as showing the Acting Judge's unfamiliarity with s 18(3). The later version frames it as a point of legal comparison with no allegation of bad faith.",
+        "Unsigned, undated, no annexures."
+      ],
+      "visibility": "review",
+      "duplicateOf": null,
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "id": "d07",
+      "title": "Chat record: bundle of authorities, Rule 18 affidavit and overview for Grant",
+      "file": "documents/2026-10_chat-bundle-and-rule18-overview.html",
+      "type": "transcript",
+      "cases": [
+        "Constitutional Court (case no. not yet allocated)",
+        "High Court 2026-086906"
+      ],
+      "dateLabel": "After 19 October 2026 (latest event referenced)",
+      "sort": "2026-10-20",
+      "dateConfidence": "approximate",
+      "summary": "Bundle of Authorities (6 Sept 2026) and table corrections, two versions of the Rule 18 founding affidavit with annexures WM1 to WM13, and a chronological overview.",
+      "notes": [
+        "Affidavit version 1, para 11.1 says 47 pages; the same affidavit says 67 elsewhere.",
+        "Affidavit version 1 has typos: Fake NO (Fakie NO), Deneves, Deneyes.",
+        "Page ranges for Zuma and Biowatch differ between the corrected table (87 to 126, 127 to 162) and the draft (87 to 213, 214 to 375). Confirm against the PDF.",
+        "Annexure WM1 is shown as 151 pages in the index but omitted in this export."
+      ],
+      "visibility": "review",
+      "duplicateOf": null,
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "id": "d08",
+      "title": "Analysis: Notice of Application for Leave to Appeal",
+      "file": "documents/undated_analysis-leave-to-appeal-notice.html",
+      "type": "analysis",
+      "cases": [
+        "High Court 2026-086906"
+      ],
+      "dateLabel": "Date to confirm (after 21 August 2026)",
+      "sort": null,
+      "notBefore": "2026-08-21",
+      "dateConfidence": "unknown",
+      "summary": "Ground-by-ground assessment of the nine grounds in the leave to appeal notice, with scores and suggested additions.",
+      "notes": [
+        "The 1 to 10 strength scores are AI opinion, not a legal assessment.",
+        "No date in the file. Add the date you received it."
+      ],
+      "visibility": "review",
+      "duplicateOf": null,
+      "sha256": null,
+      "bytes": null
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{"schema_version":2,"title":"Document register","publicSummary":"This register captures a small set of court, legal-analysis and chat-record documents created during the 2026 oversight cycle. It is limited to evidence retained for review and does not present itself as a final legal finding. Entries marked as review before publishing carry sensitive personal or operational detail and should be treated as restricted until redacted or otherwise cleared for external release.","note":"This public register is intentionally narrow and intentionally safe. It lists the records that were retained for review rather than a complete archive of all working drafts. Duplicate items are marked explicitly where the same file exists in another export format.","documents":[{"id":"d01","title":"Chat record: The Weight of Silence / The Chrysalis","file":"documents/2026-08_chat-chrysalis-narrative.html","type":"transcript","cases":["Labour Court 2026-083299","Labour Court 2026-077546","High Court 2026-086906"],"dateLabel":"August 2026 (from footer)","sort":"2026-08-31","dateConfidence":"approximate","summary":"Full chat export covering the evidence batches, SAHRC and SAPS records, the narrative drafts and the urgent interim relief strategy for the Labour Court.","notes":["Large file uploads are summarised, not reproduced, in this export.","Contains health details, an address and named individuals: review before publishing publicly."],"visibility":"review","duplicateOf":null,"sha256":null,"bytes":null},{"id":"d02","title":"Chat record: The Weight of Silence (XML export)","file":"documents/2026-08_chat-chrysalis-narrative.xml","type":"transcript","cases":["Labour Court 2026-083299","Labour Court 2026-077546","High Court 2026-086906"],"dateLabel":"August 2026 (same chat as d01)","sort":"2026-08-30","dateConfidence":"approximate","summary":"Earlier XML export of the same conversation as d01. Message bodies are placeholders.","notes":["Duplicate of d01 in another format. Keep as an alternate or drop it."],"visibility":"review","duplicateOf":"d01","sha256":null,"bytes":null},{"id":"d03","title":"Case dossier: AfroCentric v Matthee (2026-086906)","file":"documents/2026-09-02_case-dossier.html","type":"analysis","cases":["High Court 2026-086906"],"dateLabel":"2 September 2026","sort":"2026-09-02","dateConfidence":"exact","summary":"Consolidated dossier: chronology, merits opinion, s 18(1) stay, false recital, without prejudice conduct, draft answering affidavit and heads, leverage analysis.","notes":["Probability percentages and 'who wins' tables are AI estimates, not findings.","Authority descriptions (for example Setlogelo for clean hands) need checking against the reports before filing."],"visibility":"review","duplicateOf":null,"sha256":null,"bytes":null},{"id":"d04","title":"Case summary and legal documents (hearing of 7 September 2026)","file":"documents/2026-09-05_case-summary-and-legal-documents.html","type":"analysis","cases":["High Court 2026-086906"],"dateLabel":"5 September 2026","sort":"2026-09-05","dateConfidence":"exact","summary":"Statutes, authorities, 519-page index, draft order, rebuttal heads, rebuttal of the Applicant's bundle, Information Regulator status, hearing checklist.","notes":["Knoop v Gupta is described as a challenge to State Capture Commission orders. The judgment in your bundle concerns business rescue practitioners.","Mkhitha is cited for the s 18(1) automatic stay. The judgment text in your bundle deals with causation and the leave to appeal threshold.","Draft order para 44 says the contempt application was filed on 7 July 2026. The chronology says the conditional notice of motion was filed on 31 August 2026.","Check every authority summary against the actual judgment before it goes into a filing."],"visibility":"review","duplicateOf":null,"sha256":null,"bytes":null},{"id":"d05","title":"Consultation record: Registrar silence and non-enrolment","file":"documents/2026-10-16_consultation-record.html","type":"transcript","cases":["High Court 2026-086906"],"dateLabel":"16 October 2026","sort":"2026-10-16","dateConfidence":"exact","summary":"Chat from the morning of the allocated s 18(4) hearing: read receipts, Deneys' enquiry, the court roll, Rule 16A follow-up, and the s 18(2) misclassification point.","notes":["Statements about why Deneys did not attend and who misclassified the matter are inference, not record.","Names Registry staff with strong characterisations: keep the facts (dates, read receipts) separate from the commentary."],"visibility":"review","duplicateOf":null,"sha256":null,"bytes":null},{"id":"d06","title":"Constitutional Court Rule 18: notice of motion and founding affidavit (earlier draft)","file":"documents/2026-10_concourt-rule18-draft-1.html","type":"filing","cases":["Constitutional Court (case no. not yet allocated)","High Court 2026-086906"],"dateLabel":"October 2026, after 16 October (draft)","sort":"2026-10-17","dateConfidence":"approximate","summary":"Unsigned draft notice of motion and founding affidavit seeking direct access on the failure to hear the s 18(4) appeal.","notes":["Gives the OCJ Final Closure Report date as 23 June 2026. The later version (d07) says 23 July 2026. Confirm the correct date.","Treats the JSC interview exchange as showing the Acting Judge's unfamiliarity with s 18(3). The later version frames it as a point of legal comparison with no allegation of bad faith.","Unsigned, undated, no annexures."],"visibility":"review","duplicateOf":null,"sha256":null,"bytes":null},{"id":"d07","title":"Chat record: bundle of authorities, Rule 18 affidavit and overview for Grant","file":"documents/2026-10_chat-bundle-and-rule18-overview.html","type":"transcript","cases":["Constitutional Court (case no. not yet allocated)","High Court 2026-086906"],"dateLabel":"After 19 October 2026 (latest event referenced)","sort":"2026-10-20","dateConfidence":"approximate","summary":"Bundle of Authorities (6 Sept 2026) and table corrections, two versions of the Rule 18 founding affidavit with annexures WM1 to WM13, and a chronological overview.","notes":["Affidavit version 1, para 11.1 says 47 pages; the same affidavit says 67 elsewhere.","Affidavit version 1 has typos: Fake NO (Fakie NO), Deneves, Deneyes.","Page ranges for Zuma and Biowatch differ between the corrected table (87 to 126, 127 to 162) and the draft (87 to 213, 214 to 375). Confirm against the PDF.","Annexure WM1 is shown as 151 pages in the index but omitted in this export."],"visibility":"review","duplicateOf":null,"sha256":null,"bytes":null},{"id":"d08","title":"Analysis: Notice of Application for Leave to Appeal","file":"documents/undated_analysis-leave-to-appeal-notice.html","type":"analysis","cases":["High Court 2026-086906"],"dateLabel":"Date to confirm (after 21 August 2026)","sort":null,"notBefore":"2026-08-21","dateConfidence":"unknown","summary":"Ground-by-ground assessment of the nine grounds in the leave to appeal notice, with scores and suggested additions.","notes":["The 1 to 10 strength scores are AI opinion, not a legal assessment.","No date in the file. Add the date you received it."],"visibility":"review","duplicateOf":null,"sha256":null,"bytes":null}]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+maps to 2026 but not legal determination.

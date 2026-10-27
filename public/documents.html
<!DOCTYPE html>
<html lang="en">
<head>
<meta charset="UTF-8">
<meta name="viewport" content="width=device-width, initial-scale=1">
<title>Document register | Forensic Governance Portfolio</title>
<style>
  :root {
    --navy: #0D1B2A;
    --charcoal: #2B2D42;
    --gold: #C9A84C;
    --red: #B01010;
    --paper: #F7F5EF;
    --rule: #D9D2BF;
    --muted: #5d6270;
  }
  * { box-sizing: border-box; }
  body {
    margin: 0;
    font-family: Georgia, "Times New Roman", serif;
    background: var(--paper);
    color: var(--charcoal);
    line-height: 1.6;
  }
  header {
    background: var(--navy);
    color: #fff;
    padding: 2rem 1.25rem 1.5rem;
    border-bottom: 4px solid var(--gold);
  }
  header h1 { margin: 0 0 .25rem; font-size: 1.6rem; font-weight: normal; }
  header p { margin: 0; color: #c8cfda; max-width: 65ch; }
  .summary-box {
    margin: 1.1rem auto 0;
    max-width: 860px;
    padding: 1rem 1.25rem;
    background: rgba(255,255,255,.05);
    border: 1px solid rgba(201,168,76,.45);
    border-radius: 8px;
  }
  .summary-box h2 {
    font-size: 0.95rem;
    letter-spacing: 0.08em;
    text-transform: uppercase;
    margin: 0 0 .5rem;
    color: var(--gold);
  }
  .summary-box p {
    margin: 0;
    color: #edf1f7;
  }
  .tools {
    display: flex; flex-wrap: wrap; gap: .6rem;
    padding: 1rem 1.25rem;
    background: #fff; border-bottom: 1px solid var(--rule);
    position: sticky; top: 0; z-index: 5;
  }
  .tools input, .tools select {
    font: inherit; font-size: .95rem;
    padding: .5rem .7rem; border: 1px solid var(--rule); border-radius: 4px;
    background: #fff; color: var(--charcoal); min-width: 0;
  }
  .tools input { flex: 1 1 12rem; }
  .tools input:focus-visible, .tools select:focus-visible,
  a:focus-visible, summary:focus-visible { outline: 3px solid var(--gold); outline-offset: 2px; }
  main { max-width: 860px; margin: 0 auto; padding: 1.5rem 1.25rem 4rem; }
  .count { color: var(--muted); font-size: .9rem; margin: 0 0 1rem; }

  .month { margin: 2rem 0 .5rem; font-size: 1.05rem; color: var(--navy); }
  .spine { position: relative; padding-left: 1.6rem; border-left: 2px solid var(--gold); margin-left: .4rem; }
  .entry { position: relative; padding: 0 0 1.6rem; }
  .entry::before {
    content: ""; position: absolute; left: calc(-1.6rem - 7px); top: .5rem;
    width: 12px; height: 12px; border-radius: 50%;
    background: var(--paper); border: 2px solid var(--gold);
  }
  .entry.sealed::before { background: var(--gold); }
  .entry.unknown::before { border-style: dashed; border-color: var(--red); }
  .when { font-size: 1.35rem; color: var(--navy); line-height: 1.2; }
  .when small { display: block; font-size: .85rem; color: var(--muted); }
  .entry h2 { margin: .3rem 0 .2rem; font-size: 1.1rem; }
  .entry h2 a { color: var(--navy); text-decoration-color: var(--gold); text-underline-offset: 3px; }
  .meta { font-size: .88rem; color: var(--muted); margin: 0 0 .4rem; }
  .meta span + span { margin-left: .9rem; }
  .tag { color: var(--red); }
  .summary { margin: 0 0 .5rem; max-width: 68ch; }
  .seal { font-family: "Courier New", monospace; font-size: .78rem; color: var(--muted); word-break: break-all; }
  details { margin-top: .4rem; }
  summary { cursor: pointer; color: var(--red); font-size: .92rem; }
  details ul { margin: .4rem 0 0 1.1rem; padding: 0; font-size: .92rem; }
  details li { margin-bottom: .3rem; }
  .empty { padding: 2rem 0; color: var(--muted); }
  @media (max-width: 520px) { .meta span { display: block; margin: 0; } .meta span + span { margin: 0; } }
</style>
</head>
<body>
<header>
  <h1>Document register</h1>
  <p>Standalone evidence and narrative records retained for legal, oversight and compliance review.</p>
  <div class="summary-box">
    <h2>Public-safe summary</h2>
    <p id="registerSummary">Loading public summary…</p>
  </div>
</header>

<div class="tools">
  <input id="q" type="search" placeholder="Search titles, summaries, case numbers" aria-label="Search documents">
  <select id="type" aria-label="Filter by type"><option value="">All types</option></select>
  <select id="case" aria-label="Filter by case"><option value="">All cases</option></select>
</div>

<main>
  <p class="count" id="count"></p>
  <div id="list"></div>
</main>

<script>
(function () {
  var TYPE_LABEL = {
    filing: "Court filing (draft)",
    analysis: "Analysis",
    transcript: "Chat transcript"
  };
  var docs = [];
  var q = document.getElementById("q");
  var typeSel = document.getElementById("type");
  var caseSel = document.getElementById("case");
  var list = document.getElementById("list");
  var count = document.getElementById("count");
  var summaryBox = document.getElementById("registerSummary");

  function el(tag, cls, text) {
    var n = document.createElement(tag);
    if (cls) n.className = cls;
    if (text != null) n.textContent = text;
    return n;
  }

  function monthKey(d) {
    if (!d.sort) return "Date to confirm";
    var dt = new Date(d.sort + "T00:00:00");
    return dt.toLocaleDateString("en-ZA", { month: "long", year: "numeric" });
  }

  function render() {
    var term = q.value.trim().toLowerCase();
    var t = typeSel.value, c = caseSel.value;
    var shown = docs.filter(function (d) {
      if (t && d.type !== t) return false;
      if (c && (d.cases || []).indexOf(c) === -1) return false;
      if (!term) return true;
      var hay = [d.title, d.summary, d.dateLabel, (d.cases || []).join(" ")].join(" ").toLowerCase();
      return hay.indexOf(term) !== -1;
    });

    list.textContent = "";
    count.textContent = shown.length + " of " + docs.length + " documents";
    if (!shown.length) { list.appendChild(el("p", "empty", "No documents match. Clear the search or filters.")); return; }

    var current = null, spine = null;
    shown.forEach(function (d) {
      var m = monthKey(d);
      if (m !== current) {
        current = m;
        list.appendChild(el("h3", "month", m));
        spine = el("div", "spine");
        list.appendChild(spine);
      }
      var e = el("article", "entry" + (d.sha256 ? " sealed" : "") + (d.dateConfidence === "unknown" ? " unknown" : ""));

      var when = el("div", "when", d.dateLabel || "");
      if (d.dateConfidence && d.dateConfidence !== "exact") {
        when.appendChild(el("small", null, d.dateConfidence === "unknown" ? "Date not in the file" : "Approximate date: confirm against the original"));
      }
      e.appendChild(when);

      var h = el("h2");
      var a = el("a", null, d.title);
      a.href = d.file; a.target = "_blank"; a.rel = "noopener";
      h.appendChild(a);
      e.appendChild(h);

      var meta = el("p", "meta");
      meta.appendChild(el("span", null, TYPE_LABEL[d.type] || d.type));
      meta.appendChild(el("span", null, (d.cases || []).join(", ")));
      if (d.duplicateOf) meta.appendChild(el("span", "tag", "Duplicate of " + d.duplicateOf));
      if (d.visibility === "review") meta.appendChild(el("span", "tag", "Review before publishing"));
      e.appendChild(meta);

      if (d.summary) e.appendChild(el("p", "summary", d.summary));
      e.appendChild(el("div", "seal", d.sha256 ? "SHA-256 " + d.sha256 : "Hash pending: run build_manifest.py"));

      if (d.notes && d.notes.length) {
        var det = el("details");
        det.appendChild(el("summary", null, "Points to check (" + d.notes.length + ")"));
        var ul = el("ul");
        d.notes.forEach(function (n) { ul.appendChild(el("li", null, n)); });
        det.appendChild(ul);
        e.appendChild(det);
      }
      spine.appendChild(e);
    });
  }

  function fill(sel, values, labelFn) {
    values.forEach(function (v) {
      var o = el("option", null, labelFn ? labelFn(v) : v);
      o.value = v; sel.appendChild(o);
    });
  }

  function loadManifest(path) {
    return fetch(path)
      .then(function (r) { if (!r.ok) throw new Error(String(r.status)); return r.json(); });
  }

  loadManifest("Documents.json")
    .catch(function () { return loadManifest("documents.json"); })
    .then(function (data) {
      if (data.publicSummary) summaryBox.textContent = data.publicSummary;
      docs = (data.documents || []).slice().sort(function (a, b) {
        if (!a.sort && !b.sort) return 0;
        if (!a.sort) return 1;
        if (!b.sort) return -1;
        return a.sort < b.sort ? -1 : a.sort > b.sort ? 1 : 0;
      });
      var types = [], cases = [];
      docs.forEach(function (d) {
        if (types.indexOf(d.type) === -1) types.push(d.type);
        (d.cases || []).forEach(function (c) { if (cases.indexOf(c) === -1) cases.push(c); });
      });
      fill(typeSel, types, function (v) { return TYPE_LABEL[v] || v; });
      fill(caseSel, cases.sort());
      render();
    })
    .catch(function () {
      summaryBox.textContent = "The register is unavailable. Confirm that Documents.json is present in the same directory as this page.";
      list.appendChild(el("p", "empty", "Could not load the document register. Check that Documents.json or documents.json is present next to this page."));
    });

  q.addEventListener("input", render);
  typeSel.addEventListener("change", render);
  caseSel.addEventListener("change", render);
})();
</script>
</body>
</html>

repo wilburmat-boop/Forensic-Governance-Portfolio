@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+"""Refresh the public document manifest with SHA-256 hashes.
+
+This script is intentionally repo-portable: it resolves the repository root
+relative to this file, defaults to the project's public/ directory, and can be
+run from any working directory.
+
+Examples:
+    python build_manifest.py
+    python build_manifest.py --public-dir ./public
+    python build_manifest.py --manifest ./public/Documents.json
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+
+def find_repo_root() -> Path:
+    return Path(__file__).resolve().parent
+
+
+def canonical_rel_path(raw: str) -> str:
+    clean = str(raw).strip().replace("\\", "/")
+    while clean.startswith("/"):
+        clean = clean[1:]
+    if not clean:
+        raise ValueError("Document file path is empty.")
+    return clean
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def load_manifest(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def write_json(path: Path, data: dict) -> None:
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def update_manifest(manifest_path: Path, public_dir: Path) -> tuple[int, int, list[str]]:
+    data = load_manifest(manifest_path)
+    documents = data.get("documents")
+    if not isinstance(documents, list):
+        raise ValueError(f"Manifest {manifest_path} is missing a valid 'documents' list.")
+
+    hashed = 0
+    missing = 0
+    lines: list[str] = []
+
+    for doc in documents:
+        if not isinstance(doc, dict):
+            continue
+
+        rel = canonical_rel_path(doc.get("file", ""))
+        target = (public_dir / rel).resolve()
+        doc["file"] = rel
+
+        if not target.is_file():
+            doc["sha256"] = None
+            doc["bytes"] = None
+            missing += 1
+            continue
+
+        doc["sha256"] = sha256_file(target)
+        doc["bytes"] = target.stat().st_size
+        hashed += 1
+        lines.append(f'{doc["sha256"]}  {rel}')
+
+    write_json(manifest_path, data)
+    (public_dir / "documents.sha256.txt").write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+    return hashed, missing, lines
+
+
+def mirror_manifest(source: Path, target: Path) -> None:
+    if source == target:
+        return
+    if target.exists():
+        target.write_text(source.read_text(encoding="utf-8"), encoding="utf-8")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Hash each document in the public manifest.")
+    parser.add_argument("--repo-root", type=Path, default=find_repo_root(), help="Repository root directory.")
+    parser.add_argument("--public-dir", type=Path, default=None, help="Directory containing the public manifests.")
+    parser.add_argument("--manifest", type=Path, default=None, help="Manifest file to update (for example public/Documents.json).")
+    args = parser.parse_args()
+
+    repo_root = args.repo_root.resolve()
+    public_dir = (args.public_dir or (repo_root / "public")).resolve()
+    if not public_dir.exists():
+        raise FileNotFoundError(f"Public directory does not exist: {public_dir}")
+
+    manifest = args.manifest.resolve() if args.manifest else (public_dir / "Documents.json")
+    if not manifest.exists():
+        manifest = public_dir / "documents.json"
+    if not manifest.exists():
+        raise FileNotFoundError(f"No manifest found under {public_dir} (expected Documents.json or documents.json).")
+
+    hashed, missing, _ = update_manifest(manifest, public_dir)
+
+    alt = public_dir / ("documents.json" if manifest.name == "Documents.json" else "Documents.json")
+    if alt.exists() and alt != manifest:
+        mirror_manifest(manifest, alt)
+
+    print(f"hashed {hashed} file(s); missing {missing} file(s)")
+
+
+if __name__ == "__main__":
+    main()
